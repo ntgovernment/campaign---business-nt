@@ -1,0 +1,29 @@
+.ntg-flickity-carousel {
+    .carousel-cell {
+        width: 100%;
+        height: 300px;
+        margin-right: 10px;
+        background: $primary;
+        border-radius: $border-radius;
+        counter-increment: gallery-cell;
+
+        &::before {
+            content: counter(gallery-cell);
+            display: block;
+            color: white;
+            font-size: 80px;
+            line-height: 300px;
+            text-align: center;
+        }
+
+        @include media-breakpoint-up(lg) {
+            width: 50%;
+        }
+    }
+
+    .flickity-page-dots .control-button {
+        display: inline-block;
+        cursor: pointer;
+    }
+}
+

@@ -1,0 +1,52 @@
+.card {
+    $this: &;
+
+    &:focus-within {
+        @include focus();
+
+        #{$this}-footer {
+            a {
+                i {
+                    margin-left: 1rem;
+                }
+            }
+        }
+    }
+
+    &-img-top {
+        object-fit: cover;
+    }
+    
+    .img-fluid {
+        object-fit: cover;
+        height: 100%;
+    }
+
+    &-title {
+        @include font-size($h5-font-size);
+    }
+
+    &-footer {
+        background-color: transparent;
+        border-top: 0;
+        padding: 1rem;
+        
+        a {
+            i {
+                font-size: 0.8rem;
+                margin-left: 0.5rem;
+                transition: 0.2s ease-in-out;
+            }
+
+            &:hover {
+                i {
+                    margin-left: 1rem;
+                }
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+}

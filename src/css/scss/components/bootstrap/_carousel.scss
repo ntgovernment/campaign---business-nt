@@ -1,0 +1,25 @@
+.carousel-item {
+  &.ratio {
+    img {
+      object-fit: cover;
+    }
+  
+    .carousel-caption {
+      top: calc(100% - 6.25rem);
+      bottom: inherit;
+      height: inherit;
+      padding: 0;
+  
+      p {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.carousel-indicators [data-bs-target] {
+  &:focus {
+    opacity: 1;
+    @include focus($important: true);
+  }
+}

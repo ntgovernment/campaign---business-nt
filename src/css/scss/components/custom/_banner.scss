@@ -1,0 +1,27 @@
+.ntg-banner {
+    .ratio {
+        min-height: 250px;
+    }
+
+    .container,
+    &__text {
+        height: 100%;
+    }
+
+    &__text {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        
+        > * {
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    img {
+        display: block;
+        width: 100%;
+    }
+}

@@ -1,0 +1,117 @@
+$prefix: bs-;
+
+/* -------- Bootstrap -------- */
+
+// Key Global bootstrap options
+$spacer: 1rem;
+
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer * 1,
+  4: $spacer * 1.5,
+  5: $spacer * 2,
+  6: $spacer * 2.5,
+  7: $spacer * 3,
+  8: $spacer * 5,
+  9: $spacer * 7.5,
+  10: $spacer * 10
+);
+
+$enable-dark-mode: true;
+$enable-rounded: true;
+$enable-shadows: false;
+$enable-gradients: false;
+$enable-transitions: true;
+$enable-reduced-motion: true;
+$enable-grid-classes: true;
+$enable-container-classes: true;
+$enable-caret: true;
+$enable-button-pointers: true;
+$enable-rfs: true;
+$enable-validation-icons: true;
+$enable-negative-margins: false;
+$enable-deprecation-messages: true;
+$enable-important-utilities: true;
+$enable-smooth-scroll: true;
+
+$aspect-ratios: (
+  "1x1": 100%,
+  "4x3": calc(3 / 4 * 100%),
+  "16x9": calc(9 / 16 * 100%),
+  "21x9": calc(9 / 21 * 100%),
+  "32x9": calc(9 / 32 * 100%)
+);
+
+// Cards
+$card-height: 100%;
+
+// Accordions
+$accordion-button-active-bg: none;
+$accordion-button-active-color: $primary;
+$accordion-button-focus-border-color: transparent;
+$accordion-button-focus-box-shadow: none;
+
+// Alerts
+$alert-border-width: 3px;
+
+// Breadcrumbs
+$breadcrumb-divider: quote('>');
+$breadcrumb-active-color: $body-color;
+
+// Buttons
+$btn-font-weight: 700;
+$btn-padding-y: 0.5rem;
+$btn-padding-x: 1rem;
+$btn-border-width: 2px;
+$btn-border-radius: 0;
+$btn-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, padding .15s ease-in-out;
+
+$btn-border-radius-sm: 0;
+
+$btn-border-radius-lg: 0;
+
+// Table
+$table-border-color: $body-color;
+
+/* -------- Custom -------- */
+$font-lato: "Lato", system-ui,
+  -apple-system,
+  "Segoe UI",
+  Roboto,
+  "Helvetica Neue",
+  "Noto Sans",
+  "Liberation Sans",
+  Arial,
+  sans-serif,
+  "Apple Color Emoji",
+  "Segoe UI Emoji",
+  "Segoe UI Symbol",
+  "Noto Color Emoji";
+
+$font-montserrat: "Montserrat", system-ui,
+  -apple-system,
+  "Segoe UI",
+  Roboto,
+  "Helvetica Neue",
+  "Noto Sans",
+  "Liberation Sans",
+  Arial,
+  sans-serif,
+  "Apple Color Emoji",
+  "Segoe UI Emoji",
+  "Segoe UI Symbol",
+  "Noto Color Emoji";
+
+// These variables are required
+$focus-ring-width: .25rem;
+$focus-ring-opacity: .25;
+$focus-ring-color: rgba($ntg-heliconia-orange, $focus-ring-opacity);
+$focus-ring-blur: 0;
+$focus-ring-box-shadow: 0 0 $focus-ring-blur $focus-ring-width $focus-ring-color;
+
+// TODO: Check and remove if ok
+$focus-color: $ntg-heliconia-orange;
+$focus-width: 3px;
+$outline-offset-width: 2px;

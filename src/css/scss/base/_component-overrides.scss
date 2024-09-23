@@ -1,0 +1,15 @@
+@each $color, $value in $theme-colors-text {
+	.bg-#{$color} {
+		--current-theme-color: #{$value};
+		--current-theme-dark-color: #{darken($value, 0)};
+		color: #{$value};
+	}
+}
+
+@each $color, $value in $theme-colors {
+	.bg-#{$color} {
+		--current-bg-color: #{$value};
+		--current-bg-color-darker: #{darken($value, 6)};
+		--current-bg-color-lighter: #{lighten($value, 4)};
+	}
+}

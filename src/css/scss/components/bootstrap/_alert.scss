@@ -1,0 +1,53 @@
+.alert {
+    padding-left: 5rem;
+    color: $body-color;
+    background-color: transparent;
+
+    > * {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+        width: 3rem;
+        height: 3rem;
+        background-repeat: no-repeat;
+    }
+
+    &-info {
+        border-color: $info;
+
+        &:before {
+            background-image: url("data:image/svg+xml,%3Csvg id='info' xmlns='http://www.w3.org/2000/svg' width='42' height='42' viewBox='0 0 24 24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z' fill='#{url-friendly-colour($info)}'/%3E%3C/svg%3E");
+        }
+    }
+
+    &-warning {
+        border-color: $warning;
+
+        &:before {
+            background-image: url("data:image/svg+xml,%3Csvg id='warning' xmlns='http://www.w3.org/2000/svg' width='42' height='42' viewBox='0 0 24 24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z' fill='#{url-friendly-colour($warning)}'/%3E%3C/svg%3E%0A");
+        }
+    }
+
+    &-danger {
+        border-color: $danger;
+
+        &:before {
+            background-image: url("data:image/svg+xml,%3Csvg id='error' xmlns='http://www.w3.org/2000/svg' width='42' height='42' viewBox='0 0 24 24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z' fill='#{url-friendly-colour($danger)}'/%3E%3C/svg%3E");
+        }
+    }
+
+    &-success {
+        border-color: $success;
+
+        &:before {
+            background-image: url("data:image/svg+xml,%3Csvg id='success' xmlns='http://www.w3.org/2000/svg' width='42' height='42' viewBox='0 0 24 24'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z' fill='#{url-friendly-colour($success)}'/%3E%3C/svg%3E");
+        }
+    }
+}

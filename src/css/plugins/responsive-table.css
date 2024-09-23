@@ -1,0 +1,208 @@
+.custom-table-sm td:before,
+.custom-table-md td:before,
+.custom-table-lg td:before,
+.custom-table-xl td:before {
+    content: '';
+    display: none;
+}
+
+@media (max-width: 575.98px) {
+    .custom-table-sm {
+        display: block;
+    }
+
+    .custom-table-sm.table-bordered td {
+        border-top-width: 1px;
+        border-top-style: solid;
+        border-top-color: inherit;
+    }
+
+    .custom-table-sm.table-bordered td:first-child {
+        border-top: 0;
+    }
+
+    .custom-table-sm tbody {
+        border-top: none !important;
+        width: 100%;
+        display: block;
+    }
+
+    .custom-table-sm thead {
+        display: none;
+    }
+
+    .custom-table-sm tr {
+        display: block;
+        margin: 1rem 0;
+    }
+
+    .custom-table-sm tr:first-of-type {
+        margin-top: 0;
+    }
+    
+    .custom-table-sm tr:last-of-type {
+        margin-bottom: 0;
+    }
+
+    .custom-table-sm td {
+        display: grid;
+        grid-template-columns: 8rem auto;
+        grid-gap: 1rem 0.5em;
+    }
+
+    .custom-table-sm td:before {
+        display: inline;
+        font-weight: bold;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .custom-table-md {
+        display: block;
+    }
+
+    .custom-table-md.table-bordered td {
+        border-top-width: 1px;
+        border-top-style: solid;
+        border-top-color: inherit;
+    }
+
+    .custom-table-md.table-bordered td:first-child {
+        border-top: 0;
+    }
+
+    .custom-table-md tbody {
+        border-top: none !important;
+        width: 100%;
+        display: block;
+    }
+
+    .custom-table-md thead {
+        display: none;
+    }
+
+    .custom-table-md tr {
+        display: block;
+        margin: 1rem 0;
+    }
+
+    .custom-table-md tr:first-of-type {
+        margin-top: 0;
+    }
+    
+    .custom-table-md tr:last-of-type {
+        margin-bottom: 0;
+    }
+
+    .custom-table-md td {
+        display: grid;
+        grid-template-columns: 8rem auto;
+        grid-gap: 1rem 0.5em;
+    }
+
+    .custom-table-md td:before {
+        display: inline;
+        font-weight: bold;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .custom-table-lg {
+        display: block;
+    }
+
+    .custom-table-lg.table-bordered td {
+        border-top-width: 1px;
+        border-top-style: solid;
+        border-top-color: inherit;
+    }
+
+    .custom-table-lg.table-bordered td:first-child {
+        border-top: 0;
+    }
+
+    .custom-table-lg tbody {
+        border-top: none !important;
+        width: 100%;
+        display: block;
+    }
+
+    .custom-table-lg thead {
+        display: none;
+    }
+
+    .custom-table-lg tr {
+        display: block;
+        margin: 1rem 0;
+    }
+
+    .custom-table-lg tr:first-of-type {
+        margin-top: 0;
+    }
+    
+    .custom-table-lg tr:last-of-type {
+        margin-bottom: 0;
+    }
+
+    .custom-table-lg td {
+        display: grid;
+        grid-template-columns: 8rem auto;
+        grid-gap: 1rem 0.5em;
+    }
+
+    .custom-table-lg td:before {
+        display: inline;
+        font-weight: bold;
+    }
+}
+
+@media (max-width: 1199.98px) {
+    .custom-table-xl {
+        display: block;
+    }
+
+    .custom-table-xl.table-bordered td {
+        border-top-width: 1px;
+        border-top-style: solid;
+        border-top-color: inherit;
+    }
+
+    .custom-table-xl.table-bordered td:first-child {
+        border-top: 0;
+    }
+
+    .custom-table-xl tbody {
+        border-top: none !important;
+        width: 100%;
+        display: block;
+    }
+
+    .custom-table-xl thead {
+        display: none;
+    }
+
+    .custom-table-xl tr {
+        display: block;
+        margin: 1rem 0;
+    }
+
+    .custom-table-xl tr:first-of-type {
+        margin-top: 0;
+    }
+
+    .custom-table-xl tr:last-of-type {
+        margin-bottom: 0;
+    }
+
+    .custom-table-xl td {
+        display: grid;
+        grid-template-columns: 8rem auto;
+        grid-gap: 1rem 0.5em;
+        text-align: left !important;
+    }
+
+    .custom-table-xl td:before {
+        display: inline;
+        font-weight: bold;
+    }
+}

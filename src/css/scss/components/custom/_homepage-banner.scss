@@ -1,0 +1,54 @@
+.ntg-homepage-banner {
+    $this: &;
+
+    .carousel-tools {
+        position: absolute;
+        bottom: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .carousel-indicators {
+        margin: 0 1rem;
+
+        @include media-breakpoint-up(sm) {
+            margin: 0 2rem;
+        }
+    }
+    
+    .carousel-control-prev, .carousel-control-next, .carousel-indicators {
+        position: static;
+    }
+    
+    .carousel-control-prev, .carousel-control-next {
+        width: auto;
+    }
+
+    .carousel-item {
+        min-height: 250px;
+
+        .container,
+        #{$this}__text {
+            height: 100%;
+        }
+
+        #{$this}__text {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+
+            > * {
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+    }
+}

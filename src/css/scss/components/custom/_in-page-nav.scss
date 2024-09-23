@@ -1,0 +1,45 @@
+#in-page-nav {
+    position: relative;
+    margin: 2rem 0 2.5rem 0;
+    padding-left: 1rem;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 3px;
+        left: 0;
+        bottom: -1px;
+        width: 5px;
+        background-color: $primary;
+    }
+
+    h2 {
+        font-size: 1rem;
+        font-weight: bold;
+        line-height: 1;
+        margin-bottom: 1rem;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    li {
+        line-height: 1;
+        margin-bottom: 1rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    a {
+        display: inline-block;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}

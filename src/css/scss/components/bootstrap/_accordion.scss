@@ -1,0 +1,17 @@
+.accordion-button {
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &:focus {
+        @include focus();
+    }
+}
+
+.accordion {
+    &-header {
+        &:target {
+            display: inherit;
+        }
+    }
+}

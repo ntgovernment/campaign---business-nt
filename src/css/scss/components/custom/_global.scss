@@ -1,0 +1,73 @@
+// Adds custom focus mixin to all links
+a {
+    &:focus {
+        @include focus();
+    }
+}
+
+// <p> tags in bootstrap have a default bottom margin
+#content {
+    p + ul {
+        margin-top: -0.5rem;
+    }
+
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// Removes the outline from links if its clicked with a mouse
+*:focus:not(:focus-visible) {
+    outline: none !important;
+}
+
+// Keeps the footer at the bottom of the visible screen when there
+// is not enough content available
+#wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    .page-header-container,
+    .ntg-footer {
+        flex: none;
+    }
+
+    main {
+        flex: 1 0 auto;
+    }
+}
+
+// clears the 'x' from ie
+input[type=search]::-ms-clear,
+input[type=search]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0; 
+}
+
+// clears the 'x' from webkit browsers
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none; 
+}
+
+// overrides components to be full width on standard or landing width layouts by subtracting .col-lg-8 width from .container width at different breakpoints
+.standard,
+.landing {
+    .full-width-override {
+        @include media-breakpoint-up(xxl) {
+            margin-right: calc((1320px - 880px) * -1);
+        }
+
+        @include media-breakpoint-between(xl, xxl) {
+            margin-right: calc((1140px - 760px) * -1);
+        }
+
+        @include media-breakpoint-between(lg, xl) {
+            margin-right: calc((960px - 640px) * -1);
+        }
+    }
+}

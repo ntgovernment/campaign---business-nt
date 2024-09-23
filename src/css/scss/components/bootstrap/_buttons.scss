@@ -1,0 +1,23 @@
+.btn {
+    &:focus {
+        @include focus();
+    }
+
+    &-chevron-right {
+        @include btn-icon("\f054");
+    }
+
+    &-chevron-left {
+        @include btn-icon("\f053", $reverse: true);
+    }
+
+    &-external {
+        @include btn-icon("\f35d", $animation: false);
+    }
+
+    &-close {
+        &:focus {
+            @include focus();
+        }
+    }
+}

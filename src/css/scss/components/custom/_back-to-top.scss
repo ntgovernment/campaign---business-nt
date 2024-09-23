@@ -1,0 +1,34 @@
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: none;
+    background: #595959;
+    border-radius: 50%;
+    z-index: 1000;
+    transition: 0.2s background ease-in-out;
+
+    &:hover {
+        background: $secondary;
+    }
+
+    button {
+        background-color: transparent;
+        appearance: none;
+        border: none;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        border-radius: inherit;
+    }
+
+    i {
+        color: $white;
+        height: 22px;
+        display: flex;
+        align-items: center;
+    }
+}

@@ -1,0 +1,12 @@
+.pagination {
+    --bs-pagination-border-color: transparent;
+    gap: .5rem;
+
+    .page-link {
+        min-width: 40px;
+        min-height: 38px;
+        max-height: 40px !important;
+        border-radius: 100% !important;
+        text-align: center;
+    }
+}

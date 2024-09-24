@@ -1,52 +1,85 @@
 .card {
-    $this: &;
+	$this: &;
 
-    &:focus-within {
-        @include focus();
+	&--directory {
+		--bs-card-box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
+		--bs-card-border-color: transparent;
+		--bs-card-top-border-color: #{$cloud-burst};
+		box-shadow: var(--bs-card-box-shadow);
+		border-top: 4px solid var(--bs-card-top-border-color) !important;
 
-        #{$this}-footer {
-            a {
-                i {
-                    margin-left: 1rem;
-                }
-            }
-        }
-    }
+		@include media-breakpoint-down(md) {
+			--h6-size: 1.125rem
+		}
 
-    &-img-top {
-        object-fit: cover;
-    }
-    
-    .img-fluid {
-        object-fit: cover;
-        height: 100%;
-    }
+		@include media-breakpoint-up(md) {
+			--h6-size: 1.56rem
+		}
+	}
 
-    &-title {
-        @include font-size($h5-font-size);
-    }
+	&:focus-within {
+		@include focus();
 
-    &-footer {
-        background-color: transparent;
-        border-top: 0;
-        padding: 1rem;
-        
-        a {
-            i {
-                font-size: 0.8rem;
-                margin-left: 0.5rem;
-                transition: 0.2s ease-in-out;
-            }
+		#{$this}-footer {
+			a {
+				i {
+					margin-left: 1rem;
+				}
+			}
+		}
+	}
 
-            &:hover {
-                i {
-                    margin-left: 1rem;
-                }
-            }
+	&-img-top {
+		object-fit: cover;
+	}
 
-            &:focus {
-                outline: none;
-            }
-        }
-    }
+	.img-fluid {
+		object-fit: cover;
+		height: 100%;
+	}
+
+	&-title {
+		@include font-size($h5-font-size);
+	}
+
+	&-footer {
+		background-color: transparent;
+		border-top: 0;
+		padding: 1rem;
+
+		a {
+			text-decoration: none;
+			font-weight: 700;
+			color: $info;
+
+			i {
+				font-size: 1rem;
+				margin-left: 0.5rem;
+				transition: 0.2s ease-in-out;
+				color: $purplish-red;
+			}
+
+			&:hover {
+				i {
+					margin-left: 1rem;
+				}
+			}
+
+			&:focus {
+				outline: none;
+			}
+		}
+	}
+
+	.card-filter-area {
+		.title {
+			margin-bottom: 10px;
+		}
+	}
+
+	.card-badges {
+		display: flex;
+		flex-wrap: wrap;
+		gap: .5rem;
+	}
 }

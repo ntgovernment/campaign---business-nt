@@ -8,11 +8,11 @@
 					</div>
 					<div class="col-9 ntg-header-top__form">
 						<form action="#">
-							<div class="row">
-								<div class="col col-10 col-input">
+							<div class="input-row">
+								<div class="input-hold">
 									<input type="search" class="form-control" placeholder="Search site" aria-label="Search site">
 								</div>
-								<div class="col col-2 col-submit">
+								<div class="submit-hold">
 									<button type="submit" class="btn btn-primary">Submit</button>
 								</div>
 							</div>

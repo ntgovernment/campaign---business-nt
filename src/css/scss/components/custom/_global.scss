@@ -3,15 +3,19 @@ a {
     &:focus {
         @include focus();
     }
+
+    &.link-bold {
+        font-weight: 700;
+    }
 }
 
 // <p> tags in bootstrap have a default bottom margin
 #content {
-    p + ul {
+    p+ul {
         margin-top: -0.5rem;
     }
 
-    > *:last-child {
+    >*:last-child {
         margin-bottom: 0;
     }
 }
@@ -41,9 +45,9 @@ a {
 // clears the 'x' from ie
 input[type=search]::-ms-clear,
 input[type=search]::-ms-reveal {
-  display: none;
-  width: 0;
-  height: 0; 
+    display: none;
+    width: 0;
+    height: 0;
 }
 
 // clears the 'x' from webkit browsers
@@ -51,7 +55,7 @@ input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
-  display: none; 
+    display: none;
 }
 
 // overrides components to be full width on standard or landing width layouts by subtracting .col-lg-8 width from .container width at different breakpoints

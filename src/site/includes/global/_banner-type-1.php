@@ -11,11 +11,6 @@
                     <?php echo $page ?>
                 </h1>
 
-                <p>Connect with an approved service provider, who offer consulting services and advice for specific
-                    NT Grants programs. Their services areas include organisational development, operation
-                    improvement, financial planning, marketing strategies, workforce management, and information and
-                    Communication Technology (ICT).</p>
-
             </div>
         </div>
     </div>

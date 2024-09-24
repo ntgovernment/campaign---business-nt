@@ -1,15 +1,12 @@
 .ntg-main-nav {
-	--component-background-color: var(--current-theme-color, #{$primary});
-	--component-text-color: var(--current-theme-text-color, #{$white});
-	--component-extra-color: var(--current-theme-secondary, #{$ntg-sky-blue});
-	--component-extra-color-text: var(--current-theme-secondary-text, #{$white});
+	--component-background-color: transparent;
+	--component-drop-background-color: #{lighten($black,90%)};
+	--component-text-color: var(--current-theme-text-color, #{$black});
+	--component-extra-color: var(--current-theme-secondary, #{lighten($black,80%)});
+	--component-extra-color-text: var(--current-theme-secondary-text, #{$black});
 }
 
 .ntg-main-nav {
-	@include media-breakpoint-up(sm) {
-		background-color: var(--component-background-color);
-		border-bottom: 8px solid var(--component-extra-color);
-	}
 
 	&__search {
 		height: 46px;
@@ -22,6 +19,10 @@
 		@include media-breakpoint-up(sm) {
 			height: 56px;
 			width: 56px;
+		}
+
+		@include media-breakpoint-up(lg) {
+			display: none !important;
 		}
 
 		&:hover {
@@ -51,7 +52,7 @@
 		}
 
 		>a {
-			background-color: var(--component-extra-color);
+			background-color: $primary;
 			width: 46px;
 			height: 46px;
 			position: relative;
@@ -108,7 +109,14 @@
 	&__wrapper {
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
+
+		@include media-breakpoint-down(lg) {
+			justify-content: flex-end;
+		}
+
+		@include media-breakpoint-up(lg) {
+			justify-content: space-between;
+		}
 	}
 
 	ul {
@@ -125,7 +133,7 @@
 
 		a {
 			color: var(--component-text-color);
-			padding: 1rem 0.7rem;
+			padding: .7rem 0.7rem;
 			font-weight: bold;
 			display: block;
 			text-decoration: none;
@@ -189,7 +197,7 @@
 			top: 100%;
 			display: none;
 			padding: 0;
-			background-color: var(--component-background-color);
+			background-color: var(--component-drop-background-color);
 			list-style-type: none;
 			width: 300px;
 

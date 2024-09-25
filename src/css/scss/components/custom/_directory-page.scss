@@ -89,6 +89,10 @@
 		label {
 			padding-top: var(--aside-filter-form-check-label-pt);
 		}
+
+		input[type=radio]~label, input[type=checkbox]~label {
+			padding-left: 0.5rem;
+		}
 	}
 }
 

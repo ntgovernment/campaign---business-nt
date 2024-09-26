@@ -10,6 +10,7 @@ const pluginsToBuild = [
     "src/js/plugins/responsive-menu.js",
     "src/js/plugins/responsive-table.js",
     "src/js/plugins/sticky-header.js",
+    "src/js/plugins/search.js",
     "src/js/plugins/superfish.js",
 ];
 

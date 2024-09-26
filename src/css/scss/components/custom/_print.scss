@@ -1,0 +1,127 @@
+@media print {
+    
+    * {
+        -webkit-print-color-adjust: exact !important;
+    }
+      
+    @page {
+        margin: 20mm 10mm 20mm 10mm;
+    }
+  
+    .ntg-main-nav, 
+    .ntg-dynamic-banner, 
+    .au-btn, 
+    .back-to-top, 
+    .au-side-nav, 
+    .breadcrumb,
+    .au-breadcrumbs, 
+    .ntg-accordions 
+    .btn-cta-group, 
+    .nav-opener-holder, 
+    .search-global, 
+    .ntg-footer .container .row .col-md-9 .row:first-child, 
+    .ntg-footer .container .row .col-md-9 hr, 
+    .ntg-footer .container .row .col-md-3, 
+    #anchor-list, 
+    #mmenu-wrapper.mm-menu, 
+    .ntg-comparison-images, 
+    .ntg-carousel, 
+    .ntg-image-gallery, 
+    .d-print-none,
+    .ntg-header-top,
+    .col-aside--filter,
+    .search-input-row,
+    .pagination,
+    .footer-vertical-nav,
+    .footer-logo-hold {
+        display: none !important;
+    }
+    
+    .ntg-main-nav,
+    .ntg-header,
+    .ntg-footer {
+        color: #000 !important;
+        background-color: transparent !important;
+        border: none !important;
+    }
+    
+    .page-header-container {
+        position: static !important;
+        background-color: transparent !important;
+    }
+
+    .ntg-banner {
+        background-color: transparent !important;
+        margin-top: 0 !important;
+        padding-bottom: 0 !important;
+    }
+    
+    .ntg-header__wrapper {
+        display: block !important;
+    }
+
+    .ntg-banner__content {
+        color: #000000;
+    }
+    
+    .ntg-header__text > * {
+        color: #000 !important;
+    }
+    
+    .ntg-header__title {
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        line-height: 1.2;
+        font-weight: 600;
+        font-size: 1.7rem;
+        color: #000 !important;
+    }
+    
+    .ntg-header__title:before {
+      content: url('mysource_files/logo-ntg-print.png') !important;
+      float: left !important;
+      padding-right: 45px;
+      padding-top: 5px;
+      -webkit-print-color-adjust: exact; /* Chrome, Safari */
+      color-adjust: exact; /* Firefox */
+    }
+      
+    .au-accordion {
+        border: none;
+        margin-top: 20px;
+    }
+  
+    .au-accordion__title,
+    .au-accordion__body-wrapper {
+      padding-left: 0 !important;
+    }
+    
+    .au-accordion__body-wrapper {
+        border-top: none;
+    }
+    
+    main > .au-body {
+        padding: 0 !important;
+    }
+    
+    h1 {
+        margin-top: 0 !important;
+    }
+    
+    section[class*="ntg-"] ~ section[class*="ntg-"] {
+        margin-top: 1.5rem !important;
+    }
+    
+    .page-content--directory .main-content-wrap {
+        padding-left: 0;
+    }
+
+    .page-content--directory .col-main-content {
+        width: 100% !important;
+    }
+
+    .ntg-footer > .container > .row > .col-lg-6 {
+        width: 100% !important;
+    }
+  }

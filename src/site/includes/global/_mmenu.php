@@ -1,4 +1,4 @@
-<nav class="nav-menu-mobile" id="mmenu-wrapper" data-btn-text="Footer button" data-btn-link="#">
+<nav class="nav-menu-mobile" id="mmenu-wrapper">
     <ul>
         <li>
             <a href="index.php">Home</a>

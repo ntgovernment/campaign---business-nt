@@ -81,24 +81,26 @@ function initMmenu() {
 
     document.addEventListener("DOMContentLoaded", () => {
         let btnContent = ``;
+        let options = {
+            "offCanvas": {
+                "position": "right-front"
+            }
+        }
 
         if (mmenuWrapper.getAttribute("data-btn-link") && mmenuWrapper.getAttribute("data-btn-text")) {
             btnContent = `<a role="button" class="btn btn-light d-flex btn-mmenu" href="${mmenuWrapper.getAttribute("data-btn-link")}">${mmenuWrapper.getAttribute("data-btn-text")}</a>`
 
             mmenuWrapper.removeAttribute('data-btn-link');
             mmenuWrapper.removeAttribute('data-btn-text');
-        }
 
-        const mmenu = new Mmenu('#mmenu-wrapper', {
-            "offCanvas": {
-                "position": "right-front"
-            },
-            "navbars": [{
+            options["navbars"] = [{
                 use: true,
                 position: "bottom",
                 content: btnContent,
-             }]
-        });
+             }];
+        }
+
+        const mmenu = new Mmenu('#mmenu-wrapper', options);
 
         const API = mmenu.API;
 

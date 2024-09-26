@@ -15,6 +15,13 @@
 		@include media-breakpoint-up(md) {
 			--h6-size: 1.56rem
 		}
+
+		.card-badges span.badge{
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			max-width: 200px
+		}
 	}
 
 	&:focus-within {
@@ -81,5 +88,7 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: .5rem;
+
 	}
 }
+

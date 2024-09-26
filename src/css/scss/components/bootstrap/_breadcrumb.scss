@@ -3,5 +3,10 @@
         &.active {
             margin-top: 1px;
         }
+
+        a:hover,
+        a:focus {
+            color: rgba(255,255,255,0.9);
+        }
     }
 }

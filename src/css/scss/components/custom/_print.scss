@@ -33,7 +33,8 @@
     .search-input-row,
     .pagination,
     .footer-vertical-nav,
-    .footer-logo-hold {
+    .footer-logo-hold,
+    .result-drop-hold {
         display: none !important;
     }
     
@@ -111,6 +112,10 @@
     
     section[class*="ntg-"] ~ section[class*="ntg-"] {
         margin-top: 1.5rem !important;
+    }
+
+    .page-content--directory-inner .top-content {
+        box-shadow: unset;
     }
     
     .page-content--directory .main-content-wrap {

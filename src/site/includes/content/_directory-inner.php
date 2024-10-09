@@ -59,6 +59,18 @@
                             <a href="#"><i class="fa-brands fa-linkedin"></i></a>
                         </div>
                     </div>
+                    <div class="meta-data-row meta-data-row--program">
+                        <div class="meta-data__label"><strong>Program type</strong></div>
+                        <div class="meta-data__value">Business Growth Program</div>
+                    </div>
+                    <div class="meta-data-row meta-data-row--face-to-face">
+                        <div class="meta-data__label"><strong>Face to face delivery</strong></div>
+                        <div class="meta-data__value">Barkly, Darwin, Alice Springs</div>
+                    </div>
+                    <div class="meta-data-row meta-data-row--online">
+                        <div class="meta-data__label"><strong>Face to face delivery</strong></div>
+                        <div class="meta-data__value">Darwin</div>
+                    </div>
                 </div>
                 <div class="card-filter-area mb-5">
                     <div class="title"><strong>Service area</strong></div>

@@ -39,7 +39,7 @@ function initLinkCheck() {
 
             var icon = '<i class="' + iconWeight + ' fa-external-link ms-1 aria-hidden="true"></i>';
 
-            if(!link.querySelector('[class*="fa-external-link"]') && !link.querySelector('img')) {
+            if(!link.querySelector('[class*="fa-external-link"]') && !link.querySelector('img') && !link.querySelector('[class*="fa-brands"]')) {
                 link.insertAdjacentHTML('beforeend', icon);
             }
         }

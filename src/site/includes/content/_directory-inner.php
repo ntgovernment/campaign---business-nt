@@ -53,7 +53,7 @@
                     <div class="meta-data-row meta-data-row--social">
                         <div class="meta-data__label"><strong>Social</strong></div>
                         <div class="meta-data__value">
-                            <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+                            <a href="https://www.facebook.com/profile.php?viewas=100000686899395&id=100069843226013"><i class="fa-brands fa-square-facebook"></i></a>
                             <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
                             <a href="#"><i class="fa-brands fa-square-x-twitter"></i></a>
                             <a href="#"><i class="fa-brands fa-linkedin"></i></a>

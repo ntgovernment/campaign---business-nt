@@ -219,6 +219,12 @@
 		&-row {
 			display: flex;
 			margin-bottom: var(--meta-data-mb);
+
+			&--social {
+				i {
+					font-size: 30px;
+				}
+			}
 		}
 
 		&__label {
@@ -234,6 +240,24 @@
 
 			a {
 				color: var(--meta-value-color);
+			}
+
+			i {
+				&[class*="facebook"] {
+					color: #1877F2;
+				}
+
+				&[class*="instagram"] {
+					color: #C13584;
+				}
+
+				&[class*="twitter"] {
+					color: #000000;
+				}
+
+				&[class*="linkedin"] {
+					color: #0077B5;
+				}
 			}
 		}
 	}

@@ -159,12 +159,12 @@
 	--top-content-py: 1.2rem;
 	--top-content-px: 1rem;
 	--top-content-mb: 1.5rem;
-	--logo-width: 100px;
+	--logo-width: 200px;
 	--logo-mb: .5rem;
 	--logo-ml: .5rem;
 
 	@include media-breakpoint-down(sm) {
-		--logo-width: 80px;
+		--logo-width: 200px;
 	}
 
 	@include media-breakpoint-up(lg) {
@@ -195,6 +195,11 @@
 		width: var(--logo-width);
 		margin-bottom: var(--logo-mb);
 		margin-left: var(--logo-ml);
+		
+		@include media-breakpoint-down(lg) {
+			float: none;
+			margin: 1rem 0;
+		}
 
 		img {
 			width: 100%;

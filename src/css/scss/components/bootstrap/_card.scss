@@ -90,5 +90,35 @@
 		gap: .5rem;
 
 	}
+
+	&--icon-box-with-links {
+		--bs-card-title-color: $baltic-sea;
+		--bs-card-border-radius: 16px;
+		--bs-card-border-color: #{$ntg-medium-gray-1};
+
+		#{$this}-icon {
+			padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+			padding-bottom: 0;
+		}
+
+		#{$this}-title {
+			font-weight: 700;
+			line-height: 1.5;
+		}
+
+		#{$this}-link {
+			text-decoration: none;
+			font-weight: 700;
+			color: $ntg-arafura-blue;
+		}
+
+		#{$this}-footer {
+			padding-top: 0;
+		}
+
+		.link-chevron-right::after {
+			color: $ntg-rubine-red;
+		}
+	}
 }
 

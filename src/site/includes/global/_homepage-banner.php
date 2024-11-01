@@ -15,8 +15,8 @@
                 </div>
             </div>
             <div class="col-lg-5">
-                <div class="quick-links__title h4 mb-3">Quick Links</div>
-                <div class="quick-links__wrapper">
+                <div class="banner-quick-links__title h4 mb-3">Quick Links</div>
+                <div class="banner-quick-links__wrapper">
                     <a href="#" class="btn btn-white btn-quick-links rounded-pill">Funding Assistance and Grants</a>
                     <a href="#" class="btn btn-white btn-quick-links rounded-pill">Business legislation and regulation</a>
                     <a href="#" class="btn btn-white btn-quick-links rounded-pill">Getting help as a business owner</a>

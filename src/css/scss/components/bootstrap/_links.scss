@@ -1,0 +1,5 @@
+.link {
+    &-chevron-right {
+        @include btn-icon("\f054");
+    }
+}

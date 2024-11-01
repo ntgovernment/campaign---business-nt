@@ -11,7 +11,7 @@
     initResponsiveTable();
     initFlickity();
     initCountUp();
-    initResizeButtons();
+    // initResizeButtons();
     initResponsivePagination();
     initLinkCheck();
 })();

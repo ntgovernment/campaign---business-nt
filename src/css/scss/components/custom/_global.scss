@@ -75,3 +75,18 @@ input[type="search"]::-webkit-search-results-decoration {
         }
     }
 }
+
+.header-line-top {
+    position: relative;
+    padding-top: 1rem;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        height: 4px;
+        width: 72px;
+        background: $white;
+        margin-bottom: 1.5rem;
+    }
+}

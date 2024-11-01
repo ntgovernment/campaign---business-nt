@@ -1,54 +1,104 @@
 .ntg-homepage-banner {
-    $this: &;
+    position: relative;
+    padding: 3rem 0;
+    border-bottom: 8px solid $secondary;
+    color: $white;
 
-    .carousel-tools {
+    @include media-breakpoint-up(lg) {
+        padding: 7rem 0;
+    }
+    // $this: &;
+
+    &__content {
+        @include media-breakpoint-up(lg) {
+            max-width: 550px;
+        }
+    }
+
+    &__title {
+        font-weight: 700;
+        line-height: 1.3;
+    }
+
+    .btn-quick-links {
+        margin-bottom: 0.5rem;
+    }
+    
+    &__video {
         position: absolute;
-        bottom: 1rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-    }
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
 
-    .carousel-indicators {
-        margin: 0 1rem;
-
-        @include media-breakpoint-up(sm) {
-            margin: 0 2rem;
-        }
-    }
-    
-    .carousel-control-prev, .carousel-control-next, .carousel-indicators {
-        position: static;
-    }
-    
-    .carousel-control-prev, .carousel-control-next {
-        width: auto;
-    }
-
-    .carousel-item {
-        min-height: 250px;
-
-        .container,
-        #{$this}__text {
-            height: 100%;
-        }
-
-        #{$this}__text {
-            display: flex;
-            flex-flow: column nowrap;
-            justify-content: center;
-
-            > * {
-                &:last-child {
-                    margin-bottom: 0;
-                }
-            }
-        }
-
-        img {
-            display: block;
+        > iframe, > video {
             width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            background-color: $primary;
+            opacity: 0.5;
         }
     }
+
+    // .carousel-tools {
+    //     position: absolute;
+    //     bottom: 1rem;
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     width: 100%;
+    // }
+
+    // .carousel-indicators {
+    //     margin: 0 1rem;
+
+    //     @include media-breakpoint-up(sm) {
+    //         margin: 0 2rem;
+    //     }
+    // }
+    
+    // .carousel-control-prev, .carousel-control-next, .carousel-indicators {
+    //     position: static;
+    // }
+    
+    // .carousel-control-prev, .carousel-control-next {
+    //     width: auto;
+    // }
+
+    // .carousel-item {
+    //     min-height: 250px;
+
+    //     .container,
+    //     #{$this}__text {
+    //         height: 100%;
+    //     }
+
+    //     #{$this}__text {
+    //         display: flex;
+    //         flex-flow: column nowrap;
+    //         justify-content: center;
+
+    //         > * {
+    //             &:last-child {
+    //                 margin-bottom: 0;
+    //             }
+    //         }
+    //     }
+
+    //     img {
+    //         display: block;
+    //         width: 100%;
+    //     }
+    // }
 }

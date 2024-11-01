@@ -20,4 +20,8 @@
             @include focus();
         }
     }
+
+    &-quick-links {
+        border-radius: 16px;
+    }
 }

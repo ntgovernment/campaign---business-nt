@@ -72,3 +72,28 @@
         </div>
     </div>
 </section>
+
+<section class="bg-primary py-7">
+    <div class="container">
+        <div class="ntg-promo-news-carousel flickity-carousel">
+            <div class="ntg-promo-news-carousel-cell">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="ntg-promo-news-carousel-cell__image">
+                            <img src="assets/images/news-image.png" alt="News image" />
+                        </div>
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="ntg-promo-news-carousel-cell__content">
+                            <span class="small">News and updates</span>
+                            <h2 class="h3">There's a new law and regulation in Territory Business</h2>
+                            <p>Ensuring you have the best possible start with your business is essential for success. You can find information about how to know you are ready to start a business, how to set up a business and where to find help if you get stuck or have any questions.</p>
+
+                            <a href="#" class="btn btn-outline-white rounded-pill">Read now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

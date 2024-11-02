@@ -1,0 +1,43 @@
+.ntg-link-list-with-icons {    
+    --bs-list-group-bg: transparent;
+    --bs-border-color: #B5B4B5;
+    --bs-list-group-item-padding-x: 0;
+    --bs-list-group-item-padding-y: 1rem;
+    border-radius: 0;
+
+    &__wrapper {
+        background-color: rgba(31, 31, 95, 0.10);
+    }
+
+    .list-group-item {
+        border-left: 0;
+        border-right: 0;
+        font-weight: 700;
+
+        a {
+            display: flex;
+            gap: 1rem;
+            align-items: center;   
+            justify-content: flex-start;
+            text-decoration: none;
+            color: $body-color;
+
+            &.link-chevron-right {
+                padding-right: 0 !important;
+
+                &:hover {
+                    &::after {
+                        transform: translateX(5px);
+                    }
+                }
+
+                &::after {
+                    flex-grow: 1;
+                    text-align: right;
+                    transition: 0.2 ease-in-out transform;
+                    margin-left: 0 !important;
+                }
+            }
+        }
+    }
+}

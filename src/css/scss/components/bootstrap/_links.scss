@@ -1,5 +1,6 @@
 .link {
     &-chevron-right {
+        transition: 0.2s margin ease-in-out;
         @include btn-icon("\f054");
     }
 }

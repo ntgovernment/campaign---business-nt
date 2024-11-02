@@ -137,7 +137,7 @@
     </div>
 </section>
 
-<section class="ntg-image-card-carousel__wrapper py-7">
+<section class="ntg-image-card-carousel__wrapper my-7">
     <div class="container">
         <h2 class="header-line-top header-line-top--rubine-red">Featured programs</h2>
         <div class="ntg-image-card-carousel page-dots--type2" data-flickity='{ "cellAlign": "left", "contain": false, "prevNextButtons": false }'>
@@ -200,6 +200,113 @@
                         <a href="#" class="link-chevron-right card-link">Find out more</a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ntg-link-list-with-icons__wrapper py-7">
+    <div class="container">
+        <div class="row row-cols-2">
+            <div class="col">
+                <h2 class="h3 header-line-top header-line-top--rubine-red">I am a business owner looking for</h2>
+                <ul class="list-group ntg-link-list-with-icons">
+                    <li class="list-group-item">
+                        <a href="#" class="link-chevron-right">
+                            <div class="list-group-item__icon">
+                                <img src="assets/images/bulb-in-blue.svg" alt="Bulb in blue">
+                            </div>
+                            
+                            <div class="list-group-item__content">
+                                Information to help me start my business
+                            </div>
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#" class="link-chevron-right">
+                            <div class="list-group-item__icon">
+                                <img src="assets/images/bulb-in-blue.svg" alt="Bulb in blue">
+                            </div>
+                            
+                            <div class="list-group-item__content">
+                                Information to help me start my business
+                            </div>
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#" class="link-chevron-right">
+                            <div class="list-group-item__icon">
+                                <img src="assets/images/bulb-in-blue.svg" alt="Bulb in blue">
+                            </div>
+                            
+                            <div class="list-group-item__content">
+                                Information to help me start my business
+                            </div>
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#" class="link-chevron-right">
+                            <div class="list-group-item__icon">
+                                <img src="assets/images/bulb-in-blue.svg" alt="Bulb in blue">
+                            </div>
+                            
+                            <div class="list-group-item__content">
+                                Information to help me start my business
+                            </div>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <div class="col">
+                <h2 class="h3 header-line-top header-line-top--rubine-red">Discover more</h2>
+                <ul class="list-group ntg-link-list-with-icons">
+                    <li class="list-group-item">
+                        <a href="#" class="link-chevron-right">
+                            <div class="list-group-item__icon">
+                                <img src="assets/images/bulb-in-blue.svg" alt="Bulb in blue">
+                            </div>
+                            
+                            <div class="list-group-item__content">
+                                Information to help me start my business
+                            </div>
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#" class="link-chevron-right">
+                            <div class="list-group-item__icon">
+                                <img src="assets/images/bulb-in-blue.svg" alt="Bulb in blue">
+                            </div>
+                            
+                            <div class="list-group-item__content">
+                                Information to help me start my business
+                            </div>
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#" class="link-chevron-right">
+                            <div class="list-group-item__icon">
+                                <img src="assets/images/bulb-in-blue.svg" alt="Bulb in blue">
+                            </div>
+                            
+                            <div class="list-group-item__content">
+                                Information to help me start my business
+                            </div>
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#" class="link-chevron-right">
+                            <div class="list-group-item__icon">
+                                <img src="assets/images/bulb-in-blue.svg" alt="Bulb in blue">
+                            </div>
+                            
+                            <div class="list-group-item__content">
+                                Information to help me start my business
+                            </div>
+                        </a>
+                    </li>
+                    
+                </ul>
             </div>
         </div>
     </div>

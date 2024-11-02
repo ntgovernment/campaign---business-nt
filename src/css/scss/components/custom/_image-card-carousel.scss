@@ -1,0 +1,42 @@
+.ntg-image-card-carousel {
+    &__cell {
+        --cell-margin-right: 1rem;
+        --no-of-cells: 1;
+        --cell-width: 100%;
+
+        @include media-breakpoint-up(md) {
+            --no-of-cells: 2;
+            --cell-width: 50%;
+        }
+
+        @include media-breakpoint-up(lg) {
+            --no-of-cells: 3;
+            --cell-width: 33.33333333%;
+        }
+
+        @include media-breakpoint-up(xl) {
+            --no-of-cells: 4;
+            --cell-width: 25%;
+        }
+
+        margin-right: 1rem;
+        width: calc(var(--cell-width) - calc(var(--cell-margin-right) - calc(var(--cell-margin-right)/var(--no-of-cells))));
+
+        .card {
+            // margin-right: 1rem;
+        }
+    }
+
+    .flickity-page-dots {
+        width: auto;
+        bottom: -2rem;
+
+        .dot {
+            background: #D9D9D9;
+            
+            &.is-selected {
+                background: $primary;
+            }
+        }
+    } 
+}

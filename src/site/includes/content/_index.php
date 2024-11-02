@@ -136,3 +136,71 @@
         </div>
     </div>
 </section>
+
+<section class="ntg-image-card-carousel__wrapper py-7">
+    <div class="container">
+        <h2 class="header-line-top header-line-top--rubine-red">Featured programs</h2>
+        <div class="ntg-image-card-carousel page-dots--type2" data-flickity='{ "cellAlign": "left", "contain": false, "prevNextButtons": false }'>
+            <div class="ntg-image-card-carousel__cell col-xl-3 col-lg-4 col-md-6">
+                <div class="card card--image-card">
+                    <img src="../assets/images/600X260.png" class="card-img-top" alt="Card image">
+                    <div class="card-body">
+                      <h5 class="card-title h4">Start a business in the Northern Territory</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="link-chevron-right card-link">Find out more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="ntg-image-card-carousel__cell col-xl-3 col-lg-4 col-md-6">
+                <div class="card card--image-card">
+                    <img src="../assets/images/600X260.png" class="card-img-top" alt="Card image">
+                    <div class="card-body">
+                      <h5 class="card-title h4">Start a business in the Northern Territory</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="link-chevron-right card-link">Find out more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="ntg-image-card-carousel__cell col-xl-3 col-lg-4 col-md-6">
+                <div class="card card--image-card">
+                    <img src="../assets/images/600X260.png" class="card-img-top" alt="Card image">
+                    <div class="card-body">
+                      <h5 class="card-title h4">Start a business in the Northern Territory</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="link-chevron-right card-link">Find out more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="ntg-image-card-carousel__cell col-xl-3 col-lg-4 col-md-6">
+                <div class="card card--image-card">
+                    <img src="../assets/images/600X260.png" class="card-img-top" alt="Card image">
+                    <div class="card-body">
+                      <h5 class="card-title h4">Start a business in the Northern Territory</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="link-chevron-right card-link">Find out more</a>
+                    </div>
+                </div>
+            </div>
+            <div class="ntg-image-card-carousel__cell col-xl-3 col-lg-4 col-md-6">
+                <div class="card card--image-card">
+                    <img src="../assets/images/600X260.png" class="card-img-top" alt="Card image">
+                    <div class="card-body">
+                      <h5 class="card-title h4">Start a business in the Northern Territory</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="link-chevron-right card-link">Find out more</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

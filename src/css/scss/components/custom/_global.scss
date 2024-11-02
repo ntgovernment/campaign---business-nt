@@ -89,4 +89,10 @@ input[type="search"]::-webkit-search-results-decoration {
         background: $white;
         margin-bottom: 1.5rem;
     }
+
+    &--rubine-red {
+        &::before {
+            background: $ntg-rubine-red;
+        }
+    }
 }

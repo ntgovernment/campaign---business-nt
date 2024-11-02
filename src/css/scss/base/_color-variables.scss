@@ -25,6 +25,7 @@ $ntg-central-australia: #E5004D;
 /* -------- Theme Colours -------- */
 $ntg-dark-gray: #2B292D;
 $lapis-blue: #313373;
+$deep-blue: #131640;
 
 $ntg-medium-gray-1: #C4C4C4;
 
@@ -94,6 +95,9 @@ $accesible-color-definitions: (
 	),
 	"bottle-green" : ("color": $ntg-bottle-green,
 		"accessible-color": $white,
+	),
+	"deep-blue": ("color": $deep-blue,
+		"accessible-color": $white
 	)
 );
 
@@ -107,6 +111,10 @@ $theme-color-definitions: (
 		"secondary": map.get($accesible-color-definitions, "sky-blue"),
 		"tertiary": map.get($accesible-color-definitions, "heliconia-orange"),
 	),
+	"deep-blue": ("primary": map.get($accesible-color-definitions, "deep-blue"),
+		"secondary": map.get($accesible-color-definitions, "deep-blue"),
+		"tertiary": map.get($accesible-color-definitions, "deep-blue"),
+	)
 );
 
 $base-colors: (
@@ -210,7 +218,8 @@ $theme-colors: (
 	"light": $light,
 	"dark": $dark,
 	"white": $white,
-	"rubine-red": $ntg-rubine-red
+	"rubine-red": $ntg-rubine-red,
+	"deep-blue": $deep-blue
 );
 
 // Use the main color for each theme-colors.

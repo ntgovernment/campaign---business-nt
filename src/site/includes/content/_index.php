@@ -73,23 +73,62 @@
     </div>
 </section>
 
-<section class="bg-primary py-7">
-    <div class="container">
-        <div class="ntg-promo-news-carousel flickity-carousel">
+<section class="py-7 bg-deep-blue ntg-promo-news-carousel__wrapper">
+    <div class="container position-relative">
+        <div class="ntg-promo-news-carousel__view-all-link">
+            <a href="#" class="link-chevron-right">View all news and updates</a>
+        </div>
+        <div class="ntg-promo-news-carousel page-dots--type2" data-flickity='{ "cellAlign": "left", "contain": true, "prevNextButtons": false }'>
             <div class="ntg-promo-news-carousel-cell">
-                <div class="row">
-                    <div class="col-sm-5">
+                <div class="row g-5">
+                    <div class="col-md-5 position-relative">
                         <div class="ntg-promo-news-carousel-cell__image">
-                            <img src="assets/images/news-image.png" alt="News image" />
+                            <img src="assets/images/news-image.png" alt="News image" style="object-position: 50% 50%;"/>
                         </div>
                     </div>
-                    <div class="col-sm-7">
+                    <div class="col-md-7">
                         <div class="ntg-promo-news-carousel-cell__content">
-                            <span class="small">News and updates</span>
+                            <div class="small pb-2">News and updates</div>
                             <h2 class="h3">There's a new law and regulation in Territory Business</h2>
-                            <p>Ensuring you have the best possible start with your business is essential for success. You can find information about how to know you are ready to start a business, how to set up a business and where to find help if you get stuck or have any questions.</p>
+                            <p>Ensuring you have the best possible start with your business is essential for success. You can find information about how to know you are ready to start a business, how to set up a business and where to find help if you get stuck or have any questions <a href="#">this is a link</a></p>
 
-                            <a href="#" class="btn btn-outline-white rounded-pill">Read now</a>
+                            <a href="#" class="btn btn-outline-white btn-chevron-right rounded-pill">Read now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ntg-promo-news-carousel-cell">
+                <div class="row g-5">
+                    <div class="col-md-5 position-relative">
+                        <div class="ntg-promo-news-carousel-cell__image">
+                            <img src="assets/images/news-image.png" alt="News image" style="object-position: 50% 50%;"/>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="ntg-promo-news-carousel-cell__content">
+                            <div class="small pb-2">News and updates</div>
+                            <h2 class="h3">There's a new law and regulation in Territory Business</h2>
+                            <p>Ensuring you have the best possible start with your business is essential for success. You can find information about how to know you are ready to start a business, how to set up a business and where to find help if you get stuck or have any questions <a href="#">this is a link</a></p>
+
+                            <a href="#" class="btn btn-outline-white btn-chevron-right rounded-pill">Read now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ntg-promo-news-carousel-cell">
+                <div class="row g-5">
+                    <div class="col-md-5 position-relative">
+                        <div class="ntg-promo-news-carousel-cell__image">
+                            <img src="assets/images/news-image.png" alt="News image" style="object-position: 50% 50%;"/>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="ntg-promo-news-carousel-cell__content">
+                            <div class="small pb-2">News and updates</div>
+                            <h2 class="h3">There's a new law and regulation in Territory Business</h2>
+                            <p>Ensuring you have the best possible start with your business is essential for success. You can find information about how to know you are ready to start a business, how to set up a business and where to find help if you get stuck or have any questions <a href="#">this is a link</a></p>
+
+                            <a href="#" class="btn btn-outline-white btn-chevron-right rounded-pill">Read now</a>
                         </div>
                     </div>
                 </div>

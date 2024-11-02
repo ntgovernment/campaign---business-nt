@@ -12,7 +12,8 @@ $theme-colors-text: (
     "warning": $ntg-dark-gray,
     "danger": $white,
     "light": $ntg-dark-gray,
-    "dark": $white
+    "dark": $white,
+    "deep-blue": $white
 );
 
 @each $color-name, $color-values in $base-colors {

@@ -27,3 +27,18 @@
     }
 }
 
+.page-dots--type2 {
+    .flickity-page-dots .dot {
+        width: 45px;
+        height: 5px;
+        @extend .rounded-pill;
+        background: $white;
+        opacity: 1;
+        margin: 0 4px;
+        transition: 0.2s background ease-in-out;
+
+        &.is-selected {
+            background: $secondary;
+        }
+    }
+}

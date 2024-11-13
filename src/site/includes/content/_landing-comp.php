@@ -1,5 +1,5 @@
 <h2>The Northen Territory Government Welcomes and Supports</h2>
-<section class="ntg-intro-icon-cards">
+<section class="ntg-intro-icon-cards mb-4">
     <div class="row gy-3">
         <div class="col-lg-6">
             <div class="card card--intro-icon-card row g-0">
@@ -39,6 +39,84 @@
                     <img src="../assets/images/600X260.png" class="card-img-top h-100" alt="Card image">
                 </div>
 
+            </div>
+        </div>
+    </div>
+</section>
+
+<h2>Find the information you need to succeed</h2>
+<section class="ntg-horizontal-cards">
+    <div class="row gy-3">
+        <div class="col-md-6">
+            <div class="card card--image-card card--link-card">
+                <div class="row g-0">
+                  <div class="col-sm-4 image-overlay">
+                    <img src="../assets/images/katherine-river.png" class="img-fluid" alt="Card image">
+                  </div>
+                  <div class="col-sm-8">
+                    <div class="card-body">
+                        <h5 class="card-title h4">Start a business in the Northern Territory</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="link-chevron-right card-link stretched-link">Find out more</a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card card--image-card card--link-card">
+                <div class="row g-0">
+                  <div class="col-sm-4 image-overlay">
+                    <img src="../assets/images/katherine-river.png" class="img-fluid" alt="Card image">
+                  </div>
+                  <div class="col-sm-8">
+                    <div class="card-body">
+                        <h5 class="card-title h4">Start a business in the Northern Territory</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="link-chevron-right card-link stretched-link">Find out more</a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card card--image-card card--link-card">
+                <div class="row g-0">
+                  <div class="col-sm-4 image-overlay">
+                    <img src="../assets/images/katherine-river.png" class="img-fluid" alt="Card image">
+                  </div>
+                  <div class="col-sm-8">
+                    <div class="card-body">
+                        <h5 class="card-title h4">Start a business in the Northern Territory</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="link-chevron-right card-link stretched-link">Find out more</a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card card--image-card card--link-card">
+                <div class="row g-0">
+                  <div class="col-sm-4 image-overlay">
+                    <img src="../assets/images/katherine-river.png" class="img-fluid" alt="Card image">
+                  </div>
+                  <div class="col-sm-8">
+                    <div class="card-body">
+                        <h5 class="card-title h4">Start a business in the Northern Territory</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="link-chevron-right card-link stretched-link">Find out more</a>
+                    </div>
+                  </div>
+                </div>
             </div>
         </div>
     </div>

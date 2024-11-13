@@ -14,7 +14,37 @@
     // initResizeButtons();
     initResponsivePagination();
     initLinkCheck();
+    initAddHoverClassOnCardHover();
 })();
+
+function initAddHoverClassOnCardHover() {
+    // Select the card link and the parent card
+    const linkCards = document.querySelectorAll('.card--link-card');
+
+    linkCards.forEach(card => {
+        const cardLink = card.querySelector('.card-link');
+
+        if(cardLink) {
+            // Add event listeners to add and remove the hover class
+            cardLink.addEventListener('mouseover', () => {
+                card.classList.add('hover');
+            });
+
+            cardLink.addEventListener('mouseout', () => {
+                card.classList.remove('hover');
+            });
+            
+            // Add event listeners for keyboard focus
+            cardLink.addEventListener('focus', () => {
+                card.classList.add('hover');
+            });
+
+            cardLink.addEventListener('blur', () => {
+                card.classList.remove('hover');
+            });
+        }
+    })
+}
 
 function initLinkCheck() {
     var links = document.querySelectorAll('#content a');

@@ -207,7 +207,7 @@
 
 <section class="ntg-link-list-with-icons__wrapper py-7">
     <div class="container">
-        <div class="row row-cols-2">
+        <div class="row row-cols-md-2 gy-4">
             <div class="col">
                 <h2 class="h3 header-line-top header-line-top--rubine-red">I am a business owner looking for</h2>
                 <ul class="list-group ntg-link-list-with-icons">
@@ -307,6 +307,21 @@
                     </li>
                     
                 </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ntg-small-image-cta-banner">
+    <div class="ntg-small-image-cta-banner__background" style="background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%), url('assets/images/katherine-river.png') lightgray 50% / cover no-repeat;"></div>
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col">
+                <h1>Subscribe</h1>
+                <p>Subscribe to the Northern Territory Business Buzz for latest information and news</p>
+            </div>
+            <div class="col-md-auto">
+                <a href="#" class="btn btn-primary btn-chevron-right rounded-pill">Find out more</a>
             </div>
         </div>
     </div>

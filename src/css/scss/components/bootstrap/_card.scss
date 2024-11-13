@@ -127,5 +127,28 @@
 		}
 
 	}
+
+	&--intro-icon-card {
+		flex-direction: row;
+		gap: 1rem;
+		flex-wrap: nowrap;
+
+		.bordered-image {
+			border-radius: 46% 54% 0% 100% / 100% 0% 100% 0%;
+			overflow: hidden;
+			flex-shrink: 1;
+		}
+
+		#{$this}-body {
+			display: flex;
+			gap: 1rem;
+			align-items: center;
+		}
+
+		#{$this}-title {
+			margin-bottom: 0;
+			color: $ntg-dark-gray;
+		}
+	}
 }
 

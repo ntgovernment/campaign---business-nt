@@ -13,7 +13,14 @@
             <div class="col">
                 <div class="ntg-standard-banner__content">
                     <h1 class="ntg-standard-banner__title">Components</h1>
-                    <p>Find out about how there are components</p>
+                    <p>Find out how you can start your business</p>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="banner-quick-links__wrapper">
+                    <a href="#" class="btn btn-white btn-quick-links rounded-pill">Events</a>
+                    <a href="#" class="btn btn-white btn-quick-links rounded-pill">Tendering with Government</a>
+                    <a href="#" class="btn btn-white btn-quick-links rounded-pill">Get in touch</a>
                 </div>
             </div>
         </div>

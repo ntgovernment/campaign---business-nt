@@ -1,12 +1,24 @@
 .breadcrumb {
+    --bs-breadcrumb-item-active-color: #{$primary};
+    --bs-breadcrumb-padding-y: 1rem;
+    --bs-breadcrumb-margin-bottom: 0;
+    --bs-breadcrumb-item-active-color: #6A6A6A;
+    --bs-breadcrumb-divider-color: #6A6A6A;
+
     &-item {
         &.active {
             margin-top: 1px;
         }
 
+        a {
+            font-weight: 700;
+            transition: 0.2s opacity ease-in-out;
+        }
+
         a:hover,
         a:focus {
-            color: rgba(255,255,255,0.9);
+            opacity: 0.8;
+            text-decoration: none;
         }
     }
 }

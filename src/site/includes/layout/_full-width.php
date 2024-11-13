@@ -12,6 +12,7 @@
         include("includes/global/_search-global.php");
         include("includes/global/_header.php");
         include("includes/global/_standard-banner.php");
+        include("includes/global/_breadcrumb.php");
         ?>
 
         <main class="py-4 py-sm-5">

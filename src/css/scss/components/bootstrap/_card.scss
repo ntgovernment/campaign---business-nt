@@ -189,5 +189,34 @@
 			background-blend-mode: luminosity, normal;
 		}
 	}
+
+	&--news {
+		box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+		--bs-border-radius: 16px;
+		
+		#{$this}-top {
+			position: relative;
+
+			.news-tags {
+				position: absolute;
+				top: 0.5rem;
+				left: 0.5rem;
+			}
+		}
+		
+		#{$this}-title {
+			font-size: 1rem;
+			font-weight: 700;
+		}
+
+		#{$this}-footer {
+			.footer-content {
+				display: flex;
+				justify-content: space-between;
+				border-top: 1px solid rgba(0, 0, 0, 0.20);
+				padding-top: var(--bs-card-cap-padding-y);
+			}
+		}
+	}
 }
 

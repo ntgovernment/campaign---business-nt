@@ -227,8 +227,14 @@
     </div>
 </section>
 
+
 <section class="ntg-alert pt-5">
     <div class="container">
+        <div class="alert alert-primary" role="alert">
+            <h3>Notice</h3>
+            <p>All vacancies close on the advertised closing date unless otherwise specified.</p>
+        </div>
+
         <div class="alert alert-info" role="alert">
             <h3>Notice</h3>
             <p>All vacancies close on the advertised closing date unless otherwise specified.</p>

@@ -1,3 +1,9 @@
+<section>
+    <div class="container">
+        <p class="quote">Tendering is the process that Government uses to make the opportunity to bid for work fair and transparent for individuals and businesses. There is a process for decision making over the purchasing of goods and services which also ensures value for money.</p>
+    </div>
+</section>
+
 <section class="ntg-accordions">
     <div class="container">
         <div class="d-flex flex-row flex-wrap justify-content-between gap-2" style="margin-bottom: 1.25rem;">

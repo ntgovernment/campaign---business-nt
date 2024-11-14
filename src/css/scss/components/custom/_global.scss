@@ -96,3 +96,23 @@ input[type="search"]::-webkit-search-results-decoration {
         }
     }
 }
+
+.quote {
+    padding-left: 4rem;
+    font-style: italic;
+    border-left: 4px solid $ntg-rubine-red;
+    position: relative;
+
+    @include media-breakpoint-up(sm) {
+        max-width: 60%;
+    }
+
+    &::before {
+        content: '“';
+        font-size: 6rem;
+        color: $ntg-dark-gray;
+        position: absolute;
+        left: 10px;
+        line-height: 1
+    }
+}

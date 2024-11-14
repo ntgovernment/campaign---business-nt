@@ -32,7 +32,7 @@
     </div>
 </section>
 
-<section class="ntg-text-and-image-block py-7 reverse vertical-btn-group bg-arafura-10">
+<section class="ntg-text-and-image-block py-7 reverse vertical-btn-groupgit  bg-arafura-10">
     <div class="container">
         <div class="row align-items-center gy-4">
             <div class="col ntg-text-and-image-block__content">
@@ -50,6 +50,48 @@
             <div class="col-md-5 ntg-text-and-image-block__image">
                 <div class="ntg-text-and-image-block__image-wrapper">
                     <img class="w-100" src="../assets/images/placeholder-banner.png" alt="Placeholder banner" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-7">
+    <div class="container">
+        <h2 class="h4">Learn more about</h2>
+
+        <div class="row row-cols-md-3">
+            <div class="col">
+                <div class="card card--image-card">
+                    <img src="../assets/images/600X260.png" class="card-img-top" alt="Card image">
+                    <div class="card-body">
+                      <h5 class="card-title lead fw-normal">Start a business in the Northern Territory</h5>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="link-chevron-down card-link">Skip to content</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card card--image-card">
+                    <img src="../assets/images/600X260.png" class="card-img-top" alt="Card image">
+                    <div class="card-body">
+                      <h5 class="card-title lead fw-normal">Start a business in the Northern Territory</h5>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="link-chevron-down card-link">Skip to content</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card card--image-card">
+                    <img src="../assets/images/600X260.png" class="card-img-top" alt="Card image">
+                    <div class="card-body">
+                      <h5 class="card-title lead fw-normal">Start a business in the Northern Territory</h5>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="link-chevron-down card-link">Skip to content</a>
+                    </div>
                 </div>
             </div>
         </div>

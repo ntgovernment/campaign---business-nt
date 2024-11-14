@@ -1,4 +1,6 @@
 .btn {
+    margin-bottom: 0.5rem;
+    
     &:focus {
         @include focus();
     }
@@ -13,6 +15,14 @@
 
     &-external {
         @include btn-icon("\f35d", $animation: false);
+
+        &:hover::after {
+            color: var(--bs-btn-hover-color);
+        }
+
+        &::after {
+            color: $ntg-rubine-red;
+        }
     }
 
     &-close {

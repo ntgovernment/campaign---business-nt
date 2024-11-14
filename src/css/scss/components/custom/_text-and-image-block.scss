@@ -1,0 +1,25 @@
+.ntg-text-and-image-block {
+    $this: &;
+
+    &__image-wrapper {
+        border-radius: 16px;
+        overflow: hidden;
+    }
+
+    &.reverse {
+        #{$this}__content {
+            order: 2;
+        }
+
+        #{$this}__image {
+            order: 1;
+        }
+    }
+
+    &.vertical-btn-group {
+        .btn {
+            display: flex;
+            max-width: fit-content;
+        }
+    }
+}

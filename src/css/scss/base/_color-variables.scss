@@ -65,6 +65,7 @@ $pinkish-red: #E5004D;
 $purplish-red: #B80C4A;
 $grey-cloud: #B5B4B5;
 $platinium: #DEE3E5;
+$arafura-10: #E9E9EF;
 
 $min-contrast-ratio: 4.5;
 $color-contrast-dark: $ntg-dark-gray;
@@ -219,7 +220,8 @@ $theme-colors: (
 	"dark": $dark,
 	"white": $white,
 	"rubine-red": $ntg-rubine-red,
-	"deep-blue": $deep-blue
+	"deep-blue": $deep-blue,
+	"arafura-10": $arafura-10
 );
 
 // Use the main color for each theme-colors.

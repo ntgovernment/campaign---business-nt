@@ -1,7 +1,42 @@
-<section>
+<section class="pb-4">
     <div class="container">
         <p class="quote">Tendering is the process that Government uses to make the opportunity to bid for work fair and transparent for individuals and businesses. There is a process for decision making over the purchasing of goods and services which also ensures value for money.</p>
     </div>
+</section>
+
+<section class="pb-4">
+    <div class="container">
+        <table class="table table-striped table-borderless">
+            <thead>
+                <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                </tr>
+                <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+                </tr>
+                <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
 </section>
 
 <section class="ntg-accordions">

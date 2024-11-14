@@ -224,6 +224,18 @@ $theme-colors: (
 	"arafura-10": $arafura-10
 );
 
+$table-bg-scale:              -80% ;
+$table-variants: (
+  "primary":    $primary,
+  "secondary":  shift-color($secondary, $table-bg-scale),
+  "success":    shift-color($success, $table-bg-scale),
+  "info":       shift-color($info, $table-bg-scale),
+  "warning":    shift-color($warning, $table-bg-scale),
+  "danger":     shift-color($danger, $table-bg-scale),
+  "light":      $light,
+  "dark":       $dark,
+);
+
 // Use the main color for each theme-colors.
 @each $color-name, $color-values in $base-colors {
 	$theme-colors: map-merge($theme-colors, (#{$color-name}: map.get($color-values, "color")));

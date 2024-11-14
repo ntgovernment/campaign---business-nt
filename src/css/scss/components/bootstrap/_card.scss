@@ -52,7 +52,7 @@
 	&-footer {
 		background-color: transparent;
 		border-top: 0;
-		padding: 1rem;
+		padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
 
 		a {
 			text-decoration: none;
@@ -143,10 +143,32 @@
 		}
 	}
 
+	&--with-buttons {
+		--bs-card-spacer-y: 2rem;
+		--bs-card-spacer-x: 2rem;
+
+		.btn {
+			display: flex;
+			max-width: fit-content;
+		}
+
+		#{$this}-title {
+			font-weight: 700;
+			line-height: 1.5;
+		}
+
+		#{$this}-button-wrapper {
+			padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+			padding-top: 0;
+		}
+	}
+
 	&--icon-box-with-links {
 		--bs-card-title-color: $baltic-sea;
 		--bs-card-border-radius: 16px;
 		--bs-card-border-color: #{$ntg-medium-gray-1};
+		--bs-card-spacer-y: 2rem;
+		--bs-card-spacer-x: 2rem;
 
 		#{$this}-icon {
 			padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);

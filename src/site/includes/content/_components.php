@@ -155,6 +155,34 @@
     </div>
 </section>
 
+<section class="ntg-tick-and-cross-box">
+    <div class="container">
+        <div class="row">
+            <div class="col tick-list">
+                <h4 class="ntg-tick-and-cross-box__title">Things to do</h4>
+                <ul>
+                    <li>View current outages feed</li>
+                    <li>Visit SecureNT website</li>
+                    <li>Monitor BOM weather warnings</li>
+                    <li>Power and Water's safety alerts</li>
+                    <li>Another example link</li>
+                    <li>This is an example of a very long text in the content. The content is very long, ver very very very very long.</li>
+                </ul>
+            </div>
+            <div class="col cross-list">
+                <h4 class="ntg-tick-and-cross-box__title">Don't do this</h4>
+                <ul>
+                    <li>View current outages feed</li>
+                    <li>Visit SecureNT website</li>
+                    <li>Monitor BOM weather warnings</li>
+                    <li>Power and Water's safety alerts</li>
+                    <li>Another example link</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="ntg-accordions">
     <div class="container">
         <div class="d-flex flex-row flex-wrap justify-content-between gap-2" style="margin-bottom: 1.25rem;">
@@ -260,7 +288,7 @@
     </div>
 </section>
 
-<section class="ntg-callout pt-5">
+<!-- <section class="ntg-callout pt-5">
     <div class="container">
         <div class="callout callout-info">
             <h3>This is an info callout</h3>
@@ -279,7 +307,7 @@
             <p>Description goes here <a href="#">with a link</a>.</p>
         </div>
     </div>
-</section>
+</section> -->
 
 <section class="ntg-columns pt-5">
     <div class="container">

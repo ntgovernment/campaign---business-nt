@@ -155,7 +155,7 @@
     </div>
 </section>
 
-<section class="ntg-tick-and-cross-box">
+<section class="ntg-tick-and-cross-box pb-4">
     <div class="container">
         <div class="row">
             <div class="col tick-list">
@@ -183,7 +183,7 @@
     </div>
 </section>
 
-<section class="ntg-document-pdf-table">
+<section class="ntg-document-pdf-table pb-4">
     <div class="container">
         <h2>Document PDF Table</h2>
         
@@ -236,6 +236,25 @@
                 <a href="#" class="ntg-document-pdf-table__link"><i class="fa-solid fa-download"></i></a>
             </div>
         </div>
+    </div>
+</section>
+
+<section class="">
+    <div class="container">
+        <ol class="ntg-numbered-lists">
+            <li>
+                <strong>This is a title</strong>
+                <p>This is a description right here</p>
+            </li>
+            <li>
+                <strong>This is a title</strong>
+                <p>This is a description right here</p>
+            </li>
+            <li>
+                <strong>This is a title</strong>
+                <p>This is a description right here</p>
+            </li>
+        </ol>
     </div>
 </section>
 

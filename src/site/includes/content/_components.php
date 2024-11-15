@@ -183,6 +183,62 @@
     </div>
 </section>
 
+<section class="ntg-document-pdf-table">
+    <div class="container">
+        <h2>Document PDF Table</h2>
+        
+        <div class="ntg-document-pdf-table__row">
+            <div class="ntg-document-pdf-table__title">
+                This is a title to a PDF that goes here
+            </div>
+            <div class="ntg-document-pdf-table__metadata">
+                (18.9MB PDF)
+                <a href="#" class="ntg-document-pdf-table__link"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </div>
+        </div>
+
+        <div class="ntg-document-pdf-table__row">
+            <div class="ntg-document-pdf-table__title">
+                This is a title to a PDF that goes here
+            </div>
+            <div class="ntg-document-pdf-table__metadata">
+                (18.9MB PDF)
+                <a href="#" class="ntg-document-pdf-table__link"><i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <div class="ntg-document-pdf-table__row">
+            <div class="ntg-document-pdf-table__title">
+                This is a title to a PDF that goes here
+            </div>
+            <div class="ntg-document-pdf-table__metadata">
+                (18.9MB PDF)
+                <a href="#" class="ntg-document-pdf-table__link"><i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <div class="ntg-document-pdf-table__row">
+            <div class="ntg-document-pdf-table__title">
+                This is a title to a PDF that goes here
+            </div>
+            <div class="ntg-document-pdf-table__metadata">
+                (18.9MB PDF)
+                <a href="#" class="ntg-document-pdf-table__link"><i class="fa-solid fa-download"></i></a>
+            </div>
+        </div>
+
+        <div class="ntg-document-pdf-table__row">
+            <div class="ntg-document-pdf-table__title">
+                This is a title to a PDF that goes here
+            </div>
+            <div class="ntg-document-pdf-table__metadata">
+                (18.9MB PDF)
+                <a href="#" class="ntg-document-pdf-table__link"><i class="fa-solid fa-download"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="ntg-accordions">
     <div class="container">
         <div class="d-flex flex-row flex-wrap justify-content-between gap-2" style="margin-bottom: 1.25rem;">

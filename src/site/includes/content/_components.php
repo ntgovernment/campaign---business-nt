@@ -230,29 +230,32 @@
 
 <section class="ntg-alert pt-5">
     <div class="container">
-        <div class="alert alert-primary" role="alert">
-            <h3>Notice</h3>
-            <p>All vacancies close on the advertised closing date unless otherwise specified.</p>
-        </div>
-
         <div class="alert alert-info" role="alert">
-            <h3>Notice</h3>
-            <p>All vacancies close on the advertised closing date unless otherwise specified.</p>
+            <div class="alert-content">
+                <h3>Notice</h3>
+                <p>All vacancies close on the advertised closing date unless <a href="#">otherwise</a> specified.</p>
+            </div>
         </div>
         <div class="alert alert-warning" role="alert">
-            <h3>Browser out of date</h3>
-            <p>Your web browser is out of date.</p>
+            <div class="alert-content">
+                <h3>Notice</h3>
+                <p>All vacancies close on the advertised closing date unless <a href="#">otherwise</a> specified.</p>
+            </div>
         </div>
         <div class="alert alert-danger" role="alert">
-            <h3>There is a problem</h3>
-            <ul>
-                <li>Full name must not be empty</li>
-                <li>Email must not be empty</li>
-            </ul>
+            <div class="alert-content">
+                <h3>There is a problem</h3>
+                <ul>
+                    <li>Full name must not be <a href="#">empty</a></li>
+                    <li>Email must not be empty</li>
+                </ul>
+            </div>
         </div>
         <div class="alert alert-success" role="alert">
-            <h3>Submission successful</h3>
-            <p>Your application has been successfully submitted.</p>
+            <div class="alert-content">
+                <h3>Submission successful</h3>
+                <p>Your application has been successfully <a href="#">submitted</a>.</p>
+            </div>
         </div>
     </div>
 </section>

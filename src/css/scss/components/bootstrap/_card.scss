@@ -182,6 +182,30 @@
 
 	}
 
+	&--icon-box-with-links-horizontal {
+		flex-flow: row;
+		align-items: center;
+
+		&:hover {
+			text-decoration: none
+		}
+
+		#{$this}-icon {
+			padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+			padding-right: 0;
+		}
+
+		#{$this}-title {
+			font-size: 1rem;
+			font-weight: 700;
+			margin-bottom: 0;
+
+			+ * {
+				margin-top: var(--bs-card-title-spacer-y);
+			}
+		}
+	}
+
 	&--intro-icon-card {
 		flex-direction: row;
 		gap: 1rem;

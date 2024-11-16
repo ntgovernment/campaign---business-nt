@@ -1,3 +1,11 @@
+:root {
+    --input-max-width: 750px;
+}
+
+.max-width-input {
+    max-width: var(--input-max-width);
+}
+
 #content form {
     .g-recaptcha {
         margin-bottom: 1.5rem;
@@ -5,7 +13,7 @@
 
     select {
         @extend .form-select;
-        max-width: 500px;
+        max-width: var(--input-max-width);
         width: 100%;
 
         &:focus {
@@ -25,7 +33,7 @@
     input[type='search'],
     textarea {
         @extend .form-control;
-        max-width: 500px;
+        max-width: var(--input-max-width);
         width: 100%;
 
         &:focus {
@@ -67,7 +75,7 @@
     }
 
     textarea {
-        max-width: 500px;
+        max-width: var(--input-max-width);
     }
 
     input[type='submit'] {

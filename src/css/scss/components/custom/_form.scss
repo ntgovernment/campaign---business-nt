@@ -6,6 +6,64 @@
     max-width: var(--input-max-width);
 }
 
+.form-like-dislike {
+    display: flex;
+    gap: 0.5rem;
+
+    &__wrapper {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+
+        > p {
+            margin-bottom: 0;
+        }
+    }
+
+    &__label {
+        display: block;
+        position: relative;
+        cursor: pointer;
+        font-size: 22px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none; 
+
+        input:checked ~ .form-like-dislike__icon {
+            background-color: $ntg-teal-blue;
+            color: $white;
+        }
+    }
+
+    &__icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 35px;
+        width: 35px;
+        background-color: $white;
+        color: $ntg-teal-blue;
+        border-radius: 50%;
+        border: 2px solid $ntg-teal-blue;
+        cursor: pointer;
+        transition: 0.2s background ease-in-out;
+
+        &:hover {   
+            background-color: $ntg-teal-blue;
+            color: $white;
+        }
+    }
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0 !important;
+        width: 0 !important;
+    }
+}
+
 #content form {
     .g-recaptcha {
         margin-bottom: 1.5rem;

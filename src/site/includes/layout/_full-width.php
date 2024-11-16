@@ -21,7 +21,12 @@
                 <div class="container">
                     <?php include("includes/global/_in-page-nav.php"); ?>
                 </div>
-
+                <section>
+                    <div class="container">
+                        <p>This is a <a href="" data-bs-toggle="modal" data-bs-target="#modal123">link</a> to a modal</p>
+                    </div>
+                </section>
+                
                 <?php echo $content ?>
 
             </div>

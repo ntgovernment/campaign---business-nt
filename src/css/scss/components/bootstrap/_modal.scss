@@ -1,0 +1,20 @@
+.modal {
+    --bs-modal-padding: 2rem;
+    --bs-modal-header-padding: 2rem 2rem;
+    
+    &-open {
+        :where(.mm-slideout) {
+            z-index: unset;
+        }
+    }
+
+    &-header {
+        border-bottom: 0;
+        padding-bottom: 0;
+    }
+
+    &-body {
+        padding-top: 1rem;
+    }
+
+}

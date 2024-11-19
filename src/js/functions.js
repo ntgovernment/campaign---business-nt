@@ -1,8 +1,9 @@
 (function () {
-    initPriorityNav();
+    initMegaMenu();
     initResponsiveMenu();
+    // initPriorityNav();
     initMmenu();
-    initMenuEdge();
+    // initMenuEdge();
     initSuperfish();
     initStickyHeader();
     initSideNav();
@@ -16,6 +17,114 @@
     initLinkCheck();
     initAddHoverClassOnCardHover();
 })();
+
+function initMegaMenu() {
+    ResponsiveHelper.addRange({
+        '1200..': {
+            on: function () {
+                $('.ntg-main-nav__wrapper').accessibleMegaMenu('init');
+                $('.ntg-main-nav__panel').css('display', 'block');
+            },
+            off: function () {
+                $('.ntg-main-nav__wrapper').accessibleMegaMenu('destroy');
+            },
+        },
+    });
+
+    const header = document.querySelector('.page-header-container');
+    const navLinks = document.querySelectorAll('.ntg-main-nav__link > a');
+    const scrollSensor = 100;
+    var openPanel = false;
+
+    navLinks.forEach(function (link) {
+        const config = {
+            attributes: true
+        };
+        const callback = (mutationList, observer) => {
+            for (const mutation of mutationList) {
+                // listen for changes in the link's attributes
+                if (mutation.type === "attributes") {
+                    var scrollPosition = scrollY;
+                    for (i = 0; i < navLinks.length; i++) {
+                        if (navLinks[i].classList.contains('open')) {
+                            header.classList.add('header-scroll');
+                            openPanel = true;
+                            break;
+                        } else {
+                            if (scrollPosition <= scrollSensor) {
+                                header.classList.remove('header-scroll');
+                            }
+                            openPanel = false;
+                        }
+                    }
+                }
+            }
+        }
+        // initialise MutationObserver
+        const observer = new MutationObserver(callback);
+        observer.observe(link, config);
+    });
+
+    // custom sticky header functionality - refer to sticky header plugin
+    var lastScrollTop = 0;
+    const delta = 5;
+    window.addEventListener('scroll', function () {
+        var scrollTop = window.scrollY;
+        var scrollUp = (lastScrollTop > scrollTop);
+        // ensure scroll is more than delta
+        if (Math.abs(lastScrollTop - scrollTop) <= delta) {
+            return false;
+        }
+        if (scrollUp) {
+            // don't remove compact header styling at the top of the page if a panel is open
+            if (scrollTop <= scrollSensor) {
+                if (!openPanel) {
+                    header.classList.remove('header-scroll');
+                }
+            }
+        } else {
+            // hide header if scrolling down and no panels are open
+            if (scrollTop > scrollSensor) {
+                if (!openPanel) {
+                    header.classList.add('header-hide');
+                }
+            }
+        }
+        lastScrollTop = scrollTop;
+    });
+
+    window.addEventListener('resize', function () {
+        const breakpoint = 1200;
+        var scrollPosition = scrollY;
+        if (window.matchMedia(`(max-width: ${breakpoint}px)`)) {
+            if (scrollPosition <= scrollSensor) {
+                header.classList.remove('header-scroll');
+            }
+        }
+        if (window.matchMedia(`(min-width: ${breakpoint}px)`)) {
+            if (openPanel) {
+                header.classList.add('header-scroll');
+            }
+        }
+    });
+
+    /*
+     * detects if there is only one group of links in the columns section
+     * of a panel and adds a class that spreads the links across the width
+     * of the panel
+    */
+    var panels = document.querySelectorAll('.ntg-main-nav__panel');
+    panels.forEach(function (panel) {
+        var columns = panel.querySelector('.ntg-main-nav__panel-columns');
+        if (!columns) {
+            return false;
+        }
+        var children = columns.childElementCount;
+        if (children <= 1) {
+            panel.classList.add('one-group');
+        }
+    });
+}
 
 function initAddHoverClassOnCardHover() {
     // Select the card link and the parent card

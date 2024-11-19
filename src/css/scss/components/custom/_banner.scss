@@ -50,6 +50,26 @@
             opacity: 0.5;
         }
     }
+
+    .banner-quick-links__wrapper {
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 0;
+
+            li {
+                display: inline;
+
+                //Make the quick links button
+                a {
+                    @extend .btn;
+                    @extend .btn-white;
+                    @extend .rounded-pill;
+                    @extend .btn-quick-links;
+                }
+            }
+        }
+    }
 }
 
 .ntg-homepage-banner {

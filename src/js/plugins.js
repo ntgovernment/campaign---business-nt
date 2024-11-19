@@ -12,6 +12,8 @@ const pluginsToBuild = [
     "src/js/plugins/sticky-header.js",
     "src/js/plugins/search.js",
     "src/js/plugins/superfish.js",
+    "src/js/plugins/responsive-helper.js",
+    "src/js/plugins/megamenu.js"
 ];
 
 module.exports = pluginsToBuild;

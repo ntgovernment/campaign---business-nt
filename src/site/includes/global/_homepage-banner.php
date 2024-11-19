@@ -17,12 +17,14 @@
             <div class="col-lg-5">
                 <div class="banner-quick-links__title h4 mb-3">Quick Links</div>
                 <div class="banner-quick-links__wrapper">
-                    <a href="#" class="btn btn-white btn-quick-links rounded-pill">Funding Assistance and Grants</a>
-                    <a href="#" class="btn btn-white btn-quick-links rounded-pill">Business legislation and regulation</a>
-                    <a href="#" class="btn btn-white btn-quick-links rounded-pill">Getting help as a business owner</a>
-                    <a href="#" class="btn btn-white btn-quick-links rounded-pill">Events</a>
-                    <a href="#" class="btn btn-white btn-quick-links rounded-pill">Tendering with Government</a>
-                    <a href="#" class="btn btn-white btn-quick-links rounded-pill">Get in touch</a>
+                    <ul>
+                        <li><a href="#" class="btn btn-white btn-quick-links rounded-pill">Funding Assistance and Grants</a></li>
+                        <li><a href="#" class="btn btn-white btn-quick-links rounded-pill">Business legislation and regulation</a></li>
+                        <li><a href="#" class="btn btn-white btn-quick-links rounded-pill">Getting help as a business owner</a></li>
+                        <li><a href="#" class="btn btn-white btn-quick-links rounded-pill">Events</a></li>
+                        <li><a href="#" class="btn btn-white btn-quick-links rounded-pill">Tendering with Government</a></li>
+                        <li><a href="#" class="btn btn-white btn-quick-links rounded-pill">Get in touch</a></li>
+                    </ul>
                 </div>
             </div>
         </div>

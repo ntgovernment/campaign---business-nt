@@ -1,7 +1,7 @@
-<section class="ntg-homepage-cards py-5">
+<section class="py-5">
     <div class="container">
-        <div class="row gy-3">
-            <div class="col-sm-6 col-lg-3">
+        <div class="row gy-3 row-cols-sm-2 row-cols-lg-4">
+            <div class="col">
                 <div class="card card--icon-box-with-links">
                     <div class="card-icon">
                         <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -18,7 +18,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-3">
+            <div class="col">
                 <div class="card card--icon-box-with-links">
                     <div class="card-icon">
                         <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,7 +35,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-3">
+            <div class="col">
                 <div class="card card--icon-box-with-links">
                     <div class="card-icon">
                         <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -52,7 +52,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm-6 col-lg-3">
+            <div class="col">
                 <div class="card card--icon-box-with-links">
                     <div class="card-icon">
                         <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">

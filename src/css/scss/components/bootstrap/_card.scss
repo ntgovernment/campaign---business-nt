@@ -169,6 +169,11 @@
 		#{$this}-icon {
 			padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
 			padding-bottom: 0;
+
+			svg {
+				max-height: 45px;
+				width: auto;
+			}
 		}
 
 		#{$this}-title {
@@ -189,6 +194,11 @@
 		#{$this}-icon {
 			padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
 			padding-right: 0;
+
+			svg {
+				max-height: 45px;
+				width: auto;
+			}
 		}
 
 		#{$this}-title {

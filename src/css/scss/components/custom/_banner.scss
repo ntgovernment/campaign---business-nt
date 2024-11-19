@@ -56,6 +56,9 @@
             list-style-type: none;
             padding-left: 0;
             margin-bottom: 0;
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: 0.5rem;
 
             li {
                 display: inline;

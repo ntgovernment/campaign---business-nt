@@ -1,3 +1,8 @@
+<section>
+    <div class="container">
+        <p>This is a <a href="" data-bs-toggle="modal" data-bs-target="#modal123">link</a> to a modal</p>
+    </div>
+</section>
 
 <!-- Modal -->
 <div class="modal fade" id="modal123" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modal123Label" aria-hidden="true">

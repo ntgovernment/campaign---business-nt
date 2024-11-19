@@ -45,10 +45,6 @@
 		height: 100%;
 	}
 
-	&-title {
-		font-size: 1.4em;
-	}
-
 	&-footer {
 		background-color: transparent;
 		border-top: 0;
@@ -167,8 +163,8 @@
 		--bs-card-title-color: $baltic-sea;
 		--bs-card-border-radius: 16px;
 		--bs-card-border-color: #{$ntg-medium-gray-1};
-		--bs-card-spacer-y: 2rem;
-		--bs-card-spacer-x: 2rem;
+		--bs-card-spacer-y: 1rem;
+		--bs-card-spacer-x: 1rem;
 
 		#{$this}-icon {
 			padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);

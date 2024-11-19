@@ -14,4 +14,24 @@
             display: inherit;
         }
     }
+
+    &-item {
+        margin-bottom: 1.5rem;
+        border-radius: var(--bs-accordion-border-radius);
+
+        &:not(:first-of-type) {
+            border-top: var(--bs-accordion-border-width) solid var(--bs-accordion-border-color);
+        }
+    }
+
+    &-button {
+        display: flex;
+        gap: 1rem;
+        font-weight: 700;
+        border-radius: var(--bs-accordion-border-radius);
+    }
+}
+
+.bg-arafura-10 {
+    
 }

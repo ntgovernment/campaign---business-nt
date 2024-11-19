@@ -12,7 +12,7 @@
         <div class="row gy-5 align-items-center">
             <div class="col">
                 <div class="ntg-standard-banner__content">
-                    <h1 class="ntg-standard-banner__title">Components</h1>
+                    <h1 class="ntg-standard-banner__title header-line-top">Components</h1>
                     <p>Find out how you can start your business</p>
                 </div>
             </div>

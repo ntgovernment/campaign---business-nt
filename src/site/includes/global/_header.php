@@ -26,8 +26,8 @@
 				<div class="row">
 					<div class="col col-md-3 col-lg-2 col-logo-hold">
 						<a class="ntg-header__logo" href="./index.html">
-							<img class="ntg-header__image" alt="Territory Centre" src="assets/images/logo-business.png" width="147"
-								height="45" />
+							<img class="ntg-header__image" alt="Territory Centre" src="assets/images/logo-business.svg" width="138"
+								height="63" />
 						</a>
 					</div>
 					<div class="col col-md-9 col-lg-10 col-main-nav">

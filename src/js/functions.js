@@ -6,7 +6,7 @@
     initSuperfish();
     initStickyHeader();
     initSideNav();
-    initInPageNav();
+    // initInPageNav();
     initScrollToTop();
     initResponsiveTable();
     initFlickity();

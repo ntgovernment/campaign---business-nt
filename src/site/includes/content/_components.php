@@ -308,7 +308,7 @@
     </div>
 </section>
 
-<section class="ntg-accordions">
+<section class="ntg-accordions pb-7">
     <div class="container">
         <div class="d-flex flex-row flex-wrap justify-content-between gap-2" style="margin-bottom: 1.25rem;">
             <h2 class="mb-0">Accordion</h2>
@@ -323,6 +323,20 @@
                 <h2 class="accordion-header" id="headingOne">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+
+                        <svg width="47" height="47" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_3826_2939)">
+                            <path d="M44.4085 25.5909C43.7812 25.5909 43.3631 26.0092 43.3631 26.6364V40.2273C43.3631 40.8546 42.9448 41.2727 42.3176 41.2727H4.68119C4.0539 41.2727 3.63577 40.8545 3.63577 40.2273V26.6364C3.63577 26.0091 3.21754 25.5909 2.59034 25.5909C1.96314 25.5909 1.54492 26.0092 1.54492 26.6364V40.2273C1.54492 42.0046 2.90399 43.3637 4.68128 43.3637H42.3176C44.0949 43.3637 45.454 42.0046 45.454 40.2273V26.6364C45.454 26.0091 45.0358 25.5909 44.4085 25.5909Z" fill="#007E91"/>
+                            <path d="M43.3636 10.9546H3.63636C1.85907 10.9546 0.5 12.3137 0.5 14.0909V20.7819C0.5 22.2454 1.54542 23.5 2.90458 23.8137L19.3182 27.4727V30.8181C19.3182 31.4454 19.7364 31.8636 20.3636 31.8636H26.6364C27.2636 31.8636 27.6818 31.4453 27.6818 30.8181V27.4727L44.0954 23.8137C45.4546 23.5 46.5 22.2454 46.5 20.7818V14.0909C46.5 12.3137 45.1409 10.9546 43.3636 10.9546ZM25.5909 29.7727H21.4092V25.5909H25.5909V29.7727ZM44.4091 20.7818C44.4091 21.3045 44.0954 21.7227 43.5727 21.8272L27.6818 25.3818V24.5454C27.6818 23.9181 27.2636 23.5 26.6364 23.5H20.3636C19.7364 23.5 19.3182 23.9182 19.3182 24.5454V25.3818L3.42729 21.8273C2.90458 21.7227 2.59093 21.3046 2.59093 20.7819V14.0909C2.59093 13.4637 3.00916 13.0455 3.63636 13.0455H43.3636C43.9909 13.0455 44.4091 13.4637 44.4091 14.0909V20.7818Z" fill="#007E91"/>
+                            <path d="M28.7277 3.63635H18.2731C16.4958 3.63635 15.1367 4.99542 15.1367 6.77271V7.81813C15.1367 8.44542 15.5549 8.86355 16.1821 8.86355C16.8093 8.86355 17.2276 8.44533 17.2276 7.81813V6.77271C17.2276 6.14542 17.6458 5.72729 18.273 5.72729H28.7276C29.3549 5.72729 29.773 6.14551 29.773 6.77271V7.81813C29.773 8.44542 30.1912 8.86355 30.8184 8.86355C31.4457 8.86355 31.8638 8.44533 31.8638 7.81813V6.77271C31.864 4.99542 30.5049 3.63635 28.7277 3.63635Z" fill="#007E91"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_3826_2939">
+                            <rect width="46" height="46" fill="white" transform="translate(0.5 0.5)"/>
+                            </clipPath>
+                            </defs>
+                        </svg>
+
                         Accordion Item #1
                     </button>
                 </h2>
@@ -380,6 +394,91 @@
     </div>
 </section>
 
+<section class="ntg-accordions bg-arafura-10 py-7">
+    <div class="container">
+        <div class="d-flex flex-row flex-wrap justify-content-between gap-2" style="margin-bottom: 1.25rem;">
+            <h2 class="mb-0">Accordion</h2>
+            <div class="d-flex align-items-center ms-auto">
+                <a class="ms-2 me-2 me-sm-3" href="#" type="button" data-bs-toggle="collapse"
+                    data-bs-target=".collapse:not(.show)">Open all</a>
+                <a href="#" type="button" data-bs-toggle="collapse" data-bs-target=".collapse.show">Close all</a>
+            </div>
+        </div>
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        
+                        <svg width="47" height="47" viewBox="0 0 47 47" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_3826_2939)">
+                            <path d="M44.4085 25.5909C43.7812 25.5909 43.3631 26.0092 43.3631 26.6364V40.2273C43.3631 40.8546 42.9448 41.2727 42.3176 41.2727H4.68119C4.0539 41.2727 3.63577 40.8545 3.63577 40.2273V26.6364C3.63577 26.0091 3.21754 25.5909 2.59034 25.5909C1.96314 25.5909 1.54492 26.0092 1.54492 26.6364V40.2273C1.54492 42.0046 2.90399 43.3637 4.68128 43.3637H42.3176C44.0949 43.3637 45.454 42.0046 45.454 40.2273V26.6364C45.454 26.0091 45.0358 25.5909 44.4085 25.5909Z" fill="#007E91"/>
+                            <path d="M43.3636 10.9546H3.63636C1.85907 10.9546 0.5 12.3137 0.5 14.0909V20.7819C0.5 22.2454 1.54542 23.5 2.90458 23.8137L19.3182 27.4727V30.8181C19.3182 31.4454 19.7364 31.8636 20.3636 31.8636H26.6364C27.2636 31.8636 27.6818 31.4453 27.6818 30.8181V27.4727L44.0954 23.8137C45.4546 23.5 46.5 22.2454 46.5 20.7818V14.0909C46.5 12.3137 45.1409 10.9546 43.3636 10.9546ZM25.5909 29.7727H21.4092V25.5909H25.5909V29.7727ZM44.4091 20.7818C44.4091 21.3045 44.0954 21.7227 43.5727 21.8272L27.6818 25.3818V24.5454C27.6818 23.9181 27.2636 23.5 26.6364 23.5H20.3636C19.7364 23.5 19.3182 23.9182 19.3182 24.5454V25.3818L3.42729 21.8273C2.90458 21.7227 2.59093 21.3046 2.59093 20.7819V14.0909C2.59093 13.4637 3.00916 13.0455 3.63636 13.0455H43.3636C43.9909 13.0455 44.4091 13.4637 44.4091 14.0909V20.7818Z" fill="#007E91"/>
+                            <path d="M28.7277 3.63635H18.2731C16.4958 3.63635 15.1367 4.99542 15.1367 6.77271V7.81813C15.1367 8.44542 15.5549 8.86355 16.1821 8.86355C16.8093 8.86355 17.2276 8.44533 17.2276 7.81813V6.77271C17.2276 6.14542 17.6458 5.72729 18.273 5.72729H28.7276C29.3549 5.72729 29.773 6.14551 29.773 6.77271V7.81813C29.773 8.44542 30.1912 8.86355 30.8184 8.86355C31.4457 8.86355 31.8638 8.44533 31.8638 7.81813V6.77271C31.864 4.99542 30.5049 3.63635 28.7277 3.63635Z" fill="#007E91"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_3826_2939">
+                            <rect width="46" height="46" fill="white" transform="translate(0.5 0.5)"/>
+                            </clipPath>
+                            </defs>
+                        </svg>
+
+                        Accordion Item #1
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne">
+                    <div class="accordion-body">
+                        <strong>This is the first item's accordion body.</strong>
+                        It is hidden by default, until the collapse plugin adds the appropriate classes that we use to
+                        style each element. These classes control the overall appearance,
+                        as well as the showing and hiding via CSS transitions. You can modify any of this with custom
+                        CSS or overriding our default variables. It's also worth noting
+                        that just about any HTML can go within the
+                        <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Accordion Item #2
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo">
+                    <div class="accordion-body">
+                        <strong>This is the second item's accordion body.</strong>
+                        It is hidden by default, until the collapse plugin adds the appropriate classes that we use to
+                        style each element. These classes control the overall appearance,
+                        as well as the showing and hiding via CSS transitions. You can modify any of this with custom
+                        CSS or overriding our default variables. It's also worth noting
+                        that just about any HTML can go within the
+                        <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Accordion Item #3
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree">
+                    <div class="accordion-body">
+                        <strong>This is the third item's accordion body.</strong>
+                        It is hidden by default, until the collapse plugin adds the appropriate classes that we use to
+                        style each element. These classes control the overall appearance,
+                        as well as the showing and hiding via CSS transitions. You can modify any of this with custom
+                        CSS or overriding our default variables. It's also worth noting
+                        that just about any HTML can go within the
+                        <code>.accordion-body</code>, though the transition does limit overflow.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <section class="ntg-alert pt-5">
     <div class="container">

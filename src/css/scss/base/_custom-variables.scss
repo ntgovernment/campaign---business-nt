@@ -133,3 +133,15 @@ $input-padding-x: 0.75rem;
 $input-color: $body-color;
 $input-border-color: $ntg-medium-gray-1;
 $input-border-width: 2px;
+
+//Accordion
+$accordion-padding-y: 1.25rem;
+$accordion-padding-x: 1.25rem;
+$accordion-color: $primary;
+$accordion-border-radius: 8px;
+
+$accordion-icon-active-color: $ntg-rubine-red;
+$accordion-icon-color: $ntg-rubine-red;
+
+$accordion-button-icon: url('data:image/svg+xml, <svg width="17" height="11" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M8.18164 10.0508L0.945312 2.85156C0.611328 2.48047 0.611328 1.92383 0.945312 1.58984L1.79883 0.736328C2.13281 0.402344 2.68945 0.402344 3.06055 0.736328L8.8125 6.45117L14.5273 0.736328C14.8984 0.402344 15.4551 0.402344 15.7891 0.736328L16.6426 1.58984C16.9766 1.92383 16.9766 2.48047 16.6426 2.85156L9.40625 10.0508C9.07227 10.3848 8.51562 10.3848 8.18164 10.0508Z" fill="#{$accordion-icon-color}"/> </svg>');
+$accordion-button-active-icon: url('data:image/svg+xml, <svg width="17" height="11" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M8.18164 10.0508L0.945312 2.85156C0.611328 2.48047 0.611328 1.92383 0.945312 1.58984L1.79883 0.736328C2.13281 0.402344 2.68945 0.402344 3.06055 0.736328L8.8125 6.45117L14.5273 0.736328C14.8984 0.402344 15.4551 0.402344 15.7891 0.736328L16.6426 1.58984C16.9766 1.92383 16.9766 2.48047 16.6426 2.85156L9.40625 10.0508C9.07227 10.3848 8.51562 10.3848 8.18164 10.0508Z" fill="#{$accordion-icon-active-color}"/> </svg>');

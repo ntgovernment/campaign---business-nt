@@ -5,6 +5,10 @@
     --bs-breadcrumb-item-active-color: #6A6A6A;
     --bs-breadcrumb-divider-color: #6A6A6A;
 
+    &__wrapper {
+        background: linear-gradient(0deg, #FFF 0%, #FFF 100%), #FFF;
+    }
+    
     &-item {
         &.active {
             margin-top: 1px;

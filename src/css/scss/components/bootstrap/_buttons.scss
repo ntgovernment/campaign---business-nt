@@ -32,6 +32,9 @@
     }
 
     &-quick-links {
+        --bs-btn-hover-bg: #{$ntg-rubine-red};
+        --bs-btn-hover-border-color: #{$ntg-rubine-red};
+        --bs-btn-hover-color: #{$white};
         border-radius: 16px;
     }
 }

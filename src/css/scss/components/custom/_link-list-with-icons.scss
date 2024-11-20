@@ -47,8 +47,10 @@
         }
 
         &__icon {
-            max-width: 56px;
-            height: auto;
+            svg {
+                max-width: 56px;
+                height: auto;
+            }
         }
     }
 }

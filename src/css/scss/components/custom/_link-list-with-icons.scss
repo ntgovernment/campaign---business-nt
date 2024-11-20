@@ -39,5 +39,16 @@
                 }
             }
         }
+
+        &__content {
+            > *:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &__icon {
+            max-width: 56px;
+            height: auto;
+        }
     }
 }

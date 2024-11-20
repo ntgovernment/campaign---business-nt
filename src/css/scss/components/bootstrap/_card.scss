@@ -45,6 +45,12 @@
 		height: 100%;
 	}
 
+	&-text {
+		> *:last-child {
+			margin-bottom: 0;
+		}
+	}
+
 	&-footer {
 		background-color: transparent;
 		border-top: 0;
@@ -272,3 +278,12 @@
 	}
 }
 
+.icon {
+	&---teal {
+		.card-icon {
+			svg {
+				fill: $ntg-teal-blue;
+			}
+		}
+	}
+}

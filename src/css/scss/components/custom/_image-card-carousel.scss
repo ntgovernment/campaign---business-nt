@@ -26,6 +26,9 @@
 
         .card {
             // margin-right: 1rem;
+            &-img-top {
+                aspect-ratio: 500/250;
+            }
         }
     }
 

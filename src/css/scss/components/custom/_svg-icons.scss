@@ -1,0 +1,35 @@
+
+.icon {
+	&--teal {
+		.card-icon {
+			svg {
+                path, rect {
+                    fill: $ntg-teal-blue;
+                    stroke: $ntg-teal-blue !important
+                }
+			}
+		}
+	}
+
+    &--white-in-teal-circle-box-55px {
+        .card-icon {
+            width: 55px;
+            height: 55px;
+            background-color: $ntg-teal-blue;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            svg {
+                max-width: 32px;
+                height: auto;
+
+                path, rect {
+                    fill: $white;
+                    stroke: $white !important
+                }
+			}
+        }
+    }
+}

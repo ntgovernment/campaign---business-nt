@@ -6,10 +6,11 @@
 }
 
 .page-header-container {
+	box-shadow: 0 2px 8px rgba($black, 0.2);
+	
 	@include media-breakpoint-down(sm) {
 		background: $white;
 		padding: 0;
-		box-shadow: 0 2px 8px rgba($black, 0.2);
 	}
 }
 

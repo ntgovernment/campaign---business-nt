@@ -104,11 +104,11 @@
 }
 
 .ntg-standard-banner {
-	padding: 2rem 0;
+	padding: 3rem 0;
 	border-bottom: 1px solid #31317E;
 
 	@include media-breakpoint-up(lg) {
-        padding: 2rem 0;
+        padding: 4rem 0;
     }
 
 	&__image::before {

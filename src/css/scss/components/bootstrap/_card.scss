@@ -45,6 +45,13 @@
 		height: 100%;
 	}
 
+	&-icon {
+		svg {
+			max-height: 45px;
+			width: auto;
+		}
+	}
+
 	&-text {
 		> *:last-child {
 			margin-bottom: 0;
@@ -175,11 +182,6 @@
 		#{$this}-icon {
 			padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
 			padding-bottom: 0;
-
-			svg {
-				max-height: 45px;
-				width: auto;
-			}
 		}
 
 		#{$this}-title {

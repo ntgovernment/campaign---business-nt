@@ -165,6 +165,8 @@ function initLinkCheck() {
         if (location.hostname === link.hostname || !link.hostname.length) {
             return false;
         } else {
+            link.addClass("external-link");
+            
             var fontWeight = window.getComputedStyle(link).getPropertyValue('font-weight');
             let iconWeight;
 

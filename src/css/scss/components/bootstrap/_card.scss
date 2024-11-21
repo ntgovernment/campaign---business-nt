@@ -221,6 +221,8 @@
 	}
 
 	&--intro-icon-card {
+		--bs-card-spacer-y: 3rem;
+		--bs-card-spacer-x: 1rem;
 		flex-direction: row;
 		gap: 1rem;
 		flex-wrap: nowrap;
@@ -229,6 +231,7 @@
 			border-radius: 46% 54% 0% 100% / 100% 0% 100% 0%;
 			overflow: hidden;
 			flex-shrink: 1;
+			aspect-ratio: 500/200;
 		}
 
 		#{$this}-body {

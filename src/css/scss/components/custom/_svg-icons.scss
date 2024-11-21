@@ -1,7 +1,8 @@
 
 .icon {
 	&--teal {
-		.card-icon {
+		.card-icon,
+        .list-group-item__icon {
 			svg {
                 path, rect {
                     fill: $ntg-teal-blue;
@@ -12,7 +13,8 @@
 	}
 
     &--white-in-teal-circle-box-55px {
-        .card-icon {
+        .card-icon,
+        .list-group-item__icon {
             width: 55px;
             height: 55px;
             background-color: $ntg-teal-blue;

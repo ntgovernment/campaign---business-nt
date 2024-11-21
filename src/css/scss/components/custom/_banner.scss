@@ -13,6 +13,10 @@
         @include media-breakpoint-up(lg) {
             max-width: 550px;
         }
+
+        > *:last-child {
+            margin-bottom: 0;
+        }
     }
 
     &__title {
@@ -52,6 +56,20 @@
     }
 
     .banner-quick-links__wrapper {
+        .link-vertical {
+            @include media-breakpoint-up(lg) {
+                display: flex;
+                justify-content: flex-end;
+            }
+
+            ul {
+                @include media-breakpoint-up(lg) {
+                    flex-flow: column;
+                    max-width: fit-content;
+                }
+            }
+        }
+
         ul {
             list-style-type: none;
             padding-left: 0;

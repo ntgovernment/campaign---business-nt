@@ -24,7 +24,6 @@
 
             &.link-chevron-right {
                 padding-right: 0 !important;
-                color: $ntg-rubine-red;
 
                 &:hover {
                     &::after {
@@ -37,6 +36,7 @@
                     text-align: right;
                     transition: 0.2 ease-in-out transform;
                     margin-left: 0 !important;
+                    color: $ntg-rubine-red;
                 }
             }
         }

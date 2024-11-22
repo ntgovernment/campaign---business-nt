@@ -1,11 +1,76 @@
 <nav class="ntg-main-nav" id="mainmenu">
     <div class="ntg-main-nav__wrapper">
         <ul class="ntg-main-nav__links">
-            <li class="is-selected">
-                <a href="./index.html">Home</a>
+            <li class="ntg-main-nav__link has-children">
+                <a href="./about-us.html" role="button">Business in the territory</a>
+                <div class="ntg-main-nav__panel">
+                    <div class="container">
+                        <div class="ntg-main-nav__panel-wrapper has-description-on-left">
+                            <div class="ntg-main-nav__panel-group" role="group">
+                                <h2>
+                                    <a href="#">Opportunities</a>
+                                </h2>
+                                <p>Invest in the Future of the Northern Territory</p>
+                                <a href="#" class="link-chevron-right">Find out more</a>
+                            </div>
+                            <div class="ntg-main-nav__panel-columns">
+                                <div class="ntg-main-nav__panel-group" role="group">
+                                    <h3><a href="#">Minerals</a></h3>
+                                    <ul class="list-chevron">
+                                        <li>
+                                            <a href="#">Critical Minerals</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="ntg-main-nav__panel-group" role="group">
+                                    <h3><a href="#">Tourism</a></h3>
+                                    <ul>
+                                        <li>
+                                            <a href="#">Infrastructure</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="ntg-main-nav__panel-group" role="group">
+                                    <h3><a href="#">Energy</a></h3>
+                                    <ul>
+                                        <li>
+                                            <a href="#">Oil & Gas</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Renewables</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="ntg-main-nav__panel-group" role="group">
+                                    <h3><a href="#">Space</a></h3>
+                                </div>
+                                <div class="ntg-main-nav__panel-group" role="group">
+                                    <h3><a href="#">Agriculture</a></h3>
+                                </div>
+                                <div class="ntg-main-nav__panel-group" role="group">
+                                    <h3><a href="#">Defence Support</a></h3>
+                                </div>
+                                <div class="ntg-main-nav__panel-group" role="group">
+                                    <h3><a href="#">Advanced Manufacturing</a></h3>
+                                </div>
+                                <div class="ntg-main-nav__panel-group" role="group">
+                                    <h3><a href="#">Digital</a></h3>
+                                    <ul>
+                                        <li>
+                                            <a href="#">Data Centres</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Submarine Cables and Networks</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </li>
             <li class="ntg-main-nav__link has-children">
-                <a href="./about-us.html" role="button">About us</a>
+                <a href="./about-us.html" role="button">Doing Business</a>
                 <div class="ntg-main-nav__panel">
                     <div class="container">
                         <div class="ntg-main-nav__panel-wrapper">
@@ -110,7 +175,7 @@
                 </div>
             </li>
             <li class="ntg-main-nav__link has-children">
-                <a href="./projects.html" role="button">Enabling Infrastructure projects</a>
+                <a href="./projects.html" role="button">Tendering with Government</a>
                 <div class="ntg-main-nav__panel">
                     <div class="container">
                         <div class="ntg-main-nav__panel-wrapper has-description-on-left">
@@ -177,7 +242,7 @@
                 </div>
             </li>
             <li class="ntg-main-nav__link has-children">
-                <a href="#" role="button">NT Infrastructure Strategy</a>
+                <a href="#" role="button">Support for business</a>
                 <div class="ntg-main-nav__panel">
                     <div class="container">
                         <div class="ntg-main-nav__panel-wrapper">
@@ -191,50 +256,6 @@
                                 <div class="ntg-main-nav__panel-group" role="group">
                                     <h3><a href="#">Darwin Convention Centre Hotel</a></h3>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="ntg-main-nav__link has-children">
-                <a href="#" role="button">Publications</a>
-                <div class="ntg-main-nav__panel">
-                    <div class="container">
-                        <div class="ntg-main-nav__panel-wrapper">
-                            <div class="ntg-main-nav__panel-group" role="group">
-                                <h2>
-                                    <a href="#">Here to Help</a>
-                                </h2>
-                                <p>Invest in the Future of the Northern Territory</p>
-                            </div>
-                            <div class="ntg-main-nav__panel-columns">
-                                <div class="ntg-main-nav__panel-group" role="group">
-                                    <h3><a href="#">Meet the team</a></h3>
-                                </div>
-                                <div class="ntg-main-nav__panel-group" role="group">
-                                    <h3><a href="#">Funding</a></h3>
-                                </div>
-                                <div class="ntg-main-nav__panel-group" role="group">
-                                    <h3><a href="#">Why Invest in the NT</a></h3>
-                                </div>
-                                <div class="ntg-main-nav__panel-group" role="group">
-                                    <h3><a href="#">Major Project Status</a></h3>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="ntg-main-nav__link has-children">
-                <a href="#" role="button">Contact us</a>
-                <div class="ntg-main-nav__panel">
-                    <div class="container">
-                        <div class="ntg-main-nav__panel-wrapper">
-                            <div class="ntg-main-nav__panel-group" role="group">
-                                <h2>
-                                    <a href="#">Contact</a>
-                                </h2>
-                                <p>Invest in the Future of the Northern Territory</p>
                             </div>
                         </div>
                     </div>

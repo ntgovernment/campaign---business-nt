@@ -2,21 +2,23 @@
 	$this: &;
 	// font-family: $font-ubuntu;
 	transition: 0.2s padding ease-in-out;
-	--main-link-color: #{$gray-800};
-	--main-link-drop-heading-color: #{$gray-800};
+	--main-link-color: #{$ebony};
+	--main-link-drop-heading-color: #{$primary};
 	--column-gap: 1.5rem;
-	--main-drop-columns: 3;
+	--main-drop-columns: 4;
 	--main-drop-columns-padding-top: 1rem;
 	--main-drop-columns-padding-bottom: 1rem;
 	--main-drop-columns-padding-left: 1rem;
 	--main-drop-columns-padding-right: 1rem;
-	--main-drop-columns-gap-border-color: #{$blue};
+	--main-drop-columns-gap-border-color: #{$body-color};
 	--main-drop-columns-gap-border-width: 1px;
 
-	--main-drop-link-color: #{$gray-800};
+	--main-drop-link-color: #{$body-color};
 	--main-drop-link-hover-color: #{$black};
 	--main-drop-panel-padding-top: 2rem;
 	--main-drop-panel-padding-bottom: 2rem;
+	
+	height: 100%;
 
 	@include media-breakpoint-only(xxl) {
 		--main-drop-columns: 4;
@@ -30,7 +32,7 @@
 	@include media-breakpoint-up(xxl) {
 		--main-drop-panel-padding-top: 3rem;
 		--main-drop-panel-padding-bottom: 3rem;
-		--main-drop-columns: 5;
+		--main-drop-columns: 4;
 	}
 
 	&__search {
@@ -40,6 +42,7 @@
 		width: 46px;
 		height: 46px;
 		border: none;
+		display: none;
 
 		@include media-breakpoint-down(xl) {
 			order: 1;
@@ -135,6 +138,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: flex-end;
+		height: 100%;
 	}
 
 	&__links {
@@ -144,7 +148,9 @@
 		display: flex;
 		align-items: center;
 		justify-content: flex-end;
+		gap: 1rem;
 		width: 100%;
+		height: 100%;
 
 		@include media-breakpoint-down(xl) {
 			display: none;
@@ -152,6 +158,8 @@
 	}
 
 	&__link {
+		height: 100%;
+		
 		&.is-selected {
 			>a {
 				font-weight: 700;
@@ -160,30 +168,37 @@
 
 		> a {
 			color: var(--main-link-color);
+			font-weight: 700;
 			text-decoration: none;
 			text-align: center;
-			padding: 1.5rem;
-			// height: 106px;
+			// padding: 1.5rem;
+			height: 100%;
 			position: relative;
 			display: flex;
 			align-items: center;
 			font-size: 1.0625rem;
+			white-space: nowrap;
 
 			@include media-breakpoint-down(xxl) {
-				padding: 1.5rem 0.8rem;
+				// padding: 1.5rem 0.5rem;
 			}
 
 			&:before {
 				content: '';
-				background-color: $secondary;
-				height: 5px;
+				background-color: $ntg-rubine-red;
+				height: 4px;
 				position: absolute;
 				left: 0;
 				right: 0;
 				bottom: 0;
 				transform: scaleX(0);
 				transition: 0.25s transform ease-in-out;
-				z-index: -1;
+			}
+
+			&:hover, &:focus {
+				&::before {
+					transform: scaleX(1);
+				}
 			}
 
 			&.focus {
@@ -270,20 +285,32 @@
 			padding-right: var(--main-drop-columns-padding-right);
 		}
 
+		a.link-chevron-right {
+			text-decoration: none;
+			font-weight: 700;
+			color: $body-color;
+
+			&::after {
+				color: $ntg-rubine-red;
+			}
+		}
+
 		h2,
 		h3 {
 			color: var(--main-drop-heading-color);
-			@include font-size(16px);
-			margin-bottom: 1rem;
+			font-size: 1rem;
+			font-weight: 700;
+			margin-bottom: 0.5rem;
 
 			>a {
-				text-decoration: underline;
-				text-decoration-color: rgba($primary, 0);
-				text-decoration-thickness: 3px;
-				text-underline-offset: 2px;
+				text-decoration: none;
+				// text-decoration-color: rgba($primary, 0);
+				// text-decoration-thickness: 3px;
+				// text-underline-offset: 2px;
 				transition: 0.2s text-decoration-color;
 
 				&:hover, &.active {
+					text-decoration: underline;
 					text-decoration-color: rgba($primary, 1);
 				}
 			}
@@ -294,9 +321,23 @@
 		// }
 
 		ul {
+			--list-padding-left: 1.25rem;
+			padding-left: var(--list-padding-left);
 			list-style: none;
-			padding: 0;
-			margin: 0;
+			// padding: 0;
+			// margin: 0;
+			li {
+				position: relative;
+
+				&::before {
+					content: "\f054";
+					@extend .fa;
+					font-weight: 700;
+					position: absolute;
+					left: calc(-1 * var(--list-padding-left));
+					color: $ntg-rubine-red;
+				}
+			}
 		}
 
 		li {

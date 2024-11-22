@@ -54,6 +54,7 @@
 		max-width: var(--header-logo-width);
 		width: 100%;
 		display: block;
+		padding: var(--header-main-py) 0;
 
 		img {
 			width: 100%;
@@ -186,9 +187,14 @@
 
 .ntg-header__main {
 	--header-main-py: 10px;
-	padding: var(--header-main-py) 0;
 
 	@include media-breakpoint-up(sm) {
 		--header-main-py: 15px;
+	}
+
+	.col-main-nav {
+		// display: flex;
+		// align-items: center;
+		// justify-content: flex-end;
 	}
 }

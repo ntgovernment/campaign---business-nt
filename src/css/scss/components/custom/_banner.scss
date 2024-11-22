@@ -120,7 +120,8 @@
 	}
 
     &--type-2 {
-        #{$this}__image {
+        #{$this}__image,
+        #{$this}__video {
             position: static;
             border-radius: 16px;
             overflow: hidden;

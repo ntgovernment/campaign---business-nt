@@ -167,22 +167,27 @@ function initLinkCheck() {
         } else {
             link.classList.add("external-link");
 
-            var fontWeight = window.getComputedStyle(link).getPropertyValue('font-weight');
-            let iconWeight;
-
-            if (fontWeight == '300') {
-                iconWeight = 'fa-light';
-            } else if (fontWeight == '400') {
-                iconWeight = 'fa-regular';
-            } else if (fontWeight == '700') {
-                iconWeight = 'fa-solid';
+            if(link.classList.contains("btn")) {
+                link.classList.add("btn-external");
+            } else {
+                var fontWeight = window.getComputedStyle(link).getPropertyValue('font-weight');
+                let iconWeight;
+    
+                if (fontWeight == '300') {
+                    iconWeight = 'fa-light';
+                } else if (fontWeight == '400') {
+                    iconWeight = 'fa-regular';
+                } else if (fontWeight == '700') {
+                    iconWeight = 'fa-solid';
+                }
+    
+                var icon = '<i class="' + iconWeight + ' fa-external-link ms-1 aria-hidden="true"></i>';
+    
+                if(!link.querySelector('[class*="fa-external-link"]') && !link.querySelector('img') && !link.querySelector('[class*="fa-brands"]')) {
+                    link.insertAdjacentHTML('beforeend', icon);
+                }
             }
-
-            var icon = '<i class="' + iconWeight + ' fa-external-link ms-1 aria-hidden="true"></i>';
-
-            if(!link.querySelector('[class*="fa-external-link"]') && !link.querySelector('img') && !link.querySelector('[class*="fa-brands"]')) {
-                link.insertAdjacentHTML('beforeend', icon);
-            }
+            
         }
     });
 }

@@ -83,7 +83,7 @@
     </div>
 </section>
 
-<section class="ntg-text-and-image-block py-7 reverse vertical-btn-groupgit  bg-arafura-10">
+<section class="ntg-text-and-image-block py-7 reverse vertical-btn-group bg-arafura-10">
     <div class="container">
         <div class="row align-items-center gy-4">
             <div class="col ntg-text-and-image-block__content">

@@ -2,7 +2,8 @@
 .icon {
 	&--teal {
 		.card-icon,
-        .list-group-item__icon {
+        .list-group-item__icon,
+        .accordion-header {
 			svg {
                 path, rect {
                     fill: $ntg-teal-blue;
@@ -14,7 +15,8 @@
 
     &--white {
 		.card-icon,
-        .list-group-item__icon {
+        .list-group-item__icon,
+        .accordion-header {
 			svg {
                 path, rect {
                     fill: $white;
@@ -26,7 +28,8 @@
 
     &--dark-gray {
 		.card-icon,
-        .list-group-item__icon {
+        .list-group-item__icon,
+        .accordion-header {
 			svg {
                 path, rect {
                     fill: $ntg-dark-gray;
@@ -38,7 +41,8 @@
 
     &--white-in-teal-circle-box-55px {
         .card-icon,
-        .list-group-item__icon {
+        .list-group-item__icon,
+        .accordion-header {
             width: 55px;
             height: 55px;
             background-color: $ntg-teal-blue;

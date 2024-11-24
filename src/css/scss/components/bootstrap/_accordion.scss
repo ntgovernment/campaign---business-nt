@@ -13,6 +13,11 @@
         &:target {
             display: inherit;
         }
+
+        svg {
+			height: 45px;
+			width: auto;
+		}
     }
 
     &-item {

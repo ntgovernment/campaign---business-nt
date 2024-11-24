@@ -12,6 +12,30 @@
 		}
 	}
 
+    &--white {
+		.card-icon,
+        .list-group-item__icon {
+			svg {
+                path, rect {
+                    fill: $white;
+                    stroke: $white !important
+                }
+			}
+		}
+	}
+
+    &--dark-gray {
+		.card-icon,
+        .list-group-item__icon {
+			svg {
+                path, rect {
+                    fill: $ntg-dark-gray;
+                    stroke: $ntg-dark-gray !important
+                }
+			}
+		}
+	}
+
     &--white-in-teal-circle-box-55px {
         .card-icon,
         .list-group-item__icon {

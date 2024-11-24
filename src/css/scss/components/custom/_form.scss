@@ -155,8 +155,6 @@
     .sq-form-question {
         &-title {
             @extend .form-label;
-            font-weight: bold;
-            font-size: 1rem !important;
         }
 
         &-title + .sq-form-question-note {
@@ -166,6 +164,7 @@
         &-note {
             display: block;
             margin-bottom: 0.5rem;
+            @extend .small;
         }
 
         + .sq-form-question {

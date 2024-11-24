@@ -9,6 +9,12 @@
         @include btn-icon("\f054");
     }
 
+    &-primary {
+        &.btn-chevron-right::after {
+            color: $ntg-rubine-red;
+        }
+    }
+
     &-chevron-left {
         @include btn-icon("\f053", $reverse: true);
     }

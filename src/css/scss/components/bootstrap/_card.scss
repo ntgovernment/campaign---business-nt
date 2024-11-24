@@ -166,6 +166,11 @@
 			line-height: 1.5;
 		}
 
+		#{$this}-icon {
+			padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+			padding-bottom: 0;
+		}
+
 		#{$this}-button-wrapper {
 			padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
 			padding-top: 0;
@@ -281,6 +286,36 @@
 				border-top: 1px solid rgba(0, 0, 0, 0.20);
 				padding-top: var(--bs-card-cap-padding-y);
 			}
+		}
+	}
+
+	&--primary {
+		--bs-card-bg: #{$primary};
+		--bs-card-border-color: #{$primary};
+		--bs-card-color: #{$white};
+		--bs-link-color-rgb: 255, 255, 255;
+		
+		#{$this}-link {
+			color: $white;
+		}
+
+		.link-chevron-right::after, .external-link::before {
+			color: $white;
+		}
+	}
+
+	&--rubine-red {
+		--bs-card-bg: rgba(152, 0, 68, 0.10);
+		--bs-card-border-color: #{$ntg-rubine-red};
+		--bs-card-color: #{$body-color};
+		--bs-link-color-rgb: 43,41,45;
+		
+		#{$this}-link {
+			color: $ntg-dark-gray;
+		}
+
+		.link-chevron-right::after, .external-link::before {
+			color: $ntg-dark-gray;
 		}
 	}
 }

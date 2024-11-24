@@ -156,11 +156,6 @@
 		--bs-card-spacer-y: 2rem;
 		--bs-card-spacer-x: 2rem;
 
-		.btn {
-			display: flex;
-			max-width: fit-content;
-		}
-
 		#{$this}-title {
 			font-weight: 700;
 			line-height: 1.5;
@@ -192,6 +187,11 @@
 						@extend .btn-outline-primary;
 						@extend .rounded-pill;
 						@extend .btn-quick-links;
+					}
+
+					a, .btn {
+						display: flex;
+						max-width: fit-content;
 					}
 				}
 			}
@@ -324,8 +324,8 @@
 			color: $white;
 		}
 
-		#{$this}-button-wrapper {
-			@extend .btn-white;
+		#{$this}-button-wrapper ul li a {
+			@extend .btn-outline-white;
 		}
 	}
 
@@ -343,8 +343,8 @@
 			color: $ntg-dark-gray;
 		}
 
-		#{$this}-button-wrapper ul li a{
-			@extend .btn-dark-gray;
+		#{$this}-button-wrapper ul li a {
+			@extend .btn-outline-dark-gray;
 		}
 	}
 }

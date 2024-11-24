@@ -184,7 +184,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <div class="card card--with-buttons">
+                <div class="card card--with-buttons card--rubine-red">
                     <div class="row align-items-center justify-content-between">
                         <div class="col-lg-6">
                             <div class="card-body">
@@ -194,8 +194,12 @@
                         </div>
                         <div class="col-lg-auto">
                             <div class="card-button-wrapper">
-                                <a href="#" class="btn btn-outline-primary rounded-pill">Territory Business Centre</a>
-                                <a href="#" class="btn btn-outline-primary rounded-pill">Another link goes here</a>
+                                <ul>
+                                    <li><a href="#">Territory Business Centre</a></li>
+                                    <li><a href="#">Another link goes here</a></li>
+                                </ul>
+                                
+                                
                             </div>
                         </div>
                     </div>

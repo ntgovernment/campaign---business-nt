@@ -8,7 +8,17 @@
     }
 }
 
+.bg-arafura-10 .accordion {
+    --bs-accordion-bg: #{$white};
+    --bs-accordion-border-color: #{$white};
+    --bs-accordion-btn-color: #{$body-color};
+}
+
 .accordion {
+    --bs-accordion-bg: #EDEDED;
+    --bs-accordion-border-color: #EDEDED;
+    --bs-accordion-btn-color: #{$primary};
+
     &-header {
         &:target {
             display: inherit;

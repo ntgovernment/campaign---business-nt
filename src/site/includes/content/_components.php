@@ -1,3 +1,39 @@
+<section class="full-width-image-block position-relative">
+    <div class="full-width-image-block__image" style="background-image: url(assets/images/katherine-river.png);"></div>
+</section>
+
+<section class="full-length-box-with-description-and-button position-relative">
+    <div class="full-length-box-with-description-and-button__image" style="background-image: url(assets/images/katherine-river.png);"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card card--with-buttons">
+                    <div class="row align-items-center justify-content-between">
+                        <div class="col-lg-6">
+                            <div class="card-body">
+                                <h5 class="card-title h4">Start a business in the Northen Territory</h5>
+                                <p>This is a card. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod  tempor incididunt ut labore et dolore magna aliqua.</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-auto">
+                            <div class="card-button-wrapper">
+                                <ul>
+                                    <li><a href="#">Territory Business Centre</a></li>
+                                    <li><a href="#">Another link goes here</a></li>
+                                </ul>
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+</section>
+
+
 <section class="ntg-skip-to-content py-5">
     <div class="container">
         <p class="lead">Skip to content</p>

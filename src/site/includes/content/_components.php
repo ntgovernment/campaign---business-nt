@@ -33,6 +33,15 @@
     </div>
 </section>
 
+<section class="text-block-with-background-image-and-contact-card position-relative">
+    <div class="text-block-with-background-image-and-contact-card" style="background-image: url(assets/images/katherine-river.png);"></div>
+
+    <div class="container">
+        <div class="row">
+            
+        </div>
+    </div>
+</section>
 
 <section class="ntg-skip-to-content py-5">
     <div class="container">

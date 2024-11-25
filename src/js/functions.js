@@ -16,7 +16,16 @@
     initResponsivePagination();
     initLinkCheck();
     initAddHoverClassOnCardHover();
+    initSameHeight();
 })();
+
+function initSameHeight() {
+    $('.ntg-image-card-carousel .card .card-body, .same-height').sameHeight({
+        flexible: true,
+        multiLine: true,
+        biggestHeight: true,
+    });
+}
 
 function initMegaMenu() {
     ResponsiveHelper.addRange({

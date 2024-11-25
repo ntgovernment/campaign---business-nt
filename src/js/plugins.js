@@ -13,7 +13,8 @@ const pluginsToBuild = [
     "src/js/plugins/search.js",
     "src/js/plugins/superfish.js",
     "src/js/plugins/responsive-helper.js",
-    "src/js/plugins/megamenu.js"
+    "src/js/plugins/megamenu.js",
+    "src/js/plugins/sameheight.js"
 ];
 
 module.exports = pluginsToBuild;

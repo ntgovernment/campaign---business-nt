@@ -1,4 +1,23 @@
+.icon {
+    &-phone-left {
+        &::before {
+            @extend .fa;
+            content: "\f095";
+            font-weight: 900;
+            margin-right: 0.5rem;
+        }
+    }
 
+    &-email-left {
+        &::before {
+            @extend .fa;
+            content: "\f0e0";
+            font-weight: 900;
+            margin-right: 0.5rem;
+        }
+    }
+}
+    
 .icon {
 	&--teal {
 		.card-icon,

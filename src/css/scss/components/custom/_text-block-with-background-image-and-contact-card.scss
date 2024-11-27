@@ -1,0 +1,13 @@
+.text-block-with-background-image-and-contact-card {
+    height: auto;   
+    padding: 4rem 0;
+    background-color: #E9E9EF;
+
+    &__image {
+        opacity: 0.1;
+    }
+
+    &__content {
+        position: relative;
+    }
+}

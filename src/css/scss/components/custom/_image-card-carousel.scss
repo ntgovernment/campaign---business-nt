@@ -1,3 +1,15 @@
+.homepage .ntg-image-card-carousel {
+    &__cell {
+        .card-text {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}
+
 .ntg-image-card-carousel {
     padding-bottom: 2rem;
 
@@ -44,4 +56,37 @@
             // }
         }
     } 
+
+    .flickity-prev-next-button {
+        border: 3px solid $body-color;
+        transition: 0.2s background ease-in-out;
+        top: calc(-44px - 1rem); //Width of the button + Gap 
+        transform: translateY(0);
+
+        &.previous {
+            right: calc(0.5rem + 44px); //Gap + Button width
+            left: unset;
+            // left: calc(-1 * calc(44px + 10px)); //Button Width + spacing
+
+        }
+
+        &.next {
+            right: 0;
+        }
+
+        .flickity-button-icon {
+            width: 50%;
+            height: 50%;
+            left: 25%;
+            top: 25%;
+        }
+
+        &:hover {
+            background-color: $body-color;
+
+            .flickity-button-icon {
+                fill: $white;
+            }
+        }
+    }
 }

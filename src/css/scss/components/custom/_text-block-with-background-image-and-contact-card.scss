@@ -9,5 +9,11 @@
 
     &__content {
         position: relative;
+
+        &-left {
+            > *:last-child {
+                margin-bottom: 0;
+            }
+        }
     }
 }

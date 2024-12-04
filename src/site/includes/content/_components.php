@@ -38,7 +38,7 @@
 
     <div class="container text-block-with-background-image-and-contact-card__content">
         <div class="row gy-4">
-            <div class="col-md-8">
+            <div class="col-md-8 text-block-with-background-image-and-contact-card__content-left">
                 <p>On this page you will find some of the licenses you may need to operate in the Northern Territory.</p>
                 <p>If you need to check what licences might apply to you, or are unsure if you need any licences, please call or drop into the Territory Business Centre.</p>
                 <p>

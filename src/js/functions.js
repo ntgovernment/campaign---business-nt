@@ -10,13 +10,13 @@
     // initInPageNav();
     initScrollToTop();
     initResponsiveTable();
+    initSameHeight();
     initFlickity();
     initCountUp();
     // initResizeButtons();
     initResponsivePagination();
     initLinkCheck();
     initAddHoverClassOnCardHover();
-    initSameHeight();
 })();
 
 function initSameHeight() {

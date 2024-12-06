@@ -190,9 +190,9 @@ function initLinkCheck() {
                     iconWeight = 'fa-solid';
                 }
     
-                var icon = '<i class="' + iconWeight + ' fa-external-link ms-1 aria-hidden="true"></i>';
+                var icon = '<i class="' + iconWeight + ' fa-arrow-up-right-from-square ms-1 aria-hidden="true"></i>';
     
-                if(!link.querySelector('[class*="fa-external-link"]') && !link.querySelector('img') && !link.querySelector('[class*="fa-brands"]')) {
+                if(!link.querySelector('[class*="fa-arrow-up-right-from-square"]') && !link.querySelector('img') && !link.querySelector('[class*="fa-brands"]')) {
                     link.insertAdjacentHTML('beforeend', icon);
                 }
             }

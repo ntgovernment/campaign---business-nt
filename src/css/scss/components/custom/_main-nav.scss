@@ -262,7 +262,7 @@
 					// added extra padding if nav have description on left col
 					padding-right: calc(var(--main-drop-columns-padding-right) + 1rem);
 					border-right: var(--main-drop-columns-gap-border-width) solid var(--main-drop-columns-gap-border-color);
-					max-width: 25%;
+					width: 25%;
 				}
 			}
 		}

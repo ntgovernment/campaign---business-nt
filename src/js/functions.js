@@ -182,15 +182,15 @@ function initLinkCheck() {
                 var fontWeight = window.getComputedStyle(link).getPropertyValue('font-weight');
                 let iconWeight;
     
-                if (fontWeight == '300') {
-                    iconWeight = 'fa-light';
-                } else if (fontWeight == '400') {
-                    iconWeight = 'fa-regular';
-                } else if (fontWeight == '700') {
-                    iconWeight = 'fa-solid';
-                }
+                // if (fontWeight == '300') {
+                //     iconWeight = 'fa-light';
+                // } else if (fontWeight == '400') {
+                //     iconWeight = 'fa-regular';
+                // } else if (fontWeight == '700') {
+                //     iconWeight = 'fa-solid';
+                // }
     
-                var icon = '<i class="' + iconWeight + ' fa-arrow-up-right-from-square ms-1 aria-hidden="true"></i>';
+                var icon = '<i class="fa-solid fa-arrow-up-right-from-square ms-1 aria-hidden="true"></i>';
     
                 if(!link.querySelector('[class*="fa-arrow-up-right-from-square"]') && !link.querySelector('img') && !link.querySelector('[class*="fa-brands"]')) {
                     link.insertAdjacentHTML('beforeend', icon);

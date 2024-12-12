@@ -22,7 +22,7 @@
             text-decoration: none;
             color: $body-color;
 
-            &.link-chevron-right {
+            &.link-chevron-right, &.external-link {
                 padding-right: 0 !important;
 
                 &:hover {

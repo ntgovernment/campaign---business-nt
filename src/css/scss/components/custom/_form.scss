@@ -64,7 +64,8 @@
     }
 }
 
-#content form {
+#content form,
+.feedback-form {
     .g-recaptcha {
         margin-bottom: 1.5rem;
     }

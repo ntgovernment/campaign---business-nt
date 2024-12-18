@@ -328,6 +328,12 @@
 				position: absolute;
 				top: 0.75rem;
 				left: 1.25rem;
+
+				.badge {
+					padding: 0.75rem 1.5rem;
+					border-radius: 1000px;
+					font-size: $font-size-sm;
+				}
 			}
 		}
 		
@@ -341,7 +347,7 @@
 				display: flex;
 				justify-content: space-between;
 				border-top: 1px solid rgba(0, 0, 0, 0.20);
-				padding-top: var(--bs-card-cap-padding-y);
+				padding-top: var(--bs-card-spacer-y);
 			}
 		}
 	}

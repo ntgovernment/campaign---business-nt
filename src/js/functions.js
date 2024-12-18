@@ -176,7 +176,7 @@ function initLinkCheck() {
         } else {
             link.classList.add("external-link");
 
-            if(link.classList.contains("btn")) {
+            if (link.classList.contains("btn")) {
                 link.classList.add("btn-external");
             } else {
                 var fontWeight = window.getComputedStyle(link).getPropertyValue('font-weight');
@@ -197,6 +197,9 @@ function initLinkCheck() {
                 }
             }
             
+            link.setAttribute('rel', 'noopener');
+            link.setAttribute('title', 'Opens in a new window');
+            link.setAttribute('target', '_blank');
         }
     });
 }

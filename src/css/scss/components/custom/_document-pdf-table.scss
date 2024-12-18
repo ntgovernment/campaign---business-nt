@@ -11,6 +11,7 @@
         display: flex;
         justify-content: space-between;
         gap: 1rem;
+        position: relative;
 
         &:first-of-type {
             border-top: 1px solid #CACACA;
@@ -25,10 +26,11 @@
         color: $ntg-teal-blue;
         margin-left: 1rem;
         display: inline-block;
-        transition: 0.2s transform ease-in-out;
+        transition: 0.2s color ease-in-out;
+        @extend .stretched-link;
 
         &:hover {
-            transform: translateX(5px);
+            color: $ntg-rubine-red;
         }
     }
 }

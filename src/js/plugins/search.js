@@ -12,7 +12,6 @@ var closeButton = document.querySelector('.search-global__close');
  * Event handlers
  */
 document.addEventListener('DOMContentLoaded', function () {
-    console.log("hello")
     body.classList.add('search-panel--is-hidden');
     searchInput.addEventListener("focus", addFocusClass);
     searchInput.addEventListener("blur", removeFocusClass);

@@ -1,7 +1,7 @@
 <nav class="ntg-main-nav" id="mainmenu">
     <div class="ntg-main-nav__wrapper">
         <ul class="ntg-main-nav__links">
-            <li class="ntg-main-nav__link has-children">
+            <li class="ntg-main-nav__link active has-children">
                 <a href="./about-us.html" role="button">Business in the territory</a>
                 <div class="ntg-main-nav__panel">
                     <div class="container">

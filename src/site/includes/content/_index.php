@@ -244,7 +244,7 @@
                 <h2 class="h3 header-line-top header-line-top--rubine-red">I am a business owner looking for</h2>
                 <ul class="list-group ntg-link-list-with-icons">
                     <li class="list-group-item">
-                        <a href="#" class="link-chevron-right">
+                        <a href="https://nt.gov.au/" class="link-chevron-right">
                             <div class="list-group-item__icon">
                                 <img src="assets/images/bulb-in-blue.svg" alt="Bulb in blue">
                             </div>
@@ -252,6 +252,7 @@
                             <div class="list-group-item__content">
                                 Information to help me start my business
                             </div>
+                            <i class="fa-solid fa-arrow-up-right-from-square ms-1"></i>
                         </a>
                     </li>
                     <li class="list-group-item">

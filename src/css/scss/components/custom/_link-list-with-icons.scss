@@ -39,6 +39,12 @@
                     color: $ntg-rubine-red;
                 }
             }
+
+            i {
+                color: $ntg-rubine-red;
+                flex-grow: 1;
+                text-align: right;
+            }
         }
 
         &__content {

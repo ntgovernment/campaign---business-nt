@@ -12,14 +12,14 @@
                     <div class="row align-items-center justify-content-between">
                         <div class="col-lg-6">
                             <div class="card-body">
-                                <h5 class="card-title h4">Start a business in the Northen Territory</h5>
+                                <h5 class="card-title h4 text-rubine-red">Start a business in the Northen Territory</h5>
                                 <p>This is a card. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             </div>
                         </div>
                         <div class="col-lg-auto">
                             <div class="card-button-wrapper">
                                 <ul>
-                                    <li><a href="#">Territory Business Centre</a></li>
+                                    <li><a href="https://nt.gov.au/">Territory Business Centre</a></li>
                                     <li><a href="#">Another link goes here</a></li>
                                 </ul>
 

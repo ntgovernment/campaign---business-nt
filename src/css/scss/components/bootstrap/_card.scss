@@ -188,6 +188,12 @@
 						@extend .btn-outline-primary;
 						@extend .rounded-pill;
 						@extend .btn-quick-links;
+
+						i {
+							display: flex;
+							align-items: center;
+							margin-left: 0.5rem !important;
+						}
 					}
 
 					a, .btn {

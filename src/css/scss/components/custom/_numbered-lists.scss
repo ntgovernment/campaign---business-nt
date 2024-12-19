@@ -1,6 +1,6 @@
 .ntg-numbered-lists {
-    --number-width: 60px;
-    --number-height: 60px;
+    --number-width: 50px;
+    --number-height: 50px;
     --list-padding: calc(var(--number-width) + 1rem);
 
     list-style-type: none;
@@ -19,9 +19,9 @@
             background: $primary;
             color: $white;
             border-radius: 50%;
-            font-size: 2rem;
+            font-size: 1.5rem;
             width: var(--number-width);
-            height: 60px;
+            height: 50px;
             display: inline-flex;
             justify-content: center;
             align-items: center;

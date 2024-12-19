@@ -17,6 +17,7 @@
         --cell-margin-right: 1rem;
         --no-of-cells: 1;
         --cell-width: 100%;
+        padding-bottom: 0.5rem;
 
         @include media-breakpoint-up(md) {
             --no-of-cells: 2;

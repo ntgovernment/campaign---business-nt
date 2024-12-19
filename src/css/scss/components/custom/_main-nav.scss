@@ -176,10 +176,11 @@
 			position: relative;
 			display: flex;
 			align-items: center;
-			@include font-size(17px);
+			font-size: 1rem;
 			white-space: nowrap;
 
 			@include media-breakpoint-down(xxl) {
+				@include font-size(17px);
 				// padding: 1.5rem 0.5rem;
 			}
 

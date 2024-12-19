@@ -101,6 +101,18 @@
 	&__link-hold {
 		--link-block-py: 10px;
 		padding: var(--link-block-py) 0;
+		
+		a:not(:only-child):first-child {
+			padding-right: 0.5rem;
+		}
+
+		a + a {
+			&::before {
+				content: '|';
+				padding-right: 0.5rem;
+				display: inline-block;
+			}
+		}
 	}
 
 	a {

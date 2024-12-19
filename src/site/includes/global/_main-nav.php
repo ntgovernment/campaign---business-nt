@@ -8,17 +8,17 @@
                         <div class="ntg-main-nav__panel-wrapper has-description-on-left">
                             <div class="ntg-main-nav__panel-group" role="group">
                                 <h2>
-                                    <a href="#">Opportunities</a>
+                                    <a href="#" class="active">Opportunities</a>
                                 </h2>
                                 <p>Invest in the Future of the Northern Territory</p>
                                 <a href="#" class="link-chevron-right">Find out more</a>
                             </div>
                             <div class="ntg-main-nav__panel-columns">
                                 <div class="ntg-main-nav__panel-group" role="group">
-                                    <h3><a href="#">Minerals</a></h3>
+                                    <h3><a href="#" class="active">Minerals</a></h3>
                                     <ul class="list-chevron">
                                         <li>
-                                            <a href="#">Critical Minerals</a>
+                                            <a href="#" class="active">Critical Minerals</a>
                                         </li>
                                     </ul>
                                 </div>

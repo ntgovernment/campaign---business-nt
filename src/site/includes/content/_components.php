@@ -435,18 +435,13 @@
 <section class="">
     <div class="container">
         <ol class="ntg-numbered-lists">
-            <li>
-                <strong>This is a title</strong>
-                <p>This is a description right here</p>
-            </li>
-            <li>
-                <strong>This is a title</strong>
-                <p>This is a description right here</p>
-            </li>
-            <li>
-                <strong>This is a title</strong>
-                <p>This is a description right here</p>
-            </li>
+            <li>Structure your application around the detailed criteria</li>
+            <li>Make sure you respond to all the required questions and tailor your responses to suit any parts of the listed works. Make sure your claims against each requirement is clear and concise. Ensure your claims can be proven.</li>
+            <li>Make it clear that you can do the works and explain how you will do it. Draw on previous experiences to provide examples of your capability and experience as evidence.</li>
+            <li>Be direct and clear in your writing, no need to overexplain.</li>
+            <li>When writing about your past performance be specific about what you did. Don't just describe the problem or issue; it is useful to provide examples that are similar to the required works, avoid using examples that are
+                nothing like this particular project.</li>
+            <li>Set yourself apart by emphasising areas where you exceed the requirements and where you feel you can add extra value by how and what you do.</li>
         </ol>
     </div>
 </section>

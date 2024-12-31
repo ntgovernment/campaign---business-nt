@@ -6,7 +6,7 @@
     gap: 1rem;
     color: $body-color;
 
-    > * {
+    &-content > * {
         &:last-child {
             margin-bottom: 0;
         }

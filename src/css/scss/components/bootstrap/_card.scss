@@ -132,7 +132,6 @@
 		**/
 		.image-overlay {
 			position: relative;
-			background: $primary;
 			overflow: hidden;
 
 			@include media-breakpoint-up(sm) {
@@ -147,7 +146,6 @@
 
 			img {
 				transition: 0.2s background ease-in-out;
-				mix-blend-mode: luminosity;
 			}
 		}
 	}
@@ -401,6 +399,16 @@
 
 		#{$this}-button-wrapper ul li a {
 			@extend .btn-outline-dark-gray;
+		}
+	}
+}
+
+:not(.no-image-overlay) .card {
+	.image-overlay {
+		background: $primary;
+
+		img {
+			mix-blend-mode: luminosity;
 		}
 	}
 }

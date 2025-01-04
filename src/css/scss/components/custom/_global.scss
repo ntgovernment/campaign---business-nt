@@ -107,12 +107,22 @@ input[type="search"]::-webkit-search-results-decoration {
         max-width: 60%;
     }
 
-    &::before {
+    &::before, &::after {
         content: '“';
         font-size: 6rem;
         color: $ntg-dark-gray;
         position: absolute;
         left: 10px;
         line-height: 1
+    }
+
+    &::after {
+        display: inline-block;
+        position: static;
+        vertical-align: top;
+        content: "”";
+        height: 40px; // Making sure the quote aligns with the last text
+        margin-top: -8px;
+        margin-left: 10px;
     }
 }

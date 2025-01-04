@@ -120,6 +120,10 @@
 				mix-blend-mode: normal;
 			}
 		}
+
+		a:hover {
+			text-decoration: none;
+		}
 	}
 
 	&--image-card {
@@ -403,7 +407,7 @@
 	}
 }
 
-:not(.no-image-overlay) .card {
+.ntg-horizonatal-cards:not(.no-image-overlay) .card {
 	.image-overlay {
 		background: $primary;
 

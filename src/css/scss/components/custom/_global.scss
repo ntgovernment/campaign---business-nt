@@ -103,9 +103,9 @@ input[type="search"]::-webkit-search-results-decoration {
     border-left: 4px solid $ntg-rubine-red;
     position: relative;
 
-    @include media-breakpoint-up(sm) {
-        max-width: 60%;
-    }
+    // @include media-breakpoint-up(sm) {
+    //     max-width: 60%;
+    // }
 
     &::before, &::after {
         content: '“';

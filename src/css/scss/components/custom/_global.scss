@@ -97,7 +97,7 @@ input[type="search"]::-webkit-search-results-decoration {
     }
 }
 
-.quote {
+.quote, blockquote p {
     padding-left: 4rem;
     font-style: italic;
     border-left: 4px solid $ntg-rubine-red;

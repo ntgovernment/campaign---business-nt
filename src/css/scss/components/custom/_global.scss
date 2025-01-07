@@ -97,22 +97,32 @@ input[type="search"]::-webkit-search-results-decoration {
     }
 }
 
-.quote {
+.quote, blockquote p {
     padding-left: 4rem;
     font-style: italic;
     border-left: 4px solid $ntg-rubine-red;
     position: relative;
 
-    @include media-breakpoint-up(sm) {
-        max-width: 60%;
-    }
+    // @include media-breakpoint-up(sm) {
+    //     max-width: 60%;
+    // }
 
-    &::before {
+    &::before, &::after {
         content: '“';
         font-size: 6rem;
         color: $ntg-dark-gray;
         position: absolute;
         left: 10px;
         line-height: 1
+    }
+
+    &::after {
+        display: inline-block;
+        position: static;
+        vertical-align: top;
+        content: "”";
+        height: 40px; // Making sure the quote aligns with the last text
+        margin-top: -8px;
+        margin-left: 10px;
     }
 }

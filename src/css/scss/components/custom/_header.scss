@@ -1,3 +1,9 @@
+:root {
+	--header-height : 147px;
+	
+	
+}
+
 //When header color is changed, please account for main nav as well as mobile nav
 .page-header-container {
 	--component-background-color: #{$white};

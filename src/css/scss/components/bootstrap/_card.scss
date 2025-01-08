@@ -123,7 +123,7 @@
 	&--link-card {
 		&.hover {
 			.image-overlay img {
-				mix-blend-mode: normal;
+				mix-blend-mode: normal !important;
 			}
 		}
 
@@ -422,7 +422,7 @@
 	}
 }
 
-.ntg-horizonatal-cards:not(.no-image-overlay) .card {
+.ntg-horizontal-cards:not(.no-image-overlay) .card {
 	.image-overlay {
 		background: $primary;
 

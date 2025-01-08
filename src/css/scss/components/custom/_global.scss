@@ -102,7 +102,9 @@ input[type="search"]::-webkit-search-results-decoration {
     background: $ntg-rubine-red;
 }
 
-.quote, blockquote p {
+.quote, 
+blockquote p, 
+.disclaimer {
     padding-left: 4rem;
     font-style: italic;
     border-left: 4px solid $ntg-rubine-red;
@@ -111,7 +113,10 @@ input[type="search"]::-webkit-search-results-decoration {
     // @include media-breakpoint-up(sm) {
     //     max-width: 60%;
     // }
+}
 
+.quote, 
+blockquote p {
     &::before, &::after {
         content: '“';
         font-size: 6rem;

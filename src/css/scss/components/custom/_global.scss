@@ -98,6 +98,10 @@ input[type="search"]::-webkit-search-results-decoration {
     }
 }
 
+.ntg-text-and-image-block h2::before {
+    background: $ntg-rubine-red;
+}
+
 .quote, blockquote p {
     padding-left: 4rem;
     font-style: italic;

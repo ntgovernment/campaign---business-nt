@@ -169,10 +169,19 @@ function initLinkCheck() {
     if (!links) {
         return false;
     }
-    
+
     links.forEach(function (link) {
+        var url = link.getAttribute('href');
+        var arr = url.split('.');
+
         if (location.hostname === link.hostname || !link.hostname.length) {
-            return false;
+            if (arr[arr.length - 1] === 'pdf') {
+                link.setAttribute('rel', 'noopener');
+                link.setAttribute('title', 'Opens in a new window');
+                link.setAttribute('target', '_blank');
+            } else {
+                return false;
+            }
         } else {
             link.classList.add("external-link");
 

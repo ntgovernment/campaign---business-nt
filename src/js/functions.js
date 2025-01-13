@@ -140,27 +140,27 @@ function initAddHoverClassOnCardHover() {
     const linkCards = document.querySelectorAll('.card--link-card');
 
     linkCards.forEach(card => {
-        const cardLink = card.querySelector('.card-link');
+        // const cardLink = card.querySelector('.card-link');
 
-        if(cardLink) {
+        // if(cardLink) {
             // Add event listeners to add and remove the hover class
-            cardLink.addEventListener('mouseover', () => {
+            card.addEventListener('mouseover', () => {
                 card.classList.add('hover');
             });
 
-            cardLink.addEventListener('mouseout', () => {
+            card.addEventListener('mouseout', () => {
                 card.classList.remove('hover');
             });
             
             // Add event listeners for keyboard focus
-            cardLink.addEventListener('focus', () => {
+            card.addEventListener('focus', () => {
                 card.classList.add('hover');
             });
 
-            cardLink.addEventListener('blur', () => {
+            card.addEventListener('blur', () => {
                 card.classList.remove('hover');
             });
-        }
+        // }
     })
 }
 

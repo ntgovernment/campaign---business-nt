@@ -41,6 +41,19 @@
 		}
 	}
 
+    &--red {
+		.card-icon,
+        .list-group-item__icon,
+        .accordion-header {
+			svg {
+                path, rect {
+                    fill: $ntg-rubine-red;
+                    stroke: $ntg-rubine-red !important
+                }
+			}
+		}
+	}
+
     &--white {
 		.card-icon,
         .list-group-item__icon,

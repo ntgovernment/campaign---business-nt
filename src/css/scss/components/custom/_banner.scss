@@ -57,6 +57,13 @@
         }
     }
 
+    .video-control {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1;
+    }
+
     .banner-quick-links__wrapper {
         .link-vertical {
             @include media-breakpoint-up(lg) {

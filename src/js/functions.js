@@ -17,6 +17,7 @@
     initResponsivePagination();
     initLinkCheck();
     initAddHoverClassOnCardHover();
+    initVideoControl();
 })();
 
 function initSameHeight() {
@@ -700,6 +701,44 @@ function initResponsivePagination() {
                     elem.classList.remove('d-none');
                 }
             }
+        }
+    }
+}
+
+function initVideoControl() {
+    var btns = document.querySelectorAll('.video-control');
+
+    btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            handlePlayPause(btn);
+        });
+    });
+
+    function handlePlayPause(e) {
+        var videoID = e.getAttribute('data-video');
+        if (videoID) {
+            var video = document.getElementById(videoID);
+            if (!video) {
+                return false;
+            }
+        } else {
+            return false;
+        }
+        
+        if (e.classList.contains('pause')) {
+            // switch icon
+            e.classList.remove('pause');
+            e.classList.add('play');
+
+            // pause video
+            video.pause();
+        } else if (e.classList.contains('play')) {
+            // switch icon
+            e.classList.remove('play');
+            e.classList.add('pause');
+
+            // play video
+            video.play();
         }
     }
 }

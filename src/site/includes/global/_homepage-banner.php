@@ -1,16 +1,18 @@
 <section class="ntg-homepage-banner">
     <div class="ntg-homepage-banner__video">
-        <!-- <video autoplay muted loop id="ntgHomepageVideo">
-            <source src="assets/bg-video.mp4" type="video/mp4">
-        </video> -->
-        <iframe src="https://www.youtube.com/embed/D0UnqGm_miA?si=zq2BG_ebdsBs3Xb&autoplay=1&controls=0&modestbranding=1&showinfo=0&rel=0&loop=1" title="YouTube video player" frameborder="0" allow="autoplay; modestbranding; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <video id="ntgHomepageVideo" autoplay muted loop tabindex="-1">
+            <source src="../assets/videos/test-video.mp4" type="video/mp4">
+        </video>
+        <!-- <iframe src="https://www.youtube.com/embed/D0UnqGm_miA?si=zq2BG_ebdsBs3Xb&autoplay=1&controls=0&modestbranding=1&showinfo=0&rel=0&loop=1" title="YouTube video player" frameborder="0" allow="autoplay; modestbranding; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
     </div>
+    <button class="video-control pause" aria-label="Video Playback Control" data-video="ntgHomepageVideo"></button>
     <div class="container">
         <div class="row gy-5">
             <div class="col-lg-7">
                 <div class="ntg-homepage-banner__content">
                     <h1 class="ntg-homepage-banner__title header-line-top">Welcome to Business Territory</h1>
-                    <p>Find information and tools to help you invest in NT businesses; or start, grow and run your own business in the Northern Territory. No matter what stage you are at in Business, there are supports available to help you succeed.</p>
+                    <p>Find information and tools to help you invest in NT businesses; or start, grow and run your own business in the Northern Territory. No matter what stage you are at in Business, there are supports available to help you
+                        succeed.</p>
                     <button class="btn btn-rubine-red rounded-pill btn-chevron-right">Find out more</button>
                 </div>
             </div>

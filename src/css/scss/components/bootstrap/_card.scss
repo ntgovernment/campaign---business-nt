@@ -144,12 +144,12 @@
 			position: relative;
 			overflow: hidden;
 
-			@include media-breakpoint-up(sm) {
+			@include media-breakpoint-up(md) {
 				border-bottom-left-radius: var(--bs-border-radius) !important;
 				border-top-left-radius: var(--bs-border-radius) !important;
 			}
 
-			@include media-breakpoint-down(sm) {
+			@include media-breakpoint-down(md) {
 				border-top-left-radius: var(--bs-border-radius) !important;
 				border-top-right-radius: var(--bs-border-radius) !important;
 			}
@@ -437,9 +437,19 @@
 
 	&.contain-images {
 		.card {
+			.image-overlay {
+				border-radius: 0 !important;
+			}
+
 			.img-fluid {
 				object-fit: contain;
 				background-color: $white;
+				width: 100%;
+				height: 100%;
+
+				@include media-breakpoint-down(md) {
+					aspect-ratio: 16 / 9;
+				}
 			}
 		}
 	}

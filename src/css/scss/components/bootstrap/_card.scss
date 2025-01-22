@@ -137,6 +137,15 @@
 			font-size: 1.15rem;
 		}
 
+		.row {
+			height: 100%;
+
+			.col-md-8 {
+				display: flex;
+				flex-direction: column;
+			}
+		}
+
 		/**
 		TODO: transition for the hover
 		**/
@@ -437,10 +446,6 @@
 
 	&.contain-images {
 		.card {
-			.image-overlay {
-				border-radius: 0 !important;
-			}
-
 			.img-fluid {
 				object-fit: contain;
 				background-color: $white;

@@ -80,6 +80,19 @@
 		}
 	}
 
+    &--orange {
+        .card-icon,
+        .list-group-item__icon,
+        .accordion-header {
+			svg {
+                path, rect {
+                    fill: $ntg-heliconia-orange;
+                    stroke: $ntg-heliconia-orange !important
+                }
+			}
+		}
+    }
+
     &--white-in-teal-circle-box-55px {
         .card-icon,
         .list-group-item__icon,

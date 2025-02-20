@@ -108,9 +108,9 @@
 	--input-padding: 10px 15px 10px 25px;
 	--input-bg: #{$white};
 	--submit-border-radius: 0 40px 40px 0;
-	--submit-button-width: 105px;
-	--submit-button-bg: #{$purplish-red};
-	--submit-button-hover-bg: #{darken($purplish-red,5%)};
+	--submit-button-width: 125px;
+	--submit-button-bg: #{$ntg-heliconia-orange};
+	--submit-button-hover-bg: #{darken($ntg-heliconia-orange,5%)};
 	--submit-button-color: #{$white};
 	--submit-button-hover-color: #{$white};
 
@@ -141,6 +141,14 @@
 		background: var(--submit-button-bg) !important;
 		border-color: var(--submit-button-bg) !important;
 		color: var(--submit-button-hover-color) !important;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+
+		@include media-breakpoint-down(lg) {
+			font-size: $font-size-sm;
+		}
 
 		&:hover,
 		&:focus,

@@ -251,7 +251,7 @@
 		}
 
 		a[class^="icon"] {
-			text-decoration-color: $ntg-rubine-red;
+			text-decoration-color: $primary;
 			text-underline-offset: 5px;
 			text-decoration-thickness: 2px;
 			color: #333;
@@ -260,7 +260,7 @@
 			word-break: break-all;
 
 			&::before {
-				color: $ntg-rubine-red;
+				color: $primary;
 			}
 
 			&:hover {

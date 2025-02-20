@@ -122,8 +122,12 @@
 
 	&--link-card {
 		&.hover {
-			.image-overlay img {
-				mix-blend-mode: normal !important;
+			.image-overlay {
+				// mix-blend-mode: normal !important;
+				
+				&::after {
+					background-color: transparent !important;
+				}
 			}
 		}
 
@@ -393,8 +397,8 @@
 	}
 
 	&--primary {
-		--bs-card-bg: #{$primary};
-		--bs-card-border-color: #{$primary};
+		--bs-card-bg: #{$ntg-arafura-blue};
+		--bs-card-border-color: #{$ntg-arafura-blue};
 		--bs-card-color: #{$white};
 		--bs-link-color-rgb: 255, 255, 255;
 		
@@ -408,6 +412,12 @@
 
 		#{$this}-button-wrapper ul li a {
 			@extend .btn-outline-white;
+		}
+
+		.card-icon {
+			svg {
+				filter: brightness(0) invert(1);
+			}
 		}
 	}
 
@@ -435,10 +445,23 @@
 	&:not(.no-image-overlay) {
 		.card {
 			.image-overlay {
-				background: $primary;
+				position: relative;
+
+				// background: $primary;
 		
-				img {
-					mix-blend-mode: luminosity;
+				// img {
+				// 	mix-blend-mode: luminosity;
+				// }
+
+				&::after {
+					content: '';
+					background-color: rgba($primary, 0.2);
+					position: absolute;
+					top: 0;
+					bottom: 0;
+					left: 0;
+					right: 0;
+					transition: 0.15s background-color ease-in-out;
 				}
 			}
 		}

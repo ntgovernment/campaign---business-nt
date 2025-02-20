@@ -1,4 +1,4 @@
-<h2 class="header-line-top header-line-top--rubine-red">The Northen Territory Government Welcomes and Supports</h2>
+<h2 class="header-line-top header-line-top--primary">The Northen Territory Government Welcomes and Supports</h2>
 <section class="ntg-intro-icon-cards mb-4">
     <div class="row gy-3">
         <div class="col-lg-6">
@@ -56,14 +56,14 @@
     </div>
 </section>
 
-<h2 class="header-line-top header-line-top--rubine-red">Find the information you need to succeed</h2>
-<section class="ntg-horizontal-cards contain-images">
+<h2 class="header-line-top header-line-top--primary">Find the information you need to succeed</h2>
+<section class="ntg-horizontal-cards">
     <div class="row gy-3">
         <div class="col-md-6">
             <div class="card card--image-card card--link-card">
                 <div class="row g-0">
                     <div class="col-md-4 image-overlay">
-                        <img src="../assets/images/logo-ntibn.svg" class="img-fluid" alt="Card image">
+                        <img src="../assets/images/katherine-river.png" class="img-fluid" alt="Card image">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">

@@ -66,12 +66,12 @@
 
     @if $reverse {
         margin-right: 0.5rem;
-        transition: 0.15s margin-right ease-in-out;
+        transition: 0.15s margin-right ease-in-out, 0.15s color ease-in-out;
     }
 
     @else {
         margin-left: 0.5rem;
-        transition: 0.15s margin-left ease-in-out;
+        transition: 0.15s margin-left ease-in-out, 0.15s color ease-in-out;
     }
 }
 

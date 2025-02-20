@@ -5,15 +5,22 @@
         @include focus();
     }
 
+    &:hover,
+    &:focus {
+        i,
+        &::after,
+        &::before {
+            color: inherit; 
+        }
+    }
+
+    i {
+        transition: color 0.15s ease-in-out;
+    }
+
     &-chevron-right {
         @include btn-icon("\f054");
         align-items: center;
-    }
-
-    &-primary {
-        &.btn-chevron-right::after {
-            color: $ntg-rubine-red;
-        }
     }
 
     &-chevron-left {
@@ -23,9 +30,9 @@
     &-external {
         @include btn-icon("\f35d", $animation: false);
 
-        &:hover::after {
-            color: var(--bs-btn-hover-color);
-        }
+        // &:hover::after {
+        //     color: var(--bs-btn-hover-color);
+        // }
 
         &::after {
             color: $ntg-rubine-red;
@@ -39,9 +46,73 @@
     }
 
     &-quick-links {
-        --bs-btn-hover-bg: #{$ntg-rubine-red};
-        --bs-btn-hover-border-color: #{$ntg-rubine-red};
+        --bs-btn-hover-bg: #{$primary};
+        --bs-btn-hover-border-color: #{$primary};
         --bs-btn-hover-color: #{$white};
-        border-radius: 16px;
+        --bs-btn-border-radius: 16px;
+        --bs-btn-padding-x: 1rem;
+        --bs-btn-padding-y: 0.5rem;
+    }
+
+    &-primary {
+        color: $white;
+
+        // &.btn-chevron-right::after {
+        //     color: $ntg-rubine-red;
+        // }
+
+        &:hover,
+        &:focus {
+            background-color: $white;
+            border-color: $white;
+            color: $body-color;
+        }
+    }
+
+    &-tertiary {
+        color: $white;
+
+        i,
+        &::after,
+        &::before {
+            color: $white;
+        }
+
+        &:hover,
+        &:focus {
+            color: $white;
+        }
+    }
+
+    &-outline-primary {
+        border-color: $secondary;
+        color: $secondary;
+
+        i,
+        &::after,
+        &::before {
+            color: $primary;
+        }
+
+        &:hover,
+        &:focus {
+            color: $white;
+        }
+    }
+
+    &-outline-tertiary {
+        &:hover,
+        &:focus {
+            color: $white;
+        }
+    }
+
+    &-outline-white {
+        &:hover,
+        &:focus {
+            background-color: $primary;
+            border-color: $primary;
+            color: $white; 
+        }
     }
 }

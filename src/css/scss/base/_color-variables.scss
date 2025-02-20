@@ -37,9 +37,9 @@ $ntg-dark-blue: #0D2C4D;
 */
 
 // Colours
-$primary: $ntg-arafura-blue;
-$secondary: $ntg-sky-blue;
-$tertiary: $ntg-heliconia-orange;
+$primary: $ntg-heliconia-orange;
+$secondary: $ntg-arafura-blue;
+$tertiary: $ntg-sky-blue;
 
 $primary-text: $white;
 $secondary-text: $white;
@@ -51,6 +51,8 @@ $secondary-link-color: $white;
 $secondary-link-hover-color: $white;
 $tertiary-link-color: $white;
 $tertiary-link-hover-color: $white;
+
+$link-color: $ntg-arafura-blue;
 
 $body-color: $ntg-dark-gray;
 $info: $ntg-teal-blue;

@@ -52,7 +52,7 @@
             bottom: 0;
             right: 0;
             left: 0;
-            background-color: $primary;
+            background-color: $secondary;
             opacity: 0.5;
         }
     }
@@ -94,7 +94,6 @@
                 a {
                     @extend .btn;
                     @extend .btn-white;
-                    @extend .rounded-pill;
                     @extend .btn-quick-links;
                 }
             }
@@ -103,7 +102,7 @@
 }
 
 .ntg-homepage-banner {
-    border-bottom: 8px solid $secondary;
+    border-bottom: 8px solid $tertiary;
 
     .btn-rubine-red {
         --bs-btn-hover-bg: #{$white};
@@ -114,7 +113,7 @@
 
 .ntg-standard-banner {
 	padding: 3rem 0;
-	border-bottom: 8px solid $secondary;
+	border-bottom: 8px solid $tertiary;
     position: relative;
     // background-color: $primary;
     $this: &;

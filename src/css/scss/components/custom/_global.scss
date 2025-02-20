@@ -96,10 +96,16 @@ input[type="search"]::-webkit-search-results-decoration {
             background: $ntg-rubine-red;
         }
     }
+
+    &--primary {
+        &::before {
+            background: $primary;
+        }
+    }
 }
 
 .ntg-text-and-image-block h2::before {
-    background: $ntg-rubine-red;
+    background: $primary;
 }
 
 .quote, 
@@ -107,7 +113,7 @@ blockquote p,
 .disclaimer {
     padding-left: 4rem;
     font-style: italic;
-    border-left: 4px solid $ntg-rubine-red;
+    border-left: 4px solid $primary;
     position: relative;
 
     // @include media-breakpoint-up(sm) {

@@ -65,7 +65,7 @@
     <div class="container">
         <div class="row align-items-center gy-4">
             <div class="col ntg-text-and-image-block__content">
-                <p class="lead header-line-top header-line-top--rubine-red">Industry sectors</p>
+                <p class="lead header-line-top header-line-top--primary">Industry sectors</p>
                 <h2>Industries keeping the NT successful</h2>
                 <p>The contribution of industry sectors to the NT economy is unique. There are 16 main industries that contribute to the business landscape and inform the support systems available to businesses and opportunities to individuals and investors. there are opportunities for you to capitalise on established industries or be supported to innovate into emerging sectors.</p>
                 <a href="#" class="btn btn-outline-primary btn-external rounded-pill">Button</a>

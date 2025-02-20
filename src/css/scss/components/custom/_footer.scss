@@ -1,8 +1,8 @@
 .ntg-footer {
 	--footer-font-size: 0.889rem;
-	--component-background-color: #{$ebony};
+	--component-background-color: #{$white};
 	--component-extra-color: var(--current-theme-secondary, #{$ntg-sky-blue});
-	--component-text-color: var(--current-theme-text-color, #{$white});
+	--component-text-color: var(--current-theme-text-color, #{$body-color});
 }
 
 .ntg-footer {
@@ -15,6 +15,7 @@
 	background-color: var(--component-background-color);
 	padding: 1.5rem 0;
 	font-size: var(--footer-font-size);
+	border-top: 6px solid $primary;
 
 	@include media-breakpoint-up(lg) {
 		--nav-border-spacing: 30px;
@@ -41,6 +42,10 @@
 		--nav-item-link-pl: 20px;
 		--nav-item-link-underline: none;
 		--nav-item-link-hover-underline: underline;
+
+		&__title {
+			color: $primary;
+		}
 
 		&--with-underline {
 			--nav-item-link-underline: underline;
@@ -75,6 +80,11 @@
 						content: '\f054';
 						font-size: 0.8rem;
 						font-weight: 900;
+					}
+
+					i {
+						display: inline-block;
+						margin-left: 0.25rem;
 					}
 				}
 			}

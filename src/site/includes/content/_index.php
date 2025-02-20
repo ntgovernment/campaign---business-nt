@@ -166,7 +166,7 @@
 
 <section class="ntg-image-card-carousel__wrapper my-7">
     <div class="container">
-        <h2 class="header-line-top header-line-top--rubine-red">Featured programs</h2>
+        <h2 class="header-line-top header-line-top--primary">Featured programs</h2>
         <div class="ntg-image-card-carousel page-dots--type2" data-flickity='{ "cellAlign": "left", "contain": false }'>
             <div class="ntg-image-card-carousel__cell col-xl-3 col-lg-4 col-md-6">
                 <div class="card card--image-card">
@@ -241,12 +241,12 @@
     <div class="container">
         <div class="row row-cols-md-2 gy-4">
             <div class="col">
-                <h2 class="h3 header-line-top header-line-top--rubine-red">I am a business owner looking for</h2>
+                <h2 class="h3 header-line-top header-line-top--primary">I am a business owner looking for</h2>
                 <ul class="list-group ntg-link-list-with-icons">
                     <li class="list-group-item">
                         <a href="https://nt.gov.au/" class="link-chevron-right">
                             <div class="list-group-item__icon">
-                                <img src="assets/images/bulb-in-blue.svg" alt="Bulb in blue">
+                                <img src="assets/images/bulb-in-orange.svg" alt="Bulb in orange">
                             </div>
 
                             <div class="list-group-item__content">
@@ -258,7 +258,7 @@
                     <li class="list-group-item">
                         <a href="#" class="link-chevron-right">
                             <div class="list-group-item__icon">
-                                <img src="assets/images/bulb-in-blue.svg" alt="Bulb in blue">
+                                <img src="assets/images/bulb-in-orange.svg" alt="Bulb in orange">
                             </div>
 
                             <div class="list-group-item__content">
@@ -269,7 +269,7 @@
                     <li class="list-group-item">
                         <a href="#" class="link-chevron-right">
                             <div class="list-group-item__icon">
-                                <img src="assets/images/bulb-in-blue.svg" alt="Bulb in blue">
+                                <img src="assets/images/bulb-in-orange.svg" alt="Bulb in orange">
                             </div>
 
                             <div class="list-group-item__content">
@@ -280,7 +280,7 @@
                     <li class="list-group-item">
                         <a href="#" class="link-chevron-right">
                             <div class="list-group-item__icon">
-                                <img src="assets/images/bulb-in-blue.svg" alt="Bulb in blue">
+                                <img src="assets/images/bulb-in-orange.svg" alt="Bulb in orange">
                             </div>
 
                             <div class="list-group-item__content">
@@ -292,12 +292,12 @@
                 </ul>
             </div>
             <div class="col">
-                <h2 class="h3 header-line-top header-line-top--rubine-red">Discover more</h2>
+                <h2 class="h3 header-line-top header-line-top--primary">Discover more</h2>
                 <ul class="list-group ntg-link-list-with-icons">
                     <li class="list-group-item">
                         <a href="#" class="link-chevron-right">
                             <div class="list-group-item__icon">
-                                <img src="assets/images/bulb-in-blue.svg" alt="Bulb in blue">
+                                <img src="assets/images/bulb-in-orange.svg" alt="Bulb in orange">
                             </div>
 
                             <div class="list-group-item__content">
@@ -308,7 +308,7 @@
                     <li class="list-group-item">
                         <a href="#" class="link-chevron-right">
                             <div class="list-group-item__icon">
-                                <img src="assets/images/bulb-in-blue.svg" alt="Bulb in blue">
+                                <img src="assets/images/bulb-in-orange.svg" alt="Bulb in orange">
                             </div>
 
                             <div class="list-group-item__content">
@@ -319,7 +319,7 @@
                     <li class="list-group-item">
                         <a href="#" class="link-chevron-right">
                             <div class="list-group-item__icon">
-                                <img src="assets/images/bulb-in-blue.svg" alt="Bulb in blue">
+                                <img src="/images/bulb-in-orange.svg" alt="Bulb in orange">
                             </div>
 
                             <div class="list-group-item__content">
@@ -330,7 +330,7 @@
                     <li class="list-group-item">
                         <a href="#" class="link-chevron-right">
                             <div class="list-group-item__icon">
-                                <img src="assets/images/bulb-in-blue.svg" alt="Bulb in blue">
+                                <img src="assets/images/bulb-in-orange.svg" alt="Bulb in orange">
                             </div>
 
                             <div class="list-group-item__content">

@@ -17,7 +17,7 @@
 .accordion {
     --bs-accordion-bg: #EDEDED;
     --bs-accordion-border-color: #EDEDED;
-    --bs-accordion-btn-color: #{$primary};
+    --bs-accordion-btn-color: #{$ntg-arafura-blue};
 
     &-header {
         &:target {
@@ -41,9 +41,15 @@
 
     &-button {
         display: flex;
+        align-items: center;
         gap: 1rem;
         font-weight: 700;
         border-radius: var(--bs-accordion-border-radius);
+
+        &::after {
+            width: 22.5px;
+            height: calc(22.5px * (11 / 17));
+        }
     }
 }
 

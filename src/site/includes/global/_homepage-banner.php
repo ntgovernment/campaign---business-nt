@@ -13,19 +13,19 @@
                     <h1 class="ntg-homepage-banner__title header-line-top">Welcome to Business Territory</h1>
                     <p>Find information and tools to help you invest in NT businesses; or start, grow and run your own business in the Northern Territory. No matter what stage you are at in Business, there are supports available to help you
                         succeed.</p>
-                    <button class="btn btn-rubine-red rounded-pill btn-chevron-right">Find out more</button>
+                    <button class="btn btn-primary rounded-pill btn-chevron-right">Find out more</button>
                 </div>
             </div>
             <div class="col-lg-5">
                 <div class="banner-quick-links__title h4 mb-3">Quick Links</div>
                 <div class="banner-quick-links__wrapper">
                     <ul>
-                        <li><a href="#" class="btn btn-white btn-quick-links rounded-pill">Funding Assistance and Grants</a></li>
-                        <li><a href="#" class="btn btn-white btn-quick-links rounded-pill">Business legislation and regulation</a></li>
-                        <li><a href="#" class="btn btn-white btn-quick-links rounded-pill">Getting help as a business owner</a></li>
-                        <li><a href="#" class="btn btn-white btn-quick-links rounded-pill">Events</a></li>
-                        <li><a href="#" class="btn btn-white btn-quick-links rounded-pill">Tendering with Government</a></li>
-                        <li><a href="#" class="btn btn-white btn-quick-links rounded-pill">Get in touch</a></li>
+                        <li><a href="#" class="btn btn-white btn-quick-links">Funding Assistance and Grants</a></li>
+                        <li><a href="#" class="btn btn-white btn-quick-links">Business legislation and regulation</a></li>
+                        <li><a href="#" class="btn btn-white btn-quick-links">Getting help as a business owner</a></li>
+                        <li><a href="#" class="btn btn-white btn-quick-links">Events</a></li>
+                        <li><a href="#" class="btn btn-white btn-quick-links">Tendering with Government</a></li>
+                        <li><a href="#" class="btn btn-white btn-quick-links">Get in touch</a></li>
                     </ul>
                 </div>
             </div>

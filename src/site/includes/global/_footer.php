@@ -25,16 +25,13 @@
 							<nav class="footer-vertical-nav footer-vertical-nav--with-underline" aria-label="footer">
 								<ul>
 									<li>
-										<a href="https://nt.gov.au/page/copyright-disclaimer-and-privacy">Copyright, disclaimer and
-											privacy&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+										<a href="https://nt.gov.au/page/copyright-disclaimer-and-privacy">Copyright, disclaimer and privacy<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
 									</li>
 									<li>
-										<a href="https://nt.gov.au/law/rights/freedom-of-information">Freedom of information&nbsp;<i
-												class="fa-solid fa-arrow-up-right-from-square"></i></a>
+										<a href="https://nt.gov.au/law/rights/freedom-of-information">Freedom of information<i class="fa-solid  fa-arrow-up-right-from-square"></i></a>
 									</li>
 									<li>
-										<a href="https://nt.gov.au/page/interpreter-services">Interpreter services&nbsp;<i
-												class="fa-solid fa-arrow-up-right-from-square"></i></a>
+										<a href="https://nt.gov.au/page/interpreter-services">Interpreter services<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
 									</li>
 									<li><a href="#"><span>Site map</span></a></li>
 									<li><a href="#"><span>Contacts</span></a></li>
@@ -48,16 +45,16 @@
 				<div class="ntg-footer__right-block-wrap">
 					<div class="footer-logo-hold">
 						<a href="#" target="_blank" title="Opens in a new window">
-							<img alt="Northern Territory Government Logo" src="assets/images/logo-ntg-reverse.svg" width="198"
-								height="71" />
+							<img alt="Northern Territory Government Logo" src="assets/images/logo-ntg-orange.svg" width="198" height="71" />
 						</a>
 					</div>
 					<div class="footer-desc">
-						<p>The Northern Territory Government acknowledges the Traditional Owners of the Northern Territory and
+						<p>
+							The Northern Territory Government acknowledges the Traditional Owners of the Northern Territory and
 							recognises their continuing cultural and spiritual connections to the lands, waters and communities. We
-							pay
-							our respects to all Aboriginal and Torres Strait Islander people and their cultures, their Elders past and
-							present, and to future generations</p>
+							pay our respects to all Aboriginal and Torres Strait Islander people and their cultures, their Elders past and
+							present, and to future generations
+						</p>
 					</div>
 					<div class="footer-copy-note">
 						<p>&copy; 2024 Northern Territory Government</p>

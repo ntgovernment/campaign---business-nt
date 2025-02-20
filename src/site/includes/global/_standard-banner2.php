@@ -18,9 +18,9 @@
             </div>
             <div class="col-lg-5">
                 <div class="banner-quick-links__wrapper link-vertical">
-                    <a href="#" class="btn btn-white btn-quick-links rounded-pill">Events</a>
-                    <a href="#" class="btn btn-white btn-quick-links rounded-pill">Tendering with Government</a>
-                    <a href="#" class="btn btn-white btn-quick-links rounded-pill">Get in touch</a>
+                    <a href="#" class="btn btn-white btn-quick-links">Events</a>
+                    <a href="#" class="btn btn-white btn-quick-links">Tendering with Government</a>
+                    <a href="#" class="btn btn-white btn-quick-links">Get in touch</a>
                 </div>
             </div>
         </div>

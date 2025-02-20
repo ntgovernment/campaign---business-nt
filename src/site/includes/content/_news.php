@@ -6,9 +6,9 @@
                     <img src="../assets/images/600X260.png" class="card-img-top" alt="Card image">
 
                     <div class="news-tags">
-                        <span class="badge bg-primary">Tag 1</span>
-                        <span class="badge bg-primary">Tag 2</span>
-                        <span class="badge bg-primary">Tag 3</span>
+                        <span class="badge bg-secondary">Tag 1</span>
+                        <span class="badge bg-secondary">Tag 2</span>
+                        <span class="badge bg-secondary">Tag 3</span>
                     </div>
                     
                 </div>
@@ -30,9 +30,9 @@
                     <img src="../assets/images/600X260.png" class="card-img-top" alt="Card image">
 
                     <div class="news-tags">
-                        <span class="badge bg-primary">Tag 1</span>
-                        <span class="badge bg-primary">Tag 2</span>
-                        <span class="badge bg-primary">Tag 3</span>
+                        <span class="badge bg-secondary">Tag 1</span>
+                        <span class="badge bg-secondary">Tag 2</span>
+                        <span class="badge bg-secondary">Tag 3</span>
                     </div>
                     
                 </div>
@@ -54,9 +54,9 @@
                     <img src="../assets/images/600X260.png" class="card-img-top" alt="Card image">
 
                     <div class="news-tags">
-                        <span class="badge bg-primary">Tag 1</span>
-                        <span class="badge bg-primary">Tag 2</span>
-                        <span class="badge bg-primary">Tag 3</span>
+                        <span class="badge bg-secondary">Tag 1</span>
+                        <span class="badge bg-secondary">Tag 2</span>
+                        <span class="badge bg-secondary">Tag 3</span>
                     </div>
                     
                 </div>
@@ -78,9 +78,9 @@
                     <img src="../assets/images/600X260.png" class="card-img-top" alt="Card image">
 
                     <div class="news-tags">
-                        <span class="badge bg-primary">Tag 1</span>
-                        <span class="badge bg-primary">Tag 2</span>
-                        <span class="badge bg-primary">Tag 3</span>
+                        <span class="badge bg-secondary">Tag 1</span>
+                        <span class="badge bg-secondary">Tag 2</span>
+                        <span class="badge bg-secondary">Tag 3</span>
                     </div>
                     
                 </div>
@@ -102,9 +102,9 @@
                     <img src="../assets/images/600X260.png" class="card-img-top" alt="Card image">
 
                     <div class="news-tags">
-                        <span class="badge bg-primary">Tag 1</span>
-                        <span class="badge bg-primary">Tag 2</span>
-                        <span class="badge bg-primary">Tag 3</span>
+                        <span class="badge bg-secondary">Tag 1</span>
+                        <span class="badge bg-secondary">Tag 2</span>
+                        <span class="badge bg-secondary">Tag 3</span>
                     </div>
                     
                 </div>
@@ -126,9 +126,9 @@
                     <img src="../assets/images/600X260.png" class="card-img-top" alt="Card image">
 
                     <div class="news-tags">
-                        <span class="badge bg-primary">Tag 1</span>
-                        <span class="badge bg-primary">Tag 2</span>
-                        <span class="badge bg-primary">Tag 3</span>
+                        <span class="badge bg-secondary">Tag 1</span>
+                        <span class="badge bg-secondary">Tag 2</span>
+                        <span class="badge bg-secondary">Tag 3</span>
                     </div>
                     
                 </div>

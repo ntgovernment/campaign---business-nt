@@ -52,8 +52,8 @@
             bottom: 0;
             right: 0;
             left: 0;
-            background-color: $primary;
-            opacity: 0.1;
+            background-color: $black;
+            opacity: 0.5;
         }
     }
 
@@ -125,7 +125,7 @@
         right: 0;
         left: 0;
         bottom: 0;
-        background-color: $primary;
+        background-color: $black;
         z-index: -1;
     }
 
@@ -158,14 +158,20 @@
         background-color: $white;
         color: $primary;
 
+        #{$this}__content {
+            color: $body-color;
+        }
+
         #{$this}__title {
+            color: $primary;
+
             &.header-line-top {
                 &::before {
                     background: $primary;
                 }
             }
         }
-
+        
         &::before {
             content: none;
         }

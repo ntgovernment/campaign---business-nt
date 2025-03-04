@@ -38,7 +38,7 @@
         transition: 0.2s background ease-in-out;
 
         &.is-selected {
-            background: $primary;
+            background: $secondary;
         }
     }
 }

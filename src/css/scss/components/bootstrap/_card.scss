@@ -4,7 +4,7 @@
 	&--directory {
 		--bs-card-box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
 		--bs-card-border-color: transparent;
-		--bs-card-top-border-color: #{$cloud-burst};
+		--bs-card-top-border-color: #{$tertiary};
 		box-shadow: var(--bs-card-box-shadow);
 		border-top: 4px solid var(--bs-card-top-border-color) !important;
 
@@ -21,6 +21,15 @@
 			text-overflow: ellipsis;
 			overflow: hidden;
 			max-width: 160px
+		}
+
+		#{$this}-footer {
+			a {
+				i,
+				&::after {
+					color: $primary;
+				}
+			}
 		}
 	}
 
@@ -72,13 +81,13 @@
 		a {
 			text-decoration: none;
 			font-weight: 700;
-			color: $info;
+			color: $secondary;
 
 			i {
 				font-size: 1rem;
 				margin-left: 0.5rem;
 				transition: 0.2s ease-in-out;
-				color: $purplish-red;
+				color: $tertiary;
 			}
 
 			&:hover {
@@ -117,7 +126,7 @@
 	}
 
 	.link-chevron-right::after {
-		color: $ntg-rubine-red;
+		color: $tertiary;
 	}
 
 	&--link-card {
@@ -171,6 +180,16 @@
 				transition: 0.2s background ease-in-out;
 			}
 		}
+
+		#{$this}-footer {
+			a {
+				color: $tertiary;
+
+				&::after {
+					color: $secondary;
+				}
+			}
+		}
 	}
 
 	&--with-buttons {
@@ -215,9 +234,12 @@
 					//Make the quick links button
 					a {
 						@extend .btn;
-						@extend .btn-outline-primary;
+						@extend .btn-outline-secondary;
 						@extend .rounded-pill;
-						@extend .btn-quick-links;
+						// @extend .btn-quick-links;
+						--bs-btn-border-radius: 16px;
+						--bs-btn-padding-x: 1rem;
+						--bs-btn-padding-y: 0.5rem;
 
 						i {
 							display: flex;
@@ -286,7 +308,12 @@
 			font-weight: 700;
 			line-height: 1.5;
 		}
-
+		
+		#{$this}-link {
+			&::after {
+				color: $secondary;
+			}
+		}
 	}
 
 	&--icon-box-with-links-horizontal {
@@ -455,7 +482,7 @@
 
 				&::after {
 					content: '';
-					background-color: rgba($primary, 0.4);
+					background-color: rgba($primary, 0.1);
 					position: absolute;
 					top: 0;
 					bottom: 0;

@@ -8,9 +8,9 @@ $red: red;
 * NTG Brand Colours
 * DO NOT EDIT
 */
-$ntg-heliconia-orange: #e35205;
+// $ntg-heliconia-orange: #e35205;
 $ntg-arafura-blue: #1f1f5f;
-$ntg-charcoal-grey: #454347;
+// $ntg-charcoal-grey: #454347;
 $ntg-hot-coral: #c25062;
 $ntg-sky-blue: #127cc0;
 $ntg-teal-blue: #007e91;
@@ -22,13 +22,24 @@ $ntg-barkly: #FB471F;
 $ntg-big-rivers: #F2A900;
 $ntg-central-australia: #E5004D;
 
+/**
+* New NTG Brand Colours
+*/
+$ntg-territory-orange: #e35205;
+$ntg-charcoal-grey: #454347;
+$ntg-sand-white: #d7d2cb;
+$ntg-monsoon-blue: #003352;
+$ntg-coastline-blue: #2f9599;
+$ntg-savannah-green: #566c30;
+$ntg-ranges-purple: #552855;
+
 /* -------- Theme Colours -------- */
 $ntg-dark-gray: #2B292D;
-$lapis-blue: #313373;
-$deep-blue: #131640;
-
-$ntg-medium-gray-1: #C4C4C4;
+$ntg-lapis-blue: #313373;
+$ntg-deep-blue: #131640;
 $ntg-dark-blue: #0D2C4D;
+$ntg-medium-gray-1: #C4C4C4;
+
 
 /** 
 * Colours
@@ -37,9 +48,9 @@ $ntg-dark-blue: #0D2C4D;
 */
 
 // Colours
-$primary: $ntg-heliconia-orange;
-$secondary: $ntg-arafura-blue;
-$tertiary: $ntg-sky-blue;
+$primary: $ntg-territory-orange;
+$secondary: $ntg-coastline-blue;
+$tertiary: $ntg-monsoon-blue;
 
 $primary-text: $white;
 $secondary-text: $white;
@@ -57,7 +68,7 @@ $link-color: $ntg-arafura-blue;
 $body-color: $ntg-dark-gray;
 $info: $ntg-teal-blue;
 $warning: #AF9E00;
-$danger: $ntg-heliconia-orange;
+$danger: $ntg-territory-orange;
 $success: #00720B;
 $light: #f8f9fa;
 $dark: #212529;
@@ -76,13 +87,16 @@ $color-contrast-dark: $ntg-dark-gray;
 $color-contrast-light: $white;
 
 $accesible-color-definitions: (
+	// Original NTG Brand Colours
 	"arafura-blue" : ("color": $ntg-arafura-blue,
-		"accessible-color": $white),
-	"heliconia-orange" : ("color": $ntg-heliconia-orange,
-		"accessible-color": $black),
-	"charcoal-grey" : ("color": $ntg-charcoal-grey,
-		"accessible-color": $white,
+		"accessible-color": $white
 	),
+	// "heliconia-orange" : ("color": $ntg-heliconia-orange,
+	// 	"accessible-color": $black
+	// ),
+	// "charcoal-grey" : ("color": $ntg-charcoal-grey,
+	// 	"accessible-color": $white,
+	// ),
 	"hot-coral" : ("color": $ntg-hot-coral,
 		"accessible-color": $white,
 	),
@@ -101,9 +115,32 @@ $accesible-color-definitions: (
 	"bottle-green" : ("color": $ntg-bottle-green,
 		"accessible-color": $white,
 	),
-	"deep-blue": ("color": $deep-blue,
+	// Custom Colours
+	"deep-blue": ("color": $ntg-deep-blue,
 		"accessible-color": $white
-	)
+	),
+	// New NTG Brand Colours
+	"territory-orange" : ("color": $ntg-territory-orange,
+		"accessible-color": $white
+	),
+	"charcoal-grey" : ("color": $ntg-charcoal-grey,
+		"accessible-color": $white
+	),
+	"sand-white" : ("color": $ntg-sand-white,
+		"accessible-color": $black
+	),
+	"monsoon-blue" : ("color": $ntg-monsoon-blue,
+		"accessible-color": $white
+	),
+	"coastline-blue" : ("color": $ntg-coastline-blue,
+		"accessible-color": $white
+	),
+	"savannah-green" : ("color": $ntg-savannah-green,
+		"accessible-color": $white
+	),
+	"ranges-purple" : ("color": $ntg-ranges-purple,
+		"accessible-color": $white
+	),
 );
 
 /**
@@ -112,9 +149,9 @@ $accesible-color-definitions: (
 * Get colours from $accessible-color-definitions so accessible colours are assigned.
 */
 $theme-color-definitions: (
-	"default" : ("primary": map.get($accesible-color-definitions, "arafura-blue"),
-		"secondary": map.get($accesible-color-definitions, "sky-blue"),
-		"tertiary": map.get($accesible-color-definitions, "heliconia-orange"),
+	"default" : ("primary": map.get($accesible-color-definitions, "territory-orange"),
+		"secondary": map.get($accesible-color-definitions, "coastline-blue"),
+		"tertiary": map.get($accesible-color-definitions, "monsoon-blue"),
 	),
 	"deep-blue": ("primary": map.get($accesible-color-definitions, "deep-blue"),
 		"secondary": map.get($accesible-color-definitions, "deep-blue"),
@@ -223,14 +260,14 @@ $theme-colors: (
 	"light": $light,
 	"dark": $dark,
 	"white": $white,
-	"rubine-red": $ntg-rubine-red,
-	"deep-blue": $deep-blue,
 	"arafura-10": $arafura-10,
-	"dark-blue": $ntg-dark-blue,
-	"dark-gray": $ntg-dark-gray
+	"rubine-red": $ntg-rubine-red,
+	"dark-gray": $ntg-dark-gray,
+	"deep-blue": $ntg-deep-blue,
+	"dark-blue": $ntg-dark-blue
 );
 
-$table-bg-scale:              -80% ;
+$table-bg-scale: -80% ;
 $table-variants: (
   "primary":    $primary,
   "secondary":  shift-color($secondary, $table-bg-scale),

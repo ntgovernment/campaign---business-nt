@@ -246,7 +246,7 @@
                     <li class="list-group-item">
                         <a href="https://nt.gov.au/" class="link-chevron-right">
                             <div class="list-group-item__icon">
-                                <img src="assets/images/bulb-in-orange.svg" alt="Bulb in orange">
+                                <img src="assets/images/bulb-in-coastline.svg" alt="Bulb in coastline">
                             </div>
 
                             <div class="list-group-item__content">
@@ -258,7 +258,7 @@
                     <li class="list-group-item">
                         <a href="#" class="link-chevron-right">
                             <div class="list-group-item__icon">
-                                <img src="assets/images/bulb-in-orange.svg" alt="Bulb in orange">
+                                <img src="assets/images/bulb-in-coastline.svg" alt="Bulb in coastline">
                             </div>
 
                             <div class="list-group-item__content">
@@ -269,7 +269,7 @@
                     <li class="list-group-item">
                         <a href="#" class="link-chevron-right">
                             <div class="list-group-item__icon">
-                                <img src="assets/images/bulb-in-orange.svg" alt="Bulb in orange">
+                                <img src="assets/images/bulb-in-coastline.svg" alt="Bulb in coastline">
                             </div>
 
                             <div class="list-group-item__content">
@@ -280,7 +280,7 @@
                     <li class="list-group-item">
                         <a href="#" class="link-chevron-right">
                             <div class="list-group-item__icon">
-                                <img src="assets/images/bulb-in-orange.svg" alt="Bulb in orange">
+                                <img src="assets/images/bulb-in-coastline.svg" alt="Bulb in coastline">
                             </div>
 
                             <div class="list-group-item__content">
@@ -297,7 +297,7 @@
                     <li class="list-group-item">
                         <a href="#" class="link-chevron-right">
                             <div class="list-group-item__icon">
-                                <img src="assets/images/bulb-in-orange.svg" alt="Bulb in orange">
+                                <img src="assets/images/bulb-in-coastline.svg" alt="Bulb in coastline">
                             </div>
 
                             <div class="list-group-item__content">
@@ -308,7 +308,7 @@
                     <li class="list-group-item">
                         <a href="#" class="link-chevron-right">
                             <div class="list-group-item__icon">
-                                <img src="assets/images/bulb-in-orange.svg" alt="Bulb in orange">
+                                <img src="assets/images/bulb-in-coastline.svg" alt="Bulb in coastline">
                             </div>
 
                             <div class="list-group-item__content">
@@ -319,7 +319,7 @@
                     <li class="list-group-item">
                         <a href="#" class="link-chevron-right">
                             <div class="list-group-item__icon">
-                                <img src="/images/bulb-in-orange.svg" alt="Bulb in orange">
+                                <img src="assets/images/bulb-in-coastline.svg" alt="Bulb in coastline">
                             </div>
 
                             <div class="list-group-item__content">
@@ -330,7 +330,7 @@
                     <li class="list-group-item">
                         <a href="#" class="link-chevron-right">
                             <div class="list-group-item__icon">
-                                <img src="assets/images/bulb-in-orange.svg" alt="Bulb in orange">
+                                <img src="assets/images/bulb-in-coastline.svg" alt="Bulb in coastline">
                             </div>
 
                             <div class="list-group-item__content">
@@ -354,7 +354,7 @@
                 <p>Subscribe to the Northern Territory Business Buzz for latest information and news</p>
             </div>
             <div class="col-md-auto">
-                <a href="#" class="btn btn-primary btn-chevron-right rounded-pill">Find out more</a>
+                <a href="https://nt.gov.au/" class="btn btn-primary btn-chevron-right rounded-pill">Find out more</a>
             </div>
         </div>
     </div>

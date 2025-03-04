@@ -52,8 +52,8 @@
             bottom: 0;
             right: 0;
             left: 0;
-            background-color: $secondary;
-            opacity: 0.5;
+            background-color: $primary;
+            opacity: 0.1;
         }
     }
 
@@ -102,7 +102,7 @@
 }
 
 .ntg-homepage-banner {
-    border-bottom: 8px solid $tertiary;
+    border-bottom: 8px solid $secondary;
 
     .btn-rubine-red {
         --bs-btn-hover-bg: #{$white};
@@ -113,7 +113,7 @@
 
 .ntg-standard-banner {
 	padding: 3rem 0;
-	border-bottom: 8px solid $tertiary;
+	border-bottom: 8px solid $secondary;
     position: relative;
     // background-color: $primary;
     $this: &;
@@ -134,7 +134,7 @@
     }
 
 	&__image::before {
-		opacity: 0.8;
+		opacity: 0.1;
 	}
 
     &--type-2 {
@@ -153,10 +153,33 @@
             }
         }
     }
+
+    &--white {
+        background-color: $white;
+        color: $primary;
+
+        #{$this}__title {
+            &.header-line-top {
+                &::before {
+                    background: $primary;
+                }
+            }
+        }
+
+        &::before {
+            content: none;
+        }
+    }
+
+    .btn-quick-links {
+        --bs-btn-color: #{$body-color};
+        --bs-btn-bg: #{$white};
+        --bs-btn-border-color: #{$white};
+    }
 }
 
 .ntg-banner {
-	--banner-bg: #{$lapis-blue};
+	--banner-bg: #{$ntg-lapis-blue};
 	--banner-color: #{$white};
 	--banner-py: 30px;
 	--banner-content-min-height: 190px;

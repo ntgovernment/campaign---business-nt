@@ -1,4 +1,4 @@
-<section class="ntg-standard-banner">
+<section class="ntg-standard-banner ntg-standard-banner--white">
     <!-- <div class="ntg-homepage-banner__video">
         <video autoplay muted loop id="ntgHomepageVideo">
             <source src="assets/bg-video.mp4" type="video/mp4">

@@ -16,7 +16,7 @@
 .col-aside {
 	--aside-block-border-color: #{$grey-cloud};
 	--aside-block-py: 10px;
-	--aside-filter-title-color: #{$info};
+	--aside-filter-title-color: #{$secondary};
 	--aside-filter-title-angle-color: #{$pinkish-red};
 	--aside-filter-title-padding-right: 25px;
 	--aside-filter-form-check-mb: .75rem;
@@ -109,8 +109,8 @@
 	--input-bg: #{$white};
 	--submit-border-radius: 0 40px 40px 0;
 	--submit-button-width: 125px;
-	--submit-button-bg: #{$ntg-heliconia-orange};
-	--submit-button-hover-bg: #{darken($ntg-heliconia-orange,5%)};
+	--submit-button-bg: #{$primary};
+	--submit-button-hover-bg: #{darken($primary,5%)};
 	--submit-button-color: #{$white};
 	--submit-button-hover-color: #{$white};
 
@@ -148,6 +148,10 @@
 
 		@include media-breakpoint-down(lg) {
 			font-size: $font-size-sm;
+		}
+
+		i {
+			color: $white;
 		}
 
 		&:hover,

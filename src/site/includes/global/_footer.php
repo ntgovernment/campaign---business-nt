@@ -45,7 +45,7 @@
 				<div class="ntg-footer__right-block-wrap">
 					<div class="footer-logo-hold">
 						<a href="#" target="_blank" title="Opens in a new window">
-							<img alt="Northern Territory Government Logo" src="assets/images/logo-ntg-orange.svg" width="198" height="71" />
+							<img alt="Northern Territory Government Logo" src="assets/images/logo-ntg-color.svg" width="198" height="71" />
 						</a>
 					</div>
 					<div class="footer-desc">

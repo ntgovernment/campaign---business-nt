@@ -1,6 +1,6 @@
 .ntg-footer {
 	--footer-font-size: 0.889rem;
-	--component-background-color: #{$white};
+	--component-background-color: #{$ntg-sand-white};
 	--component-extra-color: var(--current-theme-secondary, #{$ntg-sky-blue});
 	--component-text-color: var(--current-theme-text-color, #{$body-color});
 }

@@ -20,12 +20,12 @@
                 <div class="banner-quick-links__title h4 mb-3">Quick Links</div>
                 <div class="banner-quick-links__wrapper">
                     <ul>
-                        <li><a href="#" class="btn btn-white btn-quick-links">Funding Assistance and Grants</a></li>
-                        <li><a href="#" class="btn btn-white btn-quick-links">Business legislation and regulation</a></li>
-                        <li><a href="#" class="btn btn-white btn-quick-links">Getting help as a business owner</a></li>
-                        <li><a href="#" class="btn btn-white btn-quick-links">Events</a></li>
-                        <li><a href="#" class="btn btn-white btn-quick-links">Tendering with Government</a></li>
-                        <li><a href="#" class="btn btn-white btn-quick-links">Get in touch</a></li>
+                        <li><a href="#" class="btn btn-tertiary btn-quick-links">Funding Assistance and Grants</a></li>
+                        <li><a href="#" class="btn btn-tertiary btn-quick-links">Business legislation and regulation</a></li>
+                        <li><a href="#" class="btn btn-tertiary btn-quick-links">Getting help as a business owner</a></li>
+                        <li><a href="#" class="btn btn-tertiary btn-quick-links">Events</a></li>
+                        <li><a href="#" class="btn btn-tertiary btn-quick-links">Tendering with Government</a></li>
+                        <li><a href="#" class="btn btn-tertiary btn-quick-links">Get in touch</a></li>
                     </ul>
                 </div>
             </div>

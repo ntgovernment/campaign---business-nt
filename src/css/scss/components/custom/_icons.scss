@@ -28,6 +28,19 @@
 }
     
 .icon {
+    &--coastline {
+        .card-icon,
+        .list-group-item__icon,
+        .accordion-header {
+			svg {
+                path, rect {
+                    fill: $ntg-coastline-blue;
+                    stroke: $ntg-coastline-blue !important
+                }
+			}
+		}
+    }
+
 	&--teal {
 		.card-icon,
         .list-group-item__icon,
@@ -86,8 +99,8 @@
         .accordion-header {
 			svg {
                 path, rect {
-                    fill: $ntg-heliconia-orange;
-                    stroke: $ntg-heliconia-orange !important
+                    fill: $primary;
+                    stroke: $primary !important
                 }
 			}
 		}

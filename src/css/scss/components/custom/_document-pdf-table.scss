@@ -23,14 +23,14 @@
     }
 
     &__link {
-        color: $ntg-teal-blue;
+        color: $secondary;
         margin-left: 1rem;
         display: inline-block;
         transition: 0.2s color ease-in-out;
         @extend .stretched-link;
 
         &:hover {
-            color: $ntg-rubine-red;
+            color: $primary;
         }
     }
 }

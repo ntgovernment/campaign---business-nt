@@ -5,7 +5,7 @@ a[data-fancybox] {
     &::after {
         @extend .fa;
         content: '';
-        background-image: url('../assets/images/expand-solid.svg');
+        background-image: url('../assets/css-images/expand-solid.svg');
         background-size: contain;
         background-repeat: no-repeat;
         width: 1.5rem;

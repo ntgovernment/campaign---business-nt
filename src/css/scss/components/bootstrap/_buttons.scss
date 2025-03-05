@@ -141,9 +141,7 @@
             color: $white; 
         }
     }
-}
 
-a {
     &[href^="http://"],
     &[href^="https://"] {
         &.btn-chevron-right {

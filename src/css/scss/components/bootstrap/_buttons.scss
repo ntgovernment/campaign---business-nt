@@ -142,3 +142,19 @@
         }
     }
 }
+
+a {
+    &[href^="http://"],
+    &[href^="https://"] {
+        &.btn-chevron-right {
+            &:hover,
+            &:focus {
+                padding-right: 1.75rem;
+
+                &::after {
+                    margin-left: 0.5rem;
+                }
+            }
+        }
+    }
+}

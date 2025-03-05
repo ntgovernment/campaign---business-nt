@@ -396,6 +396,9 @@
 				position: absolute;
 				top: 0.75rem;
 				left: 1.25rem;
+				display: flex;
+				flex-wrap: wrap;
+				row-gap: 0.25rem;
 
 				.badge {
 					padding: 0.75rem 1.5rem;

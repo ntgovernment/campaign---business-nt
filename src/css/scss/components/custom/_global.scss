@@ -20,6 +20,14 @@ a {
     }
 }
 
+#content {
+    a {
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
 // Removes the outline from links if its clicked with a mouse
 *:focus:not(:focus-visible) {
     outline: none !important;

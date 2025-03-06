@@ -97,7 +97,7 @@
     </div>
 </section>
 
-<section class="py-7 bg-deep-blue ntg-promo-news-carousel__wrapper">
+<section class="py-7 bg-territory-orange-50 ntg-promo-news-carousel__wrapper">
     <div class="container position-relative">
         <div class="ntg-promo-news-carousel__view-all-link">
             <a href="#" class="link-chevron-right">View all news and updates</a>
@@ -246,7 +246,7 @@
                     <li class="list-group-item">
                         <a href="https://nt.gov.au/" class="link-chevron-right">
                             <div class="list-group-item__icon">
-                                <img src="assets/images/bulb-in-coastline.svg" alt="Bulb in coastline">
+                                <img src="assets/images/bulb-in-orange.svg" alt="Bulb in orange">
                             </div>
 
                             <div class="list-group-item__content">
@@ -258,7 +258,7 @@
                     <li class="list-group-item">
                         <a href="#" class="link-chevron-right">
                             <div class="list-group-item__icon">
-                                <img src="assets/images/bulb-in-coastline.svg" alt="Bulb in coastline">
+                                <img src="assets/images/bulb-in-orange.svg" alt="Bulb in orange">
                             </div>
 
                             <div class="list-group-item__content">
@@ -269,7 +269,7 @@
                     <li class="list-group-item">
                         <a href="#" class="link-chevron-right">
                             <div class="list-group-item__icon">
-                                <img src="assets/images/bulb-in-coastline.svg" alt="Bulb in coastline">
+                                <img src="assets/images/bulb-in-orange.svg" alt="Bulb in orange">
                             </div>
 
                             <div class="list-group-item__content">
@@ -280,7 +280,7 @@
                     <li class="list-group-item">
                         <a href="#" class="link-chevron-right">
                             <div class="list-group-item__icon">
-                                <img src="assets/images/bulb-in-coastline.svg" alt="Bulb in coastline">
+                                <img src="assets/images/bulb-in-orange.svg" alt="Bulb in orange">
                             </div>
 
                             <div class="list-group-item__content">
@@ -297,7 +297,7 @@
                     <li class="list-group-item">
                         <a href="#" class="link-chevron-right">
                             <div class="list-group-item__icon">
-                                <img src="assets/images/bulb-in-coastline.svg" alt="Bulb in coastline">
+                                <img src="assets/images/bulb-in-orange.svg" alt="Bulb in orange">
                             </div>
 
                             <div class="list-group-item__content">
@@ -308,7 +308,7 @@
                     <li class="list-group-item">
                         <a href="#" class="link-chevron-right">
                             <div class="list-group-item__icon">
-                                <img src="assets/images/bulb-in-coastline.svg" alt="Bulb in coastline">
+                                <img src="assets/images/bulb-in-orange.svg" alt="Bulb in orange">
                             </div>
 
                             <div class="list-group-item__content">
@@ -319,7 +319,7 @@
                     <li class="list-group-item">
                         <a href="#" class="link-chevron-right">
                             <div class="list-group-item__icon">
-                                <img src="assets/images/bulb-in-coastline.svg" alt="Bulb in coastline">
+                                <img src="assets/images/bulb-in-orange.svg" alt="Bulb in orange">
                             </div>
 
                             <div class="list-group-item__content">
@@ -330,7 +330,7 @@
                     <li class="list-group-item">
                         <a href="#" class="link-chevron-right">
                             <div class="list-group-item__icon">
-                                <img src="assets/images/bulb-in-coastline.svg" alt="Bulb in coastline">
+                                <img src="assets/images/bulb-in-orange.svg" alt="Bulb in orange">
                             </div>
 
                             <div class="list-group-item__content">

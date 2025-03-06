@@ -150,3 +150,11 @@ blockquote p {
         margin-left: 10px;
     }
 }
+
+.bg-territory-orange-50 {
+    color: $ntg-charcoal-grey;
+
+    a {
+        color: inherit;
+    }
+}

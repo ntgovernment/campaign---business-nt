@@ -47,12 +47,11 @@
 
     &-quick-links {
         --bs-btn-color: #{$white};
-        --bs-btn-bg: #{$tertiary};
-        --bs-btn-border-color: #{$tertiary};
-        --bs-btn-hover-color: #{$white};
-        --bs-btn-hover-bg: #{$secondary};
-        --bs-btn-hover-border-color: #{$secondary};
-        --bs-btn-hover-color: #{$white};
+        --bs-btn-bg: #{$primary};
+        --bs-btn-border-color: #{$primary};
+        --bs-btn-hover-color: #{$body-color};
+        --bs-btn-hover-bg: #{$white};
+        --bs-btn-hover-border-color: #{$white};
         --bs-btn-border-radius: 16px;
         --bs-btn-padding-x: 1rem;
         --bs-btn-padding-y: 0.5rem;
@@ -152,6 +151,19 @@
                 &::after {
                     margin-left: 0.5rem;
                 }
+            }
+        }
+    }
+}
+
+.bg-territory-orange-50 {
+    .btn {
+        &-outline-white {
+            border-color: $ntg-charcoal-grey;
+
+            &:hover,
+            &:focus {
+                border-color: $primary;
             }
         }
     }

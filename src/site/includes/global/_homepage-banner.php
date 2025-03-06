@@ -10,7 +10,7 @@
         <div class="row gy-5">
             <div class="col-lg-7">
                 <div class="ntg-homepage-banner__content">
-                    <h1 class="ntg-homepage-banner__title header-line-top">Welcome to Business Territory</h1>
+                    <h1 class="ntg-homepage-banner__title header-line-top header-line-top--primary">Welcome to Business Territory</h1>
                     <p>Find information and tools to help you invest in NT businesses; or start, grow and run your own business in the Northern Territory. No matter what stage you are at in Business, there are supports available to help you
                         succeed.</p>
                     <button class="btn btn-primary rounded-pill btn-chevron-right">Find out more</button>

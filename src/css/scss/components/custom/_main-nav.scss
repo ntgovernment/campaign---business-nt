@@ -321,14 +321,15 @@
 
 				&:hover {
 					text-decoration: underline;
-					text-decoration-color: rgba($secondary, 1);
+					// text-decoration-color: rgba($secondary, 1);
 				}
 
 				&.active {
-					color: $ntg-rubine-red;
+					color: $secondary;
+					font-weight: 700;
 
 					&:hover {
-						text-decoration-color: $ntg-rubine-red;
+						text-decoration-color: $secondary;
 					}
 				}
 			}
@@ -353,7 +354,7 @@
 					font-weight: 700;
 					position: absolute;
 					left: calc(-1 * var(--list-padding-left));
-					color: $ntg-rubine-red;
+					color: $secondary;
 				}
 			}
 		}
@@ -372,10 +373,11 @@
 				}
 
 				&.active {
-					color: $ntg-rubine-red;
+					color: $secondary;
+					font-weight: 700;
 					
 					&:hover {
-						text-decoration-color: $ntg-rubine-red;
+						text-decoration-color: $secondary;
 					}
 				}
 			}

@@ -25,23 +25,23 @@
             &.link-chevron-right, &.external-link {
                 padding-right: 0 !important;
 
+                &::after {
+                    flex-grow: 1;
+                    text-align: right;
+                    transition: 0.2s ease-in-out transform;
+                    margin-left: 0 !important;
+                    color: $secondary;
+                }
+
                 &:hover {
                     &::after {
                         transform: translateX(5px);
                     }
                 }
-
-                &::after {
-                    flex-grow: 1;
-                    text-align: right;
-                    transition: 0.2 ease-in-out transform;
-                    margin-left: 0 !important;
-                    color: $tertiary;
-                }
             }
 
             i {
-                color: $tertiary;
+                color: $secondary;
                 flex-grow: 1;
                 text-align: right;
             }

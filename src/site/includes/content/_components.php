@@ -12,7 +12,7 @@
                     <div class="row align-items-center justify-content-between">
                         <div class="col-lg-6">
                             <div class="card-body">
-                                <h5 class="card-title h4 text-secondary">Start a business in the Northern Territory</h5>
+                                <h5 class="card-title h4 text-primary">Start a business in the Northern Territory</h5>
                                 <p>This is a card. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                             </div>
                         </div>
@@ -86,7 +86,7 @@
         <p class="lead">Skip to content</p>
         <div class="row gy-3">
             <div class="col-md-6 col-lg-4">
-                <a href="#" class="card card--icon-box-with-links-horizontal icon--coastline">
+                <a href="#" class="card card--icon-box-with-links-horizontal icon--orange">
                     <div class="card-icon">
                         <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -106,7 +106,7 @@
                 </a>
             </div>
             <div class="col-md-6 col-lg-4">
-                <a href="#" class="card card--icon-box-with-links-horizontal icon--coastline">
+                <a href="#" class="card card--icon-box-with-links-horizontal icon--orange">
                     <div class="card-icon">
                         <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -126,7 +126,7 @@
                 </a>
             </div>
             <div class="col-md-6 col-lg-4">
-                <a href="#" class="card card--icon-box-with-links-horizontal icon--coastline">
+                <a href="#" class="card card--icon-box-with-links-horizontal icon--orange">
                     <div class="card-icon">
                         <svg width="46" height="46" viewBox="0 0 46 46" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path

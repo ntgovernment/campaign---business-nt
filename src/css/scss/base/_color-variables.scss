@@ -81,6 +81,7 @@ $grey-cloud: #B5B4B5;
 $platinium: #DEE3E5;
 $arafura-10: #E9E9EF;
 $charcoal-gray: #A2A1A3;
+$territory-orange-50: tint-color($ntg-territory-orange, 50%);
 
 $min-contrast-ratio: 4.5;
 $color-contrast-dark: $ntg-dark-gray;
@@ -264,7 +265,8 @@ $theme-colors: (
 	"rubine-red": $ntg-rubine-red,
 	"dark-gray": $ntg-dark-gray,
 	"deep-blue": $ntg-deep-blue,
-	"dark-blue": $ntg-dark-blue
+	"dark-blue": $ntg-dark-blue,
+	"territory-orange-50": $territory-orange-50,
 );
 
 $table-bg-scale: -80% ;

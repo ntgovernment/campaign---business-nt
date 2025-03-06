@@ -130,4 +130,29 @@
 			}
         }
     }
+
+    &--white-in-orange-circle-box-55px {
+        .card-icon,
+        .list-group-item__icon,
+        .accordion-header {
+            width: 55px;
+            height: 55px;
+            background-color: $primary;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+
+            svg {
+                width: 32px;
+                height: auto;
+
+                path, rect {
+                    fill: $white;
+                    stroke: $white !important
+                }
+			}
+        }
+    }
 }

@@ -1,0 +1,61 @@
+.ntg-tick-and-cross-box {
+    $this: &;
+
+    &__title {
+        padding: 0.5rem 0;
+    }
+
+    ul {
+        --list-padding: 1.5rem;
+        padding-left: var(--list-padding);
+        list-style-type: none;
+
+        li {
+            --list-item-padding: 0.35rem;
+            padding: var(--list-item-padding);
+            position: relative;
+
+            &::before {
+                width: var(--icon-width);
+                height: var(--icon-height);
+                content: "";
+                display: inline-block;
+                position: absolute;
+                top: calc(var(--list-item-padding) + 5px);
+                left: calc(-1 * var(--list-padding));
+                background-repeat: no-repeat;
+            }
+        }
+    }
+
+    .tick-list {
+        #{$this}__title {
+            color: $primary;
+            border-bottom: 4px solid $primary;
+        }
+
+        li {
+            &::before {
+                --icon-width: 22px;
+                --icon-height: 17px;
+                background-image: url("data:image/svg+xml,%3Csvg width='22' height='17' viewBox='0 0 22 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M19.3906 0.4375C19.625 0.203125 20 0.203125 20.1875 0.4375L21.5469 1.75C21.7344 1.98438 21.7344 2.35938 21.5469 2.54688L7.48438 16.6094C7.25 16.8438 6.92188 16.8438 6.6875 16.6094L0.40625 10.375C0.21875 10.1406 0.21875 9.76562 0.40625 9.57812L1.76562 8.21875C1.95312 8.03125 2.32812 8.03125 2.5625 8.21875L7.0625 12.7656L19.3906 0.4375Z' fill='%231F1F5F'/%3E%3C/svg%3E%0A");
+            }
+        }
+    }
+
+    .cross-list {
+        #{$this}__title {
+            color: $ntg-rubine-red;
+            border-bottom: 4px solid $ntg-rubine-red;
+        }
+
+        li {
+            --icon-width: 17px;
+            --icon-height: 17px;
+
+            &::before {
+                background-image: url("data:image/svg+xml,%3Csvg width='17' height='17' viewBox='0 0 17 17' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.7031 8.5L15.7656 13.5625C16.0469 13.8438 16.0469 14.3594 15.7656 14.6406L14.5938 15.8125C14.3125 16.0938 13.7969 16.0938 13.5156 15.8125L8.5 10.75L3.4375 15.8125C3.15625 16.0938 2.64062 16.0938 2.35938 15.8125L1.1875 14.6406C0.90625 14.3594 0.90625 13.8438 1.1875 13.5625L6.25 8.5L1.1875 3.48438C0.90625 3.20312 0.90625 2.6875 1.1875 2.40625L2.35938 1.23438C2.64062 0.953125 3.15625 0.953125 3.4375 1.23438L8.5 6.29688L13.5156 1.23438C13.7969 0.953125 14.3125 0.953125 14.5938 1.23438L15.7656 2.40625C16.0469 2.6875 16.0469 3.20312 15.7656 3.48438L10.7031 8.5Z' fill='%23980044'/%3E%3C/svg%3E%0A");
+            }
+        }
+    }
+}

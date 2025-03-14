@@ -1,0 +1,25 @@
+.ntg-stats {
+    &__stat {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    &__icon {
+        max-width: 100px;
+        width: 100%;
+        height: auto;
+        margin-bottom: 1rem;
+    }
+
+    &__description {
+        text-align: center;
+    
+        > * {
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

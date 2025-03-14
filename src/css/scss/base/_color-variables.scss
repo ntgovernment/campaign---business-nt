@@ -1,0 +1,287 @@
+@use "sass:map";
+
+$white: #fff;
+$black: #000;
+$red: red;
+
+/**
+* NTG Brand Colours
+* DO NOT EDIT
+*/
+// $ntg-heliconia-orange: #e35205;
+$ntg-arafura-blue: #1f1f5f;
+// $ntg-charcoal-grey: #454347;
+$ntg-hot-coral: #c25062;
+$ntg-sky-blue: #127cc0;
+$ntg-teal-blue: #007e91;
+$ntg-rubine-red: #980044;
+$ntg-deep-mauve: #845278;
+$ntg-bottle-green: #1e5e5e;
+$ntg-top-end: #0093B8;
+$ntg-barkly: #FB471F;
+$ntg-big-rivers: #F2A900;
+$ntg-central-australia: #E5004D;
+
+/**
+* New NTG Brand Colours
+*/
+$ntg-territory-orange: #e35205;
+$ntg-charcoal-grey: #454347;
+$ntg-sand-white: #d7d2cb;
+$ntg-monsoon-blue: #003352;
+$ntg-coastline-blue: #2f9599;
+$ntg-savannah-green: #566c30;
+$ntg-ranges-purple: #552855;
+
+/* -------- Theme Colours -------- */
+$ntg-dark-gray: #2B292D;
+$ntg-lapis-blue: #313373;
+$ntg-deep-blue: #131640;
+$ntg-dark-blue: #0D2C4D;
+$ntg-medium-gray-1: #C4C4C4;
+
+
+/** 
+* Colours
+* These colors are provided to generate utilities classes. These primary, secondary, and tertiary colors would be used when there is no data-bs-theme defined on the root.
+* If data-bs-theme is defined on the root, the primary, secondary, and tertiary color would come from there.
+*/
+
+// Colours
+$primary: $ntg-territory-orange;
+$secondary: $ntg-coastline-blue;
+$tertiary: $ntg-monsoon-blue;
+
+$primary-text: $white;
+$secondary-text: $white;
+$tertiary-text: $white;
+
+$primary-link-color: $white;
+$primary-link-hover-color: $white;
+$secondary-link-color: $white;
+$secondary-link-hover-color: $white;
+$tertiary-link-color: $white;
+$tertiary-link-hover-color: $white;
+
+$link-color: $ntg-arafura-blue;
+
+$body-color: $ntg-dark-gray;
+$info: $ntg-teal-blue;
+$warning: #AF9E00;
+$danger: $ntg-territory-orange;
+$success: #00720B;
+$light: #f8f9fa;
+$dark: #212529;
+$ebony: #150925;
+$baltic-sea: #2b292d;
+$cloud-burst: #1F1F5F;
+$pinkish-red: #E5004D;
+$purplish-red: #B80C4A;
+$grey-cloud: #B5B4B5;
+$platinium: #DEE3E5;
+$arafura-10: #E9E9EF;
+$charcoal-gray: #A2A1A3;
+$territory-orange-50: tint-color($ntg-territory-orange, 50%);
+
+$min-contrast-ratio: 4.5;
+$color-contrast-dark: $ntg-dark-gray;
+$color-contrast-light: $white;
+
+$accesible-color-definitions: (
+	// Original NTG Brand Colours
+	"arafura-blue" : ("color": $ntg-arafura-blue,
+		"accessible-color": $white
+	),
+	// "heliconia-orange" : ("color": $ntg-heliconia-orange,
+	// 	"accessible-color": $black
+	// ),
+	// "charcoal-grey" : ("color": $ntg-charcoal-grey,
+	// 	"accessible-color": $white,
+	// ),
+	"hot-coral" : ("color": $ntg-hot-coral,
+		"accessible-color": $white,
+	),
+	"sky-blue" : ("color": $ntg-sky-blue,
+		"accessible-color": $white,
+	),
+	"teal-blue" : ("color": $ntg-teal-blue,
+		"accessible-color": $white,
+	),
+	"rubine-red" : ("color": $ntg-rubine-red,
+		"accessible-color": $white,
+	),
+	"deep-mauve" : ("color": $ntg-deep-mauve,
+		"accessible-color": $white,
+	),
+	"bottle-green" : ("color": $ntg-bottle-green,
+		"accessible-color": $white,
+	),
+	// Custom Colours
+	"deep-blue": ("color": $ntg-deep-blue,
+		"accessible-color": $white
+	),
+	// New NTG Brand Colours
+	"territory-orange" : ("color": $ntg-territory-orange,
+		"accessible-color": $white
+	),
+	"charcoal-grey" : ("color": $ntg-charcoal-grey,
+		"accessible-color": $white
+	),
+	"sand-white" : ("color": $ntg-sand-white,
+		"accessible-color": $black
+	),
+	"monsoon-blue" : ("color": $ntg-monsoon-blue,
+		"accessible-color": $white
+	),
+	"coastline-blue" : ("color": $ntg-coastline-blue,
+		"accessible-color": $white
+	),
+	"savannah-green" : ("color": $ntg-savannah-green,
+		"accessible-color": $white
+	),
+	"ranges-purple" : ("color": $ntg-ranges-purple,
+		"accessible-color": $white
+	),
+);
+
+/**
+* DEFINE ANY EXTRA THEME TO USE THROUGH THE SITE IN HERE
+* This can be used as [data-bs-theme="color-name"].
+* Get colours from $accessible-color-definitions so accessible colours are assigned.
+*/
+$theme-color-definitions: (
+	"default" : ("primary": map.get($accesible-color-definitions, "territory-orange"),
+		"secondary": map.get($accesible-color-definitions, "coastline-blue"),
+		"tertiary": map.get($accesible-color-definitions, "monsoon-blue"),
+	),
+	"deep-blue": ("primary": map.get($accesible-color-definitions, "deep-blue"),
+		"secondary": map.get($accesible-color-definitions, "deep-blue"),
+		"tertiary": map.get($accesible-color-definitions, "deep-blue"),
+	)
+);
+
+$base-colors: (
+);
+$base-colors-primary: (
+);
+$base-colors-secondary: (
+);
+$base-colors-tertiary: (
+);
+
+@each $color-name, $color-values in $theme-color-definitions {
+	$primary-color: map.get(map.get($color-values, "primary"), "color");
+	$primary-color-dark: darken($primary-color, 6);
+	$primary-color-light: lighten($primary-color, 4);
+	$primary-accessible-color: map.get(map.get($color-values, "primary"), "accessible-color");
+	$secondary-color: map.get(map.get($color-values, "secondary"), "color");
+	$secondary-color-dark: darken($secondary-color, 6);
+	$secondary-color-light: lighten($secondary-color, 4);
+	$secondary-accessible-color: map.get(map.get($color-values, "secondary"), "accessible-color");
+	$tertiary-color: map.get(map.get($color-values, "tertiary"), "color");
+	$tertiary-color-dark: darken($tertiary-color, 6);
+	$tertiary-color-light: lighten($tertiary-color, 4);
+	$tertiary-accessible-color: map.get(map.get($color-values, "tertiary"), "accessible-color");
+
+	// Keep chunks manageable by separating primary, tertiary, and secondary variables.
+	$base-colors: map-merge($base-colors, (#{$color-name}: ("main": $primary-color,
+					"color": $primary-color,
+					"color-rgb": to-rgb($primary-color),
+					"color-darker": $primary-color-dark,
+					"color-darker-text": color-contrast($primary-color-dark),
+					"color-lighter": $primary-color-light,
+					"color-lighter-text": color-contrast($primary-color-light),
+					"text-color": $primary-accessible-color,
+					"text-color-rgb": to-rgb($primary-accessible-color),
+					"text-color-reverse": color-contrast($primary-accessible-color),
+					"link-color": $primary-accessible-color,
+					"link-color-rgb": to-rgb($primary-accessible-color),
+					"link-hover-color": $primary-accessible-color,
+					"link-hover-color-rgb": to-rgb($primary-accessible-color),
+					"border-subtle": tint-color($primary-color, 30%),
+					"bg-subtle": tint-color($primary-color, 60%))));
+
+	$base-colors-primary: map-merge($base-colors-primary, (#{$color-name}: ("primary": $primary-color,
+					"primary-darker": $primary-color-dark,
+					"primary-darker-text": color-contrast($primary-color-dark),
+					"primary-lighter": $primary-color-light,
+					"primary-lighter-text": color-contrast($primary-color-light),
+					"primary-rgb": to-rgb($primary-color),
+					"primary-text": $primary-accessible-color,
+					"primary-text-rgb": to-rgb($primary-accessible-color),
+					"primary-text-reverse": color-contrast($primary-accessible-color),
+					"primary-text-reverse-rgb": to-rgb(color-contrast($primary-accessible-color)),
+					"primary-link-color": $primary-accessible-color,
+					"primary-link-color-rgb": to-rgb($primary-accessible-color),
+					"primary-link-hover-color": $primary-accessible-color,
+					"primary-link-hover-color-rgb": to-rgb($primary-accessible-color),
+				)));
+
+	$base-colors-secondary: map-merge($base-colors-secondary, (#{$color-name}: ("secondary": $secondary-color,
+					"secondary-darker": $secondary-color-dark,
+					"secondary-darker-text": color-contrast($secondary-color-dark),
+					"secondary-lighter": $secondary-color-light,
+					"secondary-lighter-text": color-contrast($secondary-color-light),
+					"secondary-rgb": to-rgb($secondary-color),
+					"secondary-text": $secondary-accessible-color,
+					"secondary-text-rgb": to-rgb($secondary-accessible-color),
+					"secondary-text-reverse": color-contrast($secondary-accessible-color),
+					"secondary-text-reverse-rgb": to-rgb(color-contrast($secondary-accessible-color)),
+					"secondary-link-color": $secondary-accessible-color,
+					"secondary-link-color-rgb": to-rgb($secondary-accessible-color),
+					"secondary-link-hover-color": $secondary-accessible-color,
+					"secondary-link-hover-color-rgb": to-rgb($secondary-accessible-color),
+				)));
+
+	$base-colors-tertiary: map-merge($base-colors-tertiary, (#{$color-name}: ("tertiary": $tertiary-color,
+					"tertiary-darker": $tertiary-color-dark,
+					"tertiary-darker-text": color-contrast($tertiary-color-dark),
+					"tertiary-lighter": $tertiary-color-light,
+					"tertiary-lighter-text": color-contrast($tertiary-color-light),
+					"tertiary-rgb": to-rgb($tertiary-color),
+					"tertiary-text": $tertiary-accessible-color,
+					"tertiary-text-rgb": to-rgb($tertiary-accessible-color),
+					"tertiary-text-reverse": color-contrast($tertiary-accessible-color),
+					"tertiary-text-reverse-rgb": to-rgb(color-contrast($tertiary-accessible-color)),
+					"tertiary-link-color": $tertiary-accessible-color,
+					"tertiary-link-color-rgb": to-rgb($tertiary-accessible-color),
+					"tertiary-link-hover-color": $tertiary-accessible-color,
+					"tertiary-link-hover-color-rgb": to-rgb($tertiary-accessible-color),
+				)));
+}
+
+$theme-colors: (
+	"primary": $primary,
+	"secondary": $secondary,
+	"tertiary": $tertiary,
+	"success": $success,
+	"info": $info,
+	"warning": $warning,
+	"danger": $danger,
+	"light": $light,
+	"dark": $dark,
+	"white": $white,
+	"arafura-10": $arafura-10,
+	"rubine-red": $ntg-rubine-red,
+	"dark-gray": $ntg-dark-gray,
+	"deep-blue": $ntg-deep-blue,
+	"dark-blue": $ntg-dark-blue,
+	"territory-orange-50": $territory-orange-50,
+);
+
+$table-bg-scale: -80% ;
+$table-variants: (
+  "primary":    $primary,
+  "secondary":  shift-color($secondary, $table-bg-scale),
+  "success":    shift-color($success, $table-bg-scale),
+  "info":       shift-color($info, $table-bg-scale),
+  "warning":    shift-color($warning, $table-bg-scale),
+  "danger":     shift-color($danger, $table-bg-scale),
+  "light":      $light,
+  "dark":       $dark,
+);
+
+// Use the main color for each theme-colors.
+@each $color-name, $color-values in $base-colors {
+	$theme-colors: map-merge($theme-colors, (#{$color-name}: map.get($color-values, "color")));
+}

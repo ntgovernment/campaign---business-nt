@@ -1,0 +1,170 @@
+.btn {
+    margin-bottom: 0.5rem;
+    
+    &:focus {
+        @include focus();
+    }
+
+    &:hover,
+    &:focus {
+        i,
+        &::after,
+        &::before {
+            color: inherit; 
+        }
+    }
+
+    i {
+        transition: color 0.15s ease-in-out;
+    }
+
+    &-chevron-right {
+        @include btn-icon("\f054");
+        align-items: center;
+    }
+
+    &-chevron-left {
+        @include btn-icon("\f053", $reverse: true);
+    }
+
+    &-external {
+        @include btn-icon("\f35d", $animation: false);
+
+        // &:hover::after {
+        //     color: var(--bs-btn-hover-color);
+        // }
+
+        // &::after {
+        //     color: $ntg-rubine-red;
+        // }
+    }
+
+    &-close {
+        &:focus {
+            @include focus();
+        }
+    }
+
+    &-quick-links {
+        --bs-btn-color: #{$white};
+        --bs-btn-bg: #{$primary};
+        --bs-btn-border-color: #{$primary};
+        --bs-btn-hover-color: #{$body-color};
+        --bs-btn-hover-bg: #{$white};
+        --bs-btn-hover-border-color: #{$white};
+        --bs-btn-border-radius: 16px;
+        --bs-btn-padding-x: 1rem;
+        --bs-btn-padding-y: 0.5rem;
+    }
+
+    &-primary {
+        color: $white;
+
+        // &.btn-chevron-right::after {
+        //     color: $ntg-rubine-red;
+        // }
+
+        &:hover,
+        &:focus {
+            background-color: $white;
+            border-color: $white;
+            color: $body-color;
+        }
+    }
+
+    &-tertiary {
+        color: $white;
+
+        i,
+        &::after,
+        &::before {
+            color: $white;
+        }
+
+        &:hover,
+        &:focus {
+            color: $white;
+        }
+    }
+
+    &-outline-primary {
+        border-color: $tertiary;
+        color: $tertiary;
+
+        i,
+        &::after,
+        &::before {
+            color: $primary;
+        }
+
+        &:hover,
+        &:focus {
+            color: $white;
+        }
+    }
+
+    &-outline-secondary {
+        border-color: $tertiary;
+        color: $tertiary;
+
+        i,
+        &::after,
+        &::before {
+            color: $secondary;
+        }
+
+        &:hover,
+        &:focus {
+            color: $white;
+        }
+    }
+
+    &-outline-tertiary {
+        i,
+        &::after,
+        &::before {
+            color: $tertiary;
+        }
+
+        &:hover,
+        &:focus {
+            color: $white;
+        }
+    }
+
+    &-outline-white {
+        &:hover,
+        &:focus {
+            background-color: $primary;
+            border-color: $primary;
+            color: $white; 
+        }
+    }
+
+    &[href^="http://"],
+    &[href^="https://"] {
+        &.btn-chevron-right {
+            &:hover,
+            &:focus {
+                padding-right: 1.75rem;
+
+                &::after {
+                    margin-left: 0.5rem;
+                }
+            }
+        }
+    }
+}
+
+.bg-territory-orange-50 {
+    .btn {
+        &-outline-white {
+            border-color: $ntg-charcoal-grey;
+
+            &:hover,
+            &:focus {
+                border-color: $primary;
+            }
+        }
+    }
+}

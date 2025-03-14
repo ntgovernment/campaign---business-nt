@@ -1,0 +1,105 @@
+// allows the use of variables in svg data urls (must use HEX values)
+@function url-friendly-colour($colour) {
+    @return '%23'+str-slice('#{$colour}', 2, -1);
+}
+
+@mixin focus($important: false) {
+    box-shadow: none !important;
+
+    @if $important ==true {
+        outline: $focus-width solid $focus-color !important;
+        outline-offset: $outline-offset-width !important;
+    }
+
+    @else {
+        outline: $focus-width solid $focus-color;
+        outline-offset: $outline-offset-width;
+    }
+}
+
+/**
+* add icons as a psuedo-element to buttons by specifying a fontawesome unicode
+* e.g. "\f054" for chevron-right
+* options: 
+* - display icon before text by specifying $position: 'left'
+* - disable icon animation by specifying $animation: false
+*/
+
+@mixin btn-icon($unicode, $reverse: false, $animation: true) {
+    @extend .fa;
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: center;
+
+    @if $reverse {
+        &::before {
+            @include add-icon($unicode, $reverse);
+        }
+    }
+
+    @else {
+        &::after {
+            @include add-icon($unicode, $reverse);
+        }
+    }
+
+    @if $animation {
+        &:not(.btn-sm):not(.btn-lg) {
+            @include animate-icon($btn-padding-x, $reverse);
+        }
+
+        &.btn-sm,
+        &.btn-sm.btn-lg {
+            @include animate-icon($btn-padding-x-sm, $reverse);
+        }
+
+        &.btn-lg {
+            @include animate-icon($btn-padding-x-lg, $reverse);
+        }
+    }
+}
+
+// icon styles for button pseudoelements
+@mixin add-icon($unicode, $reverse: false) {
+    content: $unicode;
+    font-weight: 700 !important;
+
+    @if $reverse {
+        margin-right: 0.5rem;
+        transition: 0.15s margin-right ease-in-out, 0.15s color ease-in-out;
+    }
+
+    @else {
+        margin-left: 0.5rem;
+        transition: 0.15s margin-left ease-in-out, 0.15s color ease-in-out;
+    }
+}
+
+// optional hover/focus styles for button icons
+@mixin animate-icon($spacing, $reverse: false) {
+    @if $reverse {
+        padding-left: calc($spacing + 0.25rem);
+
+        &:hover,
+        &:focus {
+            padding-left: $spacing;
+
+            &::before {
+                margin-right: 0.75rem;
+            }
+        }
+    }
+
+    @else {
+        padding-right: calc($spacing + 0.25rem);
+
+        &:hover,
+        &:focus {
+            padding-right: $spacing;
+
+            &::after {
+                margin-left: 0.75rem;
+            }
+        }
+    }
+}

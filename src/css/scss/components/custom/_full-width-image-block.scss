@@ -1,0 +1,16 @@
+.full-width-image-block,
+.full-length-box-with-description-and-button,
+.text-block-with-background-image-and-contact-card {
+    height: 320px;
+
+    &__image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-size: cover;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+    }
+}

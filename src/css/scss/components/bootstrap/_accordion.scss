@@ -1,0 +1,54 @@
+.accordion-button {
+    &:hover {
+        text-decoration: underline;
+    }
+
+    &:focus {
+        @include focus();
+    }
+}
+
+.bg-arafura-10 .accordion {
+    --bs-accordion-bg: #{$white};
+    --bs-accordion-border-color: #{$white};
+    --bs-accordion-btn-color: #{$body-color};
+}
+
+.accordion {
+    --bs-accordion-bg: #EDEDED;
+    --bs-accordion-border-color: #EDEDED;
+    --bs-accordion-btn-color: #{$ntg-arafura-blue};
+
+    &-header {
+        &:target {
+            display: inherit;
+        }
+
+        svg {
+			height: 45px;
+			width: auto;
+		}
+    }
+
+    &-item {
+        margin-bottom: 1.5rem;
+        border-radius: var(--bs-accordion-border-radius);
+
+        &:not(:first-of-type) {
+            border-top: var(--bs-accordion-border-width) solid var(--bs-accordion-border-color);
+        }
+    }
+
+    &-button {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        font-weight: 700;
+        border-radius: var(--bs-accordion-border-radius);
+
+        &::after {
+            width: 22.5px;
+            height: calc(22.5px * (11 / 17));
+        }
+    }
+}

@@ -1,0 +1,16 @@
+.priority-nav .priority-nav__menu#mmenu-wrapper {
+  display: flex;
+}
+
+@media (min-width: 992px) {
+    .priority-nav .priority-nav__list {
+        display: flex;
+        flex-wrap: nowrap;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .priority-nav .priority-nav__list > li > a {
+      white-space: nowrap;
+    }
+}

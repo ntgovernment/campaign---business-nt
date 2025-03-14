@@ -1,0 +1,26 @@
+a[data-fancybox] {
+    position: relative;
+    display: block;
+
+    &::after {
+        @extend .fa;
+        content: '';
+        background-image: url('../assets/css-images/expand-solid.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 1.5rem;
+        height: 1.5rem;
+        position: absolute;
+        bottom: 0.5rem;
+        right: 0.5rem;
+        opacity: 0.5;
+        transition: 0.2s opacity ease-in-out;
+    }
+
+    &:hover {
+        &::after {
+            opacity: 1;
+        }
+    } 
+    
+}

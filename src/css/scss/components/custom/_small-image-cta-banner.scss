@@ -1,0 +1,37 @@
+.ntg-small-image-cta-banner {
+    position: relative;
+    padding: 5rem 0;
+    color: $white;
+
+    &__background {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        z-index: -1;
+        background-size: cover;
+    }
+
+    &__content {
+        > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    a {
+        &[href^="http://"],
+        &[href^="https://"] {
+            &.btn-chevron-right {
+                &:hover,
+                &:focus {
+                    padding-right: 1.75rem;
+
+                    &::after {
+                        margin-left: 0.5rem;
+                    }
+                }
+            }
+        }
+    }
+}

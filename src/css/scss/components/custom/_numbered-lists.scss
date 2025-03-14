@@ -1,0 +1,35 @@
+.ntg-numbered-lists {
+    --number-width: 50px;
+    --number-height: 50px;
+    --list-padding: calc(var(--number-width) + 1rem);
+
+    list-style-type: none;
+    counter-reset: lists;
+    padding-left: var(--list-padding);
+    padding-top: 0.25rem;
+
+    li {
+        --list-item-padding: 0.5rem;
+        counter-increment: lists;
+        position: relative;
+        min-height: var(--number-height);
+        padding: var(--list-item-padding) 0;
+        margin-bottom: 0.5rem;
+
+        &::before {
+            content: counter(lists);
+            background: $primary;
+            color: $white;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            width: var(--number-width);
+            height: 50px;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            left: calc(-1 * var(--list-padding));
+            top: -0.25rem;
+        }
+    }
+}

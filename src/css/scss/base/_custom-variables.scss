@@ -1,0 +1,153 @@
+$prefix: bs-;
+
+/* -------- Bootstrap -------- */
+
+// Key Global bootstrap options
+$spacer: 1rem;
+
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer * 1,
+  4: $spacer * 1.5,
+  5: $spacer * 2,
+  6: $spacer * 2.5,
+  7: $spacer * 3,
+  8: $spacer * 5,
+  9: $spacer * 7.5,
+  10: $spacer * 10
+);
+
+$enable-dark-mode: true;
+$enable-rounded: true;
+$enable-shadows: false;
+$enable-gradients: false;
+$enable-transitions: true;
+$enable-reduced-motion: true;
+$enable-grid-classes: true;
+$enable-container-classes: true;
+$enable-caret: true;
+$enable-button-pointers: true;
+$enable-rfs: true;
+$enable-validation-icons: true;
+$enable-negative-margins: false;
+$enable-deprecation-messages: true;
+$enable-important-utilities: true;
+$enable-smooth-scroll: true;
+
+$aspect-ratios: (
+  "1x1": 100%,
+  "4x3": calc(3 / 4 * 100%),
+  "16x9": calc(9 / 16 * 100%),
+  "21x9": calc(9 / 21 * 100%),
+  "32x9": calc(9 / 32 * 100%)
+);
+
+// Cards
+$card-height: 100%;
+
+// Accordions
+$accordion-button-active-bg: none;
+$accordion-button-active-color: $primary;
+$accordion-button-focus-border-color: transparent;
+$accordion-button-focus-box-shadow: none;
+
+// Alerts
+$alert-border-width: 3px;
+$alert-bg-scale: -10%;
+
+// Breadcrumbs
+$breadcrumb-divider: quote('>');
+$breadcrumb-active-color: $body-color;
+
+// Buttons
+$btn-font-weight: 700;
+$btn-padding-y: 0.75rem;
+$btn-padding-x: 1.5rem;
+$btn-border-width: 2px;
+$btn-border-radius: 0;
+$btn-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, padding .15s ease-in-out;
+
+$btn-border-radius-sm: 0;
+
+$btn-border-radius-lg: 0;
+
+// Pagination
+$pagination-border-radius: 0;
+$pagination-hover-color: $primary;
+$pagination-hover-bg: transparent;
+$pagination-hover-border-color: $primary;
+
+// Table
+$table-border-color: $body-color;
+$table-cell-padding-y: 1rem;
+$table-cell-padding-x: 1rem;
+$table-cell-padding-y-sm: .5rem;
+$table-cell-padding-x-sm: .5rem;
+
+//Alert
+$alert-border-width: 0;
+
+/* -------- Custom -------- */
+$font-lato: "Lato", system-ui,
+  -apple-system,
+  "Segoe UI",
+  Roboto,
+  "Helvetica Neue",
+  "Noto Sans",
+  "Liberation Sans",
+  Arial,
+  sans-serif,
+  "Apple Color Emoji",
+  "Segoe UI Emoji",
+  "Segoe UI Symbol",
+  "Noto Color Emoji";
+
+$font-montserrat: "Montserrat", system-ui,
+  -apple-system,
+  "Segoe UI",
+  Roboto,
+  "Helvetica Neue",
+  "Noto Sans",
+  "Liberation Sans",
+  Arial,
+  sans-serif,
+  "Apple Color Emoji",
+  "Segoe UI Emoji",
+  "Segoe UI Symbol",
+  "Noto Color Emoji";
+
+// These variables are required
+$focus-ring-width: .25rem;
+$focus-ring-opacity: .25;
+$focus-ring-color: rgba($primary, $focus-ring-opacity);
+$focus-ring-blur: 0;
+$focus-ring-box-shadow: 0 0 $focus-ring-blur $focus-ring-width $focus-ring-color;
+
+// TODO: Check and remove if ok
+$focus-color: $primary;
+$focus-width: 3px;
+$outline-offset-width: 2px;
+
+$stretched-link-pseudo-element: before;
+
+//Form
+$input-padding-y: 0.75rem;
+$input-padding-x: 0.75rem;
+
+$input-color: $body-color;
+$input-border-color: $ntg-medium-gray-1;
+$input-border-width: 2px;
+
+//Accordion
+$accordion-padding-y: 1.25rem;
+$accordion-padding-x: 1.25rem;
+$accordion-color: $tertiary;
+$accordion-border-radius: 8px;
+
+$accordion-icon-active-color: $secondary;
+$accordion-icon-color: $secondary;
+
+$accordion-button-icon: url('data:image/svg+xml, <svg width="17" height="11" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M8.18164 10.0508L0.945312 2.85156C0.611328 2.48047 0.611328 1.92383 0.945312 1.58984L1.79883 0.736328C2.13281 0.402344 2.68945 0.402344 3.06055 0.736328L8.8125 6.45117L14.5273 0.736328C14.8984 0.402344 15.4551 0.402344 15.7891 0.736328L16.6426 1.58984C16.9766 1.92383 16.9766 2.48047 16.6426 2.85156L9.40625 10.0508C9.07227 10.3848 8.51562 10.3848 8.18164 10.0508Z" fill="#{$accordion-icon-color}"/> </svg>');
+$accordion-button-active-icon: url('data:image/svg+xml, <svg width="17" height="11" viewBox="0 0 17 11" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M8.18164 10.0508L0.945312 2.85156C0.611328 2.48047 0.611328 1.92383 0.945312 1.58984L1.79883 0.736328C2.13281 0.402344 2.68945 0.402344 3.06055 0.736328L8.8125 6.45117L14.5273 0.736328C14.8984 0.402344 15.4551 0.402344 15.7891 0.736328L16.6426 1.58984C16.9766 1.92383 16.9766 2.48047 16.6426 2.85156L9.40625 10.0508C9.07227 10.3848 8.51562 10.3848 8.18164 10.0508Z" fill="#{$accordion-icon-active-color}"/> </svg>');

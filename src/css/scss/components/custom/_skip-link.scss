@@ -1,0 +1,28 @@
+.skip-link {
+    &__link {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+        font-size: 1.25rem;
+
+        &:focus {
+            top: 1rem;
+            left: 1rem;
+            padding: 1.5rem;
+            clip: auto;
+            margin: 0;
+            overflow: visible;
+            width: auto;
+            height: auto;
+            color: $white;
+            background-color: $secondary;
+            text-decoration: underline;
+            z-index: 600;
+        }
+    }
+}

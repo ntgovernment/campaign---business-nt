@@ -1,0 +1,218 @@
+@use "sass:map";
+
+//Sets the default color and value
+@each $color, $value in $theme-colors-text {
+	[data-bs-theme="#{$color}"] {
+		--bs-body-color: #{$value};
+		--bs-body-color-rgb: #{to-rgb($value)};
+	}
+}
+
+// Use the default secondary color when the main html tag has no color specified.
+[data-bs-theme="primary"] {
+	--current-theme-color: #{$primary};
+	--current-theme-text-color: #{$primary-text};
+	--current-theme-color-darker: #{darken($primary, 6)};
+	--current-theme-color-lighter: #{lighten($primary, 4)};
+
+	--bs-link-color: #{$primary-link-color};
+	--bs-link-color-rgb: #{to-rgb($primary-link-color)};
+	--bs-link-hover-color: #{$primary-link-hover-color};
+	--bs-link-hover-color-rgb: #{to-rgb($primary-link-hover-color)};
+}
+
+// Use the default secondary color when the main html tag has no color specified.
+[data-bs-theme="secondary"] {
+	--current-theme-color: #{$secondary};
+	--current-theme-text-color: #{$secondary-text};
+	--current-theme-color-darker: #{darken($secondary, 6)};
+	--current-theme-color-lighter: #{lighten($secondary, 4)};
+
+	--bs-link-color: #{$secondary-link-color};
+	--bs-link-color-rgb: #{to-rgb($secondary-link-color)};
+	--bs-link-hover-color: #{$secondary-link-hover-color};
+	--bs-link-hover-color-rgb: #{to-rgb($secondary-link-hover-color)};
+}
+
+// Use the default secondary color when the main html tag has no color specified.
+[data-bs-theme="tertiary"] {
+	--current-theme-color: #{$tertiary};
+	--current-theme-text-color: #{$tertiary-text};
+	--current-theme-color-darker: #{darken($tertiary, 6)};
+	--current-theme-color-lighter: #{lighten($tertiary, 4)};
+
+	--bs-link-color: #{$tertiary-link-color};
+	--bs-link-color-rgb: #{to-rgb($tertiary-link-color)};
+	--bs-link-hover-color: #{$tertiary-link-hover-color};
+	--bs-link-hover-color-rgb: #{to-rgb($tertiary-link-hover-color)};
+}
+
+// Keep chunks manageable by separating primary, secondary, and tertiary variables.
+// Main Colour CSS Vars
+@each $color, $value in $base-colors {
+	[data-bs-theme="#{$color}"] {
+
+		// Print
+		@media not print {
+			@each $property, $value1 in $value {
+				--current-theme-#{$property}: #{$value1};
+			}
+		}
+
+		// Accordion
+		.accordion {
+			$accordion-button-icon: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='448' height='512' viewBox='0 0 448 512'><path d='M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z' fill='#{map.get($value, 'main')}' /></svg>");
+			--bs-accordion-btn-icon: #{escape-svg($accordion-button-icon)};
+			--bs-accordion-btn-active-icon: var(--bs-accordion-btn-icon);
+		}
+
+		// Button
+		.btn-outline-default {
+			@include button-outline-variant(map.get($value, "text-color"))
+		}
+	}
+}
+
+// Primary Colour CSS Vars
+@each $color, $value in $base-colors-primary {
+	[data-bs-theme="#{$color}"] {
+
+		// Print
+		@media not print {
+			@each $property, $value1 in $value {
+				--current-theme-#{$property}: #{$value1};
+			}
+		}
+
+		// Button
+		.btn-primary {
+			@include button-variant(map.get($value, "primary"), map.get($value, "primary"), map.get($value, "primary-text"));
+		}
+
+		.btn-outline-primary {
+			@include button-outline-variant(map.get($value, "primary"))
+		}
+
+		[data-bs-theme="primary"] {
+			.btn-outline-default {
+				@include button-outline-variant(map.get($value, "primary-text"))
+			}
+		}
+	}
+}
+
+// Secondary Colour CSS Vars
+@each $color, $value in $base-colors-secondary {
+	[data-bs-theme="#{$color}"] {
+
+		// Print
+		@media not print {
+			@each $property, $value1 in $value {
+				--current-theme-#{$property}: #{$value1};
+			}
+		}
+
+		// Button
+		.btn-secondary {
+			@include button-variant(map.get($value, "secondary"), map.get($value, "secondary"), map.get($value, "secondary-text"));
+		}
+
+		.btn-outline-secondary {
+			@include button-outline-variant(map.get($value, "secondary"))
+		}
+
+		[data-bs-theme="secondary"] {
+			.btn-outline-default {
+				@include button-outline-variant(map.get($value, "secondary-text"))
+			}
+		}
+	}
+}
+
+// Tertiary Colors CSS Vars
+@each $color, $value in $base-colors-tertiary {
+	[data-bs-theme="#{$color}"] {
+
+		// Print
+		@media not print {
+			@each $property, $value1 in $value {
+				--current-theme-#{$property}: #{$value1};
+			}
+		}
+
+		// Button
+		.btn-tertiary {
+			@include button-variant(map.get($value, "tertiary"), map.get($value, "tertiary"), map.get($value, "tertiary-text"));
+		}
+
+		.btn-outline-tertiary {
+			@include button-outline-variant(map.get($value, "tertiary"))
+		}
+
+		[data-bs-theme="tertiary"] {
+			.btn-outline-default {
+				@include button-outline-variant(map.get($value, "tertiary-text"))
+			}
+		}
+	}
+}
+
+@each $color, $value in $base-colors {
+	[data-bs-theme="#{$color}"] {
+		@media not print {
+			--bs-body-bg: var(--current-theme-color);
+			--bs-body-bg-rgb: var(--current-theme-color-rgb);
+
+			--bs-link-color: var(--current-theme-link-color);
+			--bs-link-color-rgb: var(--current-theme-link-color-rgb);
+			--bs-link-hover-color: var(--current-theme-link-hover-color);
+			--bs-link-hover-color-rgb: var(--current-theme-link-hover-color-rgb);
+
+			--bs-primary: var(--current-theme-primary);
+			--bs-primary-rgb: var(--current-theme-primary-rgb);
+			--bs-primary-rgb: var(--current-theme-primary-text);
+			--bs-secondary: var(--current-theme-secondary);
+			--bs-secondary-rgb: var(--current-theme-secondary-rgb);
+			--bs-secondary-rgb: var(--current-theme-secondary-text);
+			--bs-tertiary: var(--current-theme-tertiary);
+			--bs-tertiary-rgb: var(--current-theme-tertiary-rgb);
+			--bs-tertiary-rgb: var(--current-theme-tertiary-text);
+
+			[data-bs-theme="primary"] {
+				--current-theme-color: var(--current-theme-primary);
+				--current-theme-text-color: var(--current-theme-primary-text);
+				--current-theme-color-darker: var(--current-theme-primary-darker);
+				--current-theme-color-lighter: var(--current-theme-primary-lighter);
+
+				--bs-link-color: var(--current-theme-primary-link-color);
+				--bs-link-color-rgb: var(--current-theme-primary-link-color-rgb);
+				--bs-link-hover-color: var(--current-theme-primary-link-hover-color);
+				--bs-link-hover-color-rgb: var(--current-theme-primary-link-hover-color-rgb);
+			}
+
+			[data-bs-theme="secondary"] {
+				--current-theme-color: var(--current-theme-secondary);
+				--current-theme-text-color: var(--current-theme-secondary-text);
+				--current-theme-color-darker: var(--current-theme-secondary-darker);
+				--current-theme-color-lighter: var(--current-theme-secondary-lighter);
+
+				--bs-link-color: var(--current-theme-secondary-link-color);
+				--bs-link-color-rgb: var(--current-theme-secondary-link-color-rgb);
+				--bs-link-hover-color: var(--current-theme-secondary-link-hover-color);
+				--bs-link-hover-color-rgb: var(--current-theme-secondary-link-hover-color-rgb);
+			}
+
+			[data-bs-theme="tertiary"] {
+				--current-theme-color: var(--current-theme-tertiary);
+				--current-theme-text-color: var(--current-theme-tertiary-text);
+				--current-theme-color-darker: var(--current-theme-tertiary-darker);
+				--current-theme-color-lighter: var(--current-theme-tertiary-lighter);
+
+				--bs-link-color: var(--current-theme-tertiary-link-color);
+				--bs-link-color-rgb: var(--current-theme-tertiary-link-color-rgb);
+				--bs-link-hover-color: var(--current-theme-tertiary-link-hover-color);
+				--bs-link-hover-color-rgb: var(--current-theme-tertiary-link-hover-color-rgb);
+			}
+		}
+	}
+}

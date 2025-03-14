@@ -1,0 +1,30 @@
+.link {
+    &-chevron-right {
+        transition: 0.2s margin ease-in-out;
+        @include btn-icon("\f054");
+
+        &.external-link::after {
+            content: unset;
+        }
+    }
+
+    &-chevron-down {
+        @include btn-icon("\f078");
+
+        &::after {
+            color: $ntg-rubine-red;
+        }
+
+        &:hover {
+            text-decoration: underline;
+            
+            &::after {
+                margin-left: 0.5rem !important;
+            }
+        }
+
+        &.external-link::after {
+            content: unset;
+        }
+    }
+}

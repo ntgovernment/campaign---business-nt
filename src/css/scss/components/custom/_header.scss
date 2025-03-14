@@ -1,0 +1,218 @@
+:root {
+	--header-height : 147px;
+	
+	
+}
+
+//When header color is changed, please account for main nav as well as mobile nav
+.page-header-container {
+	--component-background-color: #{$white};
+	--component-menu-border-color: transparent;
+	--component-text-color: var(--current-theme-text-color, #{$white});
+}
+
+.page-header-container {
+	box-shadow: 0 2px 8px rgba($black, 0.2);
+	
+	@include media-breakpoint-down(sm) {
+		background: $white;
+		padding: 0;
+	}
+}
+
+.sticky-header {
+	position: fixed;
+	z-index: 999;
+	width: 100%;
+	transition: 0.25s transform ease-in-out,
+		0.2s box-shadow ease-in-out;
+
+	&.header-hide {
+		transform: translateY(-100%);
+	}
+
+	&.header-scroll {
+		box-shadow: 0 2px 8px rgba($black, 0.2);
+	}
+}
+
+.ntg-header {
+	--header-logo-width: 110px;
+
+	@include media-breakpoint-up(sm) {
+		--header-logo-width: 150px;
+		background-color: var(--component-background-color);
+	}
+
+	&__wrapper {
+		display: flex;
+		flex-flow: column nowrap;
+
+		@include media-breakpoint-up(sm) {
+			align-items: center;
+			flex-flow: row nowrap;
+		}
+	}
+
+	.col-logo-hold {}
+
+	&__logo {
+		max-width: var(--header-logo-width);
+		width: 100%;
+		display: block;
+		padding: var(--header-main-py) 0;
+
+		img {
+			width: 100%;
+			max-width: 100%;
+			height: auto;
+		}
+	}
+
+	&__text {
+		color: var(--component-text-color);
+		text-decoration: none;
+
+		&:hover {
+			color: var(--component-text-color);
+			text-decoration: underline;
+		}
+	}
+
+	&__title {
+		margin-bottom: 0;
+	}
+
+	&__subtitle {
+		margin-top: 0.25rem;
+
+		@include media-breakpoint-up(sm) {
+			margin-top: 0.5rem;
+		}
+	}
+}
+
+.ntg-header-top {
+	--top-header-bg: #{$baltic-sea};
+	--top-header-color: #{$white};
+	--top-header-link-color: #{$white};
+	--top-header-link-hover-color: #{darken($white,5%)};
+	background: var(--top-header-bg);
+	color: var(--top-header-color);
+
+	@include media-breakpoint-down(sm) {
+		display: none !important;
+	}
+
+	&__link-hold {
+		--link-block-py: 10px;
+		padding: var(--link-block-py) 0;
+		
+		a:not(:only-child):first-child {
+			padding-right: 0.5rem;
+		}
+
+		a + a {
+			&::before {
+				content: '|';
+				padding-right: 0.5rem;
+				display: inline-block;
+			}
+		}
+	}
+
+	a {
+		color: var(--top-header-link-color);
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+			color: var(--top-header-link-hover-color);
+		}
+	}
+
+	&__form {
+		--form-border-color: #{$white};
+		--form-width: 240px;
+		--search-input-bg: transparent;
+		--search-input-border: transparent;
+		--search-input-color: #{$white};
+		--search-input-padding: 10px;
+		--button-bg: transparent;
+		--button-color: #{$white};
+		--button-height: 48px;
+		--button-width: 48px;
+		display: flex;
+		justify-content: flex-end;
+
+		@include media-breakpoint-down(lg) {
+			display: none !important;
+		}
+
+		form {
+			border-left: 1px solid var(--form-border-color);
+			border-right: 1px solid var(--form-border-color);
+			color: var(--search-input-color);
+			width: var(--form-width);
+			position: relative;
+		}
+
+		input[type="search"] {
+			background: var(--search-input-bg);
+			border: 1px solid var(--search-input-border);
+			color: var(--search-input-color);
+			height: var(--button-height);
+			padding-top: var(--search-input-padding);
+			padding-bottom: var(--search-input-padding);
+			padding-left: var(--search-input-padding);
+			padding-right: calc(var(--search-input-padding) + var(--button-width));
+
+			&::placeholder {
+				color: var(--search-input-color);
+			}
+		}
+
+		.submit-hold {
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+
+		button[type="submit"] {
+			background: var(--button-bg) !important;
+			color: var(--button-color);
+			padding: 0;
+			border: 0;
+			position: relative;
+			font-size: 0;
+			line-height: 0;
+			height: var(--button-height);
+			width: var(--button-width);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			&:after {
+				@extend .fa;
+				content: '\f002';
+				font-size: 1rem;
+				line-height: 1;
+			}
+		}
+	}
+}
+
+.ntg-header__main {
+	--header-main-py: 10px;
+
+	@include media-breakpoint-up(sm) {
+		--header-main-py: 15px;
+	}
+
+	.col-main-nav {
+		// display: flex;
+		// align-items: center;
+		// justify-content: flex-end;
+	}
+}

@@ -1,0 +1,48 @@
+.callout {
+    position: relative;
+    padding: 1.5rem 1.5rem 1.5rem 2rem;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    border: $border-width solid $border-color;
+
+    > * {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 0.5rem;
+        height: 100%;
+        background-color: transparent;
+    }
+
+    &-info {
+        &:before {
+            background-color: $info;
+        }
+    }
+
+    &-warning {
+        &:before {
+            background-color: $warning;
+        }
+    }
+
+    &-danger {
+        &:before {
+            background-color: $danger;
+        }
+    }
+
+    &-success {
+        &:before {
+            background-color: $success;
+        }
+    }
+}

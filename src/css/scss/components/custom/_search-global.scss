@@ -1,0 +1,280 @@
+body.search-panel--is-visible {
+    overflow: hidden;
+
+    .search-global {
+        position: fixed;
+        display: inherit;
+        visibility: visible !important;
+        opacity: 1 !important;
+        transition: visibility 0.3s ease-out, opacity 0.3s ease-out !important;
+
+        &__row {
+            position: fixed;
+            display: inherit;
+        }
+    }
+}
+
+body.search-panel--is-hidden {
+    overflow: inherit;
+
+    .search-global {
+        visibility: hidden !important;
+        opacity: 0 !important;
+        transition: visibility 0.3s ease-out, opacity 0.3s ease-out !important;
+    }
+}
+
+.search-global {
+    z-index: 1000;
+    height: 100%;
+    width: 100%;
+    position: static;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: none;
+    visibility: hidden;
+    opacity: 0;
+    overflow: hidden;
+    display: none;
+
+    &__row {
+        width: 90%;
+        max-width: 600px;
+        position: static;
+        left: 50%;
+        top: 25%;
+        transform: translate(-50%, 0);
+
+        @include media-breakpoint-up(sm) {
+            width: 60%;
+        }
+    }
+
+    &__field--form {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+
+        &:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 5px;
+            transform: scaleX(0);
+            background: $secondary;
+            transition: transform 0.5s ease;
+        }
+
+        &.focused {
+            &:after {
+                transform: scaleX(1);
+            }
+        }
+    }
+
+    &__field--list {
+        margin-top: 2rem;
+        margin-bottom: 0.5rem;
+        max-width: 350px;
+
+        h3 {
+            margin-top: 0;
+            color: $white;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+        }
+
+        li {
+            display: inline-block;
+            margin: 0 0.5rem 0.25rem 0;
+        }
+
+        a {
+            color: $white;
+
+            &:hover,
+            &:focus {
+                text-decoration: none !important;
+            }
+        }
+    }
+
+    form {
+        position: relative;
+        z-index: 999;
+        background-color: transparent;
+        margin: 0;
+        font-family: $font-family-base;
+    }
+
+    .form-search {
+        background-color: transparent;
+        border: 0;
+        transition: border 0.2s ease-in-out;
+        border-radius: 0;
+        @include font-size(36px);
+        font-weight: bold;
+        width: 100%;
+        display: block;
+        color: $white;
+        margin: 0;
+        border-bottom: 5px solid rgba(255, 255, 255, 0.1) !important;
+        padding-right: 2.5rem;
+
+        @include media-breakpoint-up(sm) {
+            @include font-size(48px);
+            padding-right: 3.5rem;
+        }
+
+        @include media-breakpoint-up(md) {
+            @include font-size(84px);
+            padding-right: 5.5rem;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &:focus {
+            background-color: transparent;
+            border: none;
+            box-shadow: none;
+            outline: none;
+            color: $white;
+
+            &::placeholder {
+                opacity: 1;
+            }
+        }
+
+        &::placeholder {
+            color: $white;
+        }
+    }
+
+    #edit-submit {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 35px;
+        height: 100%;
+        appearance: none;
+        background: none;
+        border: none;
+        padding: 0;
+
+        @include media-breakpoint-up(sm) {
+            width: 50px;
+        }
+
+        @include media-breakpoint-up(md) {
+            width: 80px;
+        }
+
+        &:hover,
+        &:focus {
+            cursor: pointer;
+            border: none;
+            background-color: none;
+            outline: none;
+
+            i {
+                color: $secondary;
+            }
+        }
+
+        &:focus {
+            @include focus();
+        }
+
+        i {
+            transition: 0.2s color ease-in-out;
+            font-size: 2rem;
+            color: $white;
+
+            @include media-breakpoint-up(sm) {
+                font-size: 3rem;
+            }
+    
+            @include media-breakpoint-up(md) {
+                font-size: 5rem;
+            }
+        }
+    }
+
+    // close button
+    &__close {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        text-indent: 150%;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 40px;
+        height: 40px;
+
+        &:before {
+            content: '';
+            width: 3px;
+            height: 24px;
+            background-color: $white;
+            display: block;
+            position: absolute;
+            left: 18px;
+            top: 8px;
+            transform: rotate(45deg);
+            transition: all 0.4s ease-in-out;
+        }
+
+        &:after {
+            content: '';
+            width: 3px;
+            height: 24px;
+            background-color: $white;
+            display: block;
+            position: absolute;
+            left: 18px;
+            top: 8px;
+            transform: rotate(-45deg);
+            transition: all 0.4s ease-in-out;
+        }
+
+        &:hover {
+            text-decoration: none;
+            color: $secondary;
+
+            &:before {
+                transform: rotate(-90deg);
+                background-color: $secondary;
+            }
+
+            &:after {
+                transform: rotate(90deg);
+                background-color: $secondary;
+            }
+        }
+    }
+}
+
+// overlay when search is visible
+.search-panel-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background: rgba($primary, 0.95);
+    z-index: 999;
+}

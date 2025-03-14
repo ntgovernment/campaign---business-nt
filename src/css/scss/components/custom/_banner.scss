@@ -1,0 +1,233 @@
+.ntg-homepage-banner,
+.ntg-standard-banner {
+    position: relative;
+    padding: 3rem 0;
+    color: $white;
+
+    @include media-breakpoint-up(lg) {
+        padding: 7rem 0;
+    }
+    // $this: &;
+
+    &__content {
+        &:not(.full-width) {
+            @include media-breakpoint-up(lg) {
+                max-width: 550px;
+            }
+        }
+        
+        > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__title {
+        font-weight: 700;
+        line-height: 1.3;
+    }
+
+    .btn-quick-links {
+        margin-bottom: 0.5rem;
+    }
+    
+    &__video, &__image {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: -1;
+
+        > iframe, > video, > img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            background-color: $ntg-charcoal-grey;
+            opacity: 0.5;
+        }
+    }
+
+    .video-control {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1;
+    }
+
+    .banner-quick-links__wrapper {
+        .link-vertical {
+            @include media-breakpoint-up(lg) {
+                display: flex;
+                justify-content: flex-end;
+            }
+
+            ul {
+                @include media-breakpoint-up(lg) {
+                    flex-flow: column;
+                    max-width: fit-content;
+                }
+            }
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin-bottom: 0;
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: 0.5rem;
+
+            li {
+                display: inline;
+
+                //Make the quick links button
+                a {
+                    @extend .btn;
+                    @extend .btn-white;
+                    @extend .btn-quick-links;
+                }
+            }
+        }
+    }
+}
+
+.ntg-homepage-banner {
+    border-bottom: 12px solid $primary;
+
+    .btn-rubine-red {
+        --bs-btn-hover-bg: #{$white};
+        --bs-btn-hover-border-color: #{$white};
+        --bs-btn-hover-color: #{$primary};
+    }
+}
+
+.ntg-standard-banner {
+	padding: 3rem 0;
+	border-bottom: 8px solid $primary;
+    position: relative;
+    // background-color: $primary;
+    $this: &;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-color: $ntg-charcoal-grey;
+        z-index: -1;
+    }
+
+	@include media-breakpoint-up(lg) {
+        padding: 4rem 0;
+    }
+
+	&__image::before {
+		opacity: 0.5;
+	}
+
+    &--type-2 {
+        #{$this}__image,
+        #{$this}__video {
+            position: static;
+            border-radius: 16px;
+            overflow: hidden;
+
+            img, video, iframe {
+                max-height: 400px;
+            }
+
+            &::before {
+                content: unset;
+            }
+        }
+    }
+
+    &--white {
+        background-color: $white;
+        color: $primary;
+
+        #{$this}__content {
+            color: $body-color;
+        }
+
+        #{$this}__title {
+            color: $primary;
+
+            &.header-line-top {
+                &::before {
+                    background: $primary;
+                }
+            }
+        }
+        
+        &::before {
+            content: none;
+        }
+    }
+
+    // .btn-quick-links {
+    //     --bs-btn-color: #{$body-color};
+    //     --bs-btn-bg: #{$white};
+    //     --bs-btn-border-color: #{$white};
+    // }
+}
+
+.ntg-banner {
+	--banner-bg: #{$ntg-lapis-blue};
+	--banner-color: #{$white};
+	--banner-py: 30px;
+	--banner-content-min-height: 190px;
+	background: var(--banner-bg);
+	padding: var(--banner-py) 0;
+	color: var(--banner-color);
+	min-height: calc(calc(2 * var(--banner-py)) + var(--banner-content-min-height));
+
+	@include media-breakpoint-up(lg) {
+		--banner-py: 60px;
+	}
+
+	.breadcrumb {
+		--bs-link-color-rgb: #{$white};
+		--bs-breadcrumb-divider-color: #{$white};
+		--bs-breadcrumb-item-active-color: #{$white};
+	}
+
+	&__content {
+		display: flex;
+
+	}
+
+	.container,
+	&__text {
+		height: 100%;
+	}
+
+	&__text {
+		display: flex;
+		flex-flow: column nowrap;
+		justify-content: center;
+
+		>* {
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	img {
+		display: block;
+		width: 100%;
+	}
+}

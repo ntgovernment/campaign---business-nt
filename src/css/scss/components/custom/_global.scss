@@ -1,0 +1,160 @@
+// Adds custom focus mixin to all links
+a {
+    &:focus {
+        @include focus();
+    }
+
+    &.link-bold {
+        font-weight: 700;
+    }
+}
+
+// <p> tags in bootstrap have a default bottom margin
+#content {
+    p+ul {
+        margin-top: -0.5rem;
+    }
+
+    >*:last-child {
+        margin-bottom: 0;
+    }
+}
+
+#content {
+    a {
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}
+
+// Removes the outline from links if its clicked with a mouse
+*:focus:not(:focus-visible) {
+    outline: none !important;
+}
+
+// Keeps the footer at the bottom of the visible screen when there
+// is not enough content available
+#wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    .page-header-container,
+    .ntg-footer {
+        flex: none;
+    }
+
+    main {
+        flex: 1 0 auto;
+    }
+}
+
+// clears the 'x' from ie
+input[type=search]::-ms-clear,
+input[type=search]::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+// clears the 'x' from webkit browsers
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
+
+// overrides components to be full width on standard or landing width layouts by subtracting .col-lg-8 width from .container width at different breakpoints
+.standard,
+.landing {
+    .full-width-override {
+        @include media-breakpoint-up(xxl) {
+            margin-right: calc((1320px - 880px) * -1);
+        }
+
+        @include media-breakpoint-between(xl, xxl) {
+            margin-right: calc((1140px - 760px) * -1);
+        }
+
+        @include media-breakpoint-between(lg, xl) {
+            margin-right: calc((960px - 640px) * -1);
+        }
+    }
+}
+
+.header-line-top,
+.ntg-text-and-image-block h2 {
+    position: relative;
+    padding-top: 1rem;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        height: 4px;
+        width: 72px;
+        background: $white;
+        margin-bottom: 1.5rem;
+    }
+
+    &--rubine-red {
+        &::before {
+            background: $ntg-rubine-red;
+        }
+    }
+
+    &--primary {
+        &::before {
+            background: $primary;
+        }
+    }
+}
+
+.ntg-text-and-image-block h2::before {
+    background: $primary;
+}
+
+.quote, 
+blockquote p, 
+.disclaimer {
+    padding-left: 4rem;
+    font-style: italic;
+    border-left: 4px solid $primary;
+    position: relative;
+
+    // @include media-breakpoint-up(sm) {
+    //     max-width: 60%;
+    // }
+}
+
+.quote, 
+blockquote p {
+    &::before, &::after {
+        content: '“';
+        font-size: 6rem;
+        color: $ntg-dark-gray;
+        position: absolute;
+        left: 10px;
+        line-height: 1
+    }
+
+    &::after {
+        display: inline-block;
+        position: static;
+        vertical-align: top;
+        content: "”";
+        height: 40px; // Making sure the quote aligns with the last text
+        margin-top: -8px;
+        margin-left: 10px;
+    }
+}
+
+.bg-territory-orange-50 {
+    color: $ntg-charcoal-grey;
+
+    a {
+        color: inherit;
+    }
+}

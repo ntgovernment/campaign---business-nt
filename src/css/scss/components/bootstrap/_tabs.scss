@@ -1,0 +1,30 @@
+.nav-tabs {
+    --#{$prefix}nav-link-padding-x: 2rem;
+    --#{$prefix}nav-link-padding-y: 1rem;
+    --#{$prefix}nav-link-font-weight: 700;
+    --#{$prefix}nav-link-color: #150925;
+    --#{$prefix}nav-link-hover-color: #150925;
+    --#{$prefix}nav-link-disabled-color: #{$nav-link-disabled-color};
+
+    --#{$prefix}nav-tabs-border-width: 1px;
+    --#{$prefix}nav-tabs-border-color: #{$charcoal-gray};
+    --#{$prefix}nav-tabs-border-radius: 0;
+    --#{$prefix}nav-tabs-link-hover-border-color: #{$charcoal-gray};
+    --#{$prefix}nav-tabs-link-active-color: #{$nav-tabs-link-active-color};
+    --#{$prefix}nav-tabs-link-active-bg: #{$nav-tabs-link-active-bg};
+    --#{$prefix}nav-tabs-link-active-border-color: #{$nav-tabs-link-active-border-color};
+
+    .nav-link {
+        font-weight: 700;
+
+        &.active {
+            border-top: 1px solid $charcoal-gray;
+            border-left: 1px solid $charcoal-gray;
+            border-right: 1px solid $charcoal-gray;
+        }
+    }
+}
+
+.tab-content {
+    padding: 1.5rem 0;
+}

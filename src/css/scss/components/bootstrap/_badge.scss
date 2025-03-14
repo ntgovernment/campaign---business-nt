@@ -1,0 +1,20 @@
+.badge {
+	--badge-border-radius: 16px;
+	--badge-padding: 4px 10px;
+	--badge-font-size: .7rem;
+	--badge-font-weight: 600;
+
+	border-radius: var(--badge-border-radius);
+	font-weight: var(--badge-font-weight);
+	padding: var(--badge-padding);
+	font-size: var(--badge-font-size);
+	display: inline-block;
+	vertical-align: top;
+
+	&.text-bg-light {
+		--badge-color: #{$black};
+		--badge-bg: #{$platinium};
+		background: var(--badge-bg) !important;
+		color: var(--badge-color) !important;
+	}
+}

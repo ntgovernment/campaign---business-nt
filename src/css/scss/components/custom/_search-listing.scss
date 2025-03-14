@@ -1,0 +1,29 @@
+.ntg-search-listing {
+    &__item {
+        border-top: 1px solid $border-color;
+        padding: 1rem 0;
+    }
+
+    h3 {
+        @include font-size($h4-font-size);
+        font-weight: 700;
+
+        a {
+            &:hover,
+            &:focus {
+                text-decoration: none;
+            }
+        }
+    }
+
+    &__metadata {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    &__image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+}

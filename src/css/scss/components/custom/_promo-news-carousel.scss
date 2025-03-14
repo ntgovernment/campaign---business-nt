@@ -1,0 +1,83 @@
+.ntg-promo-news-carousel {  
+    z-index: 1;
+
+    &-cell {
+        width: 100%;
+        
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        &__image {
+            border-radius: 16px;
+            overflow: hidden;
+            height: 250px;
+
+            @include media-breakpoint-up(md) {
+                position: absolute;
+                top: 0;
+                right:  calc(var(--bs-gutter-x) * 0.5);
+                left: calc(var(--bs-gutter-x) * 0.5);
+                bottom: 0;
+                height: auto;
+            }
+            
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: rgba($primary, 0.1);
+            }
+        }
+
+        &__content {
+            @include media-breakpoint-up(md) {
+                margin: 3rem 0;
+            }
+        }
+
+    }
+
+
+    .flickity-page-dots {
+        width: auto;
+
+        @include media-breakpoint-up(md) {
+            left: calc(41.66666667% + calc(var(--bs-gutter-x) * 0.5)); //Calculate width of col + gutter
+            bottom: 0;
+        }
+    }
+
+    // &__wrapper {
+    //     a:not(.btn) {
+    //         color: $white;
+    //     }
+    // }
+
+    &__view-all-link {
+        padding-bottom: 1rem;
+
+        @include media-breakpoint-up(md) {
+            position: absolute;
+            right: 0;
+            padding-right: 0;
+            padding-bottom: 0;
+            z-index: 2;
+        }
+
+        a {
+            font-weight: 700;
+            text-decoration: none;
+            padding-right: 1rem !important;
+
+            &:hover {
+                // padding-right: 0;
+            }
+        }
+    }
+}

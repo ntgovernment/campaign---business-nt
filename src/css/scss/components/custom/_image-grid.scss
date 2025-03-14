@@ -1,0 +1,11 @@
+.ntg-image-grid {
+  a {
+    &:focus {
+      @include focus();
+    }
+  }
+
+  img {
+    object-fit: cover;
+  }
+}

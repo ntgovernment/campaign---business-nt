@@ -1,0 +1,51 @@
+.video-control {
+    background-color: var(--current-theme-text-color, #{$white});
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    transition: 0.2s background-color ease-in-out;
+    box-shadow: $box-shadow;
+
+    @include media-breakpoint-down(sm) {
+        width: 40px;
+        height: 40px;
+    }
+
+    &::before {
+        @extend .fa;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        vertical-align: middle;
+        color: var(--current-theme-text-color-reverse, #{$ntg-dark-gray});
+        font-weight: 700 !important;
+        transition: 0.2s color ease-in-out;
+    }
+
+    &.pause {
+        &::before {
+            content: '\f04c';
+        }
+    }
+
+    &.play {
+        &::before {
+            content: '\f04b';
+            margin-left: 2px;
+        }
+    }
+
+    &:hover,
+    &:focus {
+        background-color: rgba($black, 0.5);
+
+        &::before {
+            color: $white;
+        }
+    }
+
+    &:focus {
+        @include focus();
+    }
+}

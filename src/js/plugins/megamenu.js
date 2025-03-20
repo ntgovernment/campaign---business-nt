@@ -59,7 +59,7 @@ limitations under the License.
             toggleButtonClass: "ntg-main-nav__toggle", // default css class responsive toggle button
             openDelay: 0, // default open delay when opening menu via mouseover
             closeDelay: 500, // default open delay when opening menu via mouseover
-            openOnMouseover: true // default setting for whether menu should open on mouseover
+            openOnMouseover: false // default setting for whether menu should open on mouseover
         },
         Keyboard = {
             BACKSPACE: 8,

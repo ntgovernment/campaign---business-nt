@@ -98,8 +98,11 @@
         }
 
         &:hover,
-        &:focus {
-            color: $white;
+        &:focus,
+        &:active {
+            color: $white !important;
+            background-color: $primary;
+            border-color: $primary;
         }
     }
 
@@ -114,8 +117,11 @@
         }
 
         &:hover,
-        &:focus {
-            color: $white;
+        &:focus,
+        &:active {
+            color: $white !important;
+            background-color: $secondary;
+            border-color: $secondary;
         }
     }
 
@@ -127,8 +133,11 @@
         }
 
         &:hover,
-        &:focus {
-            color: $white;
+        &:focus,
+        &:active {
+            color: $white !important;
+            background-color: $tertiary;
+            border-color: $tertiary;
         }
     }
 

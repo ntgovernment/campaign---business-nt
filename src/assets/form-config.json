@@ -1,0 +1,140 @@
+{
+  "formTitle": "Business Assessment Form",
+  "formDescription": "Complete this form to assess your business needs",
+  "categories": [
+    { "id": "general", "label": "General Information", "description": "Basic business details" },
+    { "id": "operations", "label": "Operations", "description": "Operational details" },
+    { "id": "services", "label": "Services & Investment", "description": "Service requirements and budget" }
+  ],
+  "pages": [
+    {
+      "id": "page1",
+      "title": "Basic Information",
+      "description": "Tell us about your business",
+      "fields": [
+        {
+          "id": "businessName",
+          "type": "text",
+          "label": "Business Name",
+          "description": "Enter your registered business name",
+          "category": "general",
+          "required": true,
+          "points": 0
+        },
+        {
+          "id": "businessType",
+          "type": "select",
+          "label": "Business Type",
+          "description": "Select your primary business classification",
+          "category": "general",
+          "required": true,
+          "points": 0,
+          "options": [
+            { "value": "llc", "label": "LLC", "points": 5 },
+            { "value": "corporation", "label": "Corporation", "points": 10 },
+            { "value": "partnership", "label": "Partnership", "points": 7 },
+            { "value": "sole", "label": "Sole Proprietorship", "points": 3 }
+          ]
+        },
+        {
+          "id": "employeeCount",
+          "type": "number",
+          "label": "Number of Employees",
+          "description": "How many employees do you have?",
+          "category": "general",
+          "required": true,
+          "points": 0,
+          "min": 0,
+          "max": 10000
+        }
+      ]
+    },
+    {
+      "id": "page2",
+      "title": "Business Details",
+      "description": "More information about your operations",
+      "fields": [
+        {
+          "id": "hasPhysicalLocation",
+          "type": "radio",
+          "label": "Do you have a physical location?",
+          "description": "Select whether your business operates from a physical location",
+          "category": "operations",
+          "required": true,
+          "points": 0,
+          "options": [
+            { "value": "yes", "label": "Yes", "points": 5 },
+            { "value": "no", "label": "No", "points": 0 }
+          ]
+        },
+        {
+          "id": "locationAddress",
+          "type": "textarea",
+          "label": "Location Address",
+          "description": "Provide your business address",
+          "category": "operations",
+          "points": 0,
+          "rows": 3,
+          "conditionalVisibility": {
+            "field": "hasPhysicalLocation",
+            "operator": "equals",
+            "value": "yes"
+          },
+          "conditionalRequired": {
+            "field": "hasPhysicalLocation",
+            "operator": "equals",
+            "value": "yes"
+          }
+        }
+      ]
+    },
+    {
+      "id": "page3",
+      "title": "Services & Budget",
+      "description": "What services do you need?",
+      "fields": [
+        {
+          "id": "servicesNeeded",
+          "type": "checkbox",
+          "label": "Services Needed",
+          "description": "Select all services you're interested in",
+          "category": "services",
+          "required": false,
+          "points": 0,
+          "options": [
+            { "value": "consulting", "label": "Business Consulting", "points": 10 },
+            { "value": "accounting", "label": "Accounting Services", "points": 15 },
+            { "value": "legal", "label": "Legal Services", "points": 20 },
+            { "value": "marketing", "label": "Marketing", "points": 12 },
+            { "value": "it", "label": "IT Support", "points": 18 }
+          ]
+        },
+        {
+          "id": "estimatedBudget",
+          "type": "select",
+          "label": "Estimated Budget",
+          "description": "What is your budget range?",
+          "category": "services",
+          "required": true,
+          "points": 0,
+          "options": [
+            { "value": "low", "label": "Under $5,000", "points": 5 },
+            { "value": "medium", "label": "$5,000 - $25,000", "points": 10 },
+            { "value": "high", "label": "$25,000 - $100,000", "points": 20 },
+            { "value": "enterprise", "label": "Over $100,000", "points": 30 }
+          ]
+        },
+        {
+          "id": "additionalNotes",
+          "type": "textarea",
+          "label": "Additional Notes",
+          "description": "Any additional information you'd like to share",
+          "category": "services",
+          "required": false,
+          "points": 0,
+          "rows": 5
+        }
+      ]
+    }
+  ]
+}

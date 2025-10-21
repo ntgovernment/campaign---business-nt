@@ -8,6 +8,51 @@ class FormRenderer {
     }
 
     /**
+     * Safely escape HTML to prevent XSS when injecting feedback as HTML
+     */
+    _escapeHtml(str) {
+        if (str === null || str === undefined) return '';
+        return String(str)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+    }
+
+    /**
+     * Parse a feedback string from dataset (may be JSON or plain text)
+     */
+    _parseFeedback(feedbackStr) {
+        if (!feedbackStr) return null;
+        try {
+            const parsed = JSON.parse(feedbackStr);
+            return parsed;
+        } catch (e) {
+            // Not JSON, treat as plain text
+            return { text: feedbackStr };
+        }
+    }
+
+    /**
+     * Return HTML for a feedback object {title, text} or plain text
+     */
+    _formatFeedbackHtml(feedbackObj) {
+        if (!feedbackObj) return '';
+        if (typeof feedbackObj === 'string') {
+            return this._escapeHtml(feedbackObj);
+        }
+        const parts = [];
+        if (feedbackObj.title) {
+            parts.push(`<strong>${this._escapeHtml(feedbackObj.title)}</strong>`);
+        }
+        if (feedbackObj.text) {
+            parts.push(`${this._escapeHtml(feedbackObj.text)}`);
+        }
+        return parts.join(' - ');
+    }
+
+    /**
      * Render all fields for a specific page
      */
     renderPage(fields, formState = {}) {
@@ -180,6 +225,10 @@ class FormRenderer {
                 optionElement.value = option.value;
                 optionElement.textContent = option.label;
                 optionElement.dataset.points = option.points || 0;
+                // store feedback on the option element for later display
+                if (option.feedback) {
+                    optionElement.dataset.feedback = JSON.stringify(option.feedback);
+                }
                 
                 if (value === option.value) {
                     optionElement.selected = true;
@@ -193,7 +242,40 @@ class FormRenderer {
             });
         }
 
-        return select;
+        // Create feedback container for select option feedback
+        const feedbackDiv = document.createElement('div');
+        feedbackDiv.className = 'option-feedback mt-2 text-muted';
+        feedbackDiv.style.display = 'none';
+
+        // Update feedback when selection changes
+        select.addEventListener('change', () => {
+            const selected = select.selectedOptions && select.selectedOptions[0];
+            if (selected && selected.dataset && selected.dataset.feedback) {
+                const parsed = this._parseFeedback(selected.dataset.feedback);
+                feedbackDiv.innerHTML = this._formatFeedbackHtml(parsed);
+                feedbackDiv.style.display = 'block';
+            } else {
+                feedbackDiv.textContent = '';
+                feedbackDiv.style.display = 'none';
+            }
+        });
+
+        // If a value was already selected, trigger feedback display
+        if (value !== null && value !== undefined) {
+            const initial = Array.from(select.options).find(o => o.value === value);
+            if (initial && initial.dataset && initial.dataset.feedback) {
+                const parsed = this._parseFeedback(initial.dataset.feedback);
+                feedbackDiv.innerHTML = this._formatFeedbackHtml(parsed);
+                feedbackDiv.style.display = 'block';
+            }
+        }
+
+        // Wrap select and feedback in a container so caller can append both
+        const wrapper = document.createElement('div');
+        wrapper.appendChild(select);
+        wrapper.appendChild(feedbackDiv);
+
+        return wrapper;
     }
 
     /**
@@ -202,6 +284,10 @@ class FormRenderer {
     createRadio(field, value) {
         const container = document.createElement('div');
         container.className = 'mt-2';
+        // feedback container for radio group
+        const feedbackDiv = document.createElement('div');
+        feedbackDiv.className = 'option-feedback mt-2 text-muted';
+        feedbackDiv.style.display = 'none';
 
         if (field.options) {
             field.options.forEach((option, index) => {
@@ -215,6 +301,9 @@ class FormRenderer {
                 input.id = `${field.id}_${index}`;
                 input.value = option.value;
                 input.dataset.points = option.points || 0;
+                if (option.feedback) {
+                    input.dataset.feedback = JSON.stringify(option.feedback);
+                }
                 
                 if (field.required) {
                     input.required = true;
@@ -242,6 +331,34 @@ class FormRenderer {
             });
         }
 
+        // Listen for changes in the radio group to display feedback
+        container.addEventListener('change', (e) => {
+            const target = e.target;
+            if (target && target.type === 'radio') {
+                const fb = target.dataset && target.dataset.feedback;
+                if (fb) {
+                    const parsed = this._parseFeedback(fb);
+                    feedbackDiv.innerHTML = this._formatFeedbackHtml(parsed);
+                    feedbackDiv.style.display = 'block';
+                } else {
+                    feedbackDiv.textContent = '';
+                    feedbackDiv.style.display = 'none';
+                }
+            }
+        });
+
+        // If a value was already selected, show its feedback
+        if (value !== null && value !== undefined) {
+            const selectedInput = container.querySelector(`input[type="radio"][value="${value}"]`);
+            if (selectedInput && selectedInput.dataset && selectedInput.dataset.feedback) {
+                const parsed = this._parseFeedback(selectedInput.dataset.feedback);
+                feedbackDiv.innerHTML = this._formatFeedbackHtml(parsed);
+                feedbackDiv.style.display = 'block';
+            }
+        }
+
+        container.appendChild(feedbackDiv);
+
         return container;
     }
 
@@ -266,6 +383,9 @@ class FormRenderer {
                 input.id = `${field.id}_${index}`;
                 input.value = option.value;
                 input.dataset.points = option.points || 0;
+                if (option.feedback) {
+                    input.dataset.feedback = JSON.stringify(option.feedback);
+                }
                 
                 if (valuesArray.includes(option.value)) {
                     input.checked = true;
@@ -288,6 +408,48 @@ class FormRenderer {
                 container.appendChild(checkDiv);
             });
         }
+
+        // feedback container for checkbox group - show combined feedbacks
+        const feedbackDiv = document.createElement('div');
+        feedbackDiv.className = 'option-feedback mt-2 text-muted';
+        feedbackDiv.style.display = 'none';
+
+        container.addEventListener('change', () => {
+            const checked = Array.from(container.querySelectorAll('input[type="checkbox"]:checked'));
+            const feedbacks = checked.map(ch => {
+                if (ch.dataset && ch.dataset.feedback) {
+                    const parsed = this._parseFeedback(ch.dataset.feedback);
+                    return this._formatFeedbackHtml(parsed);
+                }
+                return null;
+            }).filter(Boolean);
+            if (feedbacks.length > 0) {
+                feedbackDiv.innerHTML = feedbacks.join('<br>');
+                feedbackDiv.style.display = 'block';
+            } else {
+                feedbackDiv.textContent = '';
+                feedbackDiv.style.display = 'none';
+            }
+        });
+
+        // If some values are pre-checked, show their feedbacks
+        if (valuesArray.length > 0) {
+            const initialChecked = Array.from(container.querySelectorAll('input[type="checkbox"]'))
+                .filter(i => valuesArray.includes(i.value));
+            const initialFeedbacks = initialChecked.map(i => {
+                if (i.dataset && i.dataset.feedback) {
+                    const parsed = this._parseFeedback(i.dataset.feedback);
+                    return this._formatFeedbackHtml(parsed);
+                }
+                return null;
+            }).filter(Boolean);
+            if (initialFeedbacks.length > 0) {
+                feedbackDiv.innerHTML = initialFeedbacks.join('<br>');
+                feedbackDiv.style.display = 'block';
+            }
+        }
+
+        container.appendChild(feedbackDiv);
 
         return container;
     }

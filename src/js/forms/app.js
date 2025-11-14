@@ -75,7 +75,7 @@ class FormApplication {
      */
     async loadFormConfig() {
         try {
-            const response = await fetch('../assets/business-strategy.json');
+            const response = await fetch('../assets/business-operations.json');
             if (!response.ok) {
                 throw new Error('Failed to load form configuration');
             }

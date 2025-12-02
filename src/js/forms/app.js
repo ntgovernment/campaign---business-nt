@@ -75,7 +75,7 @@ class FormApplication {
      */
     async loadFormConfig() {
         try {
-            const response = await fetch('../assets/business-operations.json');
+            const response = await fetch('../assets/property-safety.json');
             if (!response.ok) {
                 throw new Error('Failed to load form configuration');
             }
@@ -198,9 +198,9 @@ class FormApplication {
         });
 
         // Download PDF
-        document.getElementById('downloadPdfBtn').addEventListener('click', () => {
-            this.generatePdf();
-        });
+        // document.getElementById('downloadPdfBtn').addEventListener('click', () => {
+        //     this.generatePdf();
+        // });
     }
 
     /**

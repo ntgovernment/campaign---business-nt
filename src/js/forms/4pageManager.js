@@ -256,6 +256,16 @@ class PageManager {
     }
 
     /**
+     * Navigate to a page by its ID
+     */
+    goToPageById(pageId) {
+        const pageIndex = this.pages.findIndex(p => p.id === pageId);
+        if (pageIndex >= 0) {
+            this.goToPage(pageIndex);
+        }
+    }
+
+    /**
      * Setup navigation button event listeners
      */
     setupNavigationButtons() {

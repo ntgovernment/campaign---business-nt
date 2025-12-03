@@ -14,6 +14,47 @@ class BusinessHealthChecklistApp {
         this.exportModal = null;
         this.importModal = null;
         this.storageKey = 'businessHealthChecklistState';
+        this.saveStatusTimer = null;
+        this.debouncedUpdateUrl = null; // will be initialized in initialize()
+    }
+
+    /**
+     * Very small debounce helper
+     */
+    _debounce(fn, wait) {
+        let t = null;
+        return (...args) => {
+            if (t) clearTimeout(t);
+            t = setTimeout(() => fn(...args), wait);
+        };
+    }
+
+    /**
+     * Show save status in UI
+     */
+    _showSaveStatus(text) {
+        try {
+            const el = document.getElementById('saveStatus');
+            if (!el) return;
+            el.textContent = text;
+            el.style.display = 'inline-block';
+            el.classList.remove('saving');
+
+            // If text is 'Saving...' add saving class
+            if (text === 'Saving...') {
+                el.classList.add('saving');
+            }
+
+            // Hide after 2.5s when showing 'Saved'
+            if (this.saveStatusTimer) clearTimeout(this.saveStatusTimer);
+            if (text === 'Saved') {
+                this.saveStatusTimer = setTimeout(() => {
+                    el.style.display = 'none';
+                }, 2500);
+            }
+        } catch (e) {
+            // ignore
+        }
     }
 
     /**
@@ -40,6 +81,13 @@ class BusinessHealthChecklistApp {
             this.setupEventListeners();
 
             // Check for URL state first
+
+            // initialize debounced URL updater (800ms)
+            this.debouncedUpdateUrl = this._debounce(() => {
+                this.updateUrlWithState();
+                this._showSaveStatus('Saved');
+            }, 800);
+
             if (this.hasQueryStringState()) {
                 const importedState = this.importFromQueryString();
                 if (importedState) {
@@ -95,6 +143,11 @@ class BusinessHealthChecklistApp {
      * Select a form to display
      */
     async selectForm(formId) {
+        // Save current form state before switching to another form
+        if (this.currentFormId && this.currentFormId !== formId) {
+            this.saveCurrrentFormState(this.currentFormId);
+        }
+
         if (this.currentFormId === formId && this.formInstances[formId]) {
             // Form already loaded, just update UI
             this.updateSidebarActive(formId);
@@ -155,6 +208,10 @@ class BusinessHealthChecklistApp {
         document.getElementById('formTitle').style.display = 'block';
         document.getElementById('formDescription').style.display = 'block';
 
+        // Hide the initial placeholder text when a form is shown
+        const placeholder = document.querySelector('.placeholder-start');
+        if (placeholder) placeholder.style.display = 'none';
+
         // Update progress
         this.updateProgress();
 
@@ -163,38 +220,50 @@ class BusinessHealthChecklistApp {
     }
 
     /**
+     * Update browser URL with current compressed unified state (no reload)
+     */
+    updateUrlWithState() {
+        try {
+            const url = new URL(window.location.href);
+            let compressed = null;
+
+            if (window.LZString && typeof window.LZString.compressToEncodedURIComponent === 'function') {
+                compressed = window.LZString.compressToEncodedURIComponent(JSON.stringify(this.unifiedState || {}));
+            } else {
+                // Fallback: use plain encoded JSON (may be large)
+                console.warn('LZString not available, falling back to plain encoded JSON for state in URL.');
+                compressed = encodeURIComponent(JSON.stringify(this.unifiedState || {}));
+            }
+
+            url.searchParams.set('state', compressed);
+            // Replace current history entry so back button isn't clogged
+            history.replaceState(null, '', url.toString());
+        } catch (e) {
+            console.error('Failed to update URL with state:', e);
+        }
+    }
+
+    /**
      * Setup form-specific event listeners
      */
     setupFormEventListeners(formId) {
-        const form = document.getElementById('dynamicForm');
         const instance = this.formInstances[formId];
+        if (!instance) return;
 
-        // Remove old listeners by cloning
-        const newForm = form.cloneNode(true);
-        form.parentNode.replaceChild(newForm, form);
+        // Ensure renderer writes into the live container
+        const container = document.getElementById('formFieldsContainer');
+        if (instance.renderer) instance.renderer.container = container;
 
-        // Form submission
-        newForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            this.handleFormSubmit(formId);
-        });
+        // Setup conditional logic listeners once per instance (guarded)
+        if (!instance._listenersSetup) {
+            instance.conditionalLogic.setupEventListeners(instance.stateManager);
+            instance._listenersSetup = true;
+        }
 
-        // Navigation
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
+        // Setup auto-save once per instance (guarded inside setupAutoSave)
 
-        prevBtn.onclick = () => {
-            this.saveCurrrentFormState(formId);
-            instance.pageManager.previousPage();
-        };
-
-        nextBtn.onclick = () => {
-            this.saveCurrrentFormState(formId);
-            instance.pageManager.nextPage();
-        };
-
-        // Conditional logic listeners
-        instance.conditionalLogic.setupEventListeners(instance.stateManager);
+        // Ensure the current page is rendered into the live container
+        if (instance.pageManager) instance.pageManager.renderCurrentPage();
     }
 
     /**
@@ -202,9 +271,13 @@ class BusinessHealthChecklistApp {
      */
     saveCurrrentFormState(formId) {
         const instance = this.formInstances[formId];
+        if (!instance || !instance.stateManager) return;
         const state = instance.stateManager.captureFormState();
         this.unifiedState[formId] = state;
         this.saveToLocalStorage();
+        // Update URL with latest unified state so it can be shared/resumed
+        this.updateUrlWithState();
+        this.updateProgress();
     }
 
     /**
@@ -220,10 +293,20 @@ class BusinessHealthChecklistApp {
             this.unifiedState[formId] = state;
             this.saveToLocalStorage();
             this.updateProgress();
+            // Keep URL in-sync with latest state
+            // show saving immediately
+            this._showSaveStatus('Saving...');
+            // debounce URL updates
+            if (this.debouncedUpdateUrl) this.debouncedUpdateUrl();
         };
 
-        form.addEventListener('input', saveState);
-        form.addEventListener('change', saveState);
+        // Avoid binding multiple times for same instance
+        const instance = this.formInstances[formId];
+        if (instance && !instance._autoSaveBound) {
+            form.addEventListener('input', saveState);
+            form.addEventListener('change', saveState);
+            instance._autoSaveBound = true;
+        }
     }
 
     /**
@@ -280,26 +363,33 @@ class BusinessHealthChecklistApp {
             const formState = this.unifiedState[formId] || {};
             const allFields = this.getAllFields(formConfig);
 
-            totalFields += allFields.length;
+            // Only count answerable field types towards completion
+            const answerableTypes = ['text','email','number','textarea','select','radio','checkbox'];
+            const answerableFields = allFields.filter(f => answerableTypes.includes(f.type));
 
-            Object.keys(formState).forEach(fieldId => {
+            // All answerable fields count
+            totalFields += answerableFields.length;
+
+            // Count completed fields for this form only by matching its field IDs
+            const fieldIds = answerableFields.map(f => f.id);
+            const formCompletedFields = fieldIds.reduce((acc, fieldId) => {
                 const value = formState[fieldId];
                 if (value && value !== '' && (!Array.isArray(value) || value.length > 0)) {
-                    completedFields++;
+                    return acc + 1;
                 }
-            });
+                return acc;
+            }, 0);
 
-            // Update form-specific progress
-            const formCompletedFields = Object.keys(formState).filter(fieldId => {
-                const value = formState[fieldId];
-                return value && value !== '' && (!Array.isArray(value) || value.length > 0);
-            }).length;
+            // Add to overall completedFields
+            completedFields += formCompletedFields;
+
             const formAllFields = allFields.length;
             const formProgress = formAllFields > 0 ? Math.round((formCompletedFields / formAllFields) * 100) : 0;
 
             const statusEl = document.getElementById(`status-${formId}`);
             if (statusEl) {
                 statusEl.textContent = `${formProgress}%`;
+                statusEl.setAttribute('aria-valuenow', formProgress);
             }
         });
 
@@ -354,6 +444,39 @@ class BusinessHealthChecklistApp {
         document.getElementById('clearBtn').addEventListener('click', () => {
             this.clearAll();
         });
+
+        // Navigation buttons (operate on the currently selected form)
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                if (!this.currentFormId) return;
+                // Save current state then go to previous page for the active form
+                this.saveCurrrentFormState(this.currentFormId);
+                const inst = this.formInstances[this.currentFormId];
+                if (inst && inst.pageManager) inst.pageManager.previousPage();
+            });
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                if (!this.currentFormId) return;
+                this.saveCurrrentFormState(this.currentFormId);
+                const inst = this.formInstances[this.currentFormId];
+                if (inst && inst.pageManager) inst.pageManager.nextPage();
+            });
+        }
+
+        // Global form submit handler (single handler, uses currentFormId)
+        const dynamicForm = document.getElementById('dynamicForm');
+        if (dynamicForm) {
+            dynamicForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                if (!this.currentFormId) return;
+                this.handleFormSubmit(this.currentFormId);
+            });
+        }
 
         // Export Modal
         document.getElementById('copyUrlBtn').addEventListener('click', () => {

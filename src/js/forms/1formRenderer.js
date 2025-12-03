@@ -112,6 +112,8 @@ class FormRenderer {
         const invalidFeedback = document.createElement('div');
         invalidFeedback.className = 'invalid-feedback';
         invalidFeedback.textContent = `Please provide a valid ${field.label.toLowerCase()}.`;
+        // Hide feedback by default; will be shown when validation runs
+        invalidFeedback.style.display = 'none';
         fieldGroup.appendChild(invalidFeedback);
 
         return fieldGroup;

@@ -46,6 +46,7 @@
                         <button type="button" class="btn btn-outline-light btn-sm" id="clearBtn" title="Clear all progress">
                             <i class="fas fa-trash"></i> Clear
                         </button>
+                        <span id="saveStatus" class="badge bg-success ms-2" style="display:none;">Saved</span>
                     </div>
                 </div>
             </nav>
@@ -79,7 +80,25 @@
                 <div class="col-md-9 content-area">
                     <div id="formContainer" class="p-4">
                         <!-- Form will be rendered here -->
-                        <div class="text-center text-muted py-5">
+                        <form id="dynamicForm" class="needs-validation" novalidate style="display: none;">
+                            <div id="pageTitle" class="form-page-title"></div>
+                            <div id="pageDescription" class="form-page-description"></div>
+                            <div id="formFieldsContainer"></div>
+                            <div class="mt-4 d-flex justify-content-between">
+                                <button type="button" class="btn btn-secondary" id="prevBtn">Previous</button>
+                                <div>
+                                    <button type="button" class="btn btn-primary" id="nextBtn">Next</button>
+                                    <button type="submit" class="btn btn-success" id="submitBtn" style="display:none;">Submit Form</button>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <div class="progress" style="height: 2px;">
+                                    <div class="progress-bar" id="progressBar2" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                                <small class="text-muted" id="progressText">Page 1 of 1</small>
+                            </div>
+                        </form>
+                        <div class="text-center text-muted py-5 placeholder-start">
                             <p><i class="fas fa-arrow-left"></i> Select a section to begin</p>
                         </div>
                     </div>
@@ -138,25 +157,7 @@
             </div>
         </div>
 
-        <!-- Hidden Form -->
-        <form id="dynamicForm" class="needs-validation" novalidate style="display: none;">
-            <div id="pageTitle" class="form-page-title"></div>
-            <div id="pageDescription" class="form-page-description"></div>
-            <div id="formFieldsContainer"></div>
-            <div class="mt-4 d-flex justify-content-between">
-                <button type="button" class="btn btn-secondary" id="prevBtn">Previous</button>
-                <div>
-                    <button type="button" class="btn btn-primary" id="nextBtn">Next</button>
-                    <button type="submit" class="btn btn-success" id="submitBtn" style="display:none;">Submit Form</button>
-                </div>
-            </div>
-            <div class="mt-3">
-                <div class="progress" style="height: 2px;">
-                    <div class="progress-bar" id="progressBar2" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <small class="text-muted" id="progressText">Page 1 of 1</small>
-            </div>
-        </form>
+        
 
         <!-- Form Title & Resume Modal for individual forms -->
         <div id="formTitle" class="text-center mb-3" style="display: none;"></div>
@@ -190,6 +191,8 @@
         <!-- <script src="../js/forms/business-health-checklist-app.js"></script> -->
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- LZ-String for URL state compression (fallback handled in app) -->
+        <script src="https://cdn.jsdelivr.net/npm/lz-string@1.4.4/libs/lz-string.min.js"></script>
         <script type="text/javascript" src="js/bundle.js"></script>
 </body>
 </html>

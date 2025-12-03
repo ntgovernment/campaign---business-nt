@@ -177,6 +177,18 @@ body {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
+/* Save status badge */
+#saveStatus {
+    font-size: 0.85rem;
+    line-height: 1.2;
+    vertical-align: middle;
+}
+
+#saveStatus.saving {
+    background-color: #ffc107; /* yellow */
+    color: #212529;
+}
+
 /* Alert Messages */
 .alert {
     margin-bottom: 1rem;

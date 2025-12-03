@@ -117,7 +117,7 @@ class PageManager {
     /**
      * Validate current page
      */
-    validateCurrentPage() {
+    validateCurrentPage(showFeedback = true) {
         const form = document.getElementById('dynamicForm');
         const currentPage = this.getCurrentPage();
         const fields = this.getFieldsForPage(currentPage.id);
@@ -135,17 +135,19 @@ class PageManager {
                 // Check HTML5 validation
                 if (!input.checkValidity()) {
                     isValid = false;
-                    input.classList.add('is-invalid');
-                    
-                    // Find the field group and show invalid feedback
-                    const fieldGroup = input.closest('.field-group');
-                    if (fieldGroup) {
-                        const feedback = fieldGroup.querySelector('.invalid-feedback');
-                        if (feedback) {
-                            feedback.style.display = 'block';
+                    if (showFeedback) {
+                        input.classList.add('is-invalid');
+                        
+                        // Find the field group and show invalid feedback
+                        const fieldGroup = input.closest('.field-group');
+                        if (fieldGroup) {
+                            const feedback = fieldGroup.querySelector('.invalid-feedback');
+                            if (feedback) {
+                                feedback.style.display = 'block';
+                            }
                         }
                     }
-                } else {
+                } else if (showFeedback) {
                     input.classList.remove('is-invalid');
                     input.classList.add('is-valid');
                 }
@@ -153,7 +155,7 @@ class PageManager {
         });
 
         // Add Bootstrap validation classes
-        if (!isValid) {
+        if (!isValid && showFeedback) {
             form.classList.add('was-validated');
         }
 
@@ -161,16 +163,58 @@ class PageManager {
     }
 
     /**
+     * Validate all pages in the form. If showFeedback is true, render the first
+     * page that has validation errors and display feedback; otherwise just return false.
+     */
+    validateAllPages(showFeedback = true) {
+        // Preserve current page index
+        const originalIndex = this.currentPageIndex;
+
+        // Ensure latest inputs are captured
+        this.stateManager.captureFormState();
+
+        for (let i = 0; i < this.pages.length; i++) {
+            this.currentPageIndex = i;
+            // Render the page so its inputs exist in the DOM
+            this.renderCurrentPage();
+
+            // Evaluate conditional logic for this page's state
+            const currentState = this.stateManager.captureFormState();
+            this.conditionalLogic.evaluateAll(currentState);
+
+            // Validate this page
+            const valid = this.validateCurrentPage(showFeedback);
+            if (!valid) {
+                // If showing feedback, focus first invalid and return false
+                if (showFeedback) {
+                    const firstInvalid = document.querySelector('.is-invalid');
+                    if (firstInvalid) {
+                        firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        try { firstInvalid.focus(); } catch (e) {}
+                    }
+                }
+                // restore original page index and leave the invalid page rendered
+                return false;
+            }
+        }
+
+        // All pages valid - restore original page index and render it
+        this.currentPageIndex = originalIndex;
+        this.renderCurrentPage();
+        return true;
+    }
+
+    /**
      * Go to next page
      */
     nextPage() {
-        // Validate current page before proceeding
-        if (!this.validateCurrentPage()) {
-            // Scroll to first invalid field
+        // Validate current page before proceeding and show feedback if invalid
+        if (!this.validateCurrentPage(true)) {
+            // Scroll to first invalid field and focus it
             const firstInvalid = document.querySelector('.is-invalid');
             if (firstInvalid) {
                 firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                firstInvalid.focus();
+                try { firstInvalid.focus(); } catch (e) {}
             }
             return;
         }

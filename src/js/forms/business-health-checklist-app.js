@@ -126,7 +126,8 @@ class BusinessHealthChecklistApp {
             group.className = 'mb-2';
 
             const header = document.createElement('div');
-            header.className = 'd-flex align-items-start px-2';
+            header.className = 'd-flex align-items-start px-2 form-group-header';
+            header.dataset.formId = form.id;
             header.innerHTML = `
                 <div class="form-icon me-2"><i class="fas ${form.icon}"></i></div>
                 <div class="flex-grow-1">
@@ -252,8 +253,101 @@ class BusinessHealthChecklistApp {
         // Update progress
         this.updateProgress();
 
+        // Render category stepper for this form
+        this.renderCategoryStepper(formId);
+
         // Scroll to top
         document.getElementById('formContainer').scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    /**
+     * Render a horizontal category stepper inside the form container
+     */
+    renderCategoryStepper(formId) {
+        const formConfig = this.forms[formId];
+        if (!formConfig) return;
+
+        // Remove existing stepper if present
+        const existing = document.getElementById('formCategoryStepper');
+        if (existing) existing.remove();
+
+        const container = document.getElementById('formContainer');
+        if (!container) return;
+
+        const stepper = document.createElement('div');
+        stepper.id = 'formCategoryStepper';
+        stepper.className = 'category-stepper mb-3';
+
+        const state = this.unifiedState[formId] || (this.formInstances[formId] && this.formInstances[formId].stateManager ? this.formInstances[formId].stateManager.captureFormState() : {});
+
+        const categories = formConfig.categories || [];
+        categories.forEach((cat, idx) => {
+            const step = document.createElement('div');
+            step.className = 'category-step';
+            step.dataset.categoryId = cat.id;
+
+            // compute progress for this category
+            const progress = this.computeCategoryProgress(formId, cat.id);
+
+            const circle = document.createElement('div');
+            circle.className = 'category-circle';
+            circle.textContent = progress + '%';
+            if (idx === 0) circle.classList.add('first');
+            if (idx === categories.length - 1) circle.classList.add('last');
+
+            const label = document.createElement('div');
+            label.className = 'category-label';
+            label.textContent = cat.label || '';
+
+            step.appendChild(circle);
+            step.appendChild(label);
+
+            step.addEventListener('click', () => {
+                this.selectFormAndCategory(formId, cat.id);
+            });
+
+            // Mark active if current page contains this category
+            const currentInstance = this.formInstances[formId];
+            if (currentInstance && currentInstance.pageManager) {
+                const currentPageId = currentInstance.pageManager.currentPageId || null;
+                const pageIdForCat = this.findFirstPageByCategory(formId, cat.id);
+                if (pageIdForCat && pageIdForCat === currentPageId) {
+                    step.classList.add('active-step');
+                }
+            }
+
+            stepper.appendChild(step);
+        });
+
+        // Insert stepper before fields container
+        const fieldsContainer = document.getElementById('formFieldsContainer');
+        if (fieldsContainer && fieldsContainer.parentNode) {
+            fieldsContainer.parentNode.insertBefore(stepper, fieldsContainer);
+        } else {
+            container.insertBefore(stepper, container.firstChild);
+        }
+    }
+
+    /**
+     * Compute percentage completion for a category within a form
+     */
+    computeCategoryProgress(formId, categoryId) {
+        const formConfig = this.forms[formId];
+        if (!formConfig) return 0;
+        const fields = this.getAllFields(formConfig).filter(f => f.category === categoryId);
+        if (!fields || fields.length === 0) return 0;
+        const answerableTypes = ['text','email','number','textarea','select','radio','checkbox'];
+        const relevant = fields.filter(f => answerableTypes.includes(f.type));
+        if (relevant.length === 0) return 0;
+        const state = this.unifiedState[formId] || (this.formInstances[formId] && this.formInstances[formId].stateManager ? this.formInstances[formId].stateManager.captureFormState() : {});
+        const completed = relevant.reduce((acc, f) => {
+            const v = state[f.id];
+            if (v === undefined || v === null) return acc;
+            if (Array.isArray(v)) return acc + (v.length > 0 ? 1 : 0);
+            if (v === '') return acc;
+            return acc + 1;
+        }, 0);
+        return Math.round((completed / relevant.length) * 100);
     }
 
     /**
@@ -535,6 +629,13 @@ class BusinessHealthChecklistApp {
             buttonContainer.appendChild(nextBtn);
         }
 
+        // Download PDF button
+        const downloadPdfBtn = document.createElement('button');
+        downloadPdfBtn.className = 'btn btn-outline-primary ms-auto';
+        downloadPdfBtn.textContent = 'Download PDF';
+        downloadPdfBtn.addEventListener('click', () => this.generatePdf(formId));
+        buttonContainer.appendChild(downloadPdfBtn);
+
         container.appendChild(buttonContainer);
 
         // Update sidebar active state to this form and ensure title/description updated
@@ -555,11 +656,170 @@ class BusinessHealthChecklistApp {
     }
 
     /**
+     * Generate and download PDF for a form results (uses jsPDF on window.jspdf)
+     */
+    async generatePdf(formId) {
+        try {
+            // Ensure state saved
+            if (this.currentFormId && this.currentFormId !== formId) {
+                this.saveCurrrentFormState(this.currentFormId);
+            }
+
+            const instance = this.formInstances[formId];
+            const state = this.unifiedState[formId] || (instance && instance.stateManager ? instance.stateManager.captureFormState() : {});
+            const formConfig = this.forms[formId];
+
+            if (!window.jspdf) {
+                this.showError('PDF library not loaded. Please ensure jsPDF is included on the page.');
+                return;
+            }
+
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            // Optional logo (attempt to load, but don't fail if missing)
+            let img = null;
+            try {
+                img = new Image();
+                await new Promise((resolve, reject) => {
+                    img.onload = resolve;
+                    img.onerror = resolve; // resolve on error so we continue without blocking
+                    img.src = 'territory-business-logo.png';
+                });
+            } catch (e) {
+                img = null;
+            }
+
+            if (img && img.width && img.height) {
+                const logoWidth = 80;
+                const logoHeight = (img.height / img.width) * logoWidth;
+                doc.addImage(img, 'PNG', 15, 15, logoWidth, logoHeight);
+                var yPosition = 15 + logoHeight + 15;
+            } else {
+                var yPosition = 30;
+            }
+
+            // Title
+            doc.setFontSize(18);
+            doc.setFont(undefined, 'bold');
+            doc.text(formConfig.formTitle || 'Form Summary', 15, yPosition);
+            yPosition += 10;
+
+            // Date
+            doc.setFontSize(10);
+            doc.setFont(undefined, 'normal');
+            doc.setTextColor(100);
+            const now = new Date();
+            doc.text(`Generated: ${now.toLocaleDateString()} ${now.toLocaleTimeString()}`, 15, yPosition);
+            yPosition += 12;
+            doc.setTextColor(0);
+
+            // Responses
+            doc.setFontSize(14);
+            doc.setFont(undefined, 'bold');
+            doc.text('Your Responses', 15, yPosition);
+            yPosition += 8;
+
+            doc.setFontSize(10);
+            doc.setFont(undefined, 'normal');
+            const allFields = this.getAllFields(formConfig);
+            const pageWidth = doc.internal.pageSize.getWidth();
+            const maxLineWidth = pageWidth - 30;
+
+            for (const field of allFields) {
+                const value = state[field.id];
+                if ((value === undefined || value === null || value === '') ) continue;
+
+                if (yPosition > 270) {
+                    doc.addPage();
+                    yPosition = 20;
+                }
+
+                doc.setFont(undefined, 'bold');
+                doc.text(field.label + ':', 15, yPosition);
+                yPosition += 5;
+
+                doc.setFont(undefined, 'normal');
+                let displayValue = '';
+                if (Array.isArray(value)) displayValue = value.join(', ');
+                else if (field.type === 'select' || field.type === 'radio') {
+                    const opt = field.options?.find(o => o.value === value);
+                    displayValue = opt ? opt.label : String(value);
+                } else displayValue = String(value);
+
+                const lines = doc.splitTextToSize(displayValue, maxLineWidth);
+                doc.text(lines, 20, yPosition);
+                yPosition += (lines.length * 5) + 4;
+            }
+
+            // Points summary page
+            doc.addPage();
+            yPosition = 20;
+            doc.setFontSize(14);
+            doc.setFont(undefined, 'bold');
+            doc.text('Point Summary', 15, yPosition);
+            yPosition += 10;
+
+            doc.setFontSize(11);
+            // calculate points by category (use instance.stateManager helpers if available)
+            let pointsByCategory = {};
+            let maxPointsByCategory = {};
+            if (instance && instance.stateManager && typeof instance.stateManager.calculatePointsByCategory === 'function') {
+                pointsByCategory = instance.stateManager.calculatePointsByCategory();
+                maxPointsByCategory = instance.stateManager.calculateMaxPointsByCategory();
+            }
+
+            for (const category of formConfig.categories || []) {
+                const cat = pointsByCategory[category.id] || { points: 0 };
+                const maxCat = maxPointsByCategory[category.id] || { maxPoints: 0 };
+                const points = cat.points || 0;
+                const maxPoints = maxCat.maxPoints || 0;
+                const percentage = maxPoints > 0 ? Math.round((points / maxPoints) * 100) : 0;
+
+                if (yPosition > 270) {
+                    doc.addPage();
+                    yPosition = 20;
+                }
+
+                doc.setFont(undefined, 'bold');
+                doc.text(category.label + ':', 15, yPosition);
+                doc.setFont(undefined, 'normal');
+                doc.text(`${points}/${maxPoints} (${percentage}%)`, pageWidth - 40, yPosition, { align: 'right' });
+                yPosition += 8;
+            }
+
+            // Total
+            yPosition += 6;
+            doc.setFontSize(14);
+            doc.setFont(undefined, 'bold');
+            const totalPoints = Object.values(pointsByCategory).reduce((sum, c) => sum + (c.points || 0), 0);
+            const totalMax = Object.values(maxPointsByCategory).reduce((sum, c) => sum + (c.maxPoints || 0), 0);
+            const totalPercent = totalMax > 0 ? Math.round((totalPoints / totalMax) * 100) : 0;
+            doc.text('Total Points:', 15, yPosition);
+            doc.text(`${totalPoints}/${totalMax} (${totalPercent}%)`, pageWidth - 40, yPosition, { align: 'right' });
+
+            const filename = `${(formConfig.formTitle || 'Form_Summary').replace(/[^a-z0-9]/gi, '_')}_${now.getTime()}.pdf`;
+            doc.save(filename);
+            this.showSuccess('PDF downloaded successfully!');
+        } catch (e) {
+            console.error('Error generating PDF:', e);
+            this.showError('Failed to generate PDF.');
+        }
+    }
+
+    /**
      * Update sidebar active state
      */
     updateSidebarActive(formId) {
         document.querySelectorAll('#formList .list-group-item').forEach(item => {
             item.classList.toggle('active', item.dataset.formId === formId);
+        });
+
+        // Also mark the header block for the active form
+        document.querySelectorAll('#formList .form-group-header').forEach(h => {
+            const id = h.dataset.formId;
+            if (!id) return;
+            h.classList.toggle('active-form', id === formId);
         });
     }
 
@@ -669,6 +929,8 @@ class BusinessHealthChecklistApp {
                 this.saveCurrrentFormState(this.currentFormId);
                 const inst = this.formInstances[this.currentFormId];
                 if (inst && inst.pageManager) inst.pageManager.previousPage();
+                // update category stepper active state
+                this.renderCategoryStepper(this.currentFormId);
             });
         }
 
@@ -678,6 +940,8 @@ class BusinessHealthChecklistApp {
                 this.saveCurrrentFormState(this.currentFormId);
                 const inst = this.formInstances[this.currentFormId];
                 if (inst && inst.pageManager) inst.pageManager.nextPage();
+                // update category stepper active state
+                this.renderCategoryStepper(this.currentFormId);
             });
         }
 

@@ -647,3 +647,6 @@ class StateManager {
         });
     }
 }
+
+// Export to global scope
+window.StateManager = StateManager;

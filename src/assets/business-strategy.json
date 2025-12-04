@@ -6,6 +6,11 @@
       "id": "business_strategy",
       "label": "Business Strategy",
       "description": "Explore your businesses plans, vision and objective and competitive positioning."
+    },
+    {
+      "id": "Category_2",
+      "label": "Category 2",
+      "description": "This is abc"
     }
   ],
   "pages": [

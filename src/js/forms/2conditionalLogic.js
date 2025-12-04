@@ -191,3 +191,6 @@ class ConditionalLogic {
         }
     }
 }
+
+// Export to global scope
+window.ConditionalLogic = ConditionalLogic;

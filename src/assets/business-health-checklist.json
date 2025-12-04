@@ -7,7 +7,7 @@
       "title": "Business Strategy",
       "description": "Assess your business planning, strategy and competitive positioning",
       "icon": "fa-chart-line",
-      "configPath": "../assets/business-health-checklist/business-strategy.json",
+      "configPath": "business-health-checklist/business-strategy.json",
       "order": 1
     },
     {
@@ -15,7 +15,7 @@
       "title": "Understanding Customers",
       "description": "Evaluate your customer knowledge and engagement strategies",
       "icon": "fa-users",
-      "configPath": "../assets/business-health-checklist/understanding-customers.json",
+      "configPath": "business-health-checklist/understanding-customers.json",
       "order": 2
     },
     {
@@ -23,7 +23,7 @@
       "title": "Business Operations",
       "description": "Review your operational efficiency and processes",
       "icon": "fa-cogs",
-      "configPath": "../assets/business-health-checklist/business-operations.json",
+      "configPath": "business-health-checklist/business-operations.json",
       "order": 3
     },
     {
@@ -31,7 +31,7 @@
       "title": "Financial Management",
       "description": "Assess your financial planning and management practices",
       "icon": "fa-dollar-sign",
-      "configPath": "../assets/business-health-checklist/financial-management.json",
+      "configPath": "business-health-checklist/financial-management.json",
       "order": 4
     }
   ]

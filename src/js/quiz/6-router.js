@@ -1,0 +1,187 @@
+/* router.js
+   Simple hash-based router.
+   Routes:
+     #/start
+     #/choose-topic
+     #/quiz/{quizId}/page/{pageIndex}
+     #/results/{quizId}
+   Also supports query ?state=... inside the hash.
+*/
+(function(global){
+  function parseHash(){
+    const raw = window.location.hash || '#/start';
+    const [path, q] = raw.split('?');
+    const parts = path.replace(/^#\//,'').split('/').filter(Boolean);
+    return { raw, path, q, parts };
+  }
+
+  async function route(){
+    const content = document.getElementById('content');
+    
+    // ensure UI is defined
+    if(typeof window.UI === 'undefined'){ setTimeout(route, 50); return; }
+    
+    // load nav JSON for some pages
+    const navJson = await fetch('../assets/data/mainNavigation.json').then(r=>r.json());
+    const uiMessages = await fetch('../assets/data/uiMessages.json').then(r=>r.json());
+    
+    // get current view from state
+    const view = (window.State && window.State.currentState && window.State.currentState.view) || 'start';
+
+    if(view === 'start'){
+      // Always reset to fresh state on Get Started page
+      window.State.currentState = { view: 'start', quizId: null, currentPage: 0, answers: {} };
+      window.UI.renderStart(content, uiMessages);
+    } else if(view === 'choose-topic'){
+      window.UI.renderChooseTopic(content, navJson);
+    } else if(view === 'quiz'){
+      const quizId = (window.State && window.State.currentState && window.State.currentState.quizId) || null;
+      const pageIndex = (window.State && window.State.currentState && window.State.currentState.currentPage) || 0;
+      if(!quizId){
+        // If no quizId in state, go back to choose-topic
+        window.State.currentState.view = 'choose-topic';
+        window.State.saveStateToUrl(window.State.currentState);
+      } else {
+        await window.UI.renderQuizPage(content, quizId, pageIndex);
+      }
+    } else if(view === 'results'){
+      const quizId = (window.State && window.State.currentState && window.State.currentState.quizId) || null;
+      if(!quizId){
+        window.State.currentState.view = 'choose-topic';
+        window.State.saveStateToUrl(window.State.currentState);
+      } else {
+        await window.UI.renderResults(content, quizId);
+      }
+    } else {
+      // default
+      window.State.currentState.view = 'start';
+      window.UI.renderStart(content, uiMessages);
+    }
+    // update sidebar progress labels
+    updateSidebarProgress();
+  }
+
+  async function updateSidebarProgress(){
+    const nav = await fetch('../assets/data/mainNavigation.json').then(r=>r.json());
+    const ul = document.getElementById('quizList'); ul.innerHTML='';
+    document.getElementById('navCategory').textContent = nav.categoryTitle || '';
+    // top links
+    const sideLinks = document.getElementById('sideLinks'); sideLinks.innerHTML='';
+    const btnStart = document.createElement('button'); btnStart.textContent='Get Started';
+    btnStart.addEventListener('click', ()=>{ window.State.currentState.view = 'start'; window.State.saveStateToUrl(window.State.currentState); });
+    const btnChoose = document.createElement('button'); btnChoose.textContent='Choose a Topic';
+    btnChoose.addEventListener('click', ()=>{ window.State.currentState.view = 'choose-topic'; window.State.saveStateToUrl(window.State.currentState); });
+    sideLinks.appendChild(btnStart); sideLinks.appendChild(btnChoose);
+    
+    // check if a quiz is active
+    const activeQuizId = (window.State && window.State.currentState && window.State.currentState.quizId) || null;
+    
+    for(const q of nav.quizzes){
+      const li = document.createElement('li');
+      const img = document.createElement('img'); img.src = q.icon || 'icons/default.svg'; img.className='quizIcon';
+      const meta = document.createElement('div'); meta.className='quizMeta';
+      const title = document.createElement('div'); title.className='quizTitle'; title.textContent = q.title;
+      const desc = document.createElement('div'); desc.className='quizDesc'; desc.textContent = q.description;
+      const prog = document.createElement('div'); prog.className='quizProgress'; prog.textContent = '0%';
+      meta.appendChild(title); meta.appendChild(desc);
+      li.appendChild(img); li.appendChild(meta); li.appendChild(prog);
+      li.addEventListener('click', ()=>{
+        // set quiz in state and save to URL
+        if(window.State){ window.State.currentState.view = 'quiz'; window.State.currentState.quizId = q.id; window.State.currentState.currentPage = 0; if(!window.State.currentState.answers) window.State.currentState.answers = {}; window.State.saveStateToUrl(window.State.currentState); }
+      });
+      // compute progress async and update
+      (async ()=>{ const p = await window.UI && window.UI.renderChooseTopic ? 0 : 0; /* placeholder */
+        const percent = await (async ()=>{ 
+          try{ 
+            const quiz = await fetch(`../assets/data/quizzes/${q.id}.json`).then(r=>r.json()); 
+            const answers = (window.State && window.State.currentState && window.State.currentState.answers) || {}; 
+            let total=0; let answered=0; 
+            for(const page of quiz.pages){
+              for(const question of page.questions){
+                if(question.type === 'group' && question.subQuestions){
+                  for(const subQ of question.subQuestions){
+                    if(!window.Conditional.isVisible(subQ, answers)) continue;
+                    total++;
+                    const ans = answers[subQ.id];
+                    if(typeof ans !== 'undefined' && ans !== null && ans !== ''){
+                      if(Array.isArray(ans)){ if(ans.length > 0) answered++; }
+                      else { answered++; }
+                    }
+                  }
+                } else {
+                  if(!window.Conditional.isVisible(question, answers)) continue; 
+                  total++; 
+                  const ans = answers[question.id];
+                  if(typeof ans !== 'undefined' && ans !== null && ans !== ''){
+                    if(Array.isArray(ans)){ if(ans.length > 0) answered++; }
+                    else { answered++; }
+                  }
+                }
+              }
+            }
+            return total?Math.round((answered/total)*100):0;
+          }catch(e){return 0;}
+        })();
+        prog.textContent = percent + '%';
+      })();
+      ul.appendChild(li);
+      
+      // if this quiz is active, render its pages nested under the quiz item
+      if(activeQuizId === q.id){
+        try{
+          const quiz = await fetch(`../assets/data/quizzes/${q.id}.json`).then(r=>r.json());
+          const pagesList = document.createElement('ul'); pagesList.className='quiz-pages-list';
+          const answers = (window.State.currentState && window.State.currentState.answers) || {};
+          const currentPage = (window.State.currentState && window.State.currentState.currentPage) || 0;
+          quiz.pages.forEach((p, idx)=>{
+            const li2 = document.createElement('li'); li2.className='page-item'; li2.textContent = p.title || `Page ${idx+1}`;
+            if(idx === currentPage) li2.classList.add('active');
+            // compute per-page completion
+            let pageComplete = true;
+            let pageHasAnswers = false;
+            for(const qst of p.questions){
+              if(qst.type === 'group' && qst.subQuestions){
+                for(const subQ of qst.subQuestions){
+                  if(!window.Conditional.isVisible(subQ, answers)) continue;
+                  const ans = answers[subQ.id];
+                  if(typeof ans !== 'undefined' && ans !== null && ans !== '') {
+                    if(Array.isArray(ans) && ans.length > 0) { pageHasAnswers = true; }
+                    else if(!Array.isArray(ans)) { pageHasAnswers = true; }
+                  } else {
+                    pageComplete = false;
+                  }
+                }
+              } else {
+                if(!window.Conditional.isVisible(qst, answers)) continue; // skip hidden questions
+                const ans = answers[qst.id];
+                if(typeof ans !== 'undefined' && ans !== null && ans !== '') {
+                  if(Array.isArray(ans) && ans.length > 0) { pageHasAnswers = true; }
+                  else if(!Array.isArray(ans)) { pageHasAnswers = true; }
+                } else {
+                  pageComplete = false;
+                }
+              }
+            }
+            if(pageComplete && pageHasAnswers) {
+              li2.classList.add('completed');
+            } else if(pageHasAnswers) {
+              li2.classList.add('in-progress');
+            }
+            li2.addEventListener('click', (e)=>{ e.stopPropagation(); window.State.currentState.view = 'quiz'; window.State.currentState.currentPage = idx; window.State.saveStateToUrl(window.State.currentState); });
+            pagesList.appendChild(li2);
+          });
+          // Add "Your results" link
+          const liResults = document.createElement('li'); liResults.className='page-item results-item'; liResults.textContent = 'Your results';
+          const currentView = (window.State.currentState && window.State.currentState.view) || 'start';
+          if(currentView === 'results') liResults.classList.add('active');
+          liResults.addEventListener('click', (e)=>{ e.stopPropagation(); window.State.currentState.view = 'results'; window.State.saveStateToUrl(window.State.currentState); });
+          pagesList.appendChild(liResults);
+          ul.appendChild(pagesList);
+        }catch(e){ /* ignore */ }
+      }
+    }
+  }
+
+  window.addEventListener('hashchange', route);
+  global.Router = { route };
+})(window);

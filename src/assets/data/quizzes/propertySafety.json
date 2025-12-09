@@ -1,0 +1,151 @@
+{
+  "id": "propertySafety",
+  "title": "Property Safety Quiz",
+  "pages": [
+    {
+      "title": "Security Measures",
+      "questions": [
+        {
+          "id": "securityMeasures",
+          "type": "group",
+          "label": "Do you use any of the following security measures to keep your business safe?",
+          "helpText": "Multiple layers of security provide better protection. Each measure addresses different vulnerabilities and together they create a comprehensive security system.",
+          "positiveMessage": {
+            "title": "Excellent Security Measures!",
+            "body": "You have implemented multiple layers of security protection, which significantly reduces the risk of break-ins and theft. Continue to maintain and regularly test your security systems."
+          },
+          "recommendation": {
+            "title": "Strengthen Your Security",
+            "body": "Consider implementing additional security measures to better protect your business. Multiple layers of security provide the best protection against break-ins and theft. We recommend starting with CCTV cameras and security lighting as these provide good deterrence at reasonable cost."
+          },
+          "subQuestions": [
+            {
+              "id": "reinforcedGlass",
+              "type": "radio",
+              "label": "Reinforced security glass or security film",
+              "helpText": "Security glass or film makes windows harder to break, deterring break-ins and protecting against smash-and-grab theft.",
+              "options": [
+                { "label": "Yes", "score": 1 },
+                { "label": "No", "score": 0 },
+                { "label": "Unsure", "score": 0 }
+              ]
+            },
+            {
+              "id": "hasCCTV",
+              "type": "radio",
+              "label": "CCTV",
+              "helpText": "CCTV systems help monitor your property, deter crime, and provide evidence if an incident occurs.",
+              "options": [
+                { "label": "Yes", "score": 1 },
+                { "label": "No", "score": 0 },
+                { "label": "Unsure", "score": 0 }
+              ]
+            },
+            {
+              "id": "numCameras",
+              "type": "number",
+              "label": "How many cameras do you have?",
+              "helpText": "Consider coverage of entry points, high-value areas, and blind spots. More cameras provide better coverage but require more storage and maintenance.",
+              "conditional": { "showWhen": { "hasCCTV": "Yes" } }
+            },
+            {
+              "id": "electronicSecurity",
+              "type": "radio",
+              "label": "Electronic security system / Intruder Alarm System",
+              "helpText": "Alarm systems alert you and authorities to unauthorized entry, providing rapid response to security breaches.",
+              "options": [
+                { "label": "Yes", "score": 1 },
+                { "label": "No", "score": 0 },
+                { "label": "Unsure", "score": 0 }
+              ]
+            },
+            {
+              "id": "oneWayMesh",
+              "type": "radio",
+              "label": "One way mesh",
+              "helpText": "One-way mesh allows you to see out while preventing others from seeing in, enhancing privacy and security.",
+              "options": [
+                { "label": "Yes", "score": 1 },
+                { "label": "No", "score": 0 },
+                { "label": "Unsure", "score": 0 }
+              ]
+            },
+            {
+              "id": "securityScreens",
+              "type": "radio",
+              "label": "Security screens or bars on windows and doors",
+              "helpText": "Physical barriers on windows and doors prevent forced entry while still allowing ventilation and light.",
+              "options": [
+                { "label": "Yes", "score": 1 },
+                { "label": "No", "score": 0 },
+                { "label": "Unsure", "score": 0 }
+              ]
+            },
+            {
+              "id": "securityRollerDoors",
+              "type": "radio",
+              "label": "Security roller doors",
+              "helpText": "Roller doors provide robust physical security for entry points and are difficult to breach.",
+              "options": [
+                { "label": "Yes", "score": 1 },
+                { "label": "No", "score": 0 },
+                { "label": "Unsure", "score": 0 }
+              ]
+            },
+            {
+              "id": "sensorLights",
+              "type": "radio",
+              "label": "Sensor lights or timed lights on entry and exit",
+              "helpText": "Motion-activated or timed lighting eliminates hiding spots and deters intruders by increasing visibility.",
+              "options": [
+                { "label": "Yes", "score": 1 },
+                { "label": "No", "score": 0 },
+                { "label": "Unsure", "score": 0 }
+              ]
+            },
+            {
+              "id": "duressAlarm",
+              "type": "radio",
+              "label": "Duress Alarm",
+              "helpText": "A duress alarm allows staff to discreetly signal for help during threatening situations like robberies.",
+              "options": [
+                { "label": "Yes", "score": 1 },
+                { "label": "No", "score": 0 },
+                { "label": "Unsure", "score": 0 }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Access",
+      "questions": [
+        {
+          "id": "lockDoors",
+          "type": "radio",
+          "label": "Do you lock access doors after hours?",
+          "helpText": "Locking doors after hours is one of the most basic and effective security measures to prevent unauthorized access to your property.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Great Job!",
+            "body": "Locking doors after hours is a fundamental security practice that significantly reduces unauthorized access risks."
+          },
+          "recommendation": {
+            "title": "Secure Your Access Points",
+            "body": "Unsecured doors are a common point of entry for intruders. Implement a policy to lock all access doors after hours, use deadlocks, and consider controlled access schedules to reduce risk."
+          }
+        },
+        {
+          "id": "numEntrances",
+          "type": "number",
+          "label": "How many external entrances does your property have?",
+          "helpText": "Knowing the number of entrances helps assess security coverage needs. Each entrance should have appropriate locks and ideally monitoring."
+        }
+      ]
+    }
+  ]
+}

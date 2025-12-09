@@ -1,0 +1,23 @@
+{
+  "categoryTitle": "Business Safety and Security",
+  "quizzes": [
+    {
+      "id": "propertySafety",
+      "title": "Property Safety Quiz",
+      "description": "General property safety requirements",
+      "icon": "icons/property.svg"
+    },
+    {
+      "id": "siteSafety",
+      "title": "Site Safety Quiz",
+      "description": "Site safety information",
+      "icon": "icons/site.svg"
+    },
+    {
+      "id": "roadBusiness",
+      "title": "Road Business Quiz",
+      "description": "Business on roads and transport",
+      "icon": "icons/road.svg"
+    }
+  ]
+}

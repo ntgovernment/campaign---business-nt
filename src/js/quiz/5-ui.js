@@ -32,7 +32,6 @@
       const card = document.createElement('div'); card.className='card';
       const title = document.createElement('h3'); title.textContent = q.title;
       const desc = document.createElement('p'); desc.textContent = q.description;
-      const img = document.createElement('img'); img.src = q.icon || 'icons/default.svg'; img.className='quizIcon'; img.alt='';
       const footer = document.createElement('div'); footer.className='card-footer';
       const progressWrap = document.createElement('div'); progressWrap.className='progress';
       const prog = document.createElement('i'); progressWrap.appendChild(prog);
@@ -53,7 +52,7 @@
       });
 
       footer.appendChild(progressWrap); footer.appendChild(percentLabel); footer.appendChild(startBtn);
-      card.appendChild(img); card.appendChild(title); card.appendChild(desc); card.appendChild(footer);
+      card.appendChild(title); card.appendChild(desc); card.appendChild(footer);
       grid.appendChild(card);
     }
     contentEl.appendChild(grid);

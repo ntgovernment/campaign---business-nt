@@ -1,19 +1,20 @@
-<div id="app">
-    <aside id="sidebar">
-        <div class="brand">Business Quiz</div>
-        <div class="side-links" id="sideLinks">
-            <!-- Filled by router.updateSidebarProgress -->
-        </div>
-        <div id="navCategory"></div>
-        <ul id="quizList"></ul>
-    </aside>
+<div class="container pb-5">
+    <div id="app">
+        <aside class="quiz-sidebar" id="sidebar">
+            <div class="brand">Business Quiz</div>
+            <div class="side-links" id="sideLinks">
+                <!-- Filled by router.updateSidebarProgress -->
+            </div>
+            <ul id="quizList"></ul>
+        </aside>
 
-    <main id="main">
-        <header>
-            <h1 id="pageTitle">Welcome</h1>
-        </header>
-        <section id="content"></section>
-    </main>
+        <div id="main">
+            <header>
+                <h1 id="pageTitle">Welcome</h1>
+            </header>
+            <section id="content"></section>
+        </div>
+    </div>
 </div>
 
 <!-- Modal placeholder -->

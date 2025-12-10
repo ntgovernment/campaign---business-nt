@@ -64,12 +64,19 @@
   async function updateSidebarProgress(){
     const nav = await fetch('../assets/data/mainNavigation.json').then(r=>r.json());
     const ul = document.getElementById('quizList'); ul.innerHTML='';
-    document.getElementById('navCategory').textContent = nav.categoryTitle || '';
     // top links
     const sideLinks = document.getElementById('sideLinks'); sideLinks.innerHTML='';
     const btnStart = document.createElement('button'); btnStart.textContent='Get Started';
-    btnStart.addEventListener('click', ()=>{ window.State.currentState.view = 'start'; window.State.saveStateToUrl(window.State.currentState); });
     const btnChoose = document.createElement('button'); btnChoose.textContent='Choose a Topic';
+    
+    // Get current view state
+    const currentView = (window.State && window.State.currentState && window.State.currentState.view) || 'start';
+    
+    // Add active class based on current view
+    if(currentView === 'start') btnStart.classList.add('active');
+    if(currentView === 'choose-topic') btnChoose.classList.add('active');
+    
+    btnStart.addEventListener('click', ()=>{ window.State.currentState.view = 'start'; window.State.saveStateToUrl(window.State.currentState); });
     btnChoose.addEventListener('click', ()=>{ window.State.currentState.view = 'choose-topic'; window.State.saveStateToUrl(window.State.currentState); });
     sideLinks.appendChild(btnStart); sideLinks.appendChild(btnChoose);
     
@@ -78,13 +85,17 @@
     
     for(const q of nav.quizzes){
       const li = document.createElement('li');
-      const img = document.createElement('img'); img.src = q.icon || 'icons/default.svg'; img.className='quizIcon';
       const meta = document.createElement('div'); meta.className='quizMeta';
       const title = document.createElement('div'); title.className='quizTitle'; title.textContent = q.title;
-      const desc = document.createElement('div'); desc.className='quizDesc'; desc.textContent = q.description;
       const prog = document.createElement('div'); prog.className='quizProgress'; prog.textContent = '0%';
-      meta.appendChild(title); meta.appendChild(desc);
-      li.appendChild(img); li.appendChild(meta); li.appendChild(prog);
+      meta.appendChild(title);
+      li.appendChild(meta); li.appendChild(prog);
+      
+      // Add active class if this quiz is currently active
+      if(activeQuizId === q.id) {
+        li.classList.add('active');
+      }
+      
       li.addEventListener('click', ()=>{
         // set quiz in state and save to URL
         if(window.State){ window.State.currentState.view = 'quiz'; window.State.currentState.quizId = q.id; window.State.currentState.currentPage = 0; if(!window.State.currentState.answers) window.State.currentState.answers = {}; window.State.saveStateToUrl(window.State.currentState); }
@@ -135,7 +146,8 @@
           const currentPage = (window.State.currentState && window.State.currentState.currentPage) || 0;
           quiz.pages.forEach((p, idx)=>{
             const li2 = document.createElement('li'); li2.className='page-item'; li2.textContent = p.title || `Page ${idx+1}`;
-            if(idx === currentPage) li2.classList.add('active');
+            // Only add active class if we're in quiz view and this is the current page
+            if(currentView === 'quiz' && idx === currentPage) li2.classList.add('active');
             // compute per-page completion
             let pageComplete = true;
             let pageHasAnswers = false;
@@ -172,7 +184,6 @@
           });
           // Add "Your results" link
           const liResults = document.createElement('li'); liResults.className='page-item results-item'; liResults.textContent = 'Your results';
-          const currentView = (window.State.currentState && window.State.currentState.view) || 'start';
           if(currentView === 'results') liResults.classList.add('active');
           liResults.addEventListener('click', (e)=>{ e.stopPropagation(); window.State.currentState.view = 'results'; window.State.saveStateToUrl(window.State.currentState); });
           pagesList.appendChild(liResults);

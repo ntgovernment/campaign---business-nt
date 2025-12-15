@@ -1,0 +1,260 @@
+{
+  "id": "vehicleFleetSafety",
+  "title": "Vehicle and Fleet Management Quiz",
+  "pages": [
+    {
+      "title": "Vehicle Use",
+      "questions": [
+        {
+          "id": "usesVehicles",
+          "type": "radio",
+          "label": "Does your business operate from or use vehicles?",
+          "helpText": "This questionnaire is designed for businesses that operate or use vehicles as part of their work.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "You're in the right place",
+            "body": "This survey will help you identify ways to improve safety, security, and management of your business vehicles."
+          },
+          "recommendation": {
+            "title": "This survey may not apply",
+            "body": "This survey is for businesses that use vehicles. We recommend completing the Property Safety or Staff Safety questionnaire instead."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Vehicle Security Features",
+      "questions": [
+        {
+          "id": "vehicleSecurityFeatures",
+          "type": "group",
+          "label": "Are your vehicles fitted with any of the following security features?",
+          "positiveMessage": {
+            "title": "Layered security in place",
+            "body": "Great security starts with layered protection. Having multiple security features makes vehicles harder to steal and deters opportunistic crime."
+          },
+          "recommendation": {
+            "title": "Strengthen vehicle security",
+            "body": "Consider installing additional security features for any items marked 'No' or 'Unsure'. Multiple barriers significantly reduce theft risk."
+          },
+          "subQuestions": [
+            {
+              "id": "steeringWheelLock",
+              "type": "radio",
+              "label": "Steering wheel lock",
+              "helpText": "A device that prevents the steering wheel from turning, making the vehicle difficult to drive.",
+              "options": [
+                { "label": "Yes", "score": 1 },
+                { "label": "No", "score": 0 },
+                { "label": "Unsure", "score": 0 }
+              ]
+            },
+            {
+              "id": "wheelBrakeLock",
+              "type": "radio",
+              "label": "Wheel or brake lock",
+              "helpText": "Locks the wheel or brake disc to prevent vehicle movement.",
+              "options": [
+                { "label": "Yes", "score": 1 },
+                { "label": "No", "score": 0 },
+                { "label": "Unsure", "score": 0 }
+              ]
+            },
+            {
+              "id": "brakePedalLock",
+              "type": "radio",
+              "label": "Brake pedal lock",
+              "helpText": "Prevents the brake pedal from operating normally, stopping the vehicle from being driven.",
+              "options": [
+                { "label": "Yes", "score": 1 },
+                { "label": "No", "score": 0 },
+                { "label": "Unsure", "score": 0 }
+              ]
+            },
+            {
+              "id": "engineImmobiliser",
+              "type": "radio",
+              "label": "Engine immobiliser",
+              "helpText": "Prevents the engine from starting without the correct key or electronic signal.",
+              "options": [
+                { "label": "Yes", "score": 1 },
+                { "label": "No", "score": 0 },
+                { "label": "Unsure", "score": 0 }
+              ]
+            },
+            {
+              "id": "gpsTracker",
+              "type": "radio",
+              "label": "GPS tracker",
+              "helpText": "Allows real-time tracking and recovery of vehicles if stolen.",
+              "options": [
+                { "label": "Yes", "score": 1 },
+                { "label": "No", "score": 0 },
+                { "label": "Unsure", "score": 0 }
+              ]
+            },
+            {
+              "id": "dashCam",
+              "type": "radio",
+              "label": "Dash cam",
+              "helpText": "Records driving footage and provides evidence in accidents or incidents.",
+              "options": [
+                { "label": "Yes", "score": 1 },
+                { "label": "No", "score": 0 },
+                { "label": "Unsure", "score": 0 }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Vehicle Management",
+      "questions": [
+        {
+          "id": "vehicleMaintenance",
+          "type": "radio",
+          "label": "Are your vehicles well maintained and regularly serviced?",
+          "helpText": "Regular servicing ensures vehicles remain safe, reliable, and compliant.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Strong maintenance practices",
+            "body": "Well-maintained vehicles improve safety, reduce breakdowns, and reflect professionalism."
+          },
+          "recommendation": {
+            "title": "Improve maintenance routines",
+            "body": "Create a regular servicing schedule and record maintenance checks for tyres, brakes, lights, and fluids."
+          }
+        },
+        {
+          "id": "vehicleStorage",
+          "type": "radio",
+          "label": "Are vehicles stored in a safe, locked, and well-lit area when not in use?",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Secure vehicle storage",
+            "body": "Secure storage protects vehicles from theft, vandalism, and damage."
+          },
+          "recommendation": {
+            "title": "Secure storage needed",
+            "body": "Use locked gates, garages, lighting, and consider CCTV where vehicles are parked overnight."
+          }
+        },
+        {
+          "id": "vehicleCCTV",
+          "type": "radio",
+          "label": "Does the vehicle storage location have CCTV coverage?",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "CCTV adds protection",
+            "body": "CCTV deters crime and provides evidence if an incident occurs."
+          },
+          "recommendation": {
+            "title": "Consider CCTV",
+            "body": "Install cameras covering entry points and parking areas, with clear signage and secure footage storage."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Keys, Tools and Assets",
+      "questions": [
+        {
+          "id": "vehicleLocked",
+          "type": "radio",
+          "label": "Are vehicles kept locked when not in use?",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Good security habit",
+            "body": "Locking vehicles helps prevent theft and unauthorised access."
+          },
+          "recommendation": {
+            "title": "Lock vehicles consistently",
+            "body": "Ensure all staff lock vehicles even during short stops."
+          }
+        },
+        {
+          "id": "keyStorage",
+          "type": "radio",
+          "label": "Are keys stored in a safe, out-of-sight location?",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Keys stored securely",
+            "body": "Secure key storage prevents misuse and theft."
+          },
+          "recommendation": {
+            "title": "Improve key security",
+            "body": "Use locked cabinets and restrict access to authorised staff."
+          }
+        }
+      ]
+    },
+    {
+      "title": "Remote Travel",
+      "questions": [
+        {
+          "id": "remoteTravel",
+          "type": "radio",
+          "label": "Do staff travel to remote areas with limited phone or internet coverage?",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Remote travel identified",
+            "body": "Recognising remote travel risks is an important safety step."
+          },
+          "recommendation": {
+            "title": "Plan for remote safety",
+            "body": "Always have travel plans, check-ins, and emergency procedures in place."
+          }
+        },
+        {
+          "id": "remoteTraining",
+          "type": "radio",
+          "label": "Do staff receive additional training for remote or emergency situations?",
+          "conditional": {
+            "showWhen": { "remoteTravel": "Yes" }
+          },
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Well prepared staff",
+            "body": "Training improves confidence and safety during remote travel."
+          },
+          "recommendation": {
+            "title": "Provide remote safety training",
+            "body": "Include first aid, breakdown response, and emergency scenarios."
+          }
+        }
+      ]
+    }
+  ]
+}

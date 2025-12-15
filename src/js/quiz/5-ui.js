@@ -590,7 +590,7 @@
         title.textContent = msg.title;
         const body = document.createElement('div');
         body.className = 'message-body';
-        body.textContent = msg.body;
+        body.innerHTML = msg.body; // Allow HTML content
         msgDiv.appendChild(title);
         msgDiv.appendChild(body);
         messagesSection.appendChild(msgDiv);
@@ -604,7 +604,7 @@
         title.textContent = msg.title;
         const body = document.createElement('div');
         body.className = 'message-body';
-        body.textContent = msg.body;
+        body.innerHTML = msg.body; // Allow HTML content
         msgDiv.appendChild(title);
         msgDiv.appendChild(body);
         messagesSection.appendChild(msgDiv);
@@ -943,7 +943,7 @@
           title.textContent = msg.title;
           const body = document.createElement('div');
           body.className = 'message-body';
-          body.textContent = msg.body;
+          body.innerHTML = msg.body; // Allow HTML content
           msgDiv.appendChild(title);
           msgDiv.appendChild(body);
           pageSection.appendChild(msgDiv);

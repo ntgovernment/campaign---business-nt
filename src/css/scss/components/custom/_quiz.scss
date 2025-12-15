@@ -31,7 +31,7 @@
     font-weight: 700;
     font-size: 18px;
     padding-bottom: 16px;
-    border-bottom: 2px solid #e35205;
+    border-bottom: 2px solid #da5000;
     margin-bottom: 0.5rem;
 }
 
@@ -315,9 +315,9 @@
 
 /* Checked state for all radio buttons */
 .options input[type="radio"]:checked + label {
-    background: #e35205;
+    background: #da5000;
     color: #fff;
-    border-color: #e35205;
+    border-color: #da5000;
     box-shadow: 0 2px 8px rgba(59, 47, 93, 0.3);
 }
 
@@ -385,11 +385,11 @@
 .question-group .sub-question .options label {
     display: inline-block;
     padding: 10px 20px;
-    border: 2px solid #3B2F5D;
+    border: 2px solid #212061;
     border-radius: 32px;
     background: #fff;
-    color: #3B2F5D;
-    font-weight: 500;
+    color: #212061;
+    font-weight: 600;
     font-size: 13px;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -408,9 +408,9 @@
 
 /* Checked state for sub-question radio buttons */
 .question-group .sub-question .options input[type="radio"]:checked + label {
-    background: #e35205;
+    background: #da5000;
     color: #fff;
-    border-color: #e35205;
+    border-color: #da5000;
     box-shadow: 0 2px 6px rgba(59, 47, 93, 0.3);
 }
 
@@ -420,13 +420,11 @@
     display: none;
 }
 .question-group .conditional-subquestion-group {
-    border-radius: 6px;
     margin-bottom: 10px;
 }
 .question-group .conditional-subquestion-group.has-visible-conditional {
-    border-left: 4px solid #0078d4;
+    border-left: 6px solid #003352;
     padding-left: 16px;
-    background: linear-gradient(180deg, rgba(74, 160, 255, 0.05), transparent);
 }
 .question-group .conditional-subquestion-group .sub-question {
     margin-bottom: 10px;
@@ -490,6 +488,46 @@
     font-size: 13px;
     color: #555;
     line-height: 1.5;
+    
+    // Styles for HTML content
+    p {
+        margin: 0 0 8px 0;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+    
+    strong {
+        font-weight: 600;
+        color: #333;
+    }
+    
+    ul, ol {
+        margin: 8px 0;
+        padding-left: 20px;
+        
+        li {
+            margin-bottom: 4px;
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+    
+    a {
+        color: #0078d4;
+        text-decoration: underline;
+        transition: color 0.2s ease;
+        
+        &:hover {
+            color: #005a9e;
+        }
+        
+        &:focus {
+            outline: 2px solid #0078d4;
+            outline-offset: 2px;
+        }
+    }
 }
 
 .nav-buttons {

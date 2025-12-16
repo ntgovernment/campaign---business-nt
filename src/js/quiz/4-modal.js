@@ -4,7 +4,8 @@
 (function(global){
   const Modal = {
     init(){
-      this.modal = document.getElementById('resumeModal');
+      this.modalEl = document.getElementById('resumeModal');
+      this.modal = new bootstrap.Modal(this.modalEl);
       this.btnResume = document.getElementById('btnResume');
       this.btnFresh = document.getElementById('btnFresh');
 
@@ -18,8 +19,8 @@
       });
     },
 
-    show(){ this.modal.classList.remove('hidden'); },
-    hide(){ this.modal.classList.add('hidden'); }
+    show(){ this.modal.show(); },
+    hide(){ this.modal.hide(); }
   };
 
   global.Modal = Modal;

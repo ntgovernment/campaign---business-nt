@@ -8,23 +8,31 @@
             <ul id="quizList"></ul>
         </aside>
 
-        <div id="main">
+        <div id="main" class="w-100">
             <header>
-                <h1 id="pageTitle">Welcome</h1>
+                <h2 id="pageTitle">Welcome</h2>
             </header>
-            <section id="content"></section>
+            <section id="quizContent"></section>
         </div>
     </div>
 </div>
 
-<!-- Modal placeholder -->
-<div id="resumeModal" class="modal hidden" role="dialog" aria-modal="true">
-    <div class="modal-content">
-        <h3>Saved progress detected</h3>
-        <p>Would you like to resume where you left off or start fresh?</p>
-        <div class="modal-actions">
-            <button id="btnResume">Resume</button>
-            <button id="btnFresh">Start Fresh</button>
+<!-- Bootstrap Modal -->
+<div class="modal fade" id="resumeModal" tabindex="-1" aria-labelledby="resumeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="resumeModalLabel">Welcome back?</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>It looks like you've been here before, would you like to continue or start over?</p>
+
+                <div class="d-flex">
+                    <button type="button" class="btn btn-primary rounded-pill py-1 me-2" id="btnFresh">Start over</button>
+                    <button type="button" class="btn btn-primary rounded-pill py-1" id="btnResume">Continue</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

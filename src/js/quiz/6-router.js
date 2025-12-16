@@ -16,7 +16,7 @@
   }
 
   async function route(){
-    const content = document.getElementById('content');
+    const content = document.getElementById('quizContent');
     
     // ensure UI is defined
     if(typeof window.UI === 'undefined'){ setTimeout(route, 50); return; }
@@ -133,7 +133,8 @@
             return total?Math.round((answered/total)*100):0;
           }catch(e){return 0;}
         })();
-        prog.textContent = percent + '%';
+        const isComplete = percent === 100;
+        prog.innerHTML = percent + '% ' + (isComplete ? '<i class="fa-solid fa-circle-check"></i>' : '<i class="fa-regular fa-circle"></i>');
       })();
       ul.appendChild(li);
       

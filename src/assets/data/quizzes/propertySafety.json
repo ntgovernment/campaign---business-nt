@@ -41,7 +41,15 @@
                 { "label": "Yes", "score": 1 },
                 { "label": "No", "score": 0 },
                 { "label": "Unsure", "score": 0 }
-              ]
+              ],
+              "conditionalQuestionGroupPositiveMessage": {
+                "title": "Great CCTV System!",
+                "body": "<p>Maintaining a compliant CCTV system actively strengthens security, protects privacy, and supports proactive risk management.</p>"
+              },
+              "conditionalQuestionGroupRecommendation": {
+                "title": "Improve Your CCTV Setup",
+                "body": "<p>Effective CCTV includes clear signage, proper coverage, secure storage, and remote access. Review your system regularly to stay compliant and protected.</p><p>Consider Biz Secure funding to install appropriate CCTV at your business premises.</p><p>CCTV is also covered under the Privacy Act 1988 and Surveillance Devices Act 2007. Make sure you understand your legal obligations for using CCTV footage. Here is a summary of your most important privacy checks:</p><ol><li>Put up signs so people know they are being recorded. You can purchase these signs easily online.</li><li>Don't film private areas like toilets or change rooms. Display signs that let people know that CCTV is being used.</li><li>Don't record sound unless people say it's okay.</li><li>Keep the videos safe and don't share them unless the law says you have to.</li></ol><p>The NT has the <a href='https://legislation.nt.gov.au/Legislation/SURVEILLANCE-DEVICES-ACT-2007' target='_blank' rel='noopener noreferrer'>Surveillance Devices Act 2007</a></p><p>CCTV is also bound by the <a href='https://www.legislation.gov.au/C2004A03712/2014-03-12/text' target='_blank' rel='noopener noreferrer'>Privacy Act 1988</a></p>"
+              }
             },
             {
               "id": "cctvHasEverything",
@@ -57,15 +65,7 @@
                 { "label": "Yes", "score": 1 },
                 { "label": "No", "score": 0 },
                 { "label": "Unsure", "score": 0 }
-              ],
-              "positiveMessage": {
-                "title": "Great CCTV System!",
-                "body": "<p>Your strength: maintaining a compliant CCTV system actively strengthens security, protects privacy, and supports proactive risk management.</p>"
-              },
-              "recommendation": {
-                "title": "Improve Your CCTV Setup",
-                "body": "<p>Effective CCTV includes clear signage, proper coverage, secure storage, and remote access. Review your system regularly to stay compliant and protected.</p><p>Consider Biz Secure funding to install appropriate CCTV at your business premises.</p><p>CCTV is also covered under the Privacy Act 1988 and Surveillance Devices Act 2007. Make sure you understand your legal obligations for using CCTV footage. Here is a summary of your most important privacy checks:</p><ol><li>Put up signs so people know they are being recorded. You can purchase these signs easily online.</li><li>Don't film private areas like toilets or change rooms. Display signs that let people know that CCTV is being used.</li><li>Don't record sound unless people say it's okay.</li><li>Keep the videos safe and don't share them unless the law says you have to.</li></ol><p>The NT has the <a href='https://legislation.nt.gov.au/Legislation/SURVEILLANCE-DEVICES-ACT-2007' target='_blank' rel='noopener noreferrer'>Surveillance Devices Act 2007</a></p><p>CCTV is also bound by the <a href='https://www.legislation.gov.au/C2004A03712/2014-03-12/text' target='_blank' rel='noopener noreferrer'>Privacy Act 1988</a></p>"
-              }
+              ]
             },
             {
               "id": "cctvHasSignsOnPremises",
@@ -81,15 +81,7 @@
                 { "label": "Yes", "score": 1 },
                 { "label": "No", "score": 0 },
                 { "label": "Unsure", "score": 0 }
-              ],
-              "positiveMessage": {
-                "title": "Great CCTV System!",
-                "body": "<p>Your strength: maintaining a compliant CCTV system actively strengthens security, protects privacy, and supports proactive risk management.</p>"
-              },
-              "recommendation": {
-                "title": "Improve Your CCTV Setup",
-                "body": "<p>Effective CCTV includes clear signage, proper coverage, secure storage, and remote access. Review your system regularly to stay compliant and protected.</p><p>Consider Biz Secure funding to install appropriate CCTV at your business premises.</p><p>CCTV is also covered under the Privacy Act 1988 and Surveillance Devices Act 2007. Make sure you understand your legal obligations for using CCTV footage. Here is a summary of your most important privacy checks:</p><ol><li>Put up signs so people know they are being recorded. You can purchase these signs easily online.</li><li>Don't film private areas like toilets or change rooms. Display signs that let people know that CCTV is being used.</li><li>Don't record sound unless people say it's okay.</li><li>Keep the videos safe and don't share them unless the law says you have to.</li></ol><p>The NT has the <a href='https://legislation.nt.gov.au/Legislation/SURVEILLANCE-DEVICES-ACT-2007' target='_blank' rel='noopener noreferrer'>Surveillance Devices Act 2007</a></p><p>CCTV is also bound by the <a href='https://www.legislation.gov.au/C2004A03712/2014-03-12/text' target='_blank' rel='noopener noreferrer'>Privacy Act 1988</a></p>"
-              }
+              ]
             },
             {
               "id": "cctvFollowingRules",
@@ -105,15 +97,7 @@
                 { "label": "Yes", "score": 1 },
                 { "label": "No", "score": 0 },
                 { "label": "Unsure", "score": 0 }
-              ],
-              "positiveMessage": {
-                "title": "Great CCTV System!",
-                "body": "<p>Your strength: maintaining a compliant CCTV system actively strengthens security, protects privacy, and supports proactive risk management.</p>"
-              },
-              "recommendation": {
-                "title": "Improve Your CCTV Setup",
-                "body": "<p>Effective CCTV includes clear signage, proper coverage, secure storage, and remote access. Review your system regularly to stay compliant and protected.</p><p>Consider Biz Secure funding to install appropriate CCTV at your business premises.</p><p>CCTV is also covered under the Privacy Act 1988 and Surveillance Devices Act 2007. Make sure you understand your legal obligations for using CCTV footage. Here is a summary of your most important privacy checks:</p><ol><li>Put up signs so people know they are being recorded. You can purchase these signs easily online.</li><li>Don't film private areas like toilets or change rooms. Display signs that let people know that CCTV is being used.</li><li>Don't record sound unless people say it's okay.</li><li>Keep the videos safe and don't share them unless the law says you have to.</li></ol><p>The NT has the <a href='https://legislation.nt.gov.au/Legislation/SURVEILLANCE-DEVICES-ACT-2007' target='_blank' rel='noopener noreferrer'>Surveillance Devices Act 2007</a></p><p>CCTV is also bound by the <a href='https://www.legislation.gov.au/C2004A03712/2014-03-12/text' target='_blank' rel='noopener noreferrer'>Privacy Act 1988</a></p>"
-              }
+              ]
             },
             {
               "id": "cctvCanTeamCheckFootage",
@@ -129,15 +113,7 @@
                 { "label": "Yes", "score": 1 },
                 { "label": "No", "score": 0 },
                 { "label": "Unsure", "score": 0 }
-              ],
-              "positiveMessage": {
-                "title": "Great CCTV System!",
-                "body": "<p>Your strength: maintaining a compliant CCTV system actively strengthens security, protects privacy, and supports proactive risk management.</p>"
-              },
-              "recommendation": {
-                "title": "Improve Your CCTV Setup",
-                "body": "<p>Effective CCTV includes clear signage, proper coverage, secure storage, and remote access. Review your system regularly to stay compliant and protected.</p><p>Consider Biz Secure funding to install appropriate CCTV at your business premises.</p><p>CCTV is also covered under the Privacy Act 1988 and Surveillance Devices Act 2007. Make sure you understand your legal obligations for using CCTV footage. Here is a summary of your most important privacy checks:</p><ol><li>Put up signs so people know they are being recorded. You can purchase these signs easily online.</li><li>Don't film private areas like toilets or change rooms. Display signs that let people know that CCTV is being used.</li><li>Don't record sound unless people say it's okay.</li><li>Keep the videos safe and don't share them unless the law says you have to.</li></ol><p>The NT has the <a href='https://legislation.nt.gov.au/Legislation/SURVEILLANCE-DEVICES-ACT-2007' target='_blank' rel='noopener noreferrer'>Surveillance Devices Act 2007</a></p><p>CCTV is also bound by the <a href='https://www.legislation.gov.au/C2004A03712/2014-03-12/text' target='_blank' rel='noopener noreferrer'>Privacy Act 1988</a></p>"
-              }
+              ]
             },
             {
               "id": "cctvFootageStoredSafely",
@@ -153,15 +129,7 @@
                 { "label": "Yes", "score": 1 },
                 { "label": "No", "score": 0 },
                 { "label": "Unsure", "score": 0 }
-              ],
-              "positiveMessage": {
-                "title": "Great CCTV System!",
-                "body": "<p>Your strength: maintaining a compliant CCTV system actively strengthens security, protects privacy, and supports proactive risk management.</p>"
-              },
-              "recommendation": {
-                "title": "Improve Your CCTV Setup",
-                "body": "<p>Effective CCTV includes clear signage, proper coverage, secure storage, and remote access. Review your system regularly to stay compliant and protected.</p><p>Consider Biz Secure funding to install appropriate CCTV at your business premises.</p><p>CCTV is also covered under the Privacy Act 1988 and Surveillance Devices Act 2007. Make sure you understand your legal obligations for using CCTV footage. Here is a summary of your most important privacy checks:</p><ol><li>Put up signs so people know they are being recorded. You can purchase these signs easily online.</li><li>Don't film private areas like toilets or change rooms. Display signs that let people know that CCTV is being used.</li><li>Don't record sound unless people say it's okay.</li><li>Keep the videos safe and don't share them unless the law says you have to.</li></ol><p>The NT has the <a href='https://legislation.nt.gov.au/Legislation/SURVEILLANCE-DEVICES-ACT-2007' target='_blank' rel='noopener noreferrer'>Surveillance Devices Act 2007</a></p><p>CCTV is also bound by the <a href='https://www.legislation.gov.au/C2004A03712/2014-03-12/text' target='_blank' rel='noopener noreferrer'>Privacy Act 1988</a></p>"
-              }
+              ]
             },
             {
               "id": "electronicSecurity",
@@ -172,7 +140,15 @@
                 { "label": "Yes", "score": 1 },
                 { "label": "No", "score": 0 },
                 { "label": "Unsure", "score": 0 }
-              ]
+              ],
+              "conditionalQuestionGroupPositiveMessage": {
+                "title": "Great Alarm System!",
+                "body": "<p>Keeping your alarm system maintained, training staff, and enabling remote access actively reinforces safety and rapid response</p>"
+              },
+              "conditionalQuestionGroupRecommendation": {
+                "title": "Improve Your Alarm Setup",
+                "body": "<p>Installing and maintaining an intruder alarm helps protect your business by deterring break-ins and ensuring safety. To be effective, staff must be trained to operate the system correctly and respond to alerts, with a documented process for reference. The alarm keypad should be easily accessible to staff but hidden from intruders. Remote control capabilities allow quick responses from anywhere. Glass break detectors enhance security by instantly alerting staff when windows are smashed.</p><p>If you are unsure of any of the above, contact your alarm installation provider who may be able to help.</p>"
+              }
             },
             {
               "id": "isAlarmInstalledAndMaintained",
@@ -188,15 +164,7 @@
                 { "label": "Yes", "score": 1 },
                 { "label": "No", "score": 0 },
                 { "label": "Unsure", "score": 0 }
-              ],
-              "positiveMessage": {
-                "title": "Excellent Alarm System!",
-                "body": "<p>Your strength: keeping your alarm system maintained, training staff, and enabling remote access actively reinforces safety and rapid response.</p>"
-              },
-              "recommendation": {
-                "title": "Enhance Your Alarm System",
-                "body": "<p>Installing and maintaining an intruder alarm helps protect your business by deterring break-ins and ensuring safety. To be effective, staff must be trained to operate the system correctly and respond to alerts, with a documented process for reference. The alarm keypad should be easily accessible to staff but hidden from intruders. Remote control capabilities allow quick responses from anywhere. Glass break detectors enhance security by instantly alerting staff when windows are smashed.</p><p>If you are unsure of any of the above, contact your alarm installation provider who may be able to help.</p>"
-              }
+              ]
             },
             {
               "id": "isStaffTrainedToUseAlarm",
@@ -212,20 +180,12 @@
                 { "label": "Yes", "score": 1 },
                 { "label": "No", "score": 0 },
                 { "label": "Unsure", "score": 0 }
-              ],
-              "positiveMessage": {
-                "title": "Excellent Alarm System!",
-                "body": "<p>Your strength: keeping your alarm system maintained, training staff, and enabling remote access actively reinforces safety and rapid response.</p>"
-              },
-              "recommendation": {
-                "title": "Enhance Your Alarm System",
-                "body": "<p>Installing and maintaining an intruder alarm helps protect your business by deterring break-ins and ensuring safety. To be effective, staff must be trained to operate the system correctly and respond to alerts, with a documented process for reference. The alarm keypad should be easily accessible to staff but hidden from intruders. Remote control capabilities allow quick responses from anywhere. Glass break detectors enhance security by instantly alerting staff when windows are smashed.</p><p>If you are unsure of any of the above, contact your alarm installation provider who may be able to help.</p>"
-              }
+              ]
             },
             {
               "id": "canStaffAccessAlarmRemotely",
               "type": "radio",
-              "label": "Can staff easily get to the keypad or alarm switches, and are they kept safe from intruders? ",
+              "label": "Can staff easily get to the keypad or alarm switches, and are they kept safe from intruders?",
               "helpText": "",
               "conditional": {
                 "showWhen": {
@@ -236,15 +196,7 @@
                 { "label": "Yes", "score": 1 },
                 { "label": "No", "score": 0 },
                 { "label": "Unsure", "score": 0 }
-              ],
-              "positiveMessage": {
-                "title": "Excellent Alarm System!",
-                "body": "<p>Your strength: keeping your alarm system maintained, training staff, and enabling remote access actively reinforces safety and rapid response.</p>"
-              },
-              "recommendation": {
-                "title": "Enhance Your Alarm System",
-                "body": "<p>Installing and maintaining an intruder alarm helps protect your business by deterring break-ins and ensuring safety. To be effective, staff must be trained to operate the system correctly and respond to alerts, with a documented process for reference. The alarm keypad should be easily accessible to staff but hidden from intruders. Remote control capabilities allow quick responses from anywhere. Glass break detectors enhance security by instantly alerting staff when windows are smashed.</p><p>If you are unsure of any of the above, contact your alarm installation provider who may be able to help.</p>"
-              }
+              ]
             },
             {
               "id": "canControlAlarmRemotely",
@@ -260,15 +212,7 @@
                 { "label": "Yes", "score": 1 },
                 { "label": "No", "score": 0 },
                 { "label": "Unsure", "score": 0 }
-              ],
-              "positiveMessage": {
-                "title": "Excellent Alarm System!",
-                "body": "<p>Your strength: keeping your alarm system maintained, training staff, and enabling remote access actively reinforces safety and rapid response.</p>"
-              },
-              "recommendation": {
-                "title": "Enhance Your Alarm System",
-                "body": "<p>Installing and maintaining an intruder alarm helps protect your business by deterring break-ins and ensuring safety. To be effective, staff must be trained to operate the system correctly and respond to alerts, with a documented process for reference. The alarm keypad should be easily accessible to staff but hidden from intruders. Remote control capabilities allow quick responses from anywhere. Glass break detectors enhance security by instantly alerting staff when windows are smashed.</p><p>If you are unsure of any of the above, contact your alarm installation provider who may be able to help.</p>"
-              }
+              ]
             },
             {
               "id": "areThereGlassBreakDetectors",
@@ -284,15 +228,7 @@
                 { "label": "Yes", "score": 1 },
                 { "label": "No", "score": 0 },
                 { "label": "Unsure", "score": 0 }
-              ],
-              "positiveMessage": {
-                "title": "Excellent Alarm System!",
-                "body": "<p>Your strength: keeping your alarm system maintained, training staff, and enabling remote access actively reinforces safety and rapid response.</p>"
-              },
-              "recommendation": {
-                "title": "Enhance Your Alarm System",
-                "body": "<p>Installing and maintaining an intruder alarm helps protect your business by deterring break-ins and ensuring safety. To be effective, staff must be trained to operate the system correctly and respond to alerts, with a documented process for reference. The alarm keypad should be easily accessible to staff but hidden from intruders. Remote control capabilities allow quick responses from anywhere. Glass break detectors enhance security by instantly alerting staff when windows are smashed.</p><p>If you are unsure of any of the above, contact your alarm installation provider who may be able to help.</p>"
-              }
+              ]
             },
             {
               "id": "oneWayMesh",
@@ -376,26 +312,8 @@
       ]
     },
     {
-      "title": "Location & Access",
+      "title": "Location",
       "questions": [
-        {
-          "id": "lockDoors",
-          "type": "radio",
-          "label": "Do you lock access doors after hours?",
-          "helpText": "Locking doors after hours is one of the most basic and effective security measures to prevent unauthorized access to your property.",
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Great Job!",
-            "body": "<p>Locking doors after hours is a fundamental security practice that significantly reduces unauthorized access risks.</p>"
-          },
-          "recommendation": {
-            "title": "Secure Your Access Points",
-            "body": "<p>Unsecured doors are a common point of entry for intruders. Implement a policy to lock all access doors after hours, use deadlocks, and consider controlled access schedules to reduce risk.</p>"
-          }
-        },
         {
           "id": "multipleLocations",
           "type": "radio",
@@ -405,15 +323,7 @@
             { "label": "Yes", "score": 0 },
             { "label": "No", "score": 0 },
             { "label": "Unsure", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Multiple Locations",
-            "body": ""
-          },
-          "recommendation": {
-            "title": "Multiple Locations",
-            "body": ""
-          }
+          ]
         },
         {
           "id": "locationSafety",
@@ -431,9 +341,9 @@
             { "label": "Unsure", "score": 0 }
           ],
           "positiveMessage": {
-            "title": "Well Planned!",
-            "body": "<p>Your strength: actively tailoring safety and security measures to each location strengthens your business's resilience and adaptability.</p>"
-          },
+              "title": "Well Planned!",
+              "body": "<p>Actively tailoring safety and security measures to each location strengthens your business's resilience and adaptability.</p>"
+            },
           "recommendation": {
             "title": "Consider Each Location",
             "body": "<p>Different areas or buildings have unique layouts. Consider filling this questionnaire out for each location. You can use the <a href='https://pfes.nt.gov.au/sites/default/files/uploads/files/2019/Business%20Security%20A4%20Flyer.pdf' target='_blank' rel='noopener noreferrer'>NT Police Business Security Flyer</a> and the <a href='https://crimestoppersnt.com.au/resources/business-security-tips/' target='_blank' rel='noopener noreferrer'>Crimestoppers Resources</a> as checklists for each location.</p>"
@@ -442,7 +352,7 @@
       ]
     },
     {
-      "title": "Cash Management",
+      "title": "Cash",
       "questions": [
         {
           "id": "cashOnsite",
@@ -454,19 +364,23 @@
             { "label": "No", "score": 1 },
             { "label": "Unsure", "score": 0 }
           ],
-          "positiveMessage": {
-            "title": "Cashless Operations",
-            "body": ""
-          },
           "recommendation": {
             "title": "Consider Going Cashless",
             "body": "<p>Consider moving to a cashless payment system to limit the amount of cash you are handling in your business, such as eftpos, apple square, etc.</p><p>Consider applying to the <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program' target='_blank' rel='noopener noreferrer'>Business Growth Program</a> to help you with a business plan or strategy.</p>"
+          },
+          "conditionalQuestionGroupPositiveMessage": {
+            "title": "Great Cash System!",
+            "body": "<p>Your cash handling practices highlight strong risk management and a clear commitment to security. Review any processes regulary to make sure they are still relevant.</p>"
+          },
+          "conditionalQuestionGroupRecommendation": {
+            "title": "Improve Cash Handling",
+            "body": "<p>Storing cash in hard-to-access containers and removing it periodically during the day can help deter theft and minimise losses. Taking cash offsite when the business is closed further reduces risk.</p><p>Displaying signage that your business is cashless or doesn't store cash overnight can discourage intruders. Staff should be trained on safe cash handling, including storage, removal, and opening/closing procedures to protect both cash and personnel.</p><p>View <a href='https://www.safeworkaustralia.gov.au/system/files/documents/1702/guide-handling-transporting-cash-may-2013.pdf' target='_blank' rel='noopener noreferrer'>Safe Work Australia's guide to handling and transporting cash</a></p><p>To view an example sign to use click here (downloadable resource)</p>"
           }
         },
         {
           "id": "cashManagement",
           "type": "radio",
-          "label": "Cash Management: Quick check. Answer yes if you tick all 4 boxes: 1. Do you keep cash in a locked container, till or drawer while open? 2. Do you remove cash from the premises when closed for trading? (this means anytime your business is closed) 3. Do you display 'no cash left on premises' signage? 4. Does your business have cash handling procedures?",
+          "label": "Do you keep cash in a locked container, till or drawer while open?",
           "helpText": "",
           "conditional": {
             "showWhen": {
@@ -477,15 +391,7 @@
             { "label": "Yes", "score": 1 },
             { "label": "No", "score": 0 },
             { "label": "Unsure", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Excellent Cash Management!",
-            "body": "<p>Your strength: your cash handling practices highlight strong risk management and a clear commitment to security. Review any processes regularly to make sure they are still relevant.</p>"
-          },
-          "recommendation": {
-            "title": "Improve Cash Handling",
-            "body": "<p>Storing cash in hard-to-access containers and removing it periodically during the day can help deter theft and minimise losses. Taking cash offsite when the business is closed further reduces risk.</p><p>Displaying signage that your business is cashless or doesn't store cash overnight can discourage intruders. Staff should be trained on safe cash handling, including storage, removal, and opening/closing procedures to protect both cash and personnel.</p><p>View <a href='https://www.safeworkaustralia.gov.au/system/files/documents/1702/guide-handling-transporting-cash-may-2013.pdf' target='_blank' rel='noopener noreferrer'>Safe Work Australia's guide to handling and transporting cash</a></p><p>To view an example sign to use click here (downloadable resource)</p>"
-          }
+          ]
         }
       ]
     },

@@ -271,6 +271,9 @@
       stepper.appendChild(s);
     });
     contentEl.appendChild(stepper);
+    
+    // Dispatch event to update progress bar
+    window.dispatchEvent(new CustomEvent('stepperUpdated'));
 
     const page = quiz.pages[pageIndex];
     const pageTitle = document.createElement('div'); pageTitle.className = 'page-title'; pageTitle.textContent = page.title;

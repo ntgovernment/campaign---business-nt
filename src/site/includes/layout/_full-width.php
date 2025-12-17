@@ -21,8 +21,7 @@
                 <div class="container">
                     <?php include("includes/global/_in-page-nav.php"); ?>
                 </div>
-                
-                
+
                 <?php echo $content ?>
 
             </div>

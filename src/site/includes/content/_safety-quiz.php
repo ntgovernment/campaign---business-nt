@@ -1,17 +1,14 @@
 <div class="container pb-5">
-    <div id="app">
-        <aside class="quiz-sidebar" id="sidebar">
-            <div class="brand">Business Quiz</div>
-            <div class="side-links" id="sideLinks">
+    <div class="ntg-quiz" id="app">
+        <aside class="ntg-quiz-sidebar">
+            <h2 class="ntg-quiz-sidebar__title">Business Safety and Security</h2>
+            <div class="ntg-quiz-sidebar__links" id="sideLinks">
                 <!-- Filled by router.updateSidebarProgress -->
             </div>
-            <ul id="quizList"></ul>
+            <ul class="ntg-quiz-sidebar__list" id="quizList"></ul>
         </aside>
-
-        <div id="main" class="w-100">
-            <header>
-                <h2 id="pageTitle">Welcome</h2>
-            </header>
+        <div class="ntg-quiz-body">
+            <h2 id="pageTitle">Welcome</h2>
             <section id="quizContent"></section>
         </div>
     </div>

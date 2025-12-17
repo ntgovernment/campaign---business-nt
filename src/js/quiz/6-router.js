@@ -7,46 +7,49 @@
      #/results/{quizId}
    Also supports query ?state=... inside the hash.
 */
-(function(global){
-  function parseHash(){
+(function (global) {
+  function parseHash() {
     const raw = window.location.hash || '#/start';
     const [path, q] = raw.split('?');
-    const parts = path.replace(/^#\//,'').split('/').filter(Boolean);
+    const parts = path.replace(/^#\//, '').split('/').filter(Boolean);
     return { raw, path, q, parts };
   }
 
-  async function route(){
+  async function route() {
     const content = document.getElementById('quizContent');
-    
+
     // ensure UI is defined
-    if(typeof window.UI === 'undefined'){ setTimeout(route, 50); return; }
-    
+    if (typeof window.UI === 'undefined') {
+      setTimeout(route, 50);
+      return;
+    }
+
     // load nav JSON for some pages
-    const navJson = await fetch('../assets/data/mainNavigation.json').then(r=>r.json());
-    const uiMessages = await fetch('../assets/data/uiMessages.json').then(r=>r.json());
-    
+    const navJson = await fetch('../assets/data/mainNavigation.json').then((r) => r.json());
+    const uiMessages = await fetch('../assets/data/uiMessages.json').then((r) => r.json());
+
     // get current view from state
     const view = (window.State && window.State.currentState && window.State.currentState.view) || 'start';
 
-    if(view === 'start'){
+    if (view === 'start') {
       // Always reset to fresh state on Get Started page
       window.State.currentState = { view: 'start', quizId: null, currentPage: 0, answers: {} };
       window.UI.renderStart(content, uiMessages);
-    } else if(view === 'choose-topic'){
+    } else if (view === 'choose-topic') {
       window.UI.renderChooseTopic(content, navJson);
-    } else if(view === 'quiz'){
+    } else if (view === 'quiz') {
       const quizId = (window.State && window.State.currentState && window.State.currentState.quizId) || null;
       const pageIndex = (window.State && window.State.currentState && window.State.currentState.currentPage) || 0;
-      if(!quizId){
+      if (!quizId) {
         // If no quizId in state, go back to choose-topic
         window.State.currentState.view = 'choose-topic';
         window.State.saveStateToUrl(window.State.currentState);
       } else {
         await window.UI.renderQuizPage(content, quizId, pageIndex);
       }
-    } else if(view === 'results'){
+    } else if (view === 'results') {
       const quizId = (window.State && window.State.currentState && window.State.currentState.quizId) || null;
-      if(!quizId){
+      if (!quizId) {
         window.State.currentState.view = 'choose-topic';
         window.State.saveStateToUrl(window.State.currentState);
       } else {
@@ -61,139 +64,199 @@
     updateSidebarProgress();
   }
 
-  async function updateSidebarProgress(){
-    const nav = await fetch('../assets/data/mainNavigation.json').then(r=>r.json());
-    const ul = document.getElementById('quizList'); ul.innerHTML='';
+  async function updateSidebarProgress() {
+    const nav = await fetch('../assets/data/mainNavigation.json').then((r) => r.json());
+    const ul = document.getElementById('quizList');
+    ul.innerHTML = '';
     // top links
-    const sideLinks = document.getElementById('sideLinks'); sideLinks.innerHTML='';
-    const btnStart = document.createElement('button'); btnStart.textContent='Get Started';
-    const btnChoose = document.createElement('button'); btnChoose.textContent='Choose a Topic';
-    
+    const sideLinks = document.getElementById('sideLinks');
+    sideLinks.innerHTML = '';
+    const btnStart = document.createElement('button');
+    btnStart.textContent = 'Get Started';
+    const btnChoose = document.createElement('button');
+    btnChoose.textContent = 'Choose a Topic';
+
     // Get current view state
     const currentView = (window.State && window.State.currentState && window.State.currentState.view) || 'start';
-    
+
     // Add active class based on current view
-    if(currentView === 'start') btnStart.classList.add('active');
-    if(currentView === 'choose-topic') btnChoose.classList.add('active');
-    
-    btnStart.addEventListener('click', ()=>{ window.State.currentState.view = 'start'; window.State.saveStateToUrl(window.State.currentState); });
-    btnChoose.addEventListener('click', ()=>{ window.State.currentState.view = 'choose-topic'; window.State.saveStateToUrl(window.State.currentState); });
-    sideLinks.appendChild(btnStart); sideLinks.appendChild(btnChoose);
-    
+    if (currentView === 'start') btnStart.classList.add('active');
+    if (currentView === 'choose-topic') btnChoose.classList.add('active');
+
+    btnStart.addEventListener('click', () => {
+      window.State.currentState.view = 'start';
+      window.State.saveStateToUrl(window.State.currentState);
+    });
+    btnChoose.addEventListener('click', () => {
+      window.State.currentState.view = 'choose-topic';
+      window.State.saveStateToUrl(window.State.currentState);
+    });
+    sideLinks.appendChild(btnStart);
+    sideLinks.appendChild(btnChoose);
+
     // check if a quiz is active
     const activeQuizId = (window.State && window.State.currentState && window.State.currentState.quizId) || null;
-    
-    for(const q of nav.quizzes){
+
+    for (const q of nav.quizzes) {
       const li = document.createElement('li');
-      const meta = document.createElement('div'); meta.className='quizMeta';
-      const titleLink = document.createElement('a'); titleLink.className='quizTitle'; titleLink.textContent = q.title; titleLink.href = '#';
-      titleLink.addEventListener('click', (e)=>{
+      const meta = document.createElement('div');
+      meta.className = 'quizMeta';
+      const titleLink = document.createElement('a');
+      titleLink.className = 'quizTitle';
+      titleLink.textContent = q.title;
+      titleLink.href = '#';
+      titleLink.addEventListener('click', (e) => {
         e.preventDefault();
         // set quiz in state and save to URL
-        if(window.State){ window.State.currentState.view = 'quiz'; window.State.currentState.quizId = q.id; window.State.currentState.currentPage = 0; if(!window.State.currentState.answers) window.State.currentState.answers = {}; window.State.saveStateToUrl(window.State.currentState); }
+        if (window.State) {
+          window.State.currentState.view = 'quiz';
+          window.State.currentState.quizId = q.id;
+          window.State.currentState.currentPage = 0;
+          if (!window.State.currentState.answers) window.State.currentState.answers = {};
+          window.State.saveStateToUrl(window.State.currentState);
+        }
       });
-      const prog = document.createElement('div'); prog.className='quizProgress'; prog.textContent = '0%';
+      const prog = document.createElement('div');
+      prog.className = 'quizProgress';
+      prog.textContent = '0%';
       meta.appendChild(titleLink);
-      li.appendChild(meta); li.appendChild(prog);
-      
+      li.appendChild(meta);
+      li.appendChild(prog);
+
       // Add active class if this quiz is currently active
-      if(activeQuizId === q.id) {
+      if (activeQuizId === q.id) {
         li.classList.add('active');
       }
       // compute progress async and update
-      (async ()=>{ const p = await window.UI && window.UI.renderChooseTopic ? 0 : 0; /* placeholder */
-        const percent = await (async ()=>{ 
-          try{ 
-            const quiz = await fetch(`../assets/data/quizzes/${q.id}.json`).then(r=>r.json()); 
-            const answers = (window.State && window.State.currentState && window.State.currentState.answers) || {}; 
-            let total=0; let answered=0; 
-            for(const page of quiz.pages){
-              for(const question of page.questions){
-                if(question.type === 'group' && question.subQuestions){
-                  for(const subQ of question.subQuestions){
-                    if(!window.Conditional.isVisible(subQ, answers)) continue;
+      (async () => {
+        const p = (await window.UI) && window.UI.renderChooseTopic ? 0 : 0; /* placeholder */
+        const percent = await (async () => {
+          try {
+            const quiz = await fetch(`../assets/data/quizzes/${q.id}.json`).then((r) => r.json());
+            const answers = (window.State && window.State.currentState && window.State.currentState.answers) || {};
+            let total = 0;
+            let answered = 0;
+            for (const page of quiz.pages) {
+              for (const question of page.questions) {
+                if (question.type === 'group' && question.subQuestions) {
+                  for (const subQ of question.subQuestions) {
+                    if (!window.Conditional.isVisible(subQ, answers)) continue;
                     total++;
                     const ans = answers[subQ.id];
-                    if(typeof ans !== 'undefined' && ans !== null && ans !== ''){
-                      if(Array.isArray(ans)){ if(ans.length > 0) answered++; }
-                      else { answered++; }
+                    if (typeof ans !== 'undefined' && ans !== null && ans !== '') {
+                      if (Array.isArray(ans)) {
+                        if (ans.length > 0) answered++;
+                      } else {
+                        answered++;
+                      }
                     }
                   }
                 } else {
-                  if(!window.Conditional.isVisible(question, answers)) continue; 
-                  total++; 
+                  if (!window.Conditional.isVisible(question, answers)) continue;
+                  total++;
                   const ans = answers[question.id];
-                  if(typeof ans !== 'undefined' && ans !== null && ans !== ''){
-                    if(Array.isArray(ans)){ if(ans.length > 0) answered++; }
-                    else { answered++; }
+                  if (typeof ans !== 'undefined' && ans !== null && ans !== '') {
+                    if (Array.isArray(ans)) {
+                      if (ans.length > 0) answered++;
+                    } else {
+                      answered++;
+                    }
                   }
                 }
               }
             }
-            return total?Math.round((answered/total)*100):0;
-          }catch(e){return 0;}
+            return total ? Math.round((answered / total) * 100) : 0;
+          } catch (e) {
+            return 0;
+          }
         })();
         const isComplete = percent === 100;
         prog.innerHTML = percent + '% ' + (isComplete ? '<i class="fa-solid fa-circle-check"></i>' : '<i class="fa-regular fa-circle"></i>');
       })();
       ul.appendChild(li);
-      
+
       // if this quiz is active, render its pages nested under the quiz item
-      if(activeQuizId === q.id){
-        try{
-          const quiz = await fetch(`../assets/data/quizzes/${q.id}.json`).then(r=>r.json());
-          const pagesList = document.createElement('ul'); pagesList.className='quiz-pages-list';
+      if (activeQuizId === q.id) {
+        try {
+          const quiz = await fetch(`../assets/data/quizzes/${q.id}.json`).then((r) => r.json());
+          const pagesList = document.createElement('ol');
+          pagesList.className = 'quiz-pages-list';
           const answers = (window.State.currentState && window.State.currentState.answers) || {};
           const currentPage = (window.State.currentState && window.State.currentState.currentPage) || 0;
-          quiz.pages.forEach((p, idx)=>{
-            const li2 = document.createElement('li'); li2.className='page-item';
-            const pageLink = document.createElement('a'); pageLink.href = '#'; pageLink.textContent = p.title || `Page ${idx+1}`;
-            pageLink.addEventListener('click', (e)=>{ e.preventDefault(); e.stopPropagation(); window.State.currentState.view = 'quiz'; window.State.currentState.currentPage = idx; window.State.saveStateToUrl(window.State.currentState); });
+          quiz.pages.forEach((p, idx) => {
+            const li2 = document.createElement('li');
+            li2.className = 'page-item';
+            const pageLink = document.createElement('a');
+            pageLink.href = '#';
+            pageLink.textContent = p.title || `Page ${idx + 1}`;
+            pageLink.addEventListener('click', (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              window.State.currentState.view = 'quiz';
+              window.State.currentState.currentPage = idx;
+              window.State.saveStateToUrl(window.State.currentState);
+            });
             li2.appendChild(pageLink);
             // Only add active class if we're in quiz view and this is the current page
-            if(currentView === 'quiz' && idx === currentPage) li2.classList.add('active');
+            if (currentView === 'quiz' && idx === currentPage) li2.classList.add('active');
             // compute per-page completion
             let pageComplete = true;
             let pageHasAnswers = false;
-            for(const qst of p.questions){
-              if(qst.type === 'group' && qst.subQuestions){
-                for(const subQ of qst.subQuestions){
-                  if(!window.Conditional.isVisible(subQ, answers)) continue;
+            for (const qst of p.questions) {
+              if (qst.type === 'group' && qst.subQuestions) {
+                for (const subQ of qst.subQuestions) {
+                  if (!window.Conditional.isVisible(subQ, answers)) continue;
                   const ans = answers[subQ.id];
-                  if(typeof ans !== 'undefined' && ans !== null && ans !== '') {
-                    if(Array.isArray(ans) && ans.length > 0) { pageHasAnswers = true; }
-                    else if(!Array.isArray(ans)) { pageHasAnswers = true; }
+                  if (typeof ans !== 'undefined' && ans !== null && ans !== '') {
+                    if (Array.isArray(ans) && ans.length > 0) {
+                      pageHasAnswers = true;
+                    } else if (!Array.isArray(ans)) {
+                      pageHasAnswers = true;
+                    }
                   } else {
                     pageComplete = false;
                   }
                 }
               } else {
-                if(!window.Conditional.isVisible(qst, answers)) continue; // skip hidden questions
+                if (!window.Conditional.isVisible(qst, answers)) continue; // skip hidden questions
                 const ans = answers[qst.id];
-                if(typeof ans !== 'undefined' && ans !== null && ans !== '') {
-                  if(Array.isArray(ans) && ans.length > 0) { pageHasAnswers = true; }
-                  else if(!Array.isArray(ans)) { pageHasAnswers = true; }
+                if (typeof ans !== 'undefined' && ans !== null && ans !== '') {
+                  if (Array.isArray(ans) && ans.length > 0) {
+                    pageHasAnswers = true;
+                  } else if (!Array.isArray(ans)) {
+                    pageHasAnswers = true;
+                  }
                 } else {
                   pageComplete = false;
                 }
               }
             }
-            if(pageComplete && pageHasAnswers) {
+            if (pageComplete && pageHasAnswers) {
               li2.classList.add('completed');
-            } else if(pageHasAnswers) {
+            } else if (pageHasAnswers) {
               li2.classList.add('in-progress');
             }
             pagesList.appendChild(li2);
           });
           // Add "Your results" link
-          const liResults = document.createElement('li'); liResults.className='page-item results-item';
-          const resultsLink = document.createElement('a'); resultsLink.href = '#'; resultsLink.textContent = 'Your results';
-          resultsLink.addEventListener('click', (e)=>{ e.preventDefault(); e.stopPropagation(); window.State.currentState.view = 'results'; window.State.saveStateToUrl(window.State.currentState); });
+          const liResults = document.createElement('li');
+          liResults.className = 'page-item results-item';
+          const resultsLink = document.createElement('a');
+          resultsLink.href = '#';
+          resultsLink.textContent = 'Your results';
+          resultsLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            window.State.currentState.view = 'results';
+            window.State.saveStateToUrl(window.State.currentState);
+          });
           liResults.appendChild(resultsLink);
-          if(currentView === 'results') liResults.classList.add('active');
+          if (currentView === 'results') liResults.classList.add('active');
           pagesList.appendChild(liResults);
           ul.appendChild(pagesList);
-        }catch(e){ /* ignore */ }
+        } catch (e) {
+          /* ignore */
+        }
       }
     }
   }

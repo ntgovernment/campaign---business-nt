@@ -1,639 +1,975 @@
 {
-  "id": "propertySafety",
-  "title": "Property Safety Quiz",
-  "introduction": {
-    "body": "<p>Well done in taking steps to explore how you can secure your business premises. This questionnaire will take roughly 5-10 minutes. You will be able to print a report at the end of the questionnaire with suggestions on things you can do to improve your business safety and security.</p><p>If you have any questions or would like to talk about your business safety you can contact a Territory Business Advisor on 1800 193 111 or businessinfo@nt.gov.au</p><p>If you have experienced a crime and would like support you can contact Victims of Crime NT:<br/>Level 2, 71 Smith St, Darwin City, Darwin 0800. PH: 08 8941 0995<br/>4/15 Leichardt Tce, Alice Springs 0871, PH: 08 8952 4466</p><p><strong>Disclaimer:</strong> Laws and regulations can change over time. While we aim to provide accurate guidance and point you to helpful resources, it's important that you check whether the information is suitable for your specific situation. Every business is different, so please make sure any advice or material you use is right for your circumstances before making decisions or taking action.</p>"
-  },
-  "pages": [
-    {
-      "title": "Security Measures",
-      "questions": [
-        {
-          "id": "securityMeasures",
-          "type": "group",
-          "label": "Do you use any of the following security measures to keep your business safe? (select all that apply)",
-          "positiveMessage": {
-            "title": "Excellent Security Measures!",
-            "body": "<p>Well done in putting in place the safety measures you need to protect your business. Review your setup regularly and upgrade where needed.</p><p>We recommend you speak to one of our <a href='https://business.nt.gov.au/help-for-business/territory-business-advisors' target='_blank' rel='noopener noreferrer'>Territory Business Advisors</a> about your general safety and security.</p><p>You can look at the <a href='https://pfes.nt.gov.au/sites/default/files/uploads/files/2019/Business%20Security%20A4%20Flyer.pdf' target='_blank' rel='noopener noreferrer'>NT Police Business Security Flyer</a> for business safety tips.</p>"
-          },
-          "recommendation": {
-            "title": "Strengthen Your Security",
-            "body": "<p>Great security starts with layered protection. The more barriers you have, the harder it is for intruders to gain access. Review your setup regularly and upgrade where needed.</p><p>Consider looking into installing any items you ticked 'no or unsure' for. Adding additional security items can help to prevent opportunistic crime at your business.</p><p>We recommend you speak to one of our <a href='https://business.nt.gov.au/help-for-business/territory-business-advisors' target='_blank' rel='noopener noreferrer'>Territory Business Advisors</a> about your safety and security needs for your business.</p><p>You can also look at the <a href='https://pfes.nt.gov.au/sites/default/files/uploads/files/2019/Business%20Security%20A4%20Flyer.pdf' target='_blank' rel='noopener noreferrer'>NT Police Business Security Flyer</a> for more tips.</p>"
-          },
-          "subQuestions": [
-            {
-              "id": "reinforcedGlass",
-              "type": "radio",
-              "label": "Reinforced security glass or security film",
-              "helpText": "Reinforced glass is a type of glass that's made stronger by adding materials like wire or plastic, or by treating it with heat or chemicals, so it's harder to break than regular glass. Security film is a clear or tinted plastic layer that sticks to glass to make it harder to break, helping protect people and property from accidents, break-ins, or storms.",
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 },
-                { "label": "Unsure", "score": 0 }
-              ]
-            },
-            {
-              "id": "hasCCTV",
-              "type": "radio",
-              "label": "CCTV",
-              "helpText": "CCTV stands for Closed-Circuit Television and is a system of cameras used to monitor and record activity in a specific area for safety, security, or surveillance.",
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 },
-                { "label": "Unsure", "score": 0 }
-              ],
-              "conditionalQuestionGroupPositiveMessage": {
-                "title": "Great CCTV System!",
-                "body": "<p>Maintaining a compliant CCTV system actively strengthens security, protects privacy, and supports proactive risk management.</p>"
-              },
-              "conditionalQuestionGroupRecommendation": {
-                "title": "Improve Your CCTV Setup",
-                "body": "<p>Effective CCTV includes clear signage, proper coverage, secure storage, and remote access. Review your system regularly to stay compliant and protected.</p><p>Consider Biz Secure funding to install appropriate CCTV at your business premises.</p><p>CCTV is also covered under the Privacy Act 1988 and Surveillance Devices Act 2007. Make sure you understand your legal obligations for using CCTV footage. Here is a summary of your most important privacy checks:</p><ol><li>Put up signs so people know they are being recorded. You can purchase these signs easily online.</li><li>Don't film private areas like toilets or change rooms. Display signs that let people know that CCTV is being used.</li><li>Don't record sound unless people say it's okay.</li><li>Keep the videos safe and don't share them unless the law says you have to.</li></ol><p>The NT has the <a href='https://legislation.nt.gov.au/Legislation/SURVEILLANCE-DEVICES-ACT-2007' target='_blank' rel='noopener noreferrer'>Surveillance Devices Act 2007</a></p><p>CCTV is also bound by the <a href='https://www.legislation.gov.au/C2004A03712/2014-03-12/text' target='_blank' rel='noopener noreferrer'>Privacy Act 1988</a></p>"
-              }
-            },
-            {
-              "id": "cctvHasEverything",
-              "type": "radio",
-              "label": "Does your CCTV setup have everything you need to keep an eye on things (like cameras and recording gear)?",
-              "helpText": "",
-              "conditional": {
-                "showWhen": {
-                  "hasCCTV": "Yes"
-                }
-              },
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 },
-                { "label": "Unsure", "score": 0 }
-              ]
-            },
-            {
-              "id": "cctvHasSignsOnPremises",
-              "type": "radio",
-              "label": "Do you have signs up letting people know CCTV is being used on your premises?",
-              "helpText": "",
-              "conditional": {
-                "showWhen": {
-                  "hasCCTV": "Yes"
-                }
-              },
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 },
-                { "label": "Unsure", "score": 0 }
-              ]
-            },
-            {
-              "id": "cctvFollowingRules",
-              "type": "radio",
-              "label": "Is your CCTV setup following the rules around privacy and surveillance?",
-              "helpText": "",
-              "conditional": {
-                "showWhen": {
-                  "hasCCTV": "Yes"
-                }
-              },
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 },
-                { "label": "Unsure", "score": 0 }
-              ]
-            },
-            {
-              "id": "cctvCanTeamCheckFootage",
-              "type": "radio",
-              "label": "Can you or your team check the footage from outside the business (like on your phone or computer)?",
-              "helpText": "",
-              "conditional": {
-                "showWhen": {
-                  "hasCCTV": "Yes"
-                }
-              },
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 },
-                { "label": "Unsure", "score": 0 }
-              ]
-            },
-            {
-              "id": "cctvFootageStoredSafely",
-              "type": "radio",
-              "label": "Is the footage stored safely so no one can mess with it or see it without permission?",
-              "helpText": "",
-              "conditional": {
-                "showWhen": {
-                  "hasCCTV": "Yes"
-                }
-              },
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 },
-                { "label": "Unsure", "score": 0 }
-              ]
-            },
-            {
-              "id": "electronicSecurity",
-              "type": "radio",
-              "label": "Electronic security system / Intruder Alarm System",
-              "helpText": "An electronic security system or intruder alarm system is a device that finds out when someone enters without permission and sends a warning to keep people and places safe.",
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 },
-                { "label": "Unsure", "score": 0 }
-              ],
-              "conditionalQuestionGroupPositiveMessage": {
-                "title": "Great Alarm System!",
-                "body": "<p>Keeping your alarm system maintained, training staff, and enabling remote access actively reinforces safety and rapid response</p>"
-              },
-              "conditionalQuestionGroupRecommendation": {
-                "title": "Improve Your Alarm Setup",
-                "body": "<p>Installing and maintaining an intruder alarm helps protect your business by deterring break-ins and ensuring safety. To be effective, staff must be trained to operate the system correctly and respond to alerts, with a documented process for reference. The alarm keypad should be easily accessible to staff but hidden from intruders. Remote control capabilities allow quick responses from anywhere. Glass break detectors enhance security by instantly alerting staff when windows are smashed.</p><p>If you are unsure of any of the above, contact your alarm installation provider who may be able to help.</p>"
-              }
-            },
-            {
-              "id": "isAlarmInstalledAndMaintained",
-              "type": "radio",
-              "label": "Is your alarm installed and maintained?",
-              "helpText": "",
-              "conditional": {
-                "showWhen": {
-                  "electronicSecurity": "Yes"
-                }
-              },
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 },
-                { "label": "Unsure", "score": 0 }
-              ]
-            },
-            {
-              "id": "isStaffTrainedToUseAlarm",
-              "type": "radio",
-              "label": "Have staff have been trained in how and when to use the alarm?",
-              "helpText": "",
-              "conditional": {
-                "showWhen": {
-                  "electronicSecurity": "Yes"
-                }
-              },
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 },
-                { "label": "Unsure", "score": 0 }
-              ]
-            },
-            {
-              "id": "canStaffAccessAlarmRemotely",
-              "type": "radio",
-              "label": "Can staff easily get to the keypad or alarm switches, and are they kept safe from intruders?",
-              "helpText": "",
-              "conditional": {
-                "showWhen": {
-                  "electronicSecurity": "Yes"
-                }
-              },
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 },
-                { "label": "Unsure", "score": 0 }
-              ]
-            },
-            {
-              "id": "canControlAlarmRemotely",
-              "type": "radio",
-              "label": "Can you control the alarm from somewhere else, like a phone or computer?",
-              "helpText": "",
-              "conditional": {
-                "showWhen": {
-                  "electronicSecurity": "Yes"
-                }
-              },
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 },
-                { "label": "Unsure", "score": 0 }
-              ]
-            },
-            {
-              "id": "areThereGlassBreakDetectors",
-              "type": "radio",
-              "label": "Are there glass break detectors connected to your alarm system?",
-              "helpText": "A break glass unit on an intruder alarm system is a small device, usually mounted near exits, that allows someone to manually trigger the alarm in an emergency. To activate it, you press or break the glass panel, which sends a signal to alert security or emergency services. It's a quick way to raise the alarm if a threat is spotted and automatic systems haven't yet responded.",
-              "conditional": {
-                "showWhen": {
-                  "electronicSecurity": "Yes"
-                }
-              },
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 },
-                { "label": "Unsure", "score": 0 }
-              ]
-            },
-            {
-              "id": "oneWayMesh",
-              "type": "radio",
-              "label": "One way mesh",
-              "helpText": "Security one-way mesh is a special type of screen or metal mesh that you can see through from one side, but people on the other side can't see in, helping keep areas private and secure.",
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 },
-                { "label": "Unsure", "score": 0 }
-              ]
-            },
-            {
-              "id": "securityScreens",
-              "type": "radio",
-              "label": "Security screens or bars on windows and doors",
-              "helpText": "Security screens or bars on windows and doors are strong metal covers that help stop people from breaking in while still letting air and light through.",
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 },
-                { "label": "Unsure", "score": 0 }
-              ]
-            },
-            {
-              "id": "securityRollerDoors",
-              "type": "radio",
-              "label": "Security roller doors",
-              "helpText": "Security roller doors are strong, metal doors that roll up and down to protect shops, garages, or buildings from break-ins and bad weather.",
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 },
-                { "label": "Unsure", "score": 0 }
-              ]
-            },
-            {
-              "id": "sensorLights",
-              "type": "radio",
-              "label": "Sensor lights or timed lights on entry and exit",
-              "helpText": "Sensor lights or timed lights turn on when someone comes in and turn off after a short time or when they leave, helping with safety and saving energy.",
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 },
-                { "label": "Unsure", "score": 0 }
-              ]
-            },
-            {
-              "id": "duressAlarm",
-              "type": "radio",
-              "label": "Duress Alarm",
-              "helpText": "A duress alarm is a hidden button or signal someone can use when they feel unsafe or threatened, which quietly alerts help without letting others know.",
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 },
-                { "label": "Unsure", "score": 0 }
-              ]
-            },
-            {
-              "id": "highQualityLocks",
-              "type": "radio",
-              "label": "High quality locks on windows and doors (deadbolts)",
-              "helpText": "High-quality security locks like deadlocks are strong locks on windows and doors that make it much harder for someone to break in or open them without a key.",
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 },
-                { "label": "Unsure", "score": 0 }
-              ]
-            },
-            {
-              "id": "doorbell",
-              "type": "radio",
-              "label": "Doorbell or system to notify when someone walks in",
-              "helpText": "A security doorbell is a smart device installed at entry points that lets staff see and speak to visitors or delivery personnel through a camera and speaker, helping monitor access and improve workplace safety—even when no one is at the front desk.",
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 },
-                { "label": "Unsure", "score": 0 }
-              ]
-            }
-          ]
-        }
-      ]
+    "id": "propertySafety",
+    "title": "Property Safety Quiz",
+    "introduction": {
+        "body": "<p>Well done in taking steps to explore how you can secure your business premises. This questionnaire will take roughly 5-10 minutes. You will be able to print a report at the end of the questionnaire with suggestions on things you can do to improve your business safety and security.</p><p>If you have any questions or would like to talk about your business safety you can contact a Territory Business Advisor on 1800 193 111 or businessinfo@nt.gov.au</p><p>If you have experienced a crime and would like support you can contact Victims of Crime NT:<br/>Level 2, 71 Smith St, Darwin City, Darwin 0800. PH: 08 8941 0995<br/>4/15 Leichardt Tce, Alice Springs 0871, PH: 08 8952 4466</p><p><strong>Disclaimer:</strong> Laws and regulations can change over time. While we aim to provide accurate guidance and point you to helpful resources, it's important that you check whether the information is suitable for your specific situation. Every business is different, so please make sure any advice or material you use is right for your circumstances before making decisions or taking action.</p>"
     },
-    {
-      "title": "Location",
-      "questions": [
+    "pages": [
         {
-          "id": "multipleLocations",
-          "type": "radio",
-          "label": "Does your business work from more than one location?",
-          "helpText": "",
-          "options": [
-            { "label": "Yes", "score": 0 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 }
-          ]
+            "title": "Security Measures",
+            "questions": [
+                {
+                    "id": "securityMeasures",
+                    "type": "group",
+                    "label": "Do you use any of the following security measures to keep your business safe? (select all that apply)",
+                    "positiveMessage": {
+                        "title": "Excellent Security Measures!",
+                        "body": "<p>Well done in putting in place the safety measures you need to protect your business. Review your setup regularly and upgrade where needed.</p><p>We recommend you speak to one of our <a href='https://business.nt.gov.au/help-for-business/territory-business-advisors' target='_blank' rel='noopener noreferrer'>Territory Business Advisors</a> about your general safety and security.</p><p>You can look at the <a href='https://pfes.nt.gov.au/sites/default/files/uploads/files/2019/Business%20Security%20A4%20Flyer.pdf' target='_blank' rel='noopener noreferrer'>NT Police Business Security Flyer</a> for business safety tips.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Strengthen Your Security",
+                        "body": "<p>Great security starts with layered protection. The more barriers you have, the harder it is for intruders to gain access. Review your setup regularly and upgrade where needed.</p><p>Consider looking into installing any items you ticked 'no or unsure' for. Adding additional security items can help to prevent opportunistic crime at your business.</p><p>We recommend you speak to one of our <a href='https://business.nt.gov.au/help-for-business/territory-business-advisors' target='_blank' rel='noopener noreferrer'>Territory Business Advisors</a> about your safety and security needs for your business.</p><p>You can also look at the <a href='https://pfes.nt.gov.au/sites/default/files/uploads/files/2019/Business%20Security%20A4%20Flyer.pdf' target='_blank' rel='noopener noreferrer'>NT Police Business Security Flyer</a> for more tips.</p>"
+                    },
+                    "subQuestions": [
+                        {
+                            "id": "reinforcedGlass",
+                            "type": "radio",
+                            "label": "Reinforced security glass or security film",
+                            "helpText": "Reinforced glass is a type of glass that's made stronger by adding materials like wire or plastic, or by treating it with heat or chemicals, so it's harder to break than regular glass. Security film is a clear or tinted plastic layer that sticks to glass to make it harder to break, helping protect people and property from accidents, break-ins, or storms.",
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "Unsure", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "hasCCTV",
+                            "type": "radio",
+                            "label": "CCTV",
+                            "helpText": "CCTV stands for Closed-Circuit Television and is a system of cameras used to monitor and record activity in a specific area for safety, security, or surveillance.",
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "Unsure", "score": 0 }
+                            ],
+                            "conditionalQuestionGroupPositiveMessage": {
+                                "title": "Great CCTV System!",
+                                "body": "<p>Maintaining a compliant CCTV system actively strengthens security, protects privacy, and supports proactive risk management.</p>"
+                            },
+                            "conditionalQuestionGroupRecommendation": {
+                                "title": "Improve Your CCTV Setup",
+                                "body": "<p>Effective CCTV includes clear signage, proper coverage, secure storage, and remote access. Review your system regularly to stay compliant and protected.</p><p>Consider Biz Secure funding to install appropriate CCTV at your business premises.</p><p>CCTV is also covered under the Privacy Act 1988 and Surveillance Devices Act 2007. Make sure you understand your legal obligations for using CCTV footage. Here is a summary of your most important privacy checks:</p><ol><li>Put up signs so people know they are being recorded. You can purchase these signs easily online.</li><li>Don't film private areas like toilets or change rooms. Display signs that let people know that CCTV is being used.</li><li>Don't record sound unless people say it's okay.</li><li>Keep the videos safe and don't share them unless the law says you have to.</li></ol><p>The NT has the <a href='https://legislation.nt.gov.au/Legislation/SURVEILLANCE-DEVICES-ACT-2007' target='_blank' rel='noopener noreferrer'>Surveillance Devices Act 2007</a></p><p>CCTV is also bound by the <a href='https://www.legislation.gov.au/C2004A03712/2014-03-12/text' target='_blank' rel='noopener noreferrer'>Privacy Act 1988</a></p>"
+                            }
+                        },
+                        {
+                            "id": "cctvHasEverything",
+                            "type": "radio",
+                            "label": "Does your CCTV setup have everything you need to keep an eye on things (like cameras and recording gear)?",
+                            "helpText": "",
+                            "conditional": {
+                                "showWhen": {
+                                    "hasCCTV": "Yes"
+                                }
+                            },
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "Unsure", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "cctvHasSignsOnPremises",
+                            "type": "radio",
+                            "label": "Do you have signs up letting people know CCTV is being used on your premises?",
+                            "helpText": "",
+                            "conditional": {
+                                "showWhen": {
+                                    "hasCCTV": "Yes"
+                                }
+                            },
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "Unsure", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "cctvFollowingRules",
+                            "type": "radio",
+                            "label": "Is your CCTV setup following the rules around privacy and surveillance?",
+                            "helpText": "",
+                            "conditional": {
+                                "showWhen": {
+                                    "hasCCTV": "Yes"
+                                }
+                            },
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "Unsure", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "cctvCanTeamCheckFootage",
+                            "type": "radio",
+                            "label": "Can you or your team check the footage from outside the business (like on your phone or computer)?",
+                            "helpText": "",
+                            "conditional": {
+                                "showWhen": {
+                                    "hasCCTV": "Yes"
+                                }
+                            },
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "Unsure", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "cctvFootageStoredSafely",
+                            "type": "radio",
+                            "label": "Is the footage stored safely so no one can mess with it or see it without permission?",
+                            "helpText": "",
+                            "conditional": {
+                                "showWhen": {
+                                    "hasCCTV": "Yes"
+                                }
+                            },
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "Unsure", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "electronicSecurity",
+                            "type": "radio",
+                            "label": "Electronic security system / Intruder Alarm System",
+                            "helpText": "An electronic security system or intruder alarm system is a device that finds out when someone enters without permission and sends a warning to keep people and places safe.",
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "Unsure", "score": 0 }
+                            ],
+                            "conditionalQuestionGroupPositiveMessage": {
+                                "title": "Great Alarm System!",
+                                "body": "<p>Keeping your alarm system maintained, training staff, and enabling remote access actively reinforces safety and rapid response</p>"
+                            },
+                            "conditionalQuestionGroupRecommendation": {
+                                "title": "Improve Your Alarm Setup",
+                                "body": "<p>Installing and maintaining an intruder alarm helps protect your business by deterring break-ins and ensuring safety. To be effective, staff must be trained to operate the system correctly and respond to alerts, with a documented process for reference. The alarm keypad should be easily accessible to staff but hidden from intruders. Remote control capabilities allow quick responses from anywhere. Glass break detectors enhance security by instantly alerting staff when windows are smashed.</p><p>If you are unsure of any of the above, contact your alarm installation provider who may be able to help.</p>"
+                            }
+                        },
+                        {
+                            "id": "isAlarmInstalledAndMaintained",
+                            "type": "radio",
+                            "label": "Is your alarm installed and maintained?",
+                            "helpText": "",
+                            "conditional": {
+                                "showWhen": {
+                                    "electronicSecurity": "Yes"
+                                }
+                            },
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "Unsure", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "isStaffTrainedToUseAlarm",
+                            "type": "radio",
+                            "label": "Have staff have been trained in how and when to use the alarm?",
+                            "helpText": "",
+                            "conditional": {
+                                "showWhen": {
+                                    "electronicSecurity": "Yes"
+                                }
+                            },
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "Unsure", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "canStaffAccessAlarmRemotely",
+                            "type": "radio",
+                            "label": "Can staff easily get to the keypad or alarm switches, and are they kept safe from intruders?",
+                            "helpText": "",
+                            "conditional": {
+                                "showWhen": {
+                                    "electronicSecurity": "Yes"
+                                }
+                            },
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "Unsure", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "canControlAlarmRemotely",
+                            "type": "radio",
+                            "label": "Can you control the alarm from somewhere else, like a phone or computer?",
+                            "helpText": "",
+                            "conditional": {
+                                "showWhen": {
+                                    "electronicSecurity": "Yes"
+                                }
+                            },
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "Unsure", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "areThereGlassBreakDetectors",
+                            "type": "radio",
+                            "label": "Are there glass break detectors connected to your alarm system?",
+                            "helpText": "A break glass unit on an intruder alarm system is a small device, usually mounted near exits, that allows someone to manually trigger the alarm in an emergency. To activate it, you press or break the glass panel, which sends a signal to alert security or emergency services. It's a quick way to raise the alarm if a threat is spotted and automatic systems haven't yet responded.",
+                            "conditional": {
+                                "showWhen": {
+                                    "electronicSecurity": "Yes"
+                                }
+                            },
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "Unsure", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "oneWayMesh",
+                            "type": "radio",
+                            "label": "One way mesh",
+                            "helpText": "Security one-way mesh is a special type of screen or metal mesh that you can see through from one side, but people on the other side can't see in, helping keep areas private and secure.",
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "Unsure", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "securityScreens",
+                            "type": "radio",
+                            "label": "Security screens or bars on windows and doors",
+                            "helpText": "Security screens or bars on windows and doors are strong metal covers that help stop people from breaking in while still letting air and light through.",
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "Unsure", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "securityRollerDoors",
+                            "type": "radio",
+                            "label": "Security roller doors",
+                            "helpText": "Security roller doors are strong, metal doors that roll up and down to protect shops, garages, or buildings from break-ins and bad weather.",
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "Unsure", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "sensorLights",
+                            "type": "radio",
+                            "label": "Sensor lights or timed lights on entry and exit",
+                            "helpText": "Sensor lights or timed lights turn on when someone comes in and turn off after a short time or when they leave, helping with safety and saving energy.",
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "Unsure", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "duressAlarm",
+                            "type": "radio",
+                            "label": "Duress Alarm",
+                            "helpText": "A duress alarm is a hidden button or signal someone can use when they feel unsafe or threatened, which quietly alerts help without letting others know.",
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "Unsure", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "highQualityLocks",
+                            "type": "radio",
+                            "label": "High quality locks on windows and doors (deadbolts)",
+                            "helpText": "High-quality security locks like deadlocks are strong locks on windows and doors that make it much harder for someone to break in or open them without a key.",
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "Unsure", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "doorbell",
+                            "type": "radio",
+                            "label": "Doorbell or system to notify when someone walks in",
+                            "helpText": "A security doorbell is a smart device installed at entry points that lets staff see and speak to visitors or delivery personnel through a camera and speaker, helping monitor access and improve workplace safety-even when no one is at the front desk.",
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "Unsure", "score": 0 }
+                            ]
+                        }
+                    ]
+                }
+            ]
         },
         {
-          "id": "locationSafety",
-          "type": "radio",
-          "label": "Have you thought about the different safety and security needs for each location?",
-          "helpText": "",
-          "conditional": {
-            "showWhen": {
-              "multipleLocations": "Yes"
-            }
-          },
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 }
-          ],
-          "positiveMessage": {
-              "title": "Well Planned!",
-              "body": "<p>Actively tailoring safety and security measures to each location strengthens your business's resilience and adaptability.</p>"
-            },
-          "recommendation": {
-            "title": "Consider Each Location",
-            "body": "<p>Different areas or buildings have unique layouts. Consider filling this questionnaire out for each location. You can use the <a href='https://pfes.nt.gov.au/sites/default/files/uploads/files/2019/Business%20Security%20A4%20Flyer.pdf' target='_blank' rel='noopener noreferrer'>NT Police Business Security Flyer</a> and the <a href='https://crimestoppersnt.com.au/resources/business-security-tips/' target='_blank' rel='noopener noreferrer'>Crimestoppers Resources</a> as checklists for each location.</p>"
-          }
+            "title": "Location",
+            "questions": [
+                {
+                    "id": "multipleLocations",
+                    "type": "radio",
+                    "label": "Does your business work from more than one location?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 0 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ]
+                },
+                {
+                    "id": "locationSafety",
+                    "type": "radio",
+                    "label": "Have you thought about the different safety and security needs for each location?",
+                    "helpText": "",
+                    "conditional": {
+                        "showWhen": {
+                            "multipleLocations": "Yes"
+                        }
+                    },
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Well Planned!",
+                        "body": "<p>Actively tailoring safety and security measures to each location strengthens your business's resilience and adaptability.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Consider Each Location",
+                        "body": "<p>Different areas or buildings have unique layouts. Consider filling this questionnaire out for each location. You can use the <a href='https://pfes.nt.gov.au/sites/default/files/uploads/files/2019/Business%20Security%20A4%20Flyer.pdf' target='_blank' rel='noopener noreferrer'>NT Police Business Security Flyer</a> and the <a href='https://crimestoppersnt.com.au/resources/business-security-tips/' target='_blank' rel='noopener noreferrer'>Crimestoppers Resources</a> as checklists for each location.</p>"
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Cash",
+            "questions": [
+                {
+                    "id": "cashOnsite",
+                    "type": "radio",
+                    "label": "Does your business have cash onsite while your business is open?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 0 },
+                        { "label": "No", "score": 1 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "recommendation": {
+                        "title": "Consider Going Cashless",
+                        "body": "<p>Consider moving to a cashless payment system to limit the amount of cash you are handling in your business, such as eftpos, apple square, etc.</p><p>Consider applying to the <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program' target='_blank' rel='noopener noreferrer'>Business Growth Program</a> to help you with a business plan or strategy.</p>"
+                    },
+                    "conditionalQuestionGroupPositiveMessage": {
+                        "title": "Great Cash System!",
+                        "body": "<p>Your cash handling practices highlight strong risk management and a clear commitment to security. Review any processes regulary to make sure they are still relevant.</p>"
+                    },
+                    "conditionalQuestionGroupRecommendation": {
+                        "title": "Improve Cash Handling",
+                        "body": "<p>Storing cash in hard-to-access containers and removing it periodically during the day can help deter theft and minimise losses. Taking cash offsite when the business is closed further reduces risk.</p><p>Displaying signage that your business is cashless or doesn't store cash overnight can discourage intruders. Staff should be trained on safe cash handling, including storage, removal, and opening/closing procedures to protect both cash and personnel.</p><p>View <a href='https://www.safeworkaustralia.gov.au/system/files/documents/1702/guide-handling-transporting-cash-may-2013.pdf' target='_blank' rel='noopener noreferrer'>Safe Work Australia's guide to handling and transporting cash</a></p><p>To view an example sign to use click here (downloadable resource)</p>"
+                    }
+                },
+                {
+                    "id": "cashManagement",
+                    "type": "radio",
+                    "label": "Do you keep cash in a locked container, till or drawer while open?",
+                    "helpText": "",
+                    "conditional": {
+                        "showWhen": {
+                            "cashOnsite": "Yes"
+                        }
+                    },
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ]
+                },
+                {
+                    "id": "cashManagementRemove",
+                    "type": "radio",
+                    "label": "Do you remove cash from the premises when closed for trading? (this means anytime your business is closed)",
+                    "helpText": "",
+                    "conditional": {
+                        "showWhen": {
+                            "cashOnsite": "Yes"
+                        }
+                    },
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ]
+                },
+                {
+                    "id": "cashManagementSignage",
+                    "type": "radio",
+                    "label": "Do you display 'no cash left on premises' signage?",
+                    "helpText": "",
+                    "conditional": {
+                        "showWhen": {
+                            "cashOnsite": "Yes"
+                        }
+                    },
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ]
+                },
+                {
+                    "id": "cashHandlingProcedures",
+                    "type": "radio",
+                    "label": "Does your business have cash handling procedures?",
+                    "helpText": "",
+                    "conditional": {
+                        "showWhen": {
+                            "cashOnsite": "Yes"
+                        }
+                    },
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Inside Your Business",
+            "questions": [
+                {
+                    "id": "visibility",
+                    "type": "radio",
+                    "label": "Can you easily see most parts of your business from where you work or move around? This helps prevent crime by making it harder for someone to hide or steal.",
+                    "helpText": "Being able to see all or most areas of the business will help staff spot suspicious behavior, assist customers quickly, and stop theft before it happens, making the place safer and more welcoming.",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 },
+                        { "label": "N/A", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Great Visibility!",
+                        "body": "<p>You have good visibility across your business to deter crime and make it harder for anyone to hide or steal.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Increase Visibility",
+                        "body": "<p>Tips to increase visibility:</p><ol><li>Consider using low shelves so staff can see over them and spot any trouble.</li><li>Keep windows clear. Avoid blocking windows with posters or displays so people outside can see in.</li><li>Place counters smartly. Put service counters where staff can watch entrances and key areas.</li><li>Use mirrors or cameras. These help cover blind spots and corners.</li><li>Keep aisles wide and tidy so nothing blocks your view and customers feel safe.</li><li>Light it up. Good lighting inside and outside helps staff see clearly and makes it harder for thieves to hide.</li></ol>"
+                    }
+                },
+                {
+                    "id": "highValueStock",
+                    "type": "radio",
+                    "label": "Does your business store high-risk or high-value items (e.g. alcohol, cigarettes, pharmaceuticals, electronics) securely and out of sight?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 },
+                        { "label": "N/A", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Well Secured!",
+                        "body": "<p>By securing and storing high-risk or high-value items out of sight you protect your business and reduce theft risk.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Secure High-Value Items",
+                        "body": "<p>Secure and discreet storage of high-value items reduces the risk of theft. Use signage, limit visibility, and avoid placing this stock near entrances.</p>"
+                    }
+                },
+                {
+                    "id": "stockStorage",
+                    "type": "radio",
+                    "label": "Do you store these goods in a secure location or locked cabinet?",
+                    "helpText": "",
+                    "conditional": {
+                        "showWhen": {
+                            "highValueStock": "Yes"
+                        }
+                    },
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Secure Storage!",
+                        "body": "<p>Keeping them stored in a locked cabinet reduces the risk of crime.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Lock High-Value Items",
+                        "body": "<p>By keeping these items in locked cabinets you can limit opportunistic theft (snatch and grab, etc).</p>"
+                    }
+                },
+                {
+                    "id": "stockSignage",
+                    "type": "radio",
+                    "label": "Do you have signage saying these items are not kept onsite overnight?",
+                    "helpText": "",
+                    "conditional": {
+                        "showWhen": {
+                            "highValueStock": "Yes"
+                        }
+                    },
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Good Deterrent!",
+                        "body": "<p>Signage helps deter opportunistic crime, ensure your signs are clear and visible.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Add Deterrent Signage",
+                        "body": "<p>By using signs you can limit after hours break-ins for people seeking out these items.</p>"
+                    }
+                },
+                {
+                    "id": "stockDisplay",
+                    "type": "radio",
+                    "label": "Are these items stocked outside of direct line to the entry/exit points?",
+                    "helpText": "",
+                    "conditional": {
+                        "showWhen": {
+                            "highValueStock": "Yes"
+                        }
+                    },
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Smart Placement!",
+                        "body": "<p>By keeping your stocked items away from entry/exit points you are making it harder for people to leave quickly with stolen goods.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Reposition Stock",
+                        "body": "<p>If items are kept in line with an exit, it can make it easier for people to exit quickly after stealing items.</p>"
+                    }
+                },
+                {
+                    "id": "hasSafes",
+                    "type": "radio",
+                    "label": "Do you have any safes onsite?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 0 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 },
+                        { "label": "N/A", "score": 0 }
+                    ],
+                    "conditionalQuestionGroupPositiveMessage": {
+                        "title": "Excellent safe management!",
+                        "body": "<p>You are protecting your assets by keeping safes locked and out of view, maintaining a secure code register, and displaying signage about time-delay and restricted access.</p>"
+                    },
+                    "conditionalQuestionGroupRecommendation": {
+                        "title": "Keep safes locaked out of sight",
+                        "body": "<p>Keep safes locked and out of sight to protect valuables and sensitive documents. Maintain a register of staff access codes to track usage and update codes as needed. Display signage about time-delay safes to deter intruders and protect staff.</p>"
+                    }
+                },
+                {
+                    "id": "safesQuickCheck",
+                    "type": "radio",
+                    "label": "Are they kept locked and out of view?",
+                    "helpText": "",
+                    "conditional": {
+                        "showWhen": {
+                            "hasSafes": "Yes"
+                        }
+                    },
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 },
+                        { "label": "N/A", "score": 0 }
+                    ]
+                },
+                {
+                    "id": "safesRegister",
+                    "type": "radio",
+                    "label": "Do you maintain a register with staff safe code combinations?",
+                    "helpText": "",
+                    "conditional": {
+                        "showWhen": {
+                            "hasSafes": "Yes"
+                        }
+                    },
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 },
+                        { "label": "N/A", "score": 0 }
+                    ]
+                },
+                {
+                    "id": "safesTimeDelaySignage",
+                    "type": "radio",
+                    "label": "Do you have signs that highlight time-delay function and that staff cannot access the safe?",
+                    "helpText": "A time delay function on a safe means there's a short waiting period after entering the correct code before the safe actually opens. It's designed to deter theft by making it harder to access quickly under pressure.",
+                    "conditional": {
+                        "showWhen": {
+                            "hasSafes": "Yes"
+                        }
+                    },
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 },
+                        { "label": "N/A", "score": 0 }
+                    ]
+                },
+                {
+                    "id": "personalItemsStorage",
+                    "type": "radio",
+                    "label": "Is there a secure, lockable place at work where you and your staff can store personal items like bags, phones, or wallets?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 },
+                        { "label": "N/A", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Staff Protected!",
+                        "body": "<p>Your strength: providing secure spaces for personal items helps protect your staff.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Secure Personal Items",
+                        "body": "<p>Provide secure lockers or rooms for staff belongings, clearly marked with a 'Staff Only' sign to prevent theft.</p>"
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Outside Your Premises",
+            "questions": [
+                {
+                    "id": "streetView",
+                    "type": "radio",
+                    "label": "Do you have a clear street view from your business?",
+                    "helpText": "A clear, unobstructed street view from a business means people inside can easily see outside to the street, and people outside can see into the shop, which helps prevent crime and makes the place feel open and safe.",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Great Visibility!",
+                        "body": "<p>Maintaining a clear street view from your business improves visibility, deters crime, and enhances safety.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Improve Street Visibility",
+                        "body": "<p>Tools and equipment left out can be stolen, damaged, or misused, especially after hours or in shared spaces. Store items in locked cabinets, sheds, or toolboxes when not in use. Keep them out of sight and limit access to authorised staff only.</p>"
+                    }
+                },
+                {
+                    "id": "businessNameVisibility",
+                    "type": "radio",
+                    "label": "Can people easily see your business name and contact number from the main street, and also from side or back streets - both during the day and at night?",
+                    "helpText": "Having your business name and street number clearly visible is very important for safety and security, especially in emergencies. It helps emergency services like police, fire, and ambulance find your business quickly when every second counts. If your address is hard to see, it can delay help during a fire, medical emergency, or break-in. Clear signs also help at night and make your business easier to find for customers and deliveries.",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 },
+                        { "label": "N/A", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Clearly Visible!",
+                        "body": "<p>With clear details on the outside of your business, first responders can locate you easily.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Improve Business Signage",
+                        "body": "<p>Clear signage helps emergency services and customers locate your business quickly. Ensure your name and number are visible from all access points, day and night. You can improve visibility for emergency services by painting your street number on the curb, using reflective signs, and keeping your address updated on local maps. You can even paint your street number on your roof to help police drones find you.</p>"
+                    }
+                },
+                {
+                    "id": "entryLighting",
+                    "type": "radio",
+                    "label": "Are the doors and car park areas well lit so people can see clearly when coming and going, especially at night?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Well Lit!",
+                        "body": "<p>Good lighting improves visibility and safety, helping customers and staff feel secure at all times.</p>"
+                    }
+                },
+                {
+                    "id": "hasBarriers",
+                    "type": "radio",
+                    "label": "Have you installed bollards, large planter boxes, or other barriers at your entrance to stop vehicles from driving into your business?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Great Protection!",
+                        "body": "<p>Physical barriers like bollards and planter boxes protect your premises and reduce the risk of vehicle-related incidents.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Consider Physical Barriers",
+                        "body": "<p>Having bollards or planter boxes in front of your business can act as physical barriers that can prevent ram-raids, protect pedestrians, and discourage unauthorised vehicle access close to the storefront.</p>"
+                    }
+                },
+                {
+                    "id": "hasFencing",
+                    "type": "radio",
+                    "label": "Is your business on a property that is fenced? If your business is in a gated area or complex please mark yes",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 0 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ]
+                },
+                {
+                    "id": "fenceVisibility",
+                    "type": "radio",
+                    "label": "Can you still see the street even though your premises is fenced?",
+                    "helpText": "Is your fence see through or low enough to see over.",
+                    "conditional": {
+                        "showWhen": {
+                            "hasFencing": "Yes"
+                        }
+                    },
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Good Visibility!",
+                        "body": "<p>Maintaining street visibility while fencing your premises enhances security without compromising situational awareness.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Improve Fence Visibility",
+                        "body": "<p>Clear sightlines allow passersby and police patrols to see suspicious activity, deter potential offenders, and ensure emergency services can quickly assess and access the property if needed.</p>"
+                    }
+                },
+                {
+                    "id": "fenceCondition",
+                    "type": "radio",
+                    "label": "Is your fence in good condition?",
+                    "helpText": "A fence in good condition means it's solid, secure, free of gaps or damage, and has working gates and locks to help deter trespassers and show the property is cared for.",
+                    "conditional": {
+                        "showWhen": {
+                            "hasFencing": "Yes"
+                        }
+                    },
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Well Maintained!",
+                        "body": "<p>A well-maintained fence provides a strong physical barrier, improving security and reducing potential risks.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Repair Your Fence",
+                        "body": "<p>Keeping your fence in good condition is important for crime prevention because a well-maintained fence acts as a strong physical barrier, shows the property is actively cared for, and discourages trespassers who often target places that appear neglected or easy to access.</p>"
+                    }
+                },
+                {
+                    "id": "gatesLockable",
+                    "type": "radio",
+                    "label": "Is your front gate or vehicle gate able to be locked/bolted?",
+                    "helpText": "",
+                    "conditional": {
+                        "showWhen": {
+                            "hasFencing": "Yes"
+                        }
+                    },
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Secure Gates!",
+                        "body": "<p>Lockable gates provide controlled access, boosting security and reducing unauthorized entry risks.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Secure Your Gates",
+                        "body": "<p>Limiting access with a locked or bolted gate when your business isn't open - or when it is - can help keep it safe and secure. Particularly if you are leaving vehicles there overnight.</p>"
+                    }
+                },
+                {
+                    "id": "roofAccess",
+                    "type": "radio",
+                    "label": "Is there anyway someone could climb onto the roof of your business building?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 0 },
+                        { "label": "No", "score": 1 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Access Controlled!",
+                        "body": "<p>Limiting roof access reduces security risks and helps protect your premises from unauthorised entry through high windows or through the roof.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Limit Roof Access",
+                        "body": "<p>If there's a way someone could climb onto the roof of your business, it's important to block access points like bins, fences, or ledges. Intruders can use these to gain entry to your business. Install lighting or cameras to deter unauthorised entry.</p>"
+                    }
+                },
+                {
+                    "id": "cashSignage",
+                    "type": "radio",
+                    "label": "Do you display signage highlighting that no cash is kept on your premises overnight?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Clear Messaging!",
+                        "body": "<p>Clear signage about cash handling deters theft and reassures staff about overnight security.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Add Cash Signage",
+                        "body": "<p>Displaying signs that say \"No cash kept on premises\" is important because it helps deter break-ins by letting potential offenders know there's nothing valuable to steal, reducing the risk of property damage and theft.</p>"
+                    }
+                },
+                {
+                    "id": "cctvSignage",
+                    "type": "radio",
+                    "label": "Do you display signage indicating that the premises is monitored by a CCTV or alarm system?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 },
+                        { "label": "N/A", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Strong Deterrent!",
+                        "body": "<p>Signage showing CCTV or alarm monitoring acts as a strong deterrent and reinforces your commitment to security.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Add Security Signage",
+                        "body": "<p>Even if your business doesn't have CCTV or an alarm system, displaying signage indicating you do can be a deterrent.</p>"
+                    }
+                },
+                {
+                    "id": "itemsStoredOutside",
+                    "type": "radio",
+                    "label": "Do you store any items outside your business?",
+                    "helpText": "This could include rubbish, bins, tools and equipment.",
+                    "options": [
+                        { "label": "Yes", "score": 0 },
+                        { "label": "No", "score": 1 },
+                        { "label": "Unsure", "score": 0 },
+                        { "label": "N/A", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Secure Storage!",
+                        "body": "<p>Keeping items stored inside your business reduces theft risk and helps maintain a secure environment.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Secure Outside Items",
+                        "body": "<p>If you need to store items outside your business, keep them in a locked cage or secure area, use lighting and cameras, and avoid placing them near climbable structures or entry points.</p>"
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Other Considerations",
+            "questions": [
+                {
+                    "id": "assetRegister",
+                    "type": "radio",
+                    "label": "Do you keep an up-to-date asset register which includes details of items including make/model, serial number and property identification details?",
+                    "helpText": "A business asset register is a list that records all the valuable items a business owns, like equipment, furniture, tools, and technology, along with details such as purchase dates, costs, and locations, to help track, manage, and protect those assets.",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Great Record Keeping!",
+                        "body": "<p>Keeping an up-to-date asset register ensures quick identification and recovery of property, strengthening your risk management and supporting your insurance coverage.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Create an Asset Register",
+                        "body": "<p>Keeping an accurate list of all your main valuable assets like laptop computers, tools, mobile phones, can help with insurance claims if they were to ever go missing or be stolen. Keep a record of serial numbers (IMEI number) for insurance claims and police reports.</p><p>You could also use an electronic storage system such as My Vault App.</p>"
+                    }
+                },
+                {
+                    "id": "insurance",
+                    "type": "radio",
+                    "label": "Is your business insurance up-to-date with stock and assets sufficiently covered?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Well Protected!",
+                        "body": "<p>Up-to-date insurance with adequate coverage safeguards your business against unexpected losses and ensures financial resilience.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Review Your Insurance",
+                        "body": "<p>Ensure your insurance is current and covers stock, assets, and equipment. Review policies annually and update asset values as your business grows.</p><p>To learn more and find a broker <a href='https://business.gov.au/risk-management/insurance/manage-your-business-insurance#get-expert-advice' target='_blank' rel='noopener noreferrer'>click here</a>.</p>"
+                    }
+                },
+                {
+                    "id": "keyRegister",
+                    "type": "radio",
+                    "label": "Do you keep and update a key register for your business?",
+                    "helpText": "A key register or entry code register is a secure record that tracks who has access to physical keys or entry codes for a business, including details like the person's name, the key or code issued, the date it was given, and when it was returned or changed, helping prevent unauthorized access and improve accountability.",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Excellent Tracking!",
+                        "body": "<p>Maintaining an up-to-date key register ensures accountability and prevents unauthorised access to your premises.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Create a Key Register",
+                        "body": "<p>A key register helps track access and prevent misuse. Record who holds each key, update regularly, and store spare keys securely.</p>"
+                    }
+                },
+                {
+                    "id": "keyStorage",
+                    "type": "radio",
+                    "label": "Do you keep spare keys in a secure location, preferably locked?",
+                    "helpText": "A secure location for business key storage is a locked, access-controlled area, like a safe, lockbox, or restricted cabinet, where keys are kept to prevent unauthorised access. It should be out of public view, monitored if possible, and only accessible to approved staff.",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Secure Storage!",
+                        "body": "<p>Storing spare keys in a secure, locked location minimises unauthorised access and strengthens overall security.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Secure Your Keys",
+                        "body": "<p>Store spare keys, including vehicle keys, in a locked and secure location. Avoid leaving them in obvious or easily accessible spots.</p>"
+                    }
+                }
+            ]
         }
-      ]
-    },
-    {
-      "title": "Cash",
-      "questions": [
-        {
-          "id": "cashOnsite",
-          "type": "radio",
-          "label": "Does your business have cash onsite while your business is open?",
-          "helpText": "",
-          "options": [
-            { "label": "Yes", "score": 0 },
-            { "label": "No", "score": 1 },
-            { "label": "Unsure", "score": 0 }
-          ],
-          "recommendation": {
-            "title": "Consider Going Cashless",
-            "body": "<p>Consider moving to a cashless payment system to limit the amount of cash you are handling in your business, such as eftpos, apple square, etc.</p><p>Consider applying to the <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program' target='_blank' rel='noopener noreferrer'>Business Growth Program</a> to help you with a business plan or strategy.</p>"
-          },
-          "conditionalQuestionGroupPositiveMessage": {
-            "title": "Great Cash System!",
-            "body": "<p>Your cash handling practices highlight strong risk management and a clear commitment to security. Review any processes regulary to make sure they are still relevant.</p>"
-          },
-          "conditionalQuestionGroupRecommendation": {
-            "title": "Improve Cash Handling",
-            "body": "<p>Storing cash in hard-to-access containers and removing it periodically during the day can help deter theft and minimise losses. Taking cash offsite when the business is closed further reduces risk.</p><p>Displaying signage that your business is cashless or doesn't store cash overnight can discourage intruders. Staff should be trained on safe cash handling, including storage, removal, and opening/closing procedures to protect both cash and personnel.</p><p>View <a href='https://www.safeworkaustralia.gov.au/system/files/documents/1702/guide-handling-transporting-cash-may-2013.pdf' target='_blank' rel='noopener noreferrer'>Safe Work Australia's guide to handling and transporting cash</a></p><p>To view an example sign to use click here (downloadable resource)</p>"
-          }
-        },
-        {
-          "id": "cashManagement",
-          "type": "radio",
-          "label": "Do you keep cash in a locked container, till or drawer while open?",
-          "helpText": "",
-          "conditional": {
-            "showWhen": {
-              "cashOnsite": "Yes"
-            }
-          },
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Inside Your Business",
-      "questions": [
-        {
-          "id": "visibility",
-          "type": "radio",
-          "label": "Can you easily see most parts of your business from where you work or move around? This helps prevent crime by making it harder for someone to hide or steal.",
-          "helpText": "Being able to see all or most areas of the business will help staff spot suspicious behavior, assist customers quickly, and stop theft before it happens, making the place safer and more welcoming.",
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 },
-            { "label": "N/A", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Great Visibility!",
-            "body": "<p>Your strength: you have good visibility across your business to deter crime and make it harder for anyone to hide or steal.</p>"
-          },
-          "recommendation": {
-            "title": "Increase Visibility",
-            "body": "<p>Tips to increase visibility:</p><ol><li>Consider using low shelves so staff can see over them and spot any trouble.</li><li>Keep windows clear. Avoid blocking windows with posters or displays so people outside can see in.</li><li>Place counters smartly. Put service counters where staff can watch entrances and key areas.</li><li>Use mirrors or cameras. These help cover blind spots and corners.</li><li>Keep aisles wide and tidy so nothing blocks your view and customers feel safe.</li><li>Light it up. Good lighting inside and outside helps staff see clearly and makes it harder for thieves to hide.</li></ol>"
-          }
-        },
-        {
-          "id": "highValueStock",
-          "type": "radio",
-          "label": "Does your business store high-risk or high-value items (e.g. alcohol, cigarettes, pharmaceuticals, electronics) securely and out of sight?",
-          "helpText": "",
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 },
-            { "label": "N/A", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Well Secured!",
-            "body": "<p>Your strength: by securing and storing high-risk or high-value items out of sight you protect your business and reduce theft risk.</p>"
-          },
-          "recommendation": {
-            "title": "Secure High-Value Items",
-            "body": "<p>Secure and discreet storage of high-value items reduces the risk of theft. Use signage, limit visibility, and avoid placing this stock near entrances.</p>"
-          }
-        },
-        {
-          "id": "stockStorage",
-          "type": "radio",
-          "label": "Do you store these goods in a secure location or locked cabinet?",
-          "helpText": "",
-          "conditional": {
-            "showWhen": {
-              "highValueStock": "Yes"
-            }
-          },
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Secure Storage!",
-            "body": "<p>Your strength: keeping them stored in a locked cabinet reduces the risk of crime.</p>"
-          },
-          "recommendation": {
-            "title": "Lock High-Value Items",
-            "body": "<p>By keeping these items in locked cabinets you can limit opportunistic theft (snatch and grab, etc).</p>"
-          }
-        },
-        {
-          "id": "stockSignage",
-          "type": "radio",
-          "label": "Do you have signage saying these items are not kept onsite overnight?",
-          "helpText": "",
-          "conditional": {
-            "showWhen": {
-              "highValueStock": "Yes"
-            }
-          },
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Good Deterrent!",
-            "body": "<p>Your strength: signage helps deter opportunistic crime, ensure your signs are clear and visible.</p>"
-          },
-          "recommendation": {
-            "title": "Add Deterrent Signage",
-            "body": "<p>By using signs you can limit after hours break-ins for people seeking out these items.</p>"
-          }
-        },
-        {
-          "id": "stockDisplay",
-          "type": "radio",
-          "label": "Are these items stocked outside of direct line to the entry/exit points?",
-          "helpText": "",
-          "conditional": {
-            "showWhen": {
-              "highValueStock": "Yes"
-            }
-          },
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Smart Placement!",
-            "body": "<p>Your strength: by keeping your stocked items away from entry/exit points you are making it harder for people to leave quickly with stolen goods.</p>"
-          },
-          "recommendation": {
-            "title": "Reposition Stock",
-            "body": "<p>If items are kept in line with an exit, it can make it easier for people to exit quickly after stealing items.</p>"
-          }
-        },
-        {
-          "id": "hasSafes",
-          "type": "radio",
-          "label": "Do you have any safes onsite?",
-          "helpText": "",
-          "options": [
-            { "label": "Yes", "score": 0 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 },
-            { "label": "N/A", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Safes Available",
-            "body": ""
-          },
-          "recommendation": {
-            "title": "Consider Safes",
-            "body": ""
-          }
-        },
-        {
-          "id": "safesQuickCheck",
-          "type": "radio",
-          "label": "Business safes: Quick check. Answer yes if you tick all 3 boxes: 1. Are they kept locked and out of view? 2. Do you maintain a register with staff safe code combinations? 3. Do you have signs that highlight time-delay function and that staff cannot access the safe?",
-          "helpText": "A time delay function on a safe means there's a short waiting period after entering the correct code before the safe actually opens. It's designed to deter theft by making it harder to access quickly under pressure.",
-          "conditional": {
-            "showWhen": {
-              "hasSafes": "Yes"
-            }
-          },
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 },
-            { "label": "N/A", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Excellent Safe Management!",
-            "body": "<p>Your strength: you are protecting your assets by keeping safes locked and out of view, maintaining a secure code register, and displaying signage about time-delay and restricted access.</p>"
-          },
-          "recommendation": {
-            "title": "Improve Safe Security",
-            "body": "<p>Keep safes locked and out of sight to protect valuables and sensitive documents. Maintain a register of staff access codes to track usage and update codes as needed. Display signage about time-delay safes to deter intruders and protect staff.</p>"
-          }
-        },
-        {
-          "id": "personalItemsStorage",
-          "type": "radio",
-          "label": "Is there a secure, lockable place at work where you and your staff can store personal items like bags, phones, or wallets?",
-          "helpText": "",
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 },
-            { "label": "N/A", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Staff Protected!",
-            "body": "<p>Your strength: providing secure spaces for personal items helps protect your staff.</p>"
-          },
-          "recommendation": {
-            "title": "Secure Personal Items",
-            "body": "<p>Provide secure lockers or rooms for staff belongings, clearly marked with a 'Staff Only' sign to prevent theft.</p>"
-          }
-        }
-      ]
-    },
-    {
-      "title": "Outside Your Premises",
-      "questions": [
-        {
-          "id": "streetView",
-          "type": "radio",
-          "label": "Do you have a clear street view from your business?",
-          "helpText": "A clear, unobstructed street view from a business means people inside can easily see outside to the street, and people outside can see into the shop, which helps prevent crime and makes the place feel open and safe.",
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Great Visibility!",
-            "body": "<p>Your strength: maintaining a clear street view from your business improves visibility, deters crime, and enhances safety.</p>"
-          },
-          "recommendation": {
-            "title": "Improve Street Visibility",
-            "body": "<p>Tools and equipment left out can be stolen, damaged, or misused, especially after hours or in shared spaces. Store items in locked cabinets, sheds, or toolboxes when not in use. Keep them out of sight and limit access to authorised staff only.</p>"
-          }
-        },
-        {
-          "id": "businessNameVisibility",
-          "type": "radio",
-          "label": "Can people easily see your business name and contact number from the main street, and also from side or back streets — both during the day and at night?",
-          "helpText": "Having your business name and street number clearly visible is very important for safety and security, especially in emergencies. It helps emergency services like police, fire, and ambulance find your business quickly when every second counts. If your address is hard to see, it can delay help during a fire, medical emergency, or break-in. Clear signs also help at night and make your business easier to find for customers and deliveries.",
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 },
-            { "label": "N/A", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Clearly Visible!",
-            "body": "<p>Your strength: with clear details on the outside of your business, first responders can locate you easily.</p>"
-          },
-          "recommendation": {
-            "title": "Improve Business Signage",
-            "body": "<p>Clear signage helps emergency services and customers locate your business quickly. Ensure your name and number are visible from all access points, day and night. You can improve visibility for emergency services by painting your street number on the curb, using reflective signs, and keeping your address updated on local maps. You can even paint your street number on your roof to help police drones find you.</p>"
-          }
-        },
-        {
-          "id": "entryLighting",
-          "type": "radio",
-          "label": "Are the doors and car park areas well lit so people can see clearly when coming and going, especially at night?",
-          "helpText": "",
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Well Lit!",
-            "body": "<p>Your strength: good lighting improves visibility and safety, helping customers and staff feel secure at all times.</p>"
-          }
-        }]
-    }
-  ]
+    ]
 }

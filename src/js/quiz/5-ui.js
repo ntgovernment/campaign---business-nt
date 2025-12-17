@@ -457,7 +457,8 @@
       if (groups[i]) {
         // If the parent has only one dependent child, append parent and child without the group wrapper
         const childIndices = (groups[i] || []).slice().sort((a, b) => a - b);
-        if (childIndices.length === 1) {
+
+        if (childIndices.length == 1) {
           // single child - only show the group border when both parent and child are visible
           const ci = childIndices[0];
           const parentQ = page.questions[i];
@@ -475,6 +476,7 @@
             if (!appended.has(ci)) { contentEl.appendChild(qwraps[ci]); appended.add(ci); }
           }
         } else {
+          console.log("Multiple children for conditional grouping not supported in this layout.");
           const groupDiv = document.createElement('div'); groupDiv.className = 'conditional-group';
           // parent
           groupDiv.appendChild(qwraps[i]); appended.add(i);

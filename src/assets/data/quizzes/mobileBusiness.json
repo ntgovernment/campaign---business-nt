@@ -1,0 +1,500 @@
+{
+  "id": "mobileBusiness",
+  "title": "Mobile Business Safety Quiz",
+  "introduction": {
+    "body": "<p>Well done in taking steps to explore how you can increase your staff safety. This questionnaire will take roughly 5-10 minutes. You will be able to download a report at the end of the questionnaire with suggestions on things you can do to improve your business staff safety.</p><p>If you have any questions or would like to talk about your business safety you can contact:<br/>NT Worksafe on 1800 019 115 or ntworksafe@nt.gov.au<br/>or a Territory Business Advisor on 1800 193 111 or businessinfo@nt.gov.au</p><p><strong>Disclaimer:</strong> Laws and regulations can change over time. While we aim to provide accurate guidance and point you to helpful resources, it's important that you check whether the information is suitable for your specific situation. Every business is different, so please make sure any advice or material you use is right for your circumstances before making decisions or taking action.</p>"
+  },
+  "pages": [
+    {
+      "title": "Home Visits",
+      "questions": [
+        {
+          "id": "homeVisits",
+          "type": "radio",
+          "label": "Do you or your staff attend peoples homes as part of your business operations?",
+          "helpText": "",
+          "options": [
+            { "label": "Yes", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Home Visit Operations",
+            "body": ""
+          },
+          "recommendation": {
+            "title": "Home Visit Operations",
+            "body": ""
+          }
+        },
+        {
+          "id": "homeVisitRiskAssessment",
+          "type": "radio",
+          "label": "Does your business have risk assessment processes for this?",
+          "helpText": "Risk assessment for a business that visits people's homes is the process of identifying possible dangers, like unsafe environments, aggressive behavior, or health risks, then planning how to reduce or manage those risks to keep staff safe during visits.",
+          "conditional": {
+            "showWhen": {
+              "homeVisits": "Yes"
+            }
+          },
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Risk-Aware Approach!",
+            "body": "<p>Your strength: having risk assessment processes for home visits demonstrates foresight and prioritises staff safety in unpredictable environments.</p>"
+          },
+          "recommendation": {
+            "title": "Implement Risk Assessment",
+            "body": "<p>Visiting clients' homes introduces unique risks, from unfamiliar environments to potential personal safety concerns. A risk assessment helps identify and manage these risks before they become incidents. Put a simple process in place to assess each visit. Consider location, client history, and staff safety. Train staff to follow safety protocols and ensure someone always knows their schedule and location.</p><p>If you need help in creating these policies and procedures you can access <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program/business-growth-program-grant-applicants' target='_blank' rel='noopener noreferrer'>Business Growth Funding</a> to engage a specialist to assist.</p><p>If you are unsure if you need any of these policies or procedures, you can request a <a href='https://worksafe.nt.gov.au/safety-and-prevention/small-business-safety-program' target='_blank' rel='noopener noreferrer'>NT Worksafe small business inspector</a> to talk it through.</p><p>The National Disability Service also provide a OHS Home Visit Checklist.</p>"
+          }
+        },
+        {
+          "id": "homeVisitSecurityResponse",
+          "type": "radio",
+          "label": "Do you and your staff know what to do if faced with a security or safety risk while visiting someones home?",
+          "helpText": "",
+          "conditional": {
+            "showWhen": {
+              "homeVisits": "Yes"
+            }
+          },
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Prepared Response!",
+            "body": "<p>Your strength: knowing what to do during a safety or security risk ensures confidence and quick, effective action in the field.</p>"
+          },
+          "recommendation": {
+            "title": "Develop Response Plan",
+            "body": "<p>Knowing how to respond to a safety or security risk can protect your staff and prevent harm. Uncertainty in the moment can lead to poor decisions or escalation. Develop a simple response plan, include steps like leaving the premises, calling for help, and reporting the incident. Train staff on what to look out for and who to contact if they feel unsafe.</p><p>You may need to engage a specialist consultant to help you develop this. Consider <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program/business-growth-program-grant-applicants' target='_blank' rel='noopener noreferrer'>Business Growth</a> for funding assistance around this.</p>"
+          }
+        },
+        {
+          "id": "homeVisitRiskTraining",
+          "type": "radio",
+          "label": "Are you or your staff trained in risk identification and management in people's homes?",
+          "helpText": "Risk identification is about looking around your business or work activities and asking, 'What could go wrong?' It's the first step in keeping people safe. You think about things like injuries, damage, or anything that might stop work. Once you spot those risks, you can plan how to avoid or manage them.",
+          "conditional": {
+            "showWhen": {
+              "homeVisits": "Yes"
+            }
+          },
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Well Trained!",
+            "body": "<p>Your strength: training in risk identification and management empowers your team to stay safe and make informed decisions during home visits.</p>"
+          },
+          "recommendation": {
+            "title": "Train in Risk Management",
+            "body": "<p>Training in risk identification and management helps staff spot potential dangers early and respond appropriately, reducing harm and improving confidence when working in unfamiliar environments. Provide basic training on recognising red flags (like aggressive behaviour or unsafe conditions) and how to act. Even a short induction or refresher session can make a big difference.</p><p>You may need to engage a specialist consultant to help you develop this. Consider <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program/business-growth-program-grant-applicants' target='_blank' rel='noopener noreferrer'>Business Growth</a> for funding assistance around this.</p><p>If you are unsure if you need any of these policies or procedures, you can request a <a href='https://worksafe.nt.gov.au/safety-and-prevention/small-business-safety-program' target='_blank' rel='noopener noreferrer'>NT Worksafe small business inspector</a> to talk it through.</p>"
+          }
+        },
+        {
+          "id": "homeVisitAlone",
+          "type": "radio",
+          "label": "Do staff or yourself attend peoples homes on their own?",
+          "helpText": "",
+          "conditional": {
+            "showWhen": {
+              "homeVisits": "Yes"
+            }
+          },
+          "options": [
+            { "label": "Yes", "score": 0 },
+            { "label": "No", "score": 1 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Team Visits",
+            "body": ""
+          },
+          "recommendation": {
+            "title": "Address Solo Visit Risks",
+            "body": "<p>Working alone in someone's home can increase vulnerability to safety and security risks. Without support nearby, it's harder to respond quickly if something goes wrong. If solo visits are necessary, use a buddy system or check-in process. Make sure someone knows where staff are, how long they'll be there, and has a way to contact them. Consider using mobile safety apps or duress alerts.</p><p>You may need to engage a specialist consultant to help you develop this. Consider <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program/business-growth-program-grant-applicants' target='_blank' rel='noopener noreferrer'>Business Growth</a> for funding assistance around this.</p>"
+          }
+        },
+        {
+          "id": "aloneVisitTraining",
+          "type": "radio",
+          "label": "If attending alone are staff provided adequate safety and security training?",
+          "helpText": "Adequate safety and security training means giving staff the right knowledge and skills to stay safe, handle emergencies, and protect themselves and others at work.",
+          "conditional": {
+            "showWhen": {
+              "homeVisitAlone": "Yes"
+            }
+          },
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Well Prepared!",
+            "body": ""
+          },
+          "recommendation": {
+            "title": "Provide Solo Work Training",
+            "body": "<p>Staff working alone in someone's home face higher risks. Without proper training, they may not know how to prevent or respond to unsafe situations. Ensure staff receive training tailored to working in isolation, covering situational awareness, de-escalation techniques, emergency contacts, and how to use safety tools like duress alarms or check-in systems.</p><p>You may be able to access free or low cost de-escalation training for your staff through <a href='https://www.ppst.com.au/' target='_blank' rel='noopener noreferrer'>Personal Protection Strategies</a>.</p><p>Talk to a <a href='https://business.nt.gov.au/help-for-business/territory-business-advisors' target='_blank' rel='noopener noreferrer'>Territory Business Advisor</a> about upcoming business training opportunities.</p>"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Multiple Locations",
+      "questions": [
+        {
+          "id": "multipleLocations",
+          "type": "radio",
+          "label": "Does your business operate from different locations?",
+          "helpText": "",
+          "options": [
+            { "label": "Yes", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Multiple Locations",
+            "body": ""
+          },
+          "recommendation": {
+            "title": "Multiple Locations",
+            "body": ""
+          }
+        },
+        {
+          "id": "locationRiskAssessments",
+          "type": "radio",
+          "label": "Does each location have its own risk assessment?",
+          "helpText": "",
+          "conditional": {
+            "showWhen": {
+              "multipleLocations": "Yes"
+            }
+          },
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Thorough Planning!",
+            "body": "<p>Your strength: location-specific risk assessments show thorough planning and help keep every site safe and compliant.</p>"
+          },
+          "recommendation": {
+            "title": "Assess Each Location",
+            "body": "<p>Operating from multiple locations means different environments, risks, and safety needs. A one-size-fits-all approach may overlook hazards unique to each site. Conduct a basic risk assessment for each location. Consider things like access, lighting, emergency procedures, and local conditions. Review these regularly and update them when things change.</p>"
+          }
+        },
+        {
+          "id": "locationRiskAwareness",
+          "type": "radio",
+          "label": "Are staff aware of the different security and safety risks at each location?",
+          "helpText": "",
+          "conditional": {
+            "showWhen": {
+              "multipleLocations": "Yes"
+            }
+          },
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Risk-Aware Team!",
+            "body": "<p>Your strength: awareness of location-specific risks helps your team stay vigilant and maintain a safe working environment.</p>"
+          },
+          "recommendation": {
+            "title": "Share Location Risks",
+            "body": "<p>Each location may have different risks, from layout and lighting to local behaviour or access issues. If staff aren't aware, they may be caught off guard or unable to respond safely. Share location-specific safety info with staff before they arrive. Include things like known risks, emergency contacts, and any procedures that differ from other sites. A quick briefing or checklist can go a long way.</p>"
+          }
+        },
+        {
+          "id": "situationalAwareness",
+          "type": "radio",
+          "label": "Are staff trained in situational awareness?",
+          "helpText": "Situational awareness means being alert to what's happening around you, like people, places, and potential dangers, so you can make safe and smart decisions. It's especially important in jobs where staff work alone, visit homes, or deal with unpredictable situations.",
+          "conditional": {
+            "showWhen": {
+              "multipleLocations": "Yes"
+            }
+          },
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Alert Team!",
+            "body": "<p>Your strength: training in situational awareness helps your team stay alert and respond effectively to potential risks.</p>"
+          },
+          "recommendation": {
+            "title": "Train Situational Awareness",
+            "body": "<p>Situational awareness helps staff stay alert to their surroundings, spot potential risks early, and make safer decisions, especially in unfamiliar or changing environments. Offer training that builds awareness skills, like observing behaviour, identifying escape routes, and recognising when something feels 'off.' Encourage staff to trust their instincts and act early if they feel unsafe.</p>"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Cash and Valuables",
+      "questions": [
+        {
+          "id": "carryingCash",
+          "type": "radio",
+          "label": "Does your business carry cash during operational hours?",
+          "helpText": "",
+          "options": [
+            { "label": "Yes", "score": 0 },
+            { "label": "No", "score": 1 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Cashless Operations",
+            "body": ""
+          },
+          "recommendation": {
+            "title": "Cash Operations",
+            "body": ""
+          }
+        },
+        {
+          "id": "cashSecurity",
+          "type": "radio",
+          "label": "Do you keep cash in a locked drawer, till or container?",
+          "helpText": "",
+          "conditional": {
+            "showWhen": {
+              "carryingCash": "Yes"
+            }
+          },
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Cash Secured!",
+            "body": "<p>Your strength: securing cash in a locked container reduces risk and demonstrates strong financial safety practices.</p>"
+          },
+          "recommendation": {
+            "title": "Secure Cash Storage",
+            "body": "<p>Carrying or storing cash increases the risk of theft or robbery, especially in mobile or multi-location businesses. Secure handling protects staff and reduces financial loss. Minimise the amount of cash carried. Use a lockable drawer, till, or container that's out of sight. Train staff on safe cash handling and consider cashless payment options where possible.</p>"
+          }
+        },
+        {
+          "id": "cashHandlingProcedures",
+          "type": "radio",
+          "label": "Does your business have cash handling procedures?",
+          "helpText": "",
+          "conditional": {
+            "showWhen": {
+              "carryingCash": "Yes"
+            }
+          },
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Clear Procedures!",
+            "body": "<p>Your strength: having clear cash handling procedures reduces risk and ensures secure, consistent financial practices.</p>"
+          },
+          "recommendation": {
+            "title": "Create Cash Procedures",
+            "body": "<p>Having clear cash handling procedures reduces the risk of theft, loss, and confusion, especially when multiple staff are involved or cash is moved between locations. Create simple, written procedures for how cash is stored, counted, transported, and banked. Make sure staff are trained to follow them and know what to do if something goes wrong.</p><p>Safe Work Australia has a published <a href='https://www.safeworkaustralia.gov.au/system/files/documents/1702/guide-handling-transporting-cash-may-2013.pdf' target='_blank' rel='noopener noreferrer'>guide for handling and transporting cash</a>.</p>"
+          }
+        },
+        {
+          "id": "personalItemsStorage",
+          "type": "radio",
+          "label": "Does your business have a lockable space for you and/or your staff to keep your personal belongings whilst at work?",
+          "helpText": "",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Secure Storage!",
+            "body": "<p>Your strength: providing a lockable space for personal belongings shows care for staff security and builds trust in the workplace.</p>"
+          },
+          "recommendation": {
+            "title": "Provide Secure Storage",
+            "body": "<p>Having a secure place for personal belongings helps protect staff from theft and gives peace of mind while working, especially in shared or mobile environments. Provide a lockable drawer, cabinet, or locker at each work location. Make sure staff know where it is and encourage them to use it for valuables like phones, wallets, and keys.</p>"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Tools and Equipment",
+      "questions": [
+        {
+          "id": "carryToolsEquipment",
+          "type": "radio",
+          "label": "Do you or your staff carry tools or equipment with them to do their work?",
+          "helpText": "",
+          "options": [
+            { "label": "Yes", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Tools and Equipment",
+            "body": ""
+          },
+          "recommendation": {
+            "title": "Tools and Equipment",
+            "body": ""
+          }
+        },
+        {
+          "id": "toolsSecurity",
+          "type": "radio",
+          "label": "Do you keep the tools or equipment locked up and out of sight when not in use?",
+          "helpText": "",
+          "conditional": {
+            "showWhen": {
+              "carryToolsEquipment": "Yes"
+            }
+          },
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Tools Protected!",
+            "body": "<p>Your strength: locking away tools and equipment when not in use reduces risk and shows strong commitment to workplace safety.</p>"
+          },
+          "recommendation": {
+            "title": "Secure Tools and Equipment",
+            "body": "<p>Tools and equipment can be targets for theft or damage, especially when left unattended. Keeping them secure protects your investment and reduces safety risks. Store tools and equipment in a locked container or vehicle compartment when not in use. Keep them out of sight to avoid drawing attention, and make sure staff know how to secure them properly.</p>"
+          }
+        }
+      ]
+    },
+    {
+      "title": "After Hours Operations",
+      "questions": [
+        {
+          "id": "operateAfterDark",
+          "type": "radio",
+          "label": "Does your business operate after dark?",
+          "helpText": "",
+          "options": [
+            { "label": "Yes", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "After Dark Operations",
+            "body": ""
+          },
+          "recommendation": {
+            "title": "After Dark Operations",
+            "body": ""
+          }
+        },
+        {
+          "id": "afterDarkLighting",
+          "type": "radio",
+          "label": "Do you operate from a well lit location after dark?",
+          "helpText": "",
+          "conditional": {
+            "showWhen": {
+              "operateAfterDark": "Yes"
+            }
+          },
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Well Lit Operations!",
+            "body": "<p>Your strength: operating from a well-lit location after dark enhances safety and creates a welcoming environment for staff and customers.</p>"
+          },
+          "recommendation": {
+            "title": "Improve Lighting",
+            "body": "<p>Operating after dark increases safety risks, poor visibility, reduced foot traffic, and slower emergency response times. A well-lit location helps deter crime and keeps staff and customers safer. Ensure your work areas are well-lit, especially entrances, exits, and parking spots. Use motion-sensor lights if needed and check lighting regularly to make sure it's working properly.</p>"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Safety Culture",
+      "questions": [
+        {
+          "id": "safetyEquipment",
+          "type": "radio",
+          "label": "Do your staff or yourself have access to all the necessary safety and security equipment required for the environment they work in?",
+          "helpText": "Necessary safety and security equipment for mobile businesses includes items like first aid kits, personal alarms, and phones to help staff stay safe while working off-site.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Well Equipped!",
+            "body": "<p>Your strength: providing access to essential safety and security equipment ensures your team can work confidently and stay protected in any environment.</p>"
+          },
+          "recommendation": {
+            "title": "Provide Safety Equipment",
+            "body": "<p>Having the right safety and security equipment helps staff work confidently and safely, especially in environments with physical, chemical, or situational risks. Regularly check that staff have access to items like PPE, first aid kits, duress alarms, and secure storage. Review equipment needs regularly and make sure staff know how to use everything properly.</p>"
+          }
+        },
+        {
+          "id": "reportingConcerns",
+          "type": "radio",
+          "label": "Are staff provided opportunities to raise safety and security concerns?",
+          "helpText": "Regular meetings help staff speak up about safety and security issues, so problems can be fixed early and everyone stays safe at work.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Open Communication!",
+            "body": "<p>Your strength: creating opportunities for staff to raise safety and security concerns builds trust and supports a proactive safety culture.</p>"
+          },
+          "recommendation": {
+            "title": "Create Reporting Channels",
+            "body": "<p>Creating space for staff to raise safety and security concerns helps identify risks early and builds a culture of trust and prevention. It also shows staff their wellbeing is valued. Set up regular check-ins or anonymous feedback options. Encourage open conversations and act on concerns quickly. Even a simple suggestion box or team chat can make a difference.</p>"
+          }
+        },
+        {
+          "id": "safetyTraining",
+          "type": "radio",
+          "label": "Do you or your staff receive training or reminders on safety and security procedures?",
+          "helpText": "",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Ongoing Training!",
+            "body": "<p>Your strength: regular training and reminders on safety and security procedures keep your team informed and ready to act confidently.</p>"
+          },
+          "recommendation": {
+            "title": "Implement Regular Training",
+            "body": "<p>Regular training and reminders help keep safety and security top of mind. They ensure staff stay up to date with procedures and feel confident responding to risks. Schedule brief refreshers or toolbox talks on safety topics. Use posters, emails, or team chats to reinforce key procedures. Make it easy for staff to ask questions or request support.</p>"
+          }
+        }
+      ]
+    }
+  ],
+  "conclusion": { 
+    "body": "<p><strong>Well done in completing this business safety questionnaire.</strong></p><p>Download or save your results. Implementing small changes consistently will help you create a sustainable business practice!</p><p><strong>You can access information and resources on the following topics through these links:</strong></p><ul><li><a href='https://business.nt.gov.au/help-for-business/business-regulation-and-legislation-in-nt/workplace-safety-for-nt-business' target='_blank' rel='noopener noreferrer'>Workplace Safety for NT Businesses</a></li></ul>"
+  }
+}

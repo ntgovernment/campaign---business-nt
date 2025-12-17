@@ -13,13 +13,15 @@
     contentEl.innerHTML = '';
     const wrapper = document.createElement('div');
     // const h = document.createElement('h2'); h.textContent = uiMessages.introTitle || 'Welcome';
-    const p = document.createElement('p'); p.innerHTML = uiMessages.introText || 'Start the quizzes to assess your business safety.'; // Allow HTML content
+    const p = document.createElement('div'); p.innerHTML = uiMessages.introText || 'Start the quizzes to assess your business safety.'; // Allow HTML content
+    const nav = document.createElement('div'); nav.className = 'nav-buttons';
     const btn = document.createElement('button'); btn.className = 'primary'; btn.textContent = 'Choose a topic';
     btn.addEventListener('click', () => {
       window.State.currentState.view = 'choose-topic';
       window.State.saveStateToUrl(window.State.currentState);
     });
-    wrapper.appendChild(p); wrapper.appendChild(btn);
+    nav.appendChild(btn);
+    wrapper.appendChild(p); wrapper.appendChild(nav);
     contentEl.appendChild(wrapper);
   }
 

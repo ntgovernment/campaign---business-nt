@@ -86,20 +86,20 @@
     for(const q of nav.quizzes){
       const li = document.createElement('li');
       const meta = document.createElement('div'); meta.className='quizMeta';
-      const title = document.createElement('div'); title.className='quizTitle'; title.textContent = q.title;
+      const titleLink = document.createElement('a'); titleLink.className='quizTitle'; titleLink.textContent = q.title; titleLink.href = '#';
+      titleLink.addEventListener('click', (e)=>{
+        e.preventDefault();
+        // set quiz in state and save to URL
+        if(window.State){ window.State.currentState.view = 'quiz'; window.State.currentState.quizId = q.id; window.State.currentState.currentPage = 0; if(!window.State.currentState.answers) window.State.currentState.answers = {}; window.State.saveStateToUrl(window.State.currentState); }
+      });
       const prog = document.createElement('div'); prog.className='quizProgress'; prog.textContent = '0%';
-      meta.appendChild(title);
+      meta.appendChild(titleLink);
       li.appendChild(meta); li.appendChild(prog);
       
       // Add active class if this quiz is currently active
       if(activeQuizId === q.id) {
         li.classList.add('active');
       }
-      
-      li.addEventListener('click', ()=>{
-        // set quiz in state and save to URL
-        if(window.State){ window.State.currentState.view = 'quiz'; window.State.currentState.quizId = q.id; window.State.currentState.currentPage = 0; if(!window.State.currentState.answers) window.State.currentState.answers = {}; window.State.saveStateToUrl(window.State.currentState); }
-      });
       // compute progress async and update
       (async ()=>{ const p = await window.UI && window.UI.renderChooseTopic ? 0 : 0; /* placeholder */
         const percent = await (async ()=>{ 
@@ -146,7 +146,10 @@
           const answers = (window.State.currentState && window.State.currentState.answers) || {};
           const currentPage = (window.State.currentState && window.State.currentState.currentPage) || 0;
           quiz.pages.forEach((p, idx)=>{
-            const li2 = document.createElement('li'); li2.className='page-item'; li2.textContent = p.title || `Page ${idx+1}`;
+            const li2 = document.createElement('li'); li2.className='page-item';
+            const pageLink = document.createElement('a'); pageLink.href = '#'; pageLink.textContent = p.title || `Page ${idx+1}`;
+            pageLink.addEventListener('click', (e)=>{ e.preventDefault(); e.stopPropagation(); window.State.currentState.view = 'quiz'; window.State.currentState.currentPage = idx; window.State.saveStateToUrl(window.State.currentState); });
+            li2.appendChild(pageLink);
             // Only add active class if we're in quiz view and this is the current page
             if(currentView === 'quiz' && idx === currentPage) li2.classList.add('active');
             // compute per-page completion
@@ -180,13 +183,14 @@
             } else if(pageHasAnswers) {
               li2.classList.add('in-progress');
             }
-            li2.addEventListener('click', (e)=>{ e.stopPropagation(); window.State.currentState.view = 'quiz'; window.State.currentState.currentPage = idx; window.State.saveStateToUrl(window.State.currentState); });
             pagesList.appendChild(li2);
           });
           // Add "Your results" link
-          const liResults = document.createElement('li'); liResults.className='page-item results-item'; liResults.textContent = 'Your results';
+          const liResults = document.createElement('li'); liResults.className='page-item results-item';
+          const resultsLink = document.createElement('a'); resultsLink.href = '#'; resultsLink.textContent = 'Your results';
+          resultsLink.addEventListener('click', (e)=>{ e.preventDefault(); e.stopPropagation(); window.State.currentState.view = 'results'; window.State.saveStateToUrl(window.State.currentState); });
+          liResults.appendChild(resultsLink);
           if(currentView === 'results') liResults.classList.add('active');
-          liResults.addEventListener('click', (e)=>{ e.stopPropagation(); window.State.currentState.view = 'results'; window.State.saveStateToUrl(window.State.currentState); });
           pagesList.appendChild(liResults);
           ul.appendChild(pagesList);
         }catch(e){ /* ignore */ }

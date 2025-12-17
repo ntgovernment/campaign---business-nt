@@ -1,5 +1,6 @@
 <div class="container pb-5">
-    <div class="ntg-quiz" id="app">
+    <div class="ntg-quiz" id="app" data-quiz-main-navigation="../assets/data/mainNavigation.json" data-propertySafety="../assets/data/quizzes/property-safety-quiz.json" data-staffSafety="../assets/data/quizzes/staffSafetyquiz.json"
+         data-mobileBusiness="../assets/data/quizzes/mobileBusiness.json" data-vehicleSafety="../assets/data/quizzes/vehicleSafety.json">
         <aside class="ntg-quiz-sidebar">
             <h2 class="ntg-quiz-sidebar__title">Business Safety and Security</h2>
             <div class="ntg-quiz-sidebar__links" id="sideLinks">

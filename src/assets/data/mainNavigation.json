@@ -5,25 +5,25 @@
       "id": "propertySafety",
       "title": "Property Safety Quiz",
       "description": "General property safety requirements",
-      "icon": "placeholder-banner.png"
+      "icon": "assets/images/placeholder-banner.png"
     },
     {
       "id": "staffSafety",
       "title": "Staff Safety Quiz",
       "description": "Staff safety quiz",
-      "icon": "placeholder-banner.png"
+      "icon": "assets/images/placeholder-banner.png"
     },
     {
       "id": "mobileBusiness",
       "title": "Mobile Business Quiz",
       "description": "Mobile Business Quiz",
-      "icon": "placeholder-banner.png"
+      "icon": "assets/images/placeholder-banner.png"
     },
     {
       "id": "vehicleSafety",
       "title": "Vehicle Safety Quiz",
       "description": "Vehicle Safety Quiz",
-      "icon": "placeholder-banner.png"
+      "icon": "assets/images/placeholder-banner.png"
     }
   ]
 }

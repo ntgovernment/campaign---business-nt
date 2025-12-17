@@ -276,6 +276,17 @@
       });
       stepper.appendChild(s);
     });
+    
+    // Add "Your results" step
+    const resultsStep = document.createElement('div');
+    resultsStep.className = 'step';
+    resultsStep.textContent = 'Your results';
+    resultsStep.addEventListener('click', () => {
+      window.State.currentState.view = 'results';
+      window.State.saveStateToUrl(window.State.currentState);
+    });
+    stepper.appendChild(resultsStep);
+    
     contentEl.appendChild(stepper);
     
     // Dispatch event to update progress bar
@@ -847,6 +858,58 @@
     const quiz = await fetch(getQuizUrl(quizId)).then(r => r.json());
     const answers = window.State.currentState.answers || {};
 
+    // Stepper (page steps) - show all pages with completion status
+    const stepper = document.createElement('div'); stepper.className = 'stepper';
+    quiz.pages.forEach((p, idx) => {
+      const s = document.createElement('div'); s.className = 'step'; s.textContent = p.title || `Page ${idx + 1}`;
+      const pageComplete = isPageCompleted(p, answers);
+      // detect if any visible question on this page has an answer
+      let pageHasAnswers = false;
+      for (const q of p.questions) {
+        if (q.type === 'group' && q.subQuestions) {
+          // Check sub-questions in the group
+          for (const subQ of q.subQuestions) {
+            if (!Conditional.isVisible(subQ, answers)) continue;
+            const a = answers[subQ.id];
+            if (typeof a !== 'undefined' && a !== null && a !== '') {
+              if (Array.isArray(a) && a.length > 0) { pageHasAnswers = true; break; }
+              else if (!Array.isArray(a)) { pageHasAnswers = true; break; }
+            }
+          }
+          if (pageHasAnswers) break;
+        } else {
+          if (!Conditional.isVisible(q, answers)) continue;
+          const a = answers[q.id];
+          if (typeof a !== 'undefined' && a !== null && a !== '') {
+            if (Array.isArray(a) && a.length > 0) { pageHasAnswers = true; break; }
+            else if (!Array.isArray(a)) { pageHasAnswers = true; break; }
+          }
+        }
+      }
+      if (pageComplete) {
+        s.classList.add('completed');
+      } else if (pageHasAnswers) {
+        s.classList.add('in-progress');
+      }
+      s.addEventListener('click', () => {
+        window.State.currentState.view = 'quiz';
+        window.State.currentState.currentPage = idx;
+        window.State.saveStateToUrl(window.State.currentState);
+      });
+      stepper.appendChild(s);
+    });
+    
+    // Add "Your results" step (active)
+    const resultsStep = document.createElement('div');
+    resultsStep.className = 'step active';
+    resultsStep.textContent = 'Your results';
+    stepper.appendChild(resultsStep);
+    
+    contentEl.appendChild(stepper);
+    
+    // Dispatch event to update progress bar
+    window.dispatchEvent(new CustomEvent('stepperUpdated'));
+
     // Calculate overall and per-page scores
     let totalScore = 0;
     let totalPossible = 0;
@@ -1161,9 +1224,9 @@
     // Results actions: Download PDF, Copy Link, Print
     const actionsWrap = document.createElement('div');
     actionsWrap.classList.add('results-actions');
+    const copyBtn = document.createElement('button'); copyBtn.insertAdjacentHTML("afterbegin", `<i class="fa-solid fa-link"></i><span>Copy link to this report</span>`);
+    const printBtn = document.createElement('button'); copyBtn.insertAdjacentHTML("afterbegin", `<i class="fa-solid fa-print"></i><span>Print results</span>`);
     const pdfBtn = document.createElement('button'); pdfBtn.className = 'primary'; pdfBtn.textContent = 'Download report';
-    const copyBtn = document.createElement('button'); copyBtn.className = 'secondary'; copyBtn.textContent = 'Copy link to this report';
-    const printBtn = document.createElement('button'); printBtn.className = 'secondary'; printBtn.textContent = 'Print results';
 
     // PDF generation using html2pdf
     pdfBtn.addEventListener('click', () => {
@@ -1225,9 +1288,9 @@
       setTimeout(() => { newWin.print(); /* newWin.close(); */ }, 500);
     });
 
-    actionsWrap.appendChild(pdfBtn); 
     actionsWrap.appendChild(copyBtn); 
     actionsWrap.appendChild(printBtn);
+    actionsWrap.appendChild(pdfBtn); 
 
     document.getElementById('pageTitle').appendChild(actionsWrap);
     // contentEl.appendChild(actionsWrap);

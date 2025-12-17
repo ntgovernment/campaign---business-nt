@@ -17,15 +17,7 @@
             { "label": "Yes", "score": 0 },
             { "label": "No", "score": 0 },
             { "label": "Unsure", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Home Visit Operations",
-            "body": ""
-          },
-          "recommendation": {
-            "title": "Home Visit Operations",
-            "body": ""
-          }
+          ]
         },
         {
           "id": "homeVisitRiskAssessment",
@@ -114,10 +106,6 @@
             { "label": "No", "score": 1 },
             { "label": "Unsure", "score": 0 }
           ],
-          "positiveMessage": {
-            "title": "Team Visits",
-            "body": ""
-          },
           "recommendation": {
             "title": "Address Solo Visit Risks",
             "body": "<p>Working alone in someone's home can increase vulnerability to safety and security risks. Without support nearby, it's harder to respond quickly if something goes wrong. If solo visits are necessary, use a buddy system or check-in process. Make sure someone knows where staff are, how long they'll be there, and has a way to contact them. Consider using mobile safety apps or duress alerts.</p><p>You may need to engage a specialist consultant to help you develop this. Consider <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program/business-growth-program-grant-applicants' target='_blank' rel='noopener noreferrer'>Business Growth</a> for funding assistance around this.</p>"
@@ -138,10 +126,6 @@
             { "label": "No", "score": 0 },
             { "label": "Unsure", "score": 0 }
           ],
-          "positiveMessage": {
-            "title": "Well Prepared!",
-            "body": ""
-          },
           "recommendation": {
             "title": "Provide Solo Work Training",
             "body": "<p>Staff working alone in someone's home face higher risks. Without proper training, they may not know how to prevent or respond to unsafe situations. Ensure staff receive training tailored to working in isolation, covering situational awareness, de-escalation techniques, emergency contacts, and how to use safety tools like duress alarms or check-in systems.</p><p>You may be able to access free or low cost de-escalation training for your staff through <a href='https://www.ppst.com.au/' target='_blank' rel='noopener noreferrer'>Personal Protection Strategies</a>.</p><p>Talk to a <a href='https://business.nt.gov.au/help-for-business/territory-business-advisors' target='_blank' rel='noopener noreferrer'>Territory Business Advisor</a> about upcoming business training opportunities.</p>"
@@ -161,15 +145,7 @@
             { "label": "Yes", "score": 0 },
             { "label": "No", "score": 0 },
             { "label": "Unsure", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Multiple Locations",
-            "body": ""
-          },
-          "recommendation": {
-            "title": "Multiple Locations",
-            "body": ""
-          }
+          ]
         },
         {
           "id": "locationRiskAssessments",

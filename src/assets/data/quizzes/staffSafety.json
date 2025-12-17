@@ -343,7 +343,7 @@
               "id": "emergencySituations",
               "type": "radio",
               "label": "4. Emergency Situations",
-              "helpText": "An emergency situation is any unexpected event that poses an immediate risk to health, safety, property, or the environment, such as a fire, medical emergency, armed robbery, or natural disaster—and requires quick action to protect people and reduce harm.",
+              "helpText": "An emergency situation is any unexpected event that poses an immediate risk to health, safety, property, or the environment, such as a fire, medical emergency, armed robbery, or natural disaster-and requires quick action to protect people and reduce harm.",
               "options": [
                 { "label": "Yes", "score": 1 },
                 { "label": "No", "score": 0 }

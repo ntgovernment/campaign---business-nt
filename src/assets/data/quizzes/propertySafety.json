@@ -300,7 +300,7 @@
                             "id": "doorbell",
                             "type": "radio",
                             "label": "Doorbell or system to notify when someone walks in",
-                            "helpText": "A security doorbell is a smart device installed at entry points that lets staff see and speak to visitors or delivery personnel through a camera and speaker, helping monitor access and improve workplace safety—even when no one is at the front desk.",
+                            "helpText": "A security doorbell is a smart device installed at entry points that lets staff see and speak to visitors or delivery personnel through a camera and speaker, helping monitor access and improve workplace safety-even when no one is at the front desk.",
                             "options": [
                                 { "label": "Yes", "score": 1 },
                                 { "label": "No", "score": 0 },

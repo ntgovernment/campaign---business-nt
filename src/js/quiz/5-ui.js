@@ -8,6 +8,16 @@
     return res.json();
   }
 
+  // Helper function to get quiz URL from data attribute
+  function getQuizUrl(quizId) {
+    const appEl = document.getElementById('app');
+    if (appEl && appEl.dataset[quizId]) {
+      return appEl.dataset[quizId];
+    }
+    // Fallback to default path
+    return `../assets/data/quizzes/${quizId}.json`;
+  }
+
   async function renderStart(contentEl, uiMessages) {
     document.getElementById('pageTitle').textContent = uiMessages.introTitle || 'Get Started';
     contentEl.innerHTML = '';
@@ -112,11 +122,7 @@
 
   async function computeProgress(quizId) {
     try {
-      const q = await fetch(`/project/../assets/data/quizzes/${quizId}.json`.replace('/project', ''));
-    } catch (e) {/* ignore */ }
-    // Try to fetch quiz JSON from ./data
-    try {
-      const quiz = await fetchJSON(`../assets/data/quizzes/${quizId}.json`);
+      const quiz = await fetchJSON(getQuizUrl(quizId));
       const answers = (window.State && window.State.currentState && window.State.currentState.answers) || {};
       // count only visible questions (respect conditionals)
       let total = 0; let answered = 0;
@@ -223,7 +229,7 @@
   async function renderQuizPage(contentEl, quizId, pageIndex) {
     document.getElementById('pageTitle').textContent = 'Quiz';
     contentEl.innerHTML = '';
-    const quiz = await fetchJSON(`../assets/data/quizzes/${quizId}.json`);
+    const quiz = await fetchJSON(getQuizUrl(quizId));
     if (!quiz) { contentEl.textContent = 'Quiz not found.'; return; }
     // set currentState quizId
     if (window.State) window.State.currentState.quizId = quizId;
@@ -838,7 +844,7 @@
   async function renderResults(contentEl, quizId) {
     document.getElementById('pageTitle').textContent = 'Results';
     contentEl.innerHTML = '';
-    const quiz = await fetch(`../assets/data/quizzes/${quizId}.json`).then(r => r.json());
+    const quiz = await fetch(getQuizUrl(quizId)).then(r => r.json());
     const answers = window.State.currentState.answers || {};
 
     // Calculate overall and per-page scores
@@ -1153,7 +1159,8 @@
     }
 
     // Results actions: Download PDF, Copy Link, Print
-    const actionsWrap = document.createElement('div'); actionsWrap.style.marginTop = '12px'; actionsWrap.style.display = 'flex'; actionsWrap.style.gap = '8px';
+    const actionsWrap = document.createElement('div');
+    actionsWrap.classList.add('results-actions');
     const pdfBtn = document.createElement('button'); pdfBtn.className = 'primary'; pdfBtn.textContent = 'Download report';
     const copyBtn = document.createElement('button'); copyBtn.className = 'secondary'; copyBtn.textContent = 'Copy link to this report';
     const printBtn = document.createElement('button'); printBtn.className = 'secondary'; printBtn.textContent = 'Print results';
@@ -1167,7 +1174,7 @@
       const clone = contentEl.cloneNode(true);
 
       // Remove the action buttons from the clone
-      const actionsWrap = clone.querySelector('div[style*="marginTop"]');
+      const actionsWrap = clone.querySelector('.results-actions');
       if (actionsWrap && actionsWrap.querySelector('button')) {
         actionsWrap.remove();
       }
@@ -1202,7 +1209,7 @@
       const clone = contentEl.cloneNode(true);
 
       // Remove the action buttons from the clone
-      const actionsWrap = clone.querySelector('div[style*="marginTop"]');
+      const actionsWrap = clone.querySelector('.results-actions');
       if (actionsWrap && actionsWrap.querySelector('button')) {
         actionsWrap.remove();
       }
@@ -1218,11 +1225,17 @@
       setTimeout(() => { newWin.print(); /* newWin.close(); */ }, 500);
     });
 
-    actionsWrap.appendChild(pdfBtn); actionsWrap.appendChild(copyBtn); actionsWrap.appendChild(printBtn);
-    contentEl.appendChild(actionsWrap);
+    actionsWrap.appendChild(pdfBtn); 
+    actionsWrap.appendChild(copyBtn); 
+    actionsWrap.appendChild(printBtn);
+
+    document.getElementById('pageTitle').appendChild(actionsWrap);
+    // contentEl.appendChild(actionsWrap);
     // Prev / Next quiz navigation
     try {
-      const nav = await fetch('../assets/data/mainNavigation.json').then(r => r.json());
+      const appEl = document.getElementById('app');
+      const navUrl = appEl ? appEl.dataset.quizMainNavigation : '../assets/data/mainNavigation.json';
+      const nav = await fetch(navUrl).then(r => r.json());
       const idx = nav.quizzes.findIndex(q => q.id === quizId);
       const navWrap = document.createElement('div'); navWrap.style.marginTop = '12px'; navWrap.style.display = 'flex'; navWrap.style.justifyContent = 'space-between';
       const prevBtn = document.createElement('button'); prevBtn.className = 'secondary';

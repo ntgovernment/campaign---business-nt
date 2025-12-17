@@ -8,6 +8,16 @@
    Also supports query ?state=... inside the hash.
 */
 (function (global) {
+  // Helper function to get quiz URL from data attribute
+  function getQuizUrl(quizId) {
+    const appEl = document.getElementById('app');
+    if (appEl && appEl.dataset[quizId]) {
+      return appEl.dataset[quizId];
+    }
+    // Fallback to default path
+    return `../assets/data/quizzes/${quizId}.json`;
+  }
+  
   function parseHash() {
     const raw = window.location.hash || '#/start';
     const [path, q] = raw.split('?');
@@ -25,7 +35,9 @@
     }
 
     // load nav JSON for some pages
-    const navJson = await fetch('../assets/data/mainNavigation.json').then((r) => r.json());
+    const appEl = document.getElementById('app');
+    const navUrl = appEl ? appEl.dataset.quizMainNavigation : '../assets/data/mainNavigation.json';
+    const navJson = await fetch(navUrl).then((r) => r.json());
     const uiMessages = await fetch('../assets/data/uiMessages.json').then((r) => r.json());
 
     // get current view from state
@@ -65,7 +77,9 @@
   }
 
   async function updateSidebarProgress() {
-    const nav = await fetch('../assets/data/mainNavigation.json').then((r) => r.json());
+    const appEl = document.getElementById('app');
+    const navUrl = appEl ? appEl.dataset.quizMainNavigation : '../assets/data/mainNavigation.json';
+    const nav = await fetch(navUrl).then((r) => r.json());
     const ul = document.getElementById('quizList');
     ul.innerHTML = '';
     // top links
@@ -132,8 +146,8 @@
         const p = (await window.UI) && window.UI.renderChooseTopic ? 0 : 0; /* placeholder */
         const percent = await (async () => {
           try {
-            const quiz = await fetch(`../assets/data/quizzes/${q.id}.json`).then((r) => r.json());
-            const answers = (window.State && window.State.currentState && window.State.currentState.answers) || {};
+            const quiz = await fetch(getQuizUrl(q.id)).then((r) => r.json());
+            const answers = (window.State && window.State.currentState && window.State.currentState.answers) || {};;
             let total = 0;
             let answered = 0;
             for (const page of quiz.pages) {
@@ -178,7 +192,7 @@
       // if this quiz is active, render its pages nested under the quiz item
       if (activeQuizId === q.id) {
         try {
-          const quiz = await fetch(`../assets/data/quizzes/${q.id}.json`).then((r) => r.json());
+          const quiz = await fetch(getQuizUrl(q.id)).then((r) => r.json());
           const pagesList = document.createElement('ol');
           pagesList.className = 'quiz-pages-list';
           const answers = (window.State.currentState && window.State.currentState.answers) || {};

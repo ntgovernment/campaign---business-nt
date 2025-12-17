@@ -16,15 +16,7 @@
           "options": [
             { "label": "Yes", "score": 0 },
             { "label": "No", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Public Access",
-            "body": ""
-          },
-          "recommendation": {
-            "title": "Public Access",
-            "body": ""
-          }
+          ]
         },
         {
           "id": "signInSheet",
@@ -42,7 +34,7 @@
           ],
           "positiveMessage": {
             "title": "Good Tracking!",
-            "body": "<p>Your Strength: A visitor sign-in sheet helps track access to your premises, improving security and accountability.</p>"
+            "body": "<p>A visitor sign-in sheet helps track access to your premises, improving security and accountability.</p>"
           },
           "recommendation": {
             "title": "Implement Sign-In Sheet",
@@ -60,7 +52,7 @@
           ],
           "positiveMessage": {
             "title": "Great Awareness!",
-            "body": "<p>Your Strength: Doorbells alert staff when customers arrive, improving awareness and enhancing customer service.</p>"
+            "body": "<p>Doorbells alert staff when customers arrive, improving awareness and enhancing customer service.</p>"
           },
           "recommendation": {
             "title": "Install Doorbells",
@@ -78,7 +70,7 @@
           ],
           "positiveMessage": {
             "title": "Well Monitored!",
-            "body": "<p>Your Strength: CCTV coverage of entry and exit points provides strong evidence and enhances security monitoring for your business.</p>"
+            "body": "<p>CCTV coverage of entry and exit points provides strong evidence and enhances security monitoring for your business.</p>"
           },
           "recommendation": {
             "title": "Install CCTV at Entry Points",
@@ -96,7 +88,7 @@
           ],
           "positiveMessage": {
             "title": "Clear Boundaries!",
-            "body": "<p>Your Strength: Clearly labelled staff-only areas help maintain privacy, security, and a professional environment.</p>"
+            "body": "<p>Clearly labelled staff-only areas help maintain privacy, security, and a professional environment.</p>"
           },
           "recommendation": {
             "title": "Create Staff-Only Areas",
@@ -114,7 +106,7 @@
           ],
           "positiveMessage": {
             "title": "Single Access Point",
-            "body": "<p>Your strength: Managing multiple entry and exit points effectively enhances safety and improves traffic flow within your business.</p>"
+            "body": "<p>Managing multiple entry and exit points effectively enhances safety and improves traffic flow within your business.</p>"
           },
           "recommendation": {
             "title": "Manage Multiple Access Points",
@@ -133,7 +125,7 @@
           ],
           "positiveMessage": {
             "title": "Well Lit!",
-            "body": "<p>Your strength: well-lit entry and exit points, including car parks, improve visibility and create a safer environment for staff and customers.</p>"
+            "body": "<p>Well-lit entry and exit points, including car parks, improve visibility and create a safer environment for staff and customers.</p>"
           },
           "recommendation": {
             "title": "Improve Lighting",
@@ -157,7 +149,7 @@
           ],
           "positiveMessage": {
             "title": "Keys Secure!",
-            "body": "<p>Your strength: keeping all keys out of sight or with staff prevents unauthorised access and strengthens on-site security.</p>"
+            "body": "<p>Keeping all keys out of sight or with staff prevents unauthorised access and strengthens on-site security.</p>"
           },
           "recommendation": {
             "title": "Secure Key Storage",
@@ -275,10 +267,6 @@
             { "label": "No", "score": 0 },
             { "label": "Unsure", "score": 0 }
           ],
-          "positiveMessage": {
-            "title": "Emergency Ready!",
-            "body": ""
-          },
           "recommendation": {
             "title": "Install Emergency Systems",
             "body": "<p>Having an emergency phone or distress button in a common area ensures staff can quickly call for help in case of a threat, injury, or emergency. These systems should be clearly marked, regularly tested, and staff trained on how and when to use them. A distress button can often be added to your security system.</p>"
@@ -301,7 +289,7 @@
           ],
           "positiveMessage": {
             "title": "Well Prepared!",
-            "body": "<p>Your strength: training staff on when and how to use emergency phones or distress buttons ensures quick, confident responses in critical situations.</p>"
+            "body": "<p>Training staff on when and how to use emergency phones or distress buttons ensures quick, confident responses in critical situations.</p>"
           },
           "recommendation": {
             "title": "Train Staff on Emergency Systems",
@@ -385,7 +373,7 @@
               "id": "evacuation",
               "type": "radio",
               "label": "7. A situation that requires evacuation",
-              "helpText": "A situation that requires evacuation is any event where it's unsafe to stay in the building or area, and people need to leave quickly to protect themselves. This can include fires, gas leaks, bomb threats, or structural damage—anything that puts health and safety at immediate risk.",
+              "helpText": "A situation that requires evacuation is any event where it's unsafe to stay in the building or area, and people need to leave quickly to protect themselves. This can include fires, gas leaks, bomb threats, or structural damage-anything that puts health and safety at immediate risk.",
               "options": [
                 { "label": "Yes", "score": 1 },
                 { "label": "No", "score": 0 }
@@ -544,15 +532,7 @@
           "options": [
             { "label": "Yes", "score": 0 },
             { "label": "No", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Staff Work Arrangements",
-            "body": ""
-          },
-          "recommendation": {
-            "title": "Staff Work Arrangements",
-            "body": ""
-          }
+          ]
         },
         {
           "id": "aloneRiskManagement",
@@ -611,15 +591,7 @@
             { "label": "Yes", "score": 0 },
             { "label": "No", "score": 0 },
             { "label": "Unsure", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Operating Hours",
-            "body": ""
-          },
-          "recommendation": {
-            "title": "Operating Hours",
-            "body": ""
-          }
+          ]
         },
         {
           "id": "afterHoursSecurity",

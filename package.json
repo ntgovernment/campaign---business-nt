@@ -77,7 +77,7 @@
         "clean:filebridge": "rm -rf ./build",
         "build:autoprefix:filebridge": "postcss -u autoprefixer -r build/css/main.css --no-map ",
         "build:css:filebridge": "sass --no-source-map --style compressed \"./src/css/scss/main.scss\" \"./build/css/main.css\" && sass --no-source-map --style compressed \"./src/css/scss/squizComponents.scss\" \"./build/css/squizComponents.css\" && concat -o ./build/css/plugins.css ./src/css/plugins/*.css",
-        "build:js:filebridge": "npm run build-compress:bootstrapjs && npm run build-compress:pluginsjs && concat -o ./build/js/bundle.js ./src/js/utils.js ./src/js/functions.js && uglifyjs ./build/js/bundle.js --compress -o ./build/js/bundle.js",
+        "build:js:filebridge": "npm run build-compress:bootstrapjs && npm run build-compress:pluginsjs && concat -o ./build/js/bundle.js ./src/js/utils.js ./src/js/**/*.js ./src/js/functions.js && uglifyjs ./build/js/bundle.js --compress -o ./build/js/bundle.js",
         "build-compress:bootstrapjs": "browserify ./src/js/bootstrap.js > ./build/js/bootstrap.js && uglifyjs ./build/js/bootstrap.js --compress -o ./build/js/bootstrap.js",
         "build-compress:pluginsjs": "node helpers/build-plugins.js --uglify --output ./build/js/plugins.js",
         "build:cssimages:filebridge": "mkdir -p ./build/assets && cp -r ./src/assets/css-images/ ./build/assets/css-images",

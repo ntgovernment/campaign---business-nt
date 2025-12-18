@@ -1173,7 +1173,7 @@
 
         const strengthText = document.createElement('div');
         strengthText.textContent = 'Strengths';
-        strengthText.classList.add('strength-text');  
+        strengthText.classList.add('strength-text');
 
         scoreCircle.appendChild(percentText);
         scoreCircle.appendChild(strengthText);
@@ -1365,11 +1365,17 @@
         const actionsWrap = document.createElement('div');
         actionsWrap.classList.add('results-actions');
         const copyBtn = document.createElement('button');
+        copyBtn.className = 'secondary';
         copyBtn.insertAdjacentHTML('afterbegin', `<i class="fa-solid fa-link"></i><span>Copy link to this report</span>`);
         
         const printBtn = document.createElement('button');
+<<<<<<< HEAD
         printBtn.insertAdjacentHTML('afterbegin', `<i class="fa-solid fa-print"></i><span>Print results</span>`);
         
+=======
+        printBtn.className = 'secondary';
+        printBtn.insertAdjacentHTML('afterbegin', `<i class="fa-solid fa-print"></i><span>Print results</span>`);
+>>>>>>> 2ac958727cad117150ed93799adc7015b991572e
         const pdfBtn = document.createElement('button');
         pdfBtn.className = 'primary';
         pdfBtn.textContent = 'Download report';

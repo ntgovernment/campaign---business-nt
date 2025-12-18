@@ -122,6 +122,54 @@
 
         h2 {
             margin-bottom: 2rem;
+
+            &:has(.results-actions) {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            .results-actions {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+
+                button {
+                    appearance: none;
+                    background-color: transparent;
+                    border: 0;
+                    font-size: $font-size-sm;
+                    font-weight: 700;
+
+                    &.primary {
+                        background-color: $primary;
+                        color: $white;
+                        padding: 0.75rem 1rem;
+                        border-radius: 8px;
+                        transition: 0.2s background-color ease-in-out;
+
+                        &:hover {
+                            background-color: darken($primary, 5%);
+                        }
+                    }
+
+                    &.secondary {
+                        span {
+                            text-decoration: underline;
+                        }
+
+                        i {
+                            margin-right: 0.25rem;
+                        }
+
+                        &:hover {
+                            span {
+                                text-decoration: none;
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         h3 {
@@ -425,85 +473,91 @@
             }
         }
 
+        .question,
         .sub-question {
-            margin-top: 1rem;
+            &:not(:first-of-type) {
+                margin-top: 1rem;
+            }
 
             .question-label-wrapper {
                 display: flex;
                 align-items: center;
                 gap: 0.5rem;
                 margin-bottom: 0.75rem;
+            }
 
-                label {
-                    font-size: $font-size-sm;
-                    font-weight: 700;
-                }
+            label {
+                font-size: $font-size-sm;
+                font-weight: 700;
+            }
 
-                .help-icon {
-                    background-color: $charcoal-gray;
+            > label {
+                margin-bottom: 0.75rem;
+            }
+
+            .help-icon {
+                background-color: $charcoal-gray;
+                color: $white;
+                font-size: 12px;
+                font-weight: 700;
+                font-style: normal;
+                width: 18px;
+                height: 18px;
+                border-radius: 50%;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                transition: 0.2s background-color ease-in-out, 0.2s color ease-in-out;
+                cursor: help;
+                user-select: none;
+                position: relative;
+
+                .help-tooltip {
+                    position: absolute;
+                    bottom: calc(100% + 8px);
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background-color: $ntg-charcoal-grey;
                     color: $white;
+                    padding: 8px 12px;
+                    border-radius: 6px;
                     font-size: 12px;
-                    font-weight: 700;
-                    font-style: normal;
-                    width: 18px;
-                    height: 18px;
-                    border-radius: 50%;
-                    display: inline-flex;
-                    align-items: center;
-                    justify-content: center;
-                    transition: 0.2s background-color ease-in-out, 0.2s color ease-in-out;
-                    cursor: help;
-                    user-select: none;
-                    position: relative;
+                    font-weight: 400;
+                    line-height: 1.4;
+                    max-width: 280px;
+                    width: max-content;
+                    box-shadow: 0 4px 12px rgba($black, 0.2);
+                    z-index: 1000;
+                    pointer-events: none;
+                    opacity: 0;
+                    transition: opacity 0.2s ease;
 
-                    .help-tooltip {
+                    &::after {
+                        content: '';
                         position: absolute;
-                        bottom: calc(100% + 8px);
+                        top: 100%;
                         left: 50%;
                         transform: translateX(-50%);
-                        background-color: $ntg-charcoal-grey;
-                        color: $white;
-                        padding: 8px 12px;
-                        border-radius: 6px;
-                        font-size: 12px;
-                        font-weight: 400;
-                        line-height: 1.4;
-                        max-width: 280px;
-                        width: max-content;
-                        box-shadow: 0 4px 12px rgba($black, 0.2);
-                        z-index: 1000;
-                        pointer-events: none;
-                        opacity: 0;
-                        transition: opacity 0.2s ease;
-
-                        &::after {
-                            content: '';
-                            position: absolute;
-                            top: 100%;
-                            left: 50%;
-                            transform: translateX(-50%);
-                            border: 6px solid transparent;
-                            border-top-color: $ntg-charcoal-grey;
-                        }
+                        border: 6px solid transparent;
+                        border-top-color: $ntg-charcoal-grey;
                     }
+                }
 
-                    &:hover {
-                        background-color: $ntg-coastline-blue;
+                &:hover {
+                    background-color: $ntg-coastline-blue;
 
-                        .help-tooltip {
-                            opacity: 1;
-                        }
+                    .help-tooltip {
+                        opacity: 1;
                     }
                 }
             }
         }
 
-        .question {
-            padding: 12px;
-            border-radius: 6px;
-            border: 1px solid #eef2f7;
-            margin-bottom: 12px;
-            background: #fff;
+        .conditional-group {
+            border-left: 6px solid $ntg-monsoon-blue;
+            padding-left: 1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .options {
@@ -550,9 +604,9 @@
         }
 
         .page-messages {
-            padding-top: 1rem;
-            margin-top: 2rem;
-            border-top: 1px solid #cacaca;
+            &:not(:empty) {
+                margin-top: 2rem;
+            }
 
             h3 {
                 font-size: $h3-font-size;
@@ -1053,45 +1107,6 @@
 // }
 // .question-group .conditional-subquestion-group .sub-question:last-child {
 //     margin-bottom: 0;
-// }
-
-// /* Conditional group styling: group a parent question with its dependent children */
-// .conditional-group {
-//     border-left: 4px solid #0078d4;
-//     padding-left: 12px;
-//     margin-bottom: 12px;
-//     border-radius: 4px;
-//     background: linear-gradient(180deg, rgba(74, 160, 255, 0.03), transparent);
-// }
-// .conditional-group .question {
-//     margin-bottom: 8px;
-// }
-// .conditional-group .question:first-child {
-//     margin-top: 6px;
-// }
-
-// /* Page messages section */
-
-// .nav-buttons {
-//     display: flex;
-//     justify-content: space-between;
-//     margin-top: 16px;
-// }
-// button.primary {
-//     background: #0078d4;
-//     color: #fff;
-//     border: 0;
-//     padding: 10px 16px;
-//     border-radius: 6px;
-//     cursor: pointer;
-// }
-// button.secondary {
-//     background: #eef2f7;
-//     color: #111;
-//     border: 0;
-//     padding: 10px 16px;
-//     border-radius: 6px;
-//     cursor: pointer;
 // }
 
 // /* Progress bar */

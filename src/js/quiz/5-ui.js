@@ -95,7 +95,7 @@
       circleFill.setAttribute('cy', '50');
       circleFill.setAttribute('r', '45');
       circleFill.setAttribute('fill', 'none');
-      circleFill.setAttribute('stroke', '#0078d4');
+      circleFill.setAttribute('stroke', '#0093b8');
       circleFill.setAttribute('stroke-width', '8');
       circleFill.setAttribute('stroke-dasharray', '283');
       circleFill.setAttribute('stroke-dashoffset', String(283 - (283 * percent / 100)));

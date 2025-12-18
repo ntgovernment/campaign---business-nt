@@ -659,6 +659,20 @@
                 }
             }
         }
+
+        .progress {
+            height: 10px;
+            background: #e6eefc;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .progress > i {
+            display: block;
+            height: 100%;
+            background: linear-gradient(90deg, #4aa0ff, #0078d4);
+            width: 0%;
+        }
     }
 }
 
@@ -713,17 +727,3 @@
         }
     }
 }
-
-// /* Progress bar */
-// .progress {
-//     height: 10px;
-//     background: #e6eefc;
-//     border-radius: 6px;
-//     overflow: hidden;
-// }
-// .progress > i {
-//     display: block;
-//     height: 100%;
-//     background: linear-gradient(90deg, #4aa0ff, #0078d4);
-//     width: 0%;
-// }

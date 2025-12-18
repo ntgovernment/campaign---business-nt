@@ -476,24 +476,13 @@
         const childIndices = (groups[i] || []).slice().sort((a, b) => a - b);
 
         if (childIndices.length == 1) {
-          // single child - only show the group border when both parent and child are visible
+          // single child - always apply conditional-group class since there's a conditional relationship
           const ci = childIndices[0];
-          const parentQ = page.questions[i];
-          const childQ = page.questions[ci];
-          const parentVisible = Conditional.isVisible(parentQ, window.State.currentState.answers || {});
-          const childVisible = Conditional.isVisible(childQ, window.State.currentState.answers || {});
-          if (parentVisible && childVisible) {
-            const groupDiv = document.createElement('div'); groupDiv.className = 'conditional-group';
-            groupDiv.appendChild(qwraps[i]); appended.add(i);
-            if (!appended.has(ci)) { groupDiv.appendChild(qwraps[ci]); appended.add(ci); }
-            contentEl.appendChild(groupDiv);
-          } else {
-            // append without border
-            contentEl.appendChild(qwraps[i]); appended.add(i);
-            if (!appended.has(ci)) { contentEl.appendChild(qwraps[ci]); appended.add(ci); }
-          }
+          const groupDiv = document.createElement('div'); groupDiv.className = 'conditional-group';
+          groupDiv.appendChild(qwraps[i]); appended.add(i);
+          if (!appended.has(ci)) { groupDiv.appendChild(qwraps[ci]); appended.add(ci); }
+          contentEl.appendChild(groupDiv);
         } else {
-          console.log("Multiple children for conditional grouping not supported in this layout.");
           const groupDiv = document.createElement('div'); groupDiv.className = 'conditional-group';
           // parent
           groupDiv.appendChild(qwraps[i]); appended.add(i);
@@ -778,6 +767,10 @@
     const question = findQuestionInQuiz(quiz, qid);
     if (!question) return;
 
+    // Save the currently focused input for restoration later
+    const focusedInput = target;
+    const focusedInputId = focusedInput.id;
+
     // collect value
     let value;
     if (question.type === 'radio') {
@@ -822,6 +815,17 @@
     // Update conditional-subquestion-group wrapper visibility
     updateConditionalGroupBorders(quiz);
 
+    // Restore focus to the input that triggered the change
+    if (focusedInputId) {
+      // Use setTimeout to ensure DOM updates are complete
+      setTimeout(() => {
+        const inputToFocus = document.getElementById(focusedInputId);
+        if (inputToFocus) {
+          inputToFocus.focus();
+        }
+      }, 0);
+    }
+
     // auto-save state to URL
     window.State.saveStateToUrl(window.State.currentState);
   }
@@ -830,23 +834,21 @@
     const wrappers = document.querySelectorAll('.conditional-subquestion-group');
     wrappers.forEach(wrapper => {
       const subQuestions = wrapper.querySelectorAll('.sub-question');
-      let hasVisibleConditional = false;
+      let hasConditional = false;
       subQuestions.forEach(sq => {
         const sqId = sq.dataset.qid;
         const sqQuestion = findQuestionInQuiz(quiz, sqId);
         if (sqQuestion && sqQuestion.conditional && sqQuestion.conditional.showWhen) {
-          // Check if the element is actually visible (not display:none)
-          if (sq.style.display !== 'none') {
-            hasVisibleConditional = true;
-          }
+          // Always apply class if conditional question exists, regardless of visibility
+          hasConditional = true;
         }
       });
 
       // Only update class if it needs to change
       const hasClass = wrapper.classList.contains('has-visible-conditional');
-      if (hasVisibleConditional && !hasClass) {
+      if (hasConditional && !hasClass) {
         wrapper.classList.add('has-visible-conditional');
-      } else if (!hasVisibleConditional && hasClass) {
+      } else if (!hasConditional && hasClass) {
         wrapper.classList.remove('has-visible-conditional');
       }
     });

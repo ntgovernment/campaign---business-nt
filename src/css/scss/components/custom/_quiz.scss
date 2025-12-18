@@ -518,7 +518,10 @@
                     top: 50%;
                     left: 50%;
                     transform: translate(-50%, -50%);
-                    visibility: hidden;
+                    opacity: 0;
+                    width: 1px;
+                    height: 1px;
+                    pointer-events: none;
                 }
 
                 label {
@@ -530,12 +533,18 @@
                     border-radius: 32px;
                     position: relative;
                     z-index: 1;
+                    cursor: pointer;
                 }
 
                 &:has(input:checked) label {
                     background-color: $primary;
                     color: $white;
                     border-color: $primary;
+                }
+                
+                &:has(input:focus-visible) label {
+                    outline: 2px solid $primary;
+                    outline-offset: 2px;
                 }
             }
         }

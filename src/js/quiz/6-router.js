@@ -37,9 +37,9 @@
     // load nav JSON for some pages
     const appEl = document.getElementById('app');
     const navUrl = appEl ? appEl.dataset.quizMainNavigation : '../assets/data/mainNavigation.json';
-    const navJson = await fetch(navUrl).then((r) => r.json());
+    const navJson = await window.JSONCache.get(navUrl);
     const uiMessagesUrl = appEl ? appEl.dataset.uiMessages : '../assets/data/uiMessages.json';
-    const uiMessages = await fetch(uiMessagesUrl).then((r) => r.json());
+    const uiMessages = await window.JSONCache.get(uiMessagesUrl);
 
     // get current view from state
     const view = (window.State && window.State.currentState && window.State.currentState.view) || 'start';
@@ -80,7 +80,7 @@
   async function updateSidebarProgress() {
     const appEl = document.getElementById('app');
     const navUrl = appEl ? appEl.dataset.quizMainNavigation : '../assets/data/mainNavigation.json';
-    const nav = await fetch(navUrl).then((r) => r.json());
+    const nav = await window.JSONCache.get(navUrl);
     const ul = document.getElementById('quizList');
     ul.innerHTML = '';
     // top links
@@ -147,7 +147,7 @@
         const p = (await window.UI) && window.UI.renderChooseTopic ? 0 : 0; /* placeholder */
         const percent = await (async () => {
           try {
-            const quiz = await fetch(getQuizUrl(q.id)).then((r) => r.json());
+            const quiz = await window.JSONCache.get(getQuizUrl(q.id));
             const answers = (window.State && window.State.currentState && window.State.currentState.answers) || {};;
             let total = 0;
             let answered = 0;
@@ -193,7 +193,7 @@
       // if this quiz is active, render its pages nested under the quiz item
       if (activeQuizId === q.id) {
         try {
-          const quiz = await fetch(getQuizUrl(q.id)).then((r) => r.json());
+          const quiz = await window.JSONCache.get(getQuizUrl(q.id));
           const pagesList = document.createElement('ol');
           pagesList.className = 'quiz-pages-list';
           const answers = (window.State.currentState && window.State.currentState.answers) || {};

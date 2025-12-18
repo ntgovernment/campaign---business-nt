@@ -1208,6 +1208,13 @@
 
         contentEl.appendChild(overallCard);
 
+        const contactBtn = document.createElement('a');
+        contactBtn.href = 'https://business.nt.gov.au/help-for-business/territory-business-advisors';
+        contactBtn.className = 'btn btn-primary mb-4';
+        contactBtn.textContent = 'Contact a Territory Business Advisor';
+
+        contentEl.appendChild(contactBtn);
+
         // Recommendations section grouped by page
         const recommendationsCard = document.createElement('div');
         recommendationsCard.className = 'quiz-recommendations';

@@ -20,15 +20,15 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title" id="resumeModalLabel">Welcome back?</h2>
+                <h2 class="modal-title" id="resumeModalLabel">Welcome back</h2>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <p>It looks like you've been here before, would you like to continue or start over?</p>
 
-                <div class="d-flex">
-                    <button type="button" class="btn btn-primary rounded-pill py-1 me-2" id="btnFresh">Start over</button>
-                    <button type="button" class="btn btn-primary rounded-pill py-1" id="btnResume">Continue</button>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-primary" id="btnResume">Continue</button>
+                    <button type="button" class="btn btn-outline-secondary" id="btnFresh">Start over</button>
                 </div>
             </div>
         </div>

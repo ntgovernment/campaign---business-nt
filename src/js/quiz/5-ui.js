@@ -1158,6 +1158,7 @@
         overallCard.appendChild(overallTitle);
 
         const healthScoreLabel = document.createElement('div');
+<<<<<<< HEAD
         healthScoreLabel.textContent = 'Health Score';
         healthScoreLabel.style.fontSize = '14px';
         healthScoreLabel.style.color = '#666';
@@ -1183,6 +1184,25 @@
         strengthText.textContent = 'Strengths';
         strengthText.style.fontSize = '12px';
         strengthText.style.color = '#666';
+=======
+        healthScoreLabel.classList.add('health-score-label');
+        healthScoreLabel.textContent = 'Health Score';
+        overallCard.appendChild(healthScoreLabel);
+
+        const scoreCircle = document.createElement('div');
+        scoreCircle.classList.add('score-circle');
+        const overallPercentage = totalPossible > 0 ? Math.round((totalScore / totalPossible) * 100) : 0;
+        scoreCircle.style.setProperty('--score-percentage', `${overallPercentage}`);
+
+        const percentText = document.createElement('div');
+        percentText.textContent = overallPercentage + '%';
+        percentText.classList.add('percent-text');
+
+        const strengthText = document.createElement('div');
+        strengthText.textContent = 'Strengths';
+        strengthText.classList.add('strength-text');  
+
+>>>>>>> 9beacf20af1022dab0f1ebd46560695441f08f96
         scoreCircle.appendChild(percentText);
         scoreCircle.appendChild(strengthText);
         overallCard.appendChild(scoreCircle);
@@ -1190,26 +1210,46 @@
         // Page scores
         pageScores.forEach((ps) => {
             const scoreSection = document.createElement('div');
+<<<<<<< HEAD
             scoreSection.style.marginTop = '16px';
 
             const scoreTitle = document.createElement('div');
             scoreTitle.textContent = ps.title + ' Score';
             scoreTitle.style.fontSize = '14px';
             scoreTitle.style.marginBottom = '4px';
+=======
+            scoreSection.classList.add('page-score-section');
+
+            const scoreTitle = document.createElement('div');
+            scoreTitle.textContent = ps.title + ' Score';
+            scoreTitle.classList.add('page-score-title');
+>>>>>>> 9beacf20af1022dab0f1ebd46560695441f08f96
             scoreSection.appendChild(scoreTitle);
 
             const scoreValue = document.createElement('div');
             scoreValue.textContent = `${ps.score}/${ps.possible}`;
+<<<<<<< HEAD
             scoreValue.style.fontSize = '12px';
             scoreValue.style.color = '#666';
             scoreValue.style.marginBottom = '6px';
+=======
+            scoreValue.classList.add('page-score-value');
+>>>>>>> 9beacf20af1022dab0f1ebd46560695441f08f96
             scoreSection.appendChild(scoreValue);
 
             const progressBar = document.createElement('div');
             progressBar.className = 'progress';
+<<<<<<< HEAD
             progressBar.style.height = '8px';
             const progressFill = document.createElement('i');
             progressFill.style.width = ps.percentage + '%';
+=======
+            // progressBar.style.height = '8px';
+
+            const progressFill = document.createElement('i');
+            progressFill.style.width = ps.percentage + '%';
+            
+>>>>>>> 9beacf20af1022dab0f1ebd46560695441f08f96
             progressBar.appendChild(progressFill);
             scoreSection.appendChild(progressBar);
 
@@ -1374,11 +1414,17 @@
         const actionsWrap = document.createElement('div');
         actionsWrap.classList.add('results-actions');
         const copyBtn = document.createElement('button');
+<<<<<<< HEAD
         copyBtn.className = 'secondary';
         copyBtn.insertAdjacentHTML('afterbegin', `<i class="fa-solid fa-link"></i><span>Copy link to this report</span>`);
         const printBtn = document.createElement('button');
         printBtn.className = 'secondary';
         printBtn.insertAdjacentHTML('afterbegin', `<i class="fa-solid fa-print"></i><span>Print results</span>`);
+=======
+        copyBtn.insertAdjacentHTML('afterbegin', `<i class="fa-solid fa-link"></i><span>Copy link to this report</span>`);
+        const printBtn = document.createElement('button');
+        copyBtn.insertAdjacentHTML('afterbegin', `<i class="fa-solid fa-print"></i><span>Print results</span>`);
+>>>>>>> 9beacf20af1022dab0f1ebd46560695441f08f96
         const pdfBtn = document.createElement('button');
         pdfBtn.className = 'primary';
         pdfBtn.textContent = 'Download report';

@@ -373,7 +373,7 @@
 
         .stepper {
             display: flex;
-            justify-content: space-evenly;
+            justify-content: space-between;
             counter-reset: step;
             position: relative;
             margin-bottom: 2rem;
@@ -404,12 +404,13 @@
                 text-align: center;
                 position: relative;
                 z-index: 1;
+                flex: 1;
 
                 &::before {
                     counter-increment: step;
                     content: counter(step);
-                    background-color: $ntg-coastline-blue;
-                    color: $white;
+                    background-color: $white;
+                    color: $body-color;
                     font-size: $font-size-sm;
                     font-weight: 700;
                     width: 24px;
@@ -426,12 +427,22 @@
                     transition: 0.2s background-color ease-in-out, 0.2s color ease-in-out;
                 }
 
+                &:first-child {
+                    text-align: left;
+
+                    &::before {
+                        left: 0;
+                        transform: translateX(0);
+                    }
+                }
+
                 &:last-child {
                     text-align: right;
 
                     &::before {
-                        left: 100%;
-                        transform: translateX(-100%);
+                        left: auto;
+                        right: 0;
+                        transform: translateX(0);
                     }
                 }
 
@@ -444,23 +455,20 @@
                     }
                 }
 
+                &.completed {
+                    &::before {
+                        background-color: $ntg-coastline-blue !important;
+                        color: $white !important;
+                    }
+                }
+
                 &.active {
                     font-weight: 700;
 
                     &::before {
-                        background-color: $ntg-coastline-blue;
-                        color: $white;
+                        background-color: $ntg-coastline-blue !important;
+                        color: $white !important;
                     }
-
-                    &:hover ~ &::before {
-                        background-color: $white;
-                        color: $body-color;
-                    }
-                }
-
-                &.active ~ &::before {
-                    background-color: $white;
-                    color: $body-color;
                 }
             }
         }
@@ -559,7 +567,8 @@
             }
         }
 
-        .conditional-group {
+        .conditional-group,
+        .conditional-subquestion-group {
             border-left: 6px solid $ntg-monsoon-blue;
             padding-left: 1rem;
             margin-top: 1.5rem;

@@ -1149,9 +1149,9 @@
             });
         }
 
-        // Overall Health Score Card
+        // Results
         const overallCard = document.createElement('div');
-        overallCard.className = 'card border-0';
+        overallCard.className = 'quiz-results';
         const overallTitle = document.createElement('h3');
         overallTitle.textContent = 'Overall Health';
         overallCard.appendChild(overallTitle);
@@ -1188,11 +1188,6 @@
             scoreTitle.classList.add('page-score-title');
             scoreSection.appendChild(scoreTitle);
 
-            const scoreValue = document.createElement('div');
-            scoreValue.textContent = `${ps.score}/${ps.possible}`;
-            scoreValue.classList.add('page-score-value');
-            scoreSection.appendChild(scoreValue);
-
             const progressBar = document.createElement('div');
             progressBar.className = 'progress';
             // progressBar.style.height = '8px';
@@ -1203,6 +1198,11 @@
             progressBar.appendChild(progressFill);
             scoreSection.appendChild(progressBar);
 
+            const scoreValue = document.createElement('div');
+            scoreValue.textContent = `${ps.score}/${ps.possible}`;
+            scoreValue.classList.add('page-score-value');
+            scoreSection.appendChild(scoreValue);
+
             overallCard.appendChild(scoreSection);
         });
 
@@ -1210,8 +1210,7 @@
 
         // Recommendations section grouped by page
         const recommendationsCard = document.createElement('div');
-        recommendationsCard.className = 'card border-0';
-        recommendationsCard.style.marginTop = '16px';
+        recommendationsCard.className = 'quiz-recommendations';
         const recTitle = document.createElement('h3');
         recTitle.textContent = 'Recommendations';
         recommendationsCard.appendChild(recTitle);
@@ -1329,18 +1328,15 @@
             if (pageRecs.recommendation.length > 0) {
                 hasRecommendations = true;
                 const pageSection = document.createElement('div');
-                pageSection.style.marginBottom = '16px';
+                pageSection.className = 'page-recommendations';
 
                 const pageHeading = document.createElement('h4');
                 pageHeading.textContent = page.title;
-                pageHeading.style.marginBottom = '8px';
-                pageHeading.style.fontSize = '15px';
                 pageSection.appendChild(pageHeading);
 
                 pageRecs.recommendation.forEach((msg) => {
                     const msgDiv = document.createElement('div');
                     msgDiv.className = 'message-item recommendation';
-                    msgDiv.style.marginBottom = '8px';
                     const title = document.createElement('div');
                     title.className = 'message-title';
                     title.textContent = msg.title;
@@ -1366,10 +1362,11 @@
         const copyBtn = document.createElement('button');
         copyBtn.className = 'secondary';
         copyBtn.insertAdjacentHTML('afterbegin', `<i class="fa-solid fa-link"></i><span>Copy link to this report</span>`);
-        
+
         const printBtn = document.createElement('button');
+        printBtn.className = 'secondary';
         printBtn.insertAdjacentHTML('afterbegin', `<i class="fa-solid fa-print"></i><span>Print results</span>`);
-        
+
         const pdfBtn = document.createElement('button');
         pdfBtn.className = 'primary';
         pdfBtn.textContent = 'Download report';

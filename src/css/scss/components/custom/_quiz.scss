@@ -56,7 +56,7 @@
 
             > li {
                 display: flex;
-                align-items: center;
+                align-items: flex-start;
                 justify-content: space-between;
                 gap: 1rem;
                 padding: 0.75rem 0;
@@ -84,6 +84,10 @@
                     display: flex;
                     align-items: center;
                     gap: 0.25rem;
+
+                    i {
+                        color: tint-color($ntg-charcoal-grey, 50%);
+                    }
                 }
 
                 a {
@@ -184,7 +188,8 @@
             }
         }
 
-        .nav-buttons {
+        .nav-buttons,
+        .quiz-nav-buttons {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -660,18 +665,122 @@
             }
         }
 
-        .progress {
-            height: 10px;
-            background: #e6eefc;
-            border-radius: 6px;
-            overflow: hidden;
+        .quiz-results {
+            > * {
+                margin-bottom: 1rem;
+            }
+
+            h3 {
+                font-size: $h4-font-size;
+                font-weight: 500;
+            }
+
+            .health-score-label {
+                font-size: $font-size-sm;
+                font-weight: 700;
+            }
+
+            .score-circle {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 160px;
+                height: 160px;
+                background-color: $ntg-top-end;
+                border-radius: 50%;
+                position: relative;
+
+                &::before {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background-color: $white;
+                    width: calc(100% - 32px);
+                    height: calc(100% - 32px);
+                    border-radius: 50%;
+                }
+
+                > * {
+                    position: relative;
+                    z-index: 1;
+                }
+
+                .percent-text {
+                    font-size: $h4-font-size;
+                    font-weight: 700;
+                }
+
+                .strength-text {
+                    font-size: $font-size-sm;
+                }
+            }
+
+            .page-score-section {
+                .page-score-title {
+                    font-size: $font-size-sm;
+                    font-weight: 700;
+                    margin-bottom: 0.5rem;
+                }
+
+                .progress {
+                    background-color: tint-color($ntg-charcoal-grey, 80%);
+                    height: 8px;
+                    border-radius: 4px;
+                    overflow: hidden;
+                    margin-bottom: 0.5rem;
+
+                    > i {
+                        background-color: $ntg-coastline-blue;
+                        display: block;
+                        height: 100%;
+                        width: 0%;
+                    }
+                }
+
+                .page-score-value {
+                    font-size: $font-size-sm;
+                }
+            }
         }
 
-        .progress > i {
-            display: block;
-            height: 100%;
-            background: linear-gradient(90deg, #4aa0ff, #0078d4);
-            width: 0%;
+        .quiz-recommendations {
+            h3 {
+                font-size: $h4-font-size;
+                font-weight: 500;
+                margin-bottom: 2rem;
+            }
+
+            .page-recommendations {
+                margin-bottom: 2rem;
+
+                h4 {
+                    font-size: $h5-font-size;
+                    font-weight: 700;
+                    margin-bottom: 1rem;
+                }
+
+                .message-item {
+                    margin-bottom: 1rem;
+
+                    .message-title {
+                        font-size: $h6-font-size;
+                        font-weight: 700;
+                    }
+
+                    .message-body {
+                        > * {
+                            margin-bottom: 0.5rem;
+
+                            &:last-child {
+                                margin-bottom: 0;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

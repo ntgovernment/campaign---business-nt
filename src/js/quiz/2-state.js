@@ -28,7 +28,12 @@
     saveStateToUrl(stateObj){
       const compressed = this.encodeState(stateObj);
       // Always use single root path with state in query param
+      // Save current scroll position
+      const scrollX = window.scrollX;
+      const scrollY = window.scrollY;
       window.location.hash = `#?state=${compressed}`;
+      // Restore scroll position to prevent unwanted scrolling
+      window.scrollTo(scrollX, scrollY);
     },
 
     loadStateFromUrl(){

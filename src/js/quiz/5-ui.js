@@ -1420,7 +1420,7 @@
         pdfBtn.textContent = 'Download report';
 
         // PDF generation using html2pdf
-        pdfBtn.addEventListener('click', () => {
+        pdfBtn.addEventListener('click', async () => {
             if (!window.html2pdf) {
                 alert('html2pdf not loaded');
                 return;
@@ -1436,6 +1436,54 @@
                 actionsWrap.remove();
             }
 
+            // Remove quiz navigation buttons
+            const navButtons = clone.querySelector('.quiz-nav-buttons');
+            if (navButtons) {
+                navButtons.remove();
+            }
+
+            // Create a wrapper with styles
+            const wrapper = document.createElement('div');
+            wrapper.style.fontFamily = 'system-ui, -apple-system, sans-serif';
+            wrapper.style.color = '#333';
+            wrapper.style.padding = '20px';
+            
+            // Apply computed styles to clone
+            const applyComputedStyles = (element, sourceElement) => {
+                if (!element || !sourceElement) return;
+                
+                const computed = window.getComputedStyle(sourceElement);
+                const inline = element.style;
+                
+                // Copy essential display properties
+                inline.fontSize = computed.fontSize;
+                inline.fontWeight = computed.fontWeight;
+                inline.color = computed.color;
+                inline.backgroundColor = computed.backgroundColor;
+                inline.padding = computed.padding;
+                inline.margin = computed.margin;
+                inline.border = computed.border;
+                inline.borderRadius = computed.borderRadius;
+                inline.display = computed.display;
+                inline.flexDirection = computed.flexDirection;
+                inline.alignItems = computed.alignItems;
+                inline.justifyContent = computed.justifyContent;
+                inline.gap = computed.gap;
+                inline.width = computed.width;
+                inline.height = computed.height;
+                inline.lineHeight = computed.lineHeight;
+                
+                // Recursively apply to children
+                const children = element.children;
+                const sourceChildren = sourceElement.children;
+                for (let i = 0; i < children.length; i++) {
+                    applyComputedStyles(children[i], sourceChildren[i]);
+                }
+            };
+            
+            applyComputedStyles(clone, contentEl);
+            wrapper.appendChild(clone);
+
             // Configure PDF options
             const opt = {
                 margin: 10,
@@ -1446,7 +1494,7 @@
             };
 
             // Generate PDF
-            html2pdf().set(opt).from(clone).save();
+            html2pdf().set(opt).from(wrapper).save();
         });
 
         copyBtn.addEventListener('click', async () => {
@@ -1481,16 +1529,40 @@
                 actionsWrap.remove();
             }
 
+            // Remove quiz navigation buttons
+            const navButtons = clone.querySelector('.quiz-nav-buttons');
+            if (navButtons) {
+                navButtons.remove();
+            }
+
             // Open a new window with the content for printing
             const newWin = window.open('', '_blank');
             if (!newWin) {
                 alert('Unable to open print window');
                 return;
             }
+            
+            // Get all stylesheets
             const styles = Array.from(document.querySelectorAll('link[rel=stylesheet]'))
                 .map((l) => `<link rel="stylesheet" href="${l.href}">`)
                 .join('\n');
-            const html = `<!doctype html><html><head><meta charset="utf-8">${styles}<title>Print - ${quiz.title}</title></head><body>${clone.innerHTML}</body></html>`;
+            
+            // Get inline styles from style tags
+            const inlineStyles = Array.from(document.querySelectorAll('style'))
+                .map((s) => `<style>${s.innerHTML}</style>`)
+                .join('\n');
+            
+            // Add print-specific styles
+            const printStyles = `
+                <style>
+                    @media print {
+                        body { margin: 0; padding: 20px; }
+                        * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+                    }
+                </style>
+            `;
+            
+            const html = `<!doctype html><html><head><meta charset="utf-8">${styles}${inlineStyles}${printStyles}<title>Print - ${quiz.title}</title></head><body><div class="ntg-quiz-body">${clone.innerHTML}</div></body></html>`;
             newWin.document.open();
             newWin.document.write(html);
             newWin.document.close();
@@ -1498,7 +1570,7 @@
             // give it a little time to render styles
             setTimeout(() => {
                 newWin.print(); /* newWin.close(); */
-            }, 500);
+            }, 1000);
         });
 
         actionsWrap.appendChild(copyBtn);

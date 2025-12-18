@@ -38,7 +38,8 @@
     const appEl = document.getElementById('app');
     const navUrl = appEl ? appEl.dataset.quizMainNavigation : '../assets/data/mainNavigation.json';
     const navJson = await fetch(navUrl).then((r) => r.json());
-    const uiMessages = await fetch('../assets/data/uiMessages.json').then((r) => r.json());
+    const uiMessagesUrl = appEl ? appEl.dataset.uiMessages : '../assets/data/uiMessages.json';
+    const uiMessages = await fetch(uiMessagesUrl).then((r) => r.json());
 
     // get current view from state
     const view = (window.State && window.State.currentState && window.State.currentState.view) || 'start';

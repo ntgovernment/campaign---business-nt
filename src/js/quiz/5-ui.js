@@ -1200,7 +1200,7 @@
 
             const progressFill = document.createElement('i');
             progressFill.style.width = ps.percentage + '%';
-            
+
             progressBar.appendChild(progressFill);
             scoreSection.appendChild(progressBar);
 
@@ -1366,8 +1366,10 @@
         actionsWrap.classList.add('results-actions');
         const copyBtn = document.createElement('button');
         copyBtn.insertAdjacentHTML('afterbegin', `<i class="fa-solid fa-link"></i><span>Copy link to this report</span>`);
+        
         const printBtn = document.createElement('button');
-        copyBtn.insertAdjacentHTML('afterbegin', `<i class="fa-solid fa-print"></i><span>Print results</span>`);
+        printBtn.insertAdjacentHTML('afterbegin', `<i class="fa-solid fa-print"></i><span>Print results</span>`);
+        
         const pdfBtn = document.createElement('button');
         pdfBtn.className = 'primary';
         pdfBtn.textContent = 'Download report';
@@ -1467,9 +1469,8 @@
             const nav = await fetch(navUrl).then((r) => r.json());
             const idx = nav.quizzes.findIndex((q) => q.id === quizId);
             const navWrap = document.createElement('div');
-            navWrap.style.marginTop = '12px';
-            navWrap.style.display = 'flex';
-            navWrap.style.justifyContent = 'space-between';
+            navWrap.className = 'quiz-nav-buttons';
+
             const prevBtn = document.createElement('button');
             prevBtn.className = 'secondary';
             const nextBtn = document.createElement('button');

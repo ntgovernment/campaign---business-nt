@@ -1,6 +1,6 @@
 <div class="container pb-5">
     <div class="ntg-quiz" id="app" data-quiz-main-navigation="../assets/data/mainNavigation.json" data-propertySafety="../assets/data/quizzes/property-safety-quiz.json" data-staffSafety="../assets/data/quizzes/staffSafetyquiz.json"
-         data-mobileBusiness="../assets/data/quizzes/mobileBusiness.json" data-vehicleSafety="../assets/data/quizzes/vehicleSafety.json">
+         data-mobileBusiness="../assets/data/quizzes/mobileBusiness.json" data-vehicleSafety="../assets/data/quizzes/vehicleSafety.json" data-ui-messages="../assets/data/uiMessages.json">
         <aside class="ntg-quiz-sidebar">
             <h2 class="ntg-quiz-sidebar__title">Business Safety and Security</h2>
             <div class="ntg-quiz-sidebar__links" id="sideLinks">
@@ -37,7 +37,7 @@
 
 <!-- <script src="js/lz-string.min.js"></script> -->
 <!-- html2pdf for report generation -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script> -->
 <!-- <script src="js/state.js"></script>
 <script src="js/conditional.js"></script>
 <script src="js/modal.js"></script>

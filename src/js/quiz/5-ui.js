@@ -1369,13 +1369,8 @@
         copyBtn.insertAdjacentHTML('afterbegin', `<i class="fa-solid fa-link"></i><span>Copy link to this report</span>`);
         
         const printBtn = document.createElement('button');
-<<<<<<< HEAD
         printBtn.insertAdjacentHTML('afterbegin', `<i class="fa-solid fa-print"></i><span>Print results</span>`);
         
-=======
-        printBtn.className = 'secondary';
-        printBtn.insertAdjacentHTML('afterbegin', `<i class="fa-solid fa-print"></i><span>Print results</span>`);
->>>>>>> 2ac958727cad117150ed93799adc7015b991572e
         const pdfBtn = document.createElement('button');
         pdfBtn.className = 'primary';
         pdfBtn.textContent = 'Download report';

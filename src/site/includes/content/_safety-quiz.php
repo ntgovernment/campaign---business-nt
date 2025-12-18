@@ -1,6 +1,12 @@
 <div class="container pb-5">
-    <div class="ntg-quiz" id="app" data-quiz-main-navigation="../assets/data/mainNavigation.json" data-propertySafety="../assets/data/quizzes/property-safety-quiz.json" data-staffSafety="../assets/data/quizzes/staffSafetyquiz.json"
-         data-mobileBusiness="../assets/data/quizzes/mobileBusiness.json" data-vehicleSafety="../assets/data/quizzes/vehicleSafety.json" data-ui-messages="../assets/data/uiMessages.json">
+    <div class="ntg-quiz" id="app" 
+         data-quiz-main-navigation="../assets/data/mainNavigation.json" 
+         data-propertySafety="../assets/data/quizzes/property-safety-quiz.json" 
+         data-staffSafety="../assets/data/quizzes/staffSafetyquiz.json"
+         data-mobileBusiness="../assets/data/quizzes/mobileBusiness.json" 
+         data-vehicleSafety="../assets/data/quizzes/vehicleSafety.json" 
+         data-ui-messages="../assets/data/uiMessages.json"
+         data-openai-api-key="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">
         <aside class="ntg-quiz-sidebar">
             <h2 class="ntg-quiz-sidebar__title">Business Safety and Security</h2>
             <div class="ntg-quiz-sidebar__links" id="sideLinks">
@@ -38,9 +44,6 @@
 <!-- <script src="js/lz-string.min.js"></script> -->
 <!-- html2pdf for report generation -->
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script> -->
-<!-- <script src="js/state.js"></script>
-<script src="js/conditional.js"></script>
-<script src="js/modal.js"></script>
-<script src="js/ui.js"></script>
-<script src="js/router.js"></script>
-<script src="js/app.js"></script> -->
+<!-- Quiz scripts are loaded via bundle.js in order:
+     0-cache.js, 1-lz-string.js, 2-state.js, 3-conditional.js, 
+     4-modal.js, 5-ui.js, 6-router.js, 7-app.js, 8-ai-summary.js -->

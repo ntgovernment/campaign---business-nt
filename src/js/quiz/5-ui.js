@@ -1178,6 +1178,7 @@
         scoreCircle.appendChild(strengthText);
         overallCard.appendChild(scoreCircle);
 
+       
         // Page scores
         pageScores.forEach((ps) => {
             const scoreSection = document.createElement('div');
@@ -1214,6 +1215,46 @@
         contactBtn.textContent = 'Contact a Territory Business Advisor';
 
         contentEl.appendChild(contactBtn);
+
+         // AI-generated summary
+        const aiSummarySection = document.createElement('div');
+        aiSummarySection.classList.add('ai-summary-section');
+        aiSummarySection.innerHTML = '<div class="summary-loading"><div class="spinner-border spinner-border-sm text-primary" role="status"><span class="visually-hidden">Loading...</span></div><span class="ms-2">Generating AI summary...</span></div>';
+        overallCard.appendChild(aiSummarySection);
+
+        // Generate AI summary asynchronously
+        (async () => {
+            if (window.AISummaryGenerator) {
+                window.AISummaryGenerator.initFromDataAttribute();
+                const summary = await window.AISummaryGenerator.generateSummary({
+                    quizId,
+                    quizTitle: quiz.title || 'Business Health Assessment',
+                    overallPercentage,
+                    pageScores,
+                    answers,
+                    quiz
+                });
+
+                if (summary) {
+                    aiSummarySection.innerHTML = '';
+                    const summaryTitle = document.createElement('h4');
+                    summaryTitle.textContent = summary.title;
+                    summaryTitle.classList.add('summary-title');
+                    const summaryContent = document.createElement('p');
+                    summaryContent.textContent = summary.content;
+                    summaryContent.classList.add('summary-content');
+                    aiSummarySection.appendChild(summaryTitle);
+                    aiSummarySection.appendChild(summaryContent);
+                } else {
+                    // Remove loading indicator if AI summary fails
+                    aiSummarySection.remove();
+                }
+            } else {
+                // Remove if AI generator not available
+                aiSummarySection.remove();
+            }
+        })();
+
 
         // Recommendations section grouped by page
         const recommendationsCard = document.createElement('div');

@@ -727,6 +727,17 @@
                 }
             }
 
+            .ai-summary-section {
+                margin: 2rem 0;
+
+                .summary-loading {
+                    display: flex;
+                    align-items: center;
+                    color: $ntg-charcoal-grey;
+                    font-size: $font-size-sm;
+                }
+            }
+
             .page-score-section {
                 .page-score-title {
                     font-size: $font-size-sm;

@@ -2,8 +2,15 @@
    Entry point. Loads navigation, initializes modal and router.
 */
 (async function(){
-  document.addEventListener('DOMContentLoaded', init);
-  function init(){
+  document.addEventListener('DOMContentLoaded', async function init(){
+    // Initialize cache and prefetch all JSON files in parallel
+    try {
+      await window.JSONCache.init();
+    } catch (error) {
+      console.error('Failed to initialize quiz cache:', error);
+      // Continue anyway - cache will fetch on-demand
+    }
+
     Modal.init();
     // if URL contains state param, show modal to resume or start fresh
     const existing = State.loadStateFromUrl();
@@ -30,5 +37,5 @@
 
     // Initially route
     Router.route();
-  }
+  });
 })();

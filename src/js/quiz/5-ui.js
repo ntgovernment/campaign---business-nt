@@ -4,8 +4,7 @@
 */
 (function (global) {
     async function fetchJSON(path) {
-        const res = await fetch(path);
-        return res.json();
+        return window.JSONCache.get(path);
     }
 
     // Helper function to get quiz URL from data attribute
@@ -987,7 +986,7 @@
     async function renderResults(contentEl, quizId) {
         document.getElementById('pageTitle').textContent = 'Results';
         contentEl.innerHTML = '';
-        const quiz = await fetch(getQuizUrl(quizId)).then((r) => r.json());
+        const quiz = await window.JSONCache.get(getQuizUrl(quizId));
         const answers = window.State.currentState.answers || {};
 
         // Stepper (page steps) - show all pages with completion status
@@ -1467,7 +1466,7 @@
         try {
             const appEl = document.getElementById('app');
             const navUrl = appEl ? appEl.dataset.quizMainNavigation : '../assets/data/mainNavigation.json';
-            const nav = await fetch(navUrl).then((r) => r.json());
+            const nav = await window.JSONCache.get(navUrl);
             const idx = nav.quizzes.findIndex((q) => q.id === quizId);
             const navWrap = document.createElement('div');
             navWrap.className = 'quiz-nav-buttons';

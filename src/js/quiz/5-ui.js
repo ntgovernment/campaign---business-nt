@@ -1210,9 +1210,22 @@
         contentEl.appendChild(overallCard);
 
         const contactBtn = document.createElement('a');
-        contactBtn.href = 'https://business.nt.gov.au/help-for-business/territory-business-advisors';
+        contactBtn.href = '#';
         contactBtn.className = 'btn btn-primary mb-4';
         contactBtn.textContent = 'Contact a Territory Business Advisor';
+        
+        // Manually trigger modal since the button is dynamically generated
+        contactBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const modalEl = document.getElementById('floatingContact');
+            if (modalEl && window.bootstrap && window.bootstrap.Modal) {
+                const modal = new window.bootstrap.Modal(modalEl);
+                modal.show();
+            } else {
+                // Fallback if modal doesn't exist
+                window.location.href = 'https://business.nt.gov.au/contact';
+            }
+        });
 
         contentEl.appendChild(contactBtn);
 

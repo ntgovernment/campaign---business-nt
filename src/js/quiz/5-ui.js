@@ -303,7 +303,11 @@
             } else if (pageHasAnswers) {
                 s.classList.add('in-progress');
             }
-            if (idx === pageIndex) s.classList.add('active');
+            if (idx === pageIndex) {
+                s.classList.add('active');
+            } else if (idx < pageIndex) {
+                s.classList.add('completed');
+            }
             s.addEventListener('click', () => {
                 window.State.currentState.view = 'quiz';
                 window.State.currentState.currentPage = idx;
@@ -1035,6 +1039,8 @@
             } else if (pageHasAnswers) {
                 s.classList.add('in-progress');
             }
+            // All page steps should be marked as completed when viewing results
+            s.classList.add('completed');
             s.addEventListener('click', () => {
                 window.State.currentState.view = 'quiz';
                 window.State.currentState.currentPage = idx;
@@ -1178,7 +1184,6 @@
         scoreCircle.appendChild(strengthText);
         overallCard.appendChild(scoreCircle);
 
-       
         // Page scores
         pageScores.forEach((ps) => {
             const scoreSection = document.createElement('div');
@@ -1213,7 +1218,7 @@
         contactBtn.href = '#';
         contactBtn.className = 'btn btn-primary mb-4';
         contactBtn.textContent = 'Contact a Territory Business Advisor';
-        
+
         // Manually trigger modal since the button is dynamically generated
         contactBtn.addEventListener('click', (e) => {
             e.preventDefault();
@@ -1229,10 +1234,11 @@
 
         contentEl.appendChild(contactBtn);
 
-         // AI-generated summary
+        // AI-generated summary
         const aiSummarySection = document.createElement('div');
         aiSummarySection.classList.add('ai-summary-section');
-        aiSummarySection.innerHTML = '<div class="summary-loading"><div class="spinner-border spinner-border-sm text-primary" role="status"><span class="visually-hidden">Loading...</span></div><span class="ms-2">Generating AI summary...</span></div>';
+        aiSummarySection.innerHTML =
+            '<div class="summary-loading"><div class="spinner-border spinner-border-sm text-primary" role="status"><span class="visually-hidden">Loading...</span></div><span class="ms-2">Generating AI summary...</span></div>';
         overallCard.appendChild(aiSummarySection);
 
         // Generate AI summary asynchronously
@@ -1245,7 +1251,7 @@
                     overallPercentage,
                     pageScores,
                     answers,
-                    quiz
+                    quiz,
                 });
 
                 if (summary) {
@@ -1267,7 +1273,6 @@
                 aiSummarySection.remove();
             }
         })();
-
 
         // Recommendations section grouped by page
         const recommendationsCard = document.createElement('div');
@@ -1460,14 +1465,14 @@
             wrapper.style.fontFamily = 'system-ui, -apple-system, sans-serif';
             wrapper.style.color = '#333';
             wrapper.style.padding = '20px';
-            
+
             // Apply computed styles to clone
             const applyComputedStyles = (element, sourceElement) => {
                 if (!element || !sourceElement) return;
-                
+
                 const computed = window.getComputedStyle(sourceElement);
                 const inline = element.style;
-                
+
                 // Copy essential display properties
                 inline.fontSize = computed.fontSize;
                 inline.fontWeight = computed.fontWeight;
@@ -1485,7 +1490,7 @@
                 inline.width = computed.width;
                 inline.height = computed.height;
                 inline.lineHeight = computed.lineHeight;
-                
+
                 // Recursively apply to children
                 const children = element.children;
                 const sourceChildren = sourceElement.children;
@@ -1493,7 +1498,7 @@
                     applyComputedStyles(children[i], sourceChildren[i]);
                 }
             };
-            
+
             applyComputedStyles(clone, contentEl);
             wrapper.appendChild(clone);
 
@@ -1554,17 +1559,17 @@
                 alert('Unable to open print window');
                 return;
             }
-            
+
             // Get all stylesheets
             const styles = Array.from(document.querySelectorAll('link[rel=stylesheet]'))
                 .map((l) => `<link rel="stylesheet" href="${l.href}">`)
                 .join('\n');
-            
+
             // Get inline styles from style tags
             const inlineStyles = Array.from(document.querySelectorAll('style'))
                 .map((s) => `<style>${s.innerHTML}</style>`)
                 .join('\n');
-            
+
             // Add print-specific styles
             const printStyles = `
                 <style>
@@ -1574,7 +1579,7 @@
                     }
                 </style>
             `;
-            
+
             const html = `<!doctype html><html><head><meta charset="utf-8">${styles}${inlineStyles}${printStyles}<title>Print - ${quiz.title}</title></head><body><div class="ntg-quiz-body">${clone.innerHTML}</div></body></html>`;
             newWin.document.open();
             newWin.document.write(html);

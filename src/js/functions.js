@@ -769,23 +769,9 @@ function initQuizUI() {
 
         if (activeIndex < 0) return;
 
-        let progressWidth;
-
-        // Last step should always be 100%
-        if (activeIndex === steps.length - 1) {
-            progressWidth = 100;
-        } else {
-            // Calculate the actual position of the active step's circle
-            const stepperRect = stepper.getBoundingClientRect();
-            const activeStep = steps[activeIndex];
-
-            // Get the position of the circle (::before pseudo-element)
-            const stepRect = activeStep.getBoundingClientRect();
-            const stepCenter = stepRect.left + stepRect.width / 2 - stepperRect.left;
-
-            // Calculate percentage based on actual position
-            progressWidth = (stepCenter / stepperRect.width) * 100;
-        }
+        // Calculate progress based on step index for even distribution
+        // This ensures the progress bar aligns properly on both desktop and mobile
+        const progressWidth = steps.length > 1 ? (activeIndex / (steps.length - 1)) * 100 : 0;
 
         // Set CSS custom property for the progress bar width
         stepper.style.setProperty('--progress-width', `${Math.min(100, Math.max(0, progressWidth))}%`);

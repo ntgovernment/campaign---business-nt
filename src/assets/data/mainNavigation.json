@@ -3,25 +3,25 @@
   "quizzes": [
     {
       "id": "propertySafety",
-      "title": "Property Safety Quiz",
+      "title": "Property Safety Questionnaire",
       "description": "General property safety requirements",
       "icon": "https://ntgov-web-dev.matrix.squiz.cloud/business/_resources/images/placeholder-images/news-image.png/_nocache"
     },
     {
       "id": "staffSafety",
-      "title": "Staff Safety Quiz",
-      "description": "Staff safety quiz",
+      "title": "Staff Safety Questionnaire",
+      "description": "Staff Safety Questionnaire",
       "icon": "https://ntgov-web-dev.matrix.squiz.cloud/business/_resources/images/placeholder-images/news-image.png/_nocache"
     },
     {
       "id": "mobileBusiness",
-      "title": "Mobile Business Quiz",
+      "title": "Mobile Business Questionnaire",
       "description": "Mobile Business Quiz",
       "icon": "https://ntgov-web-dev.matrix.squiz.cloud/business/_resources/images/placeholder-images/news-image.png/_nocache"
     },
     {
       "id": "vehicleSafety",
-      "title": "Vehicle Safety Quiz",
+      "title": "Vehicle Safety Questionnaire",
       "description": "Vehicle Safety Quiz",
       "icon": "https://ntgov-web-dev.matrix.squiz.cloud/business/_resources/images/placeholder-images/news-image.png/_nocache"
     }

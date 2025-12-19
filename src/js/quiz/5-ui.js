@@ -748,7 +748,10 @@
                             parentQuestion = q.subQuestions.find((sq) => sq.id === dependsOnId);
                         }
 
-                        if (ans === 'Yes') {
+                        // Check if positive message should be shown on No (when showRecommendationOnYes is true, behavior is inverted)
+                        const shouldShowPos = subQ.showRecommendationOnYes ? (ans === 'No') : (ans === 'Yes');
+                        
+                        if (shouldShowPos) {
                             // Use conditionalQuestionGroupPositiveMessage from parent if it's a conditional question
                             if (isConditional && parentQuestion && parentQuestion.conditionalQuestionGroupPositiveMessage) {
                                 // Only add once per parent question
@@ -760,7 +763,10 @@
                             }
                         }
 
-                        if (ans === 'No' || ans === 'Unsure') {
+                        // Check if recommendation should be shown on Yes (special case for questions like cashOnsite)
+                        const shouldShowRec = subQ.showRecommendationOnYes ? (ans === 'Yes') : (ans === 'No' || ans === 'Unsure');
+                        
+                        if (shouldShowRec) {
                             // Use conditionalQuestionGroupRecommendation from parent if it's a conditional question
                             if (isConditional && parentQuestion && parentQuestion.conditionalQuestionGroupRecommendation) {
                                 // Only add once per parent question
@@ -789,7 +795,10 @@
                         parentQuestion = page.questions.find((pq) => pq.id === dependsOnId);
                     }
 
-                    if (ans === 'Yes') {
+                    // Check if positive message should be shown on No (when showRecommendationOnYes is true, behavior is inverted)
+                    const shouldShowPos = q.showRecommendationOnYes ? (ans === 'No') : (ans === 'Yes');
+                    
+                    if (shouldShowPos) {
                         // Use conditionalQuestionGroupPositiveMessage from parent if it's a conditional question
                         if (isConditional && parentQuestion && parentQuestion.conditionalQuestionGroupPositiveMessage) {
                             // Only add once per parent question
@@ -801,7 +810,10 @@
                         }
                     }
 
-                    if (ans === 'No' || ans === 'Unsure') {
+                    // Check if recommendation should be shown on Yes (special case for questions like cashOnsite)
+                    const shouldShowRec = q.showRecommendationOnYes ? (ans === 'Yes') : (ans === 'No' || ans === 'Unsure');
+                    
+                    if (shouldShowRec) {
                         // Use conditionalQuestionGroupRecommendation from parent if it's a conditional question
                         if (isConditional && parentQuestion && parentQuestion.conditionalQuestionGroupRecommendation) {
                             // Only add once per parent question
@@ -1318,7 +1330,10 @@
                                 parentQuestion = q.subQuestions.find((sq) => sq.id === dependsOnId);
                             }
 
-                            if (ans === 'Yes') {
+                            // Check if positive message should be shown on No (when showRecommendationOnYes is true, behavior is inverted)
+                            const shouldShowPos = subQ.showRecommendationOnYes ? (ans === 'No') : (ans === 'Yes');
+                            
+                            if (shouldShowPos) {
                                 // Use conditionalQuestionGroupPositiveMessage from parent if it's a conditional question
                                 if (isConditional && parentQuestion && parentQuestion.conditionalQuestionGroupPositiveMessage) {
                                     // Only add once per parent question
@@ -1330,7 +1345,10 @@
                                 }
                             }
 
-                            if (ans === 'No' || ans === 'Unsure') {
+                            // Check if recommendation should be shown on Yes (special case for questions like cashOnsite)
+                            const shouldShowRec = subQ.showRecommendationOnYes ? (ans === 'Yes') : (ans === 'No' || ans === 'Unsure');
+                            
+                            if (shouldShowRec) {
                                 // Use conditionalQuestionGroupRecommendation from parent if it's a conditional question
                                 if (isConditional && parentQuestion && parentQuestion.conditionalQuestionGroupRecommendation) {
                                     // Only add once per parent question
@@ -1358,7 +1376,10 @@
                             parentQuestion = page.questions.find((pq) => pq.id === dependsOnId);
                         }
 
-                        if (ans === 'Yes') {
+                        // Check if positive message should be shown on No (when showRecommendationOnYes is true, behavior is inverted)
+                        const shouldShowPos = q.showRecommendationOnYes ? (ans === 'No') : (ans === 'Yes');
+                        
+                        if (shouldShowPos) {
                             // Use conditionalQuestionGroupPositiveMessage from parent if it's a conditional question
                             if (isConditional && parentQuestion && parentQuestion.conditionalQuestionGroupPositiveMessage) {
                                 // Only add once per parent question
@@ -1370,7 +1391,10 @@
                             }
                         }
 
-                        if (ans === 'No' || ans === 'Unsure') {
+                        // Check if recommendation should be shown on Yes (special case for questions like cashOnsite)
+                        const shouldShowRec = q.showRecommendationOnYes ? (ans === 'Yes') : (ans === 'No' || ans === 'Unsure');
+                        
+                        if (shouldShowRec) {
                             // Use conditionalQuestionGroupRecommendation from parent if it's a conditional question
                             if (isConditional && parentQuestion && parentQuestion.conditionalQuestionGroupRecommendation) {
                                 // Only add once per parent question
@@ -1443,25 +1467,13 @@
             const contentEl = document.getElementById('quizContent');
             const clone = contentEl.cloneNode(true);
 
-            // Remove the action buttons from the clone
-            const actionsWrap = clone.querySelector('.results-actions');
-            if (actionsWrap && actionsWrap.querySelector('button')) {
-                actionsWrap.remove();
-            }
-
-            // Remove quiz navigation buttons
-            const navButtons = clone.querySelector('.quiz-nav-buttons');
-            if (navButtons) {
-                navButtons.remove();
-            }
-
             // Create a wrapper with styles
             const wrapper = document.createElement('div');
             wrapper.style.fontFamily = 'system-ui, -apple-system, sans-serif';
             wrapper.style.color = '#333';
             wrapper.style.padding = '20px';
             
-            // Apply computed styles to clone
+            // Apply computed styles to clone BEFORE removing elements
             const applyComputedStyles = (element, sourceElement) => {
                 if (!element || !sourceElement) return;
                 
@@ -1495,6 +1507,31 @@
             };
             
             applyComputedStyles(clone, contentEl);
+
+            // Remove the action buttons from the clone AFTER applying styles
+            const actionsWrap = clone.querySelector('.results-actions');
+            if (actionsWrap && actionsWrap.querySelector('button')) {
+                actionsWrap.remove();
+            }
+
+            // Remove quiz navigation buttons
+            const navButtons = clone.querySelector('.quiz-nav-buttons');
+            if (navButtons) {
+                navButtons.remove();
+            }
+
+            // Remove stepper
+            const stepper = clone.querySelector('.stepper');
+            if (stepper) {
+                stepper.remove();
+            }
+
+            // Remove contact button
+            const contactBtn = clone.querySelector('.btn');
+            if (contactBtn) {
+                contactBtn.remove();
+            }
+
             wrapper.appendChild(clone);
 
             // Configure PDF options
@@ -1540,6 +1577,13 @@
             const actionsWrap = clone.querySelector('.results-actions');
             if (actionsWrap && actionsWrap.querySelector('button')) {
                 actionsWrap.remove();
+            }
+
+            
+            // Remove the action buttons from the clone
+            const stepper = clone.querySelector('.stepper');
+            if (stepper) {
+                stepper.remove();
             }
 
             // Remove quiz navigation buttons

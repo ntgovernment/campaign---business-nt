@@ -302,11 +302,11 @@
           "label": "Would your staff know what to do should the following situations occur?",
           "positiveMessage": {
             "title": "Well Prepared Team!",
-            "body": "<p>Your team is well-prepared to handle emergency situations. Continue to refresh training regularly and keep procedures up to date.</p>"
+            "body": "<p>Your team is well-prepared to handle the emergency situations you clicked yes to. Continue to refresh training regularly and keep procedures up to date.</p>"
           },
           "recommendation": {
             "title": "Improve Situational Training",
-            "body": "<p>It's important that staff understand the procedures for handling emergency situations and are regularly reminded of them. Every business is different, so it's valuable to have open conversations with your team about what these situations might look like and how to respond together.</p><p>If you need help in figuring out the appropriate actions and responses, you can approach your local police station or access <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program/business-growth-program-grant-applicants' target='_blank' rel='noopener noreferrer'>Business Growth Funding</a> to engage a specialist to help you.</p><p>You may be able to access free or low cost de-escalation training for your staff through <a href='https://www.ppst.com.au/' target='_blank' rel='noopener noreferrer'>Personal Protection Strategies</a>.</p>"
+            "body": "<p>It's important that staff understand the procedures for handling emergency situations you selected 'No' for and are regularly reminded of them. Every business is different, so it's valuable to have open conversations with your team about what these situations might look like and how to respond together.</p><p>If you need help in figuring out the appropriate actions and responses, you can approach your local police station or access <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program/business-growth-program-grant-applicants' target='_blank'>Business Growth Program</a> to engage a specialist to help you.</p><p>You may be able to access free or low cost de-escalation training for your staff through <a href='https://www.ppst.com.au/' target='_blank'>Personal Protection Strategies</a>.</p>"
           },
           "subQuestions": [
             {

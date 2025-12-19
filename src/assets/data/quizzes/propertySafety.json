@@ -18,7 +18,7 @@
                     },
                     "recommendation": {
                         "title": "Strengthen Your Security",
-                        "body": "<p>Great security starts with layered protection. The more barriers you have, the harder it is for intruders to gain access. Review your setup regularly and upgrade where needed.</p><p>Consider looking into installing any items you ticked 'no or unsure' for. Adding additional security items can help to prevent opportunistic crime at your business.</p><p>We recommend you speak to one of our <a href='https://business.nt.gov.au/help-for-business/territory-business-advisors' target='_blank' rel='noopener noreferrer'>Territory Business Advisors</a> about your safety and security needs for your business.</p><p>You can also look at the <a href='https://pfes.nt.gov.au/sites/default/files/uploads/files/2019/Business%20Security%20A4%20Flyer.pdf' target='_blank' rel='noopener noreferrer'>NT Police Business Security Flyer</a> for more tips.</p>"
+                        "body": "<p>Great security starts with layered protection. While you may have some security measures in place, the more barriers you have, the harder it is for intruders to gain access. Review your setup regularly and upgrade where needed.</p><p>Consider looking into installing any items you ticked 'no or unsure' for.  Adding additional security items can help to prevent opportunistic crime at your business.</p><p>We recommend you speak to one of our <a href='https://business.nt.gov.au/help-for-business/territory-business-advisors' target='_blank' rel='noopener noreferrer'>Territory Business Advisors</a> about your safety and security needs for your business.</p><p>You can also look at the <a href='https://pfes.nt.gov.au/sites/default/files/uploads/files/2019/Business%20Security%20A4%20Flyer.pdf' target='_blank' rel='noopener noreferrer'>NT Police Business Security Flyer</a> for more tips.</p>"
                     },
                     "subQuestions": [
                         {
@@ -320,9 +320,8 @@
                     "label": "Does your business work from more than one location?",
                     "helpText": "",
                     "options": [
-                        { "label": "Yes", "score": 0 },
-                        { "label": "No", "score": 0 },
-                        { "label": "Unsure", "score": 0 }
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 }
                     ]
                 },
                 {
@@ -364,17 +363,22 @@
                         { "label": "No", "score": 1 },
                         { "label": "Unsure", "score": 0 }
                     ],
+                    "showRecommendationOnYes": true,
+                    "positiveMessage": {
+                        "title": "Great Cash Safety Measures!",
+                        "body": "<p>You have some good cash handing practices, highlighting risk management focus and a commitment to security. Review any processes you do have to make sure they are still relevant and consider more layers of protection. </p>"
+                    },
                     "recommendation": {
                         "title": "Consider Going Cashless",
                         "body": "<p>Consider moving to a cashless payment system to limit the amount of cash you are handling in your business, such as eftpos, apple square, etc.</p><p>Consider applying to the <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program' target='_blank' rel='noopener noreferrer'>Business Growth Program</a> to help you with a business plan or strategy.</p>"
                     },
                     "conditionalQuestionGroupPositiveMessage": {
-                        "title": "Great Cash System!",
-                        "body": "<p>Your cash handling practices highlight strong risk management and a clear commitment to security. Review any processes regulary to make sure they are still relevant.</p>"
+                        "title": "Great Cash Safety Measures!",
+                        "body": "<p>You have some good cash handing practices, highlighting risk management focus and a commitment to security. Review any processes you do have to make sure they are still relevant and consider more layers of protection. </p>"
                     },
                     "conditionalQuestionGroupRecommendation": {
                         "title": "Improve Cash Handling",
-                        "body": "<p>Storing cash in hard-to-access containers and removing it periodically during the day can help deter theft and minimise losses. Taking cash offsite when the business is closed further reduces risk.</p><p>Displaying signage that your business is cashless or doesn't store cash overnight can discourage intruders. Staff should be trained on safe cash handling, including storage, removal, and opening/closing procedures to protect both cash and personnel.</p><p>View <a href='https://www.safeworkaustralia.gov.au/system/files/documents/1702/guide-handling-transporting-cash-may-2013.pdf' target='_blank' rel='noopener noreferrer'>Safe Work Australia's guide to handling and transporting cash</a></p><p>To view an example sign to use click here (downloadable resource)</p>"
+                        "body": "<p>Storing cash in hard-to-access containers and removing it periodically during the day can help deter theft and minimise losses. Taking cash offsite when the business is closed further reduces risk.</p><p>Displaying signage that your business is cashless or doesn't store cash overnight can discourage intruders. Staff should be trained on safe cash handling, including storage, removal, and opening/closing procedures to protect both cash and personnel.</p><p>View <a href='https://www.safeworkaustralia.gov.au/system/files/documents/1702/guide-handling-transporting-cash-may-2013.pdf' target='_blank' rel='noopener noreferrer'>Safe Work Australia's guide to handling and transporting cash</a></p>"
                     }
                 },
                 {
@@ -574,7 +578,7 @@
                         "body": "<p>You are protecting your assets by keeping safes locked and out of view, maintaining a secure code register, and displaying signage about time-delay and restricted access.</p>"
                     },
                     "conditionalQuestionGroupRecommendation": {
-                        "title": "Keep safes locaked out of sight",
+                        "title": "Keep safes locked out of sight",
                         "body": "<p>Keep safes locked and out of sight to protect valuables and sensitive documents. Maintain a register of staff access codes to track usage and update codes as needed. Display signage about time-delay safes to deter intruders and protect staff.</p>"
                     }
                 },
@@ -706,6 +710,10 @@
                     "positiveMessage": {
                         "title": "Well Lit!",
                         "body": "<p>Good lighting improves visibility and safety, helping customers and staff feel secure at all times.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Make sure the area is well lit!",
+                        "body": "<p>Poorly lit areas can attract theft or violence. By making sure everyone can see clearly, especially when it's dark, can help protect your staff and cutomers. </p>"
                     }
                 },
                 {
@@ -820,6 +828,7 @@
                         { "label": "No", "score": 1 },
                         { "label": "Unsure", "score": 0 }
                     ],
+                    "showRecommendationOnYes": true,
                     "positiveMessage": {
                         "title": "Access Controlled!",
                         "body": "<p>Limiting roof access reduces security risks and helps protect your premises from unauthorised entry through high windows or through the roof.</p>"
@@ -879,6 +888,7 @@
                         { "label": "Unsure", "score": 0 },
                         { "label": "N/A", "score": 0 }
                     ],
+                    "showRecommendationOnYes": true,
                     "positiveMessage": {
                         "title": "Secure Storage!",
                         "body": "<p>Keeping items stored inside your business reduces theft risk and helps maintain a secure environment.</p>"

@@ -215,7 +215,7 @@
                     }
                 },
                 {
-                    "id": "keyStorage",
+                    "id": "vehicleKeyStorage",
                     "type": "radio",
                     "label": "Are keys kept in a safe, out of sight location when not in use?",
                     "helpText": "",
@@ -296,7 +296,7 @@
                     }
                 },
                 {
-                    "id": "incidentReporting",
+                    "id": "vehicleIncidentReporting",
                     "type": "radio",
                     "label": "Is there an incident reporting process in your business?",
                     "helpText": "An incident reporting process is a simple step-by-step way for staff to report any accidents, near misses, or safety concerns at work. It usually involves recording what happened, who was involved, when and where it occurred, and notifying the right person or team so action can be taken to prevent it happening again.",
@@ -455,7 +455,7 @@
                     }
                 },
                 {
-                    "id": "cashManagement",
+                    "id": "vehicleCashManagement",
                     "type": "group",
                     "label": "Cash Management: Is cash stored in a locked container? Is cash removed when the vehicle is not in use? Do you have a cash handling procedure?",
                     "conditional": {

@@ -137,7 +137,7 @@
       "title": "Multiple Locations",
       "questions": [
         {
-          "id": "multipleLocations",
+          "id": "mobileMultipleLocations",
           "type": "radio",
           "label": "Does your business operate from different locations?",
           "helpText": "",
@@ -268,7 +268,7 @@
           }
         },
         {
-          "id": "cashHandlingProcedures",
+          "id": "mobileCashHandlingProcedures",
           "type": "radio",
           "label": "Does your business have cash handling procedures?",
           "helpText": "",
@@ -292,7 +292,7 @@
           }
         },
         {
-          "id": "personalItemsStorage",
+          "id": "mobilePersonalItemsStorage",
           "type": "radio",
           "label": "Does your business have a lockable space for you and/or your staff to keep your personal belongings whilst at work?",
           "helpText": "",
@@ -411,7 +411,7 @@
       "title": "Safety Culture",
       "questions": [
         {
-          "id": "safetyEquipment",
+          "id": "mobileSafetyEquipment",
           "type": "radio",
           "label": "Do your staff or yourself have access to all the necessary safety and security equipment required for the environment they work in?",
           "helpText": "Necessary safety and security equipment for mobile businesses includes items like first aid kits, personal alarms, and phones to help staff stay safe while working off-site.",

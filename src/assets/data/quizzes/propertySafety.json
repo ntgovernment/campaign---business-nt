@@ -897,6 +897,27 @@
                         "title": "Secure Outside Items",
                         "body": "<p>If you need to store items outside your business, keep them in a locked cage or secure area, use lighting and cameras, and avoid placing them near climbable structures or entry points.</p>"
                     }
+                },
+                {
+                    "id": "powerBoxSecurity",
+                    "type": "radio",
+                    "label": "Is your power box and NBN box secured with a lock or padlock?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 0 },
+                        { "label": "No", "score": 1 },
+                        { "label": "Unsure", "score": 0 },
+                        { "label": "N/A", "score": 0 }
+                    ],
+                    "showRecommendationOnYes": true,
+                    "positiveMessage": {
+                        "title": "Power Secured!",
+                        "body": "<p>By securing the power to your business you help prevent potential crime occurring through cutting your power.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Secure Power and Internet",
+                        "body": "<p>Secure your power and internet into your business. If anyone cuts power to your business you may loose security such as alarm systems and CCTV.</p>"
+                    }
                 }
             ]
         },

@@ -1537,6 +1537,15 @@
                 contactBtn.remove();
             }
 
+            // Add quiz title at the top
+            const titleElement = document.createElement('h1');
+            titleElement.textContent = quiz.title || 'Business Health Report';
+            titleElement.style.fontSize = '24px';
+            titleElement.style.fontWeight = '700';
+            titleElement.style.marginBottom = '20px';
+            titleElement.style.color = '#333';
+            wrapper.appendChild(titleElement);
+
             wrapper.appendChild(clone);
 
             // Configure PDF options
@@ -1596,6 +1605,14 @@
             if (navButtons) {
                 navButtons.remove();
             }
+
+            // Add quiz title at the top
+            const titleElement = document.createElement('h1');
+            titleElement.textContent = quiz.title || 'Business Health Report';
+            titleElement.style.fontSize = '24px';
+            titleElement.style.fontWeight = '700';
+            titleElement.style.marginBottom = '20px';
+            clone.insertBefore(titleElement, clone.firstChild);
 
             // Open a new window with the content for printing
             const newWin = window.open('', '_blank');

@@ -75,7 +75,7 @@
                         messages: [
                             {
                                 role: 'system',
-                                content: 'You are a business consultant providing concise, actionable feedback on business health assessments. Generate professional summaries that highlight strengths and areas for improvement.'
+                                content: 'You are a business consultant providing concise, actionable feedback on business health assessments. Generate professional summaries that highlight strengths and areas for improvement. Use Australian English spelling (e.g., "organisation" not "organization", "analyse" not "analyze", "prioritise" not "prioritize").'
                             },
                             {
                                 role: 'user',

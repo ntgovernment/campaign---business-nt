@@ -562,6 +562,7 @@
                 cursor: help;
                 user-select: none;
                 position: relative;
+                flex-shrink: 0;
 
                 .help-tooltip {
                     position: absolute;
@@ -642,10 +643,21 @@
                     cursor: pointer;
                 }
 
+                &:has(input[value="Yes"]) label:hover {
+                    background-color: #2f9599;
+                    border-color: #2f9599;
+                    color: $white;
+                }
+
                 &:has(input:checked) label {
                     background-color: $primary;
                     color: $white;
                     border-color: $primary;
+                }
+
+                &:has(input[value="Yes"]:checked) label {
+                    background-color: #2f9599;
+                    border-color: #2f9599;
                 }
 
                 &:has(input:focus-visible) label {

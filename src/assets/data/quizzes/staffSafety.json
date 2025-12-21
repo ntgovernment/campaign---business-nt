@@ -138,7 +138,7 @@
       "title": "Key and Access Management",
       "questions": [
         {
-          "id": "keyStorage",
+          "id": "staffKeyStorage",
           "type": "radio",
           "label": "When on site, all keys, including personal keys, are always stored out of sight, or are with staff.",
           "helpText": "",
@@ -176,7 +176,7 @@
           }
         },
         {
-          "id": "keyRegister",
+          "id": "staffKeyRegister",
           "type": "radio",
           "label": "Do you keep and maintain a key (or code) register for your business?",
           "helpText": "A keycode register (or key register) is a secure record that tracks all keys used in a business, including their unique codes, what they unlock, who has them, and when they were issued or returned. It helps manage access, improve accountability, and reduce the risk of lost or misused keys.",

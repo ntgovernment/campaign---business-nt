@@ -25,13 +25,24 @@
       }catch(e){ console.warn('Failed to decode state', e); return null; }
     },
 
-    saveStateToUrl(stateObj){
+    saveStateToUrl(stateObj, skipHashChange = false){
       const compressed = this.encodeState(stateObj);
       // Always use single root path with state in query param
       // Save current scroll position
       const scrollX = window.scrollX;
       const scrollY = window.scrollY;
-      window.location.hash = `#?state=${compressed}`;
+      
+      if (skipHashChange) {
+        // Use replaceState to avoid triggering hashchange event
+        // This preserves keyboard focus during input changes
+        const newHash = `#?state=${compressed}`;
+        if (window.location.hash !== newHash) {
+          history.replaceState(null, '', newHash);
+        }
+      } else {
+        window.location.hash = `#?state=${compressed}`;
+      }
+      
       // Restore scroll position to prevent unwanted scrolling
       window.scrollTo(scrollX, scrollY);
     },

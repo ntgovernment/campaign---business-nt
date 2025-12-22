@@ -679,6 +679,9 @@
 
             // change handler
             qEl.addEventListener('change', (ev) => {
+                // Save the focused input ID before DOM manipulation
+                const focusedInputId = ev.target ? ev.target.id : null;
+                
                 handleInputChange(ev, quiz, pageIndex);
                 // after handling input change, show inline message for the changed value
                 const val = (function () {
@@ -697,6 +700,16 @@
                 showInlineMessageForQuestion(question, qEl, val);
                 // Update page messages
                 updatePageMessages(quiz, page);
+                
+                // Restore focus after ALL DOM updates are complete
+                if (focusedInputId) {
+                    setTimeout(() => {
+                        const inputToFocus = document.getElementById(focusedInputId);
+                        if (inputToFocus) {
+                            inputToFocus.focus();
+                        }
+                    }, 10); // Slightly longer delay to ensure all DOM updates complete
+                }
             });
         }
 
@@ -971,8 +984,8 @@
             }, 0);
         }
 
-        // auto-save state to URL
-        window.State.saveStateToUrl(window.State.currentState);
+        // auto-save state to URL without triggering hashchange/re-render
+        window.State.saveStateToUrl(window.State.currentState, true);
     }
 
     function updateConditionalGroupBorders(quiz) {

@@ -201,5 +201,5 @@ Format the response as plain text without markdown formatting or headings.`;
     }
 
     // Create global instance
-    // global.AISummaryGenerator = new AISummaryGenerator();
+    global.AISummaryGenerator = new AISummaryGenerator();
 })(window);

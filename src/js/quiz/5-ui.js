@@ -261,7 +261,8 @@
         stepper.className = 'stepper';
         const answers = window.State.currentState.answers || {};
         quiz.pages.forEach((p, idx) => {
-            const s = document.createElement('div');
+            const s = document.createElement('a');
+            s.href = '#';
             s.className = 'step';
             s.textContent = p.title || `Page ${idx + 1}`;
             const pageComplete = isPageCompleted(p, answers);
@@ -308,7 +309,8 @@
             } else if (idx < pageIndex) {
                 s.classList.add('completed');
             }
-            s.addEventListener('click', () => {
+            s.addEventListener('click', (e) => {
+                e.preventDefault();
                 window.State.currentState.view = 'quiz';
                 window.State.currentState.currentPage = idx;
                 window.State.saveStateToUrl(window.State.currentState);
@@ -317,10 +319,12 @@
         });
 
         // Add "Your results" step
-        const resultsStep = document.createElement('div');
+        const resultsStep = document.createElement('a');
+        resultsStep.href = '#';
         resultsStep.className = 'step';
         resultsStep.textContent = 'Your results';
-        resultsStep.addEventListener('click', () => {
+        resultsStep.addEventListener('click', (e) => {
+            e.preventDefault();
             window.State.currentState.view = 'results';
             window.State.saveStateToUrl(window.State.currentState);
         });
@@ -349,13 +353,13 @@
                 labelWrapper.className = 'question-label-wrapper';
                 const label = document.createElement('label');
                 label.textContent = question.label || question.id;
-                const helpIcon = document.createElement('i');
+                const helpIcon = document.createElement('button');
+                helpIcon.type = 'button';
                 helpIcon.className = 'help-icon';
                 helpIcon.textContent = 'i';
-                const tooltip = document.createElement('span');
-                tooltip.className = 'help-tooltip';
-                tooltip.textContent = question.helpText;
-                helpIcon.appendChild(tooltip);
+                helpIcon.setAttribute('data-bs-toggle', 'tooltip');
+                helpIcon.setAttribute('data-bs-placement', 'top');
+                helpIcon.setAttribute('data-bs-title', question.helpText);
                 labelWrapper.appendChild(label);
                 labelWrapper.appendChild(helpIcon);
                 qwrap.appendChild(labelWrapper);
@@ -456,13 +460,13 @@
                     labelWrapper.className = 'question-label-wrapper';
                     const label = document.createElement('label');
                     label.textContent = question.label || question.id;
-                    const helpIcon = document.createElement('i');
+                    const helpIcon = document.createElement('button');
+                    helpIcon.type = 'button';
                     helpIcon.className = 'help-icon';
                     helpIcon.textContent = 'i';
-                    const tooltip = document.createElement('span');
-                    tooltip.className = 'help-tooltip';
-                    tooltip.textContent = question.helpText;
-                    helpIcon.appendChild(tooltip);
+                    helpIcon.setAttribute('data-bs-toggle', 'tooltip');
+                    helpIcon.setAttribute('data-bs-placement', 'top');
+                    helpIcon.setAttribute('data-bs-title', question.helpText);
                     labelWrapper.appendChild(label);
                     labelWrapper.appendChild(helpIcon);
                     groupHeader.appendChild(labelWrapper);
@@ -577,6 +581,11 @@
                         groupDiv.appendChild(qwraps[ci]);
                         appended.add(ci);
                     }
+                    // Add message container for conditional group messages
+                    const conditionalGroupMessageDiv = document.createElement('div');
+                    conditionalGroupMessageDiv.className = 'conditional-group-message';
+                    conditionalGroupMessageDiv.dataset.parentQid = page.questions[i].id;
+                    groupDiv.appendChild(conditionalGroupMessageDiv);
                     contentEl.appendChild(groupDiv);
                 } else {
                     const groupDiv = document.createElement('div');
@@ -591,6 +600,11 @@
                             appended.add(ci);
                         }
                     });
+                    // Add message container for conditional group messages
+                    const conditionalGroupMessageDiv = document.createElement('div');
+                    conditionalGroupMessageDiv.className = 'conditional-group-message';
+                    conditionalGroupMessageDiv.dataset.parentQid = page.questions[i].id;
+                    groupDiv.appendChild(conditionalGroupMessageDiv);
                     contentEl.appendChild(groupDiv);
                 }
             } else {
@@ -733,6 +747,12 @@
         updatePageMessages(quiz, page);
         updateInlineQuestionMessages(quiz, page);
         updateConditionalGroupMessages(quiz, page);
+        
+        // Initialize Bootstrap tooltips
+        if (window.bootstrap && window.bootstrap.Tooltip) {
+            const tooltipTriggerList = contentEl.querySelectorAll('[data-bs-toggle="tooltip"]');
+            [...tooltipTriggerList].map(tooltipTriggerEl => new window.bootstrap.Tooltip(tooltipTriggerEl));
+        }
     }
 
     function updatePageMessages(quiz, page) {
@@ -753,8 +773,8 @@
                     if (!Conditional.isVisible(subQ, answers)) continue;
                     const ans = answers[subQ.id];
                     if (subQ.type === 'radio') {
-                        if (ans === 'Yes') hasPositive = true;
-                        if (ans === 'No' || ans === 'Unsure') hasNegative = true;
+                        if (shouldShowMessage(subQ, ans, 'positive')) hasPositive = true;
+                        if (shouldShowMessage(subQ, ans, 'recommendation')) hasNegative = true;
                     }
                 }
 
@@ -814,6 +834,31 @@
         }
     }
 
+    // Helper function to determine if answer should trigger positive or recommendation message
+    function shouldShowMessage(question, answer, messageType) {
+        if (!answer) return false;
+        
+        // Check if question has custom trigger values
+        if (messageType === 'positive' && question.positiveMessageOn) {
+            return question.positiveMessageOn.includes(answer);
+        }
+        if (messageType === 'recommendation' && question.recommendationOn) {
+            return question.recommendationOn.includes(answer);
+        }
+        
+        // Fallback to default Yes/No logic for backward compatibility
+        if (question.type === 'radio') {
+            if (messageType === 'positive') {
+                return question.showRecommendationOnYes ? (answer === 'No') : (answer === 'Yes');
+            }
+            if (messageType === 'recommendation') {
+                return question.showRecommendationOnYes ? (answer === 'Yes') : (answer === 'No' || answer === 'Unsure');
+            }
+        }
+        
+        return false;
+    }
+
     // Update inline question messages (for regular questions without subQuestions)
     function updateInlineQuestionMessages(quiz, page) {
         const answers = window.State.currentState.answers || {};
@@ -841,13 +886,9 @@
 
             if (q.type === 'radio') {
                 // Check if positive message should be shown
-                const shouldShowPos = q.showRecommendationOnYes ? (ans === 'No') : (ans === 'Yes');
-                // Check if recommendation should be shown
-                const shouldShowRec = q.showRecommendationOnYes ? (ans === 'Yes') : (ans === 'No' || ans === 'Unsure');
-
-                if (shouldShowPos && q.positiveMessage) {
+                if (shouldShowMessage(q, ans, 'positive') && q.positiveMessage) {
                     messageToShow = { ...q.positiveMessage, type: 'positive' };
-                } else if (shouldShowRec && q.recommendation) {
+                } else if (shouldShowMessage(q, ans, 'recommendation') && q.recommendation) {
                     messageToShow = { ...q.recommendation, type: 'recommendation' };
                 }
             }
@@ -880,7 +921,7 @@
         }
     }
 
-    // Update conditional group messages (for .conditional-subquestion-group)
+    // Update conditional group messages (for .conditional-subquestion-group and .conditional-group)
     function updateConditionalGroupMessages(quiz, page) {
         const answers = window.State.currentState.answers || {};
 
@@ -891,12 +932,19 @@
             const parentQid = messageContainer.dataset.parentQid;
             if (!parentQid) return;
 
-            // Find the parent question
+            // Find the parent question - could be a regular question or a sub-question in a group
             let parentQuestion = null;
-            for (const q of page.questions) {
-                if (q.type === 'group' && q.subQuestions) {
-                    parentQuestion = q.subQuestions.find((sq) => sq.id === parentQid);
-                    if (parentQuestion) break;
+            
+            // First check if it's a regular question
+            parentQuestion = page.questions.find((q) => q.id === parentQid);
+            
+            // If not found, check if it's a sub-question in a group
+            if (!parentQuestion) {
+                for (const q of page.questions) {
+                    if (q.type === 'group' && q.subQuestions) {
+                        parentQuestion = q.subQuestions.find((sq) => sq.id === parentQid);
+                        if (parentQuestion) break;
+                    }
                 }
             }
 
@@ -909,12 +957,15 @@
             let shouldShowPositive = false;
             let shouldShowRecommendation = false;
 
-            // Find the wrapper to get all children
-            const wrapper = messageContainer.closest('.conditional-subquestion-group');
+            // Find the wrapper - could be .conditional-subquestion-group or .conditional-group
+            const wrapper = messageContainer.closest('.conditional-subquestion-group, .conditional-group');
             if (wrapper) {
-                const childQuestions = wrapper.querySelectorAll('.sub-question');
+                const childQuestions = wrapper.querySelectorAll('.sub-question, .question');
                 childQuestions.forEach((childEl) => {
                     const childQid = childEl.dataset.qid;
+                    // Skip the parent question itself
+                    if (childQid === parentQid) return;
+                    
                     const childQuestion = findQuestionInQuiz(quiz, childQid);
                     
                     // Skip if not conditional or not depending on this parent
@@ -927,11 +978,8 @@
 
                     const ans = answers[childQid];
                     if (childQuestion.type === 'radio') {
-                        const shouldShowPos = childQuestion.showRecommendationOnYes ? (ans === 'No') : (ans === 'Yes');
-                        const shouldShowRec = childQuestion.showRecommendationOnYes ? (ans === 'Yes') : (ans === 'No' || ans === 'Unsure');
-
-                        if (shouldShowPos) shouldShowPositive = true;
-                        if (shouldShowRec) shouldShowRecommendation = true;
+                        if (shouldShowMessage(childQuestion, ans, 'positive')) shouldShowPositive = true;
+                        if (shouldShowMessage(childQuestion, ans, 'recommendation')) shouldShowRecommendation = true;
                     }
                 });
             }
@@ -1122,7 +1170,8 @@
         const stepper = document.createElement('div');
         stepper.className = 'stepper';
         quiz.pages.forEach((p, idx) => {
-            const s = document.createElement('div');
+            const s = document.createElement('a');
+            s.href = '#';
             s.className = 'step';
             s.textContent = p.title || `Page ${idx + 1}`;
             const pageComplete = isPageCompleted(p, answers);
@@ -1166,7 +1215,8 @@
             }
             // All page steps should be marked as completed when viewing results
             s.classList.add('completed');
-            s.addEventListener('click', () => {
+            s.addEventListener('click', (e) => {
+                e.preventDefault();
                 window.State.currentState.view = 'quiz';
                 window.State.currentState.currentPage = idx;
                 window.State.saveStateToUrl(window.State.currentState);
@@ -1175,7 +1225,8 @@
         });
 
         // Add "Your results" step (active)
-        const resultsStep = document.createElement('div');
+        const resultsStep = document.createElement('a');
+        resultsStep.href = '#';
         resultsStep.className = 'step active';
         resultsStep.textContent = 'Your results';
         stepper.appendChild(resultsStep);

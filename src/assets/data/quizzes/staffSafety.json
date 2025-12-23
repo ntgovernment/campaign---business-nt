@@ -682,6 +682,8 @@
                         { "label": "All the time", "score": 0 },
                         { "label": "Unsure", "score": 0 }
                     ],
+                    "positiveMessageOn": ["Never"],
+                    "recommendationOn": ["At times", "All the time", "Unsure"],
                     "positiveMessage": {
                         "title": "Safe Workplace!",
                         "body": "<p>A workplace where staff feel safe fosters trust, productivity, and a positive culture.</p>"

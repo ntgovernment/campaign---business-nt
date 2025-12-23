@@ -429,6 +429,12 @@
             messageDiv.style.display = 'none';
             qwrap.appendChild(messageDiv);
 
+            // question message placeholder (for positive/recommendation messages)
+            const questionMessageDiv = document.createElement('div');
+            questionMessageDiv.className = 'question-message';
+            questionMessageDiv.dataset.qid = question.id;
+            qwrap.appendChild(questionMessageDiv);
+
             return qwrap;
         }
 
@@ -508,6 +514,12 @@
                                 condWrapper.appendChild(childEl);
                                 processed.add(childIdx);
                             });
+
+                            // Add conditional group message placeholder
+                            const conditionalGroupMessageDiv = document.createElement('div');
+                            conditionalGroupMessageDiv.className = 'conditional-group-message';
+                            conditionalGroupMessageDiv.dataset.parentQid = subQ.id;
+                            condWrapper.appendChild(conditionalGroupMessageDiv);
 
                             groupWrap.appendChild(condWrapper);
                         } else {
@@ -698,8 +710,10 @@
                     }
                 })();
                 showInlineMessageForQuestion(question, qEl, val);
-                // Update page messages
+                // Update page messages and inline question messages
                 updatePageMessages(quiz, page);
+                updateInlineQuestionMessages(quiz, page);
+                updateConditionalGroupMessages(quiz, page);
                 
                 // Restore focus after ALL DOM updates are complete
                 if (focusedInputId) {
@@ -715,8 +729,10 @@
 
         // Initialize conditional-subquestion-group wrapper visibility on page load
         updateConditionalGroupBorders(quiz);
-        // Initialize page messages
+        // Initialize page messages and inline question messages
         updatePageMessages(quiz, page);
+        updateInlineQuestionMessages(quiz, page);
+        updateConditionalGroupMessages(quiz, page);
     }
 
     function updatePageMessages(quiz, page) {
@@ -726,10 +742,10 @@
         const answers = window.State.currentState.answers || {};
         const messages = { positive: [], recommendation: [] };
 
-        // Check each question on the page
+        // Check each question on the page - ONLY for group-level messages
         for (const q of page.questions) {
             if (q.type === 'group' && q.subQuestions) {
-                // For groups, check group-level messages first
+                // For groups, check group-level messages only
                 let hasPositive = false;
                 let hasNegative = false;
 
@@ -748,101 +764,8 @@
                 if (hasNegative && q.recommendation) {
                     messages.recommendation.push(q.recommendation);
                 }
-
-                // Also check each subQuestion for its own messages
-                for (const subQ of q.subQuestions) {
-                    if (!Conditional.isVisible(subQ, answers)) continue;
-                    const ans = answers[subQ.id];
-
-                    if (subQ.type === 'radio') {
-                        // Check if this is a conditional question
-                        const isConditional = subQ.conditional && subQ.conditional.showWhen;
-
-                        // Find the parent question this depends on
-                        let parentQuestion = null;
-                        if (isConditional) {
-                            const dependsOnId = Object.keys(subQ.conditional.showWhen)[0];
-                            parentQuestion = q.subQuestions.find((sq) => sq.id === dependsOnId);
-                        }
-
-                        // Check if positive message should be shown on No (when showRecommendationOnYes is true, behavior is inverted)
-                        const shouldShowPos = subQ.showRecommendationOnYes ? (ans === 'No') : (ans === 'Yes');
-                        
-                        if (shouldShowPos) {
-                            // Use conditionalQuestionGroupPositiveMessage from parent if it's a conditional question
-                            if (isConditional && parentQuestion && parentQuestion.conditionalQuestionGroupPositiveMessage) {
-                                // Only add once per parent question
-                                if (!messages.positive.some((m) => m.title === parentQuestion.conditionalQuestionGroupPositiveMessage.title)) {
-                                    messages.positive.push(parentQuestion.conditionalQuestionGroupPositiveMessage);
-                                }
-                            } else if (subQ.positiveMessage) {
-                                messages.positive.push(subQ.positiveMessage);
-                            }
-                        }
-
-                        // Check if recommendation should be shown on Yes (special case for questions like cashOnsite)
-                        const shouldShowRec = subQ.showRecommendationOnYes ? (ans === 'Yes') : (ans === 'No' || ans === 'Unsure');
-                        
-                        if (shouldShowRec) {
-                            // Use conditionalQuestionGroupRecommendation from parent if it's a conditional question
-                            if (isConditional && parentQuestion && parentQuestion.conditionalQuestionGroupRecommendation) {
-                                // Only add once per parent question
-                                if (!messages.recommendation.some((m) => m.title === parentQuestion.conditionalQuestionGroupRecommendation.title)) {
-                                    messages.recommendation.push(parentQuestion.conditionalQuestionGroupRecommendation);
-                                }
-                            } else if (subQ.recommendation) {
-                                messages.recommendation.push(subQ.recommendation);
-                            }
-                        }
-                    }
-                }
-            } else {
-                // Regular question
-                if (!Conditional.isVisible(q, answers)) continue;
-                const ans = answers[q.id];
-
-                if (q.type === 'radio') {
-                    // Check if this is a conditional question
-                    const isConditional = q.conditional && q.conditional.showWhen;
-
-                    // Find the parent question this depends on
-                    let parentQuestion = null;
-                    if (isConditional) {
-                        const dependsOnId = Object.keys(q.conditional.showWhen)[0];
-                        parentQuestion = page.questions.find((pq) => pq.id === dependsOnId);
-                    }
-
-                    // Check if positive message should be shown on No (when showRecommendationOnYes is true, behavior is inverted)
-                    const shouldShowPos = q.showRecommendationOnYes ? (ans === 'No') : (ans === 'Yes');
-                    
-                    if (shouldShowPos) {
-                        // Use conditionalQuestionGroupPositiveMessage from parent if it's a conditional question
-                        if (isConditional && parentQuestion && parentQuestion.conditionalQuestionGroupPositiveMessage) {
-                            // Only add once per parent question
-                            if (!messages.positive.some((m) => m.title === parentQuestion.conditionalQuestionGroupPositiveMessage.title)) {
-                                messages.positive.push(parentQuestion.conditionalQuestionGroupPositiveMessage);
-                            }
-                        } else if (q.positiveMessage) {
-                            messages.positive.push(q.positiveMessage);
-                        }
-                    }
-
-                    // Check if recommendation should be shown on Yes (special case for questions like cashOnsite)
-                    const shouldShowRec = q.showRecommendationOnYes ? (ans === 'Yes') : (ans === 'No' || ans === 'Unsure');
-                    
-                    if (shouldShowRec) {
-                        // Use conditionalQuestionGroupRecommendation from parent if it's a conditional question
-                        if (isConditional && parentQuestion && parentQuestion.conditionalQuestionGroupRecommendation) {
-                            // Only add once per parent question
-                            if (!messages.recommendation.some((m) => m.title === parentQuestion.conditionalQuestionGroupRecommendation.title)) {
-                                messages.recommendation.push(parentQuestion.conditionalQuestionGroupRecommendation);
-                            }
-                        } else if (q.recommendation) {
-                            messages.recommendation.push(q.recommendation);
-                        }
-                    }
-                }
             }
+            // Regular questions are handled by updateInlineQuestionMessages
         }
 
         // Generate message keys for comparison
@@ -889,6 +812,183 @@
                 messagesSection.appendChild(msgDiv);
             });
         }
+    }
+
+    // Update inline question messages (for regular questions without subQuestions)
+    function updateInlineQuestionMessages(quiz, page) {
+        const answers = window.State.currentState.answers || {};
+
+        // Find all regular questions (not in groups)
+        for (const q of page.questions) {
+            // Skip group questions
+            if (q.type === 'group' && q.subQuestions) continue;
+
+            // Find the question element
+            const qEl = document.querySelector(`.question[data-qid="${q.id}"]`);
+            if (!qEl) continue;
+
+            const messageContainer = qEl.querySelector('.question-message');
+            if (!messageContainer) continue;
+
+            // Check if question is visible
+            if (!Conditional.isVisible(q, answers)) {
+                messageContainer.innerHTML = '';
+                continue;
+            }
+
+            const ans = answers[q.id];
+            let messageToShow = null;
+
+            if (q.type === 'radio') {
+                // Check if positive message should be shown
+                const shouldShowPos = q.showRecommendationOnYes ? (ans === 'No') : (ans === 'Yes');
+                // Check if recommendation should be shown
+                const shouldShowRec = q.showRecommendationOnYes ? (ans === 'Yes') : (ans === 'No' || ans === 'Unsure');
+
+                if (shouldShowPos && q.positiveMessage) {
+                    messageToShow = { ...q.positiveMessage, type: 'positive' };
+                } else if (shouldShowRec && q.recommendation) {
+                    messageToShow = { ...q.recommendation, type: 'recommendation' };
+                }
+            }
+
+            // Update the message container
+            if (messageToShow) {
+                const newMessageKey = JSON.stringify(messageToShow);
+                const currentMessageKey = messageContainer.dataset.messageKey || '';
+
+                if (newMessageKey !== currentMessageKey) {
+                    messageContainer.dataset.messageKey = newMessageKey;
+                    messageContainer.innerHTML = '';
+
+                    const msgDiv = document.createElement('div');
+                    msgDiv.className = `message-item ${messageToShow.type}`;
+                    const title = document.createElement('div');
+                    title.className = 'message-title';
+                    title.textContent = messageToShow.title;
+                    const body = document.createElement('div');
+                    body.className = 'message-body';
+                    body.innerHTML = messageToShow.body;
+                    msgDiv.appendChild(title);
+                    msgDiv.appendChild(body);
+                    messageContainer.appendChild(msgDiv);
+                }
+            } else {
+                messageContainer.innerHTML = '';
+                messageContainer.dataset.messageKey = '';
+            }
+        }
+    }
+
+    // Update conditional group messages (for .conditional-subquestion-group)
+    function updateConditionalGroupMessages(quiz, page) {
+        const answers = window.State.currentState.answers || {};
+
+        // Find all conditional group message containers
+        const conditionalGroups = document.querySelectorAll('.conditional-group-message');
+        
+        conditionalGroups.forEach((messageContainer) => {
+            const parentQid = messageContainer.dataset.parentQid;
+            if (!parentQid) return;
+
+            // Find the parent question
+            let parentQuestion = null;
+            for (const q of page.questions) {
+                if (q.type === 'group' && q.subQuestions) {
+                    parentQuestion = q.subQuestions.find((sq) => sq.id === parentQid);
+                    if (parentQuestion) break;
+                }
+            }
+
+            if (!parentQuestion) return;
+
+            // Collect messages to show (both positive and recommendation)
+            const messages = { positive: [], recommendation: [] };
+
+            // Check all conditional children of this parent
+            let shouldShowPositive = false;
+            let shouldShowRecommendation = false;
+
+            // Find the wrapper to get all children
+            const wrapper = messageContainer.closest('.conditional-subquestion-group');
+            if (wrapper) {
+                const childQuestions = wrapper.querySelectorAll('.sub-question');
+                childQuestions.forEach((childEl) => {
+                    const childQid = childEl.dataset.qid;
+                    const childQuestion = findQuestionInQuiz(quiz, childQid);
+                    
+                    // Skip if not conditional or not depending on this parent
+                    if (!childQuestion || !childQuestion.conditional || !childQuestion.conditional.showWhen) return;
+                    const dependsOnId = Object.keys(childQuestion.conditional.showWhen)[0];
+                    if (dependsOnId !== parentQid) return;
+
+                    // Check if child is visible
+                    if (!Conditional.isVisible(childQuestion, answers)) return;
+
+                    const ans = answers[childQid];
+                    if (childQuestion.type === 'radio') {
+                        const shouldShowPos = childQuestion.showRecommendationOnYes ? (ans === 'No') : (ans === 'Yes');
+                        const shouldShowRec = childQuestion.showRecommendationOnYes ? (ans === 'Yes') : (ans === 'No' || ans === 'Unsure');
+
+                        if (shouldShowPos) shouldShowPositive = true;
+                        if (shouldShowRec) shouldShowRecommendation = true;
+                    }
+                });
+            }
+
+            // Add messages to arrays (only once each)
+            if (shouldShowPositive && parentQuestion.conditionalQuestionGroupPositiveMessage) {
+                if (!messages.positive.some((m) => m.title === parentQuestion.conditionalQuestionGroupPositiveMessage.title)) {
+                    messages.positive.push(parentQuestion.conditionalQuestionGroupPositiveMessage);
+                }
+            }
+            if (shouldShowRecommendation && parentQuestion.conditionalQuestionGroupRecommendation) {
+                if (!messages.recommendation.some((m) => m.title === parentQuestion.conditionalQuestionGroupRecommendation.title)) {
+                    messages.recommendation.push(parentQuestion.conditionalQuestionGroupRecommendation);
+                }
+            }
+
+            // Generate message keys for comparison
+            const newMessageKeys = JSON.stringify(messages);
+            const currentMessageKeys = messageContainer.dataset.messageKey || '';
+
+            // Only update DOM if messages have changed
+            if (newMessageKeys === currentMessageKeys) return;
+
+            messageContainer.dataset.messageKey = newMessageKeys;
+            messageContainer.innerHTML = '';
+
+            // Display messages if there are any
+            if (messages.positive.length > 0 || messages.recommendation.length > 0) {
+                messages.positive.forEach((msg) => {
+                    const msgDiv = document.createElement('div');
+                    msgDiv.className = 'message-item positive';
+                    const title = document.createElement('div');
+                    title.className = 'message-title';
+                    title.textContent = msg.title;
+                    const body = document.createElement('div');
+                    body.className = 'message-body';
+                    body.innerHTML = msg.body;
+                    msgDiv.appendChild(title);
+                    msgDiv.appendChild(body);
+                    messageContainer.appendChild(msgDiv);
+                });
+
+                messages.recommendation.forEach((msg) => {
+                    const msgDiv = document.createElement('div');
+                    msgDiv.className = 'message-item recommendation';
+                    const title = document.createElement('div');
+                    title.className = 'message-title';
+                    title.textContent = msg.title;
+                    const body = document.createElement('div');
+                    body.className = 'message-body';
+                    body.innerHTML = msg.body;
+                    msgDiv.appendChild(title);
+                    msgDiv.appendChild(body);
+                    messageContainer.appendChild(msgDiv);
+                });
+            }
+        });
     }
 
     function findQuestionInQuiz(quiz, qid) {

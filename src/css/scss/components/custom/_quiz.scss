@@ -667,7 +667,8 @@
             }
         }
 
-        .page-messages {
+        .page-messages,
+        .conditional-group-message {
             &:not(:empty) {
                 margin-top: 2rem;
             }

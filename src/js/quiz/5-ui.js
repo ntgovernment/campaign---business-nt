@@ -1581,55 +1581,20 @@
                 return;
             }
 
-            // Clone the content element
+            // Clone content and remove action buttons
             const contentEl = document.getElementById('quizContent');
             const clone = contentEl.cloneNode(true);
 
-            // Create a wrapper with styles
-            const wrapper = document.createElement('div');
-            wrapper.style.fontFamily = 'system-ui, -apple-system, sans-serif';
-            wrapper.style.color = '#333';
-            wrapper.style.padding = '20px';
-            
-            // Apply computed styles to clone BEFORE removing elements
-            const applyComputedStyles = (element, sourceElement) => {
-                if (!element || !sourceElement) return;
-
-                const computed = window.getComputedStyle(sourceElement);
-                const inline = element.style;
-
-                // Copy essential display properties
-                inline.fontSize = computed.fontSize;
-                inline.fontWeight = computed.fontWeight;
-                inline.color = computed.color;
-                inline.backgroundColor = computed.backgroundColor;
-                inline.padding = computed.padding;
-                inline.margin = computed.margin;
-                inline.border = computed.border;
-                inline.borderRadius = computed.borderRadius;
-                inline.display = computed.display;
-                inline.flexDirection = computed.flexDirection;
-                inline.alignItems = computed.alignItems;
-                inline.justifyContent = computed.justifyContent;
-                inline.gap = computed.gap;
-                inline.width = computed.width;
-                inline.height = computed.height;
-                inline.lineHeight = computed.lineHeight;
-
-                // Recursively apply to children
-                const children = element.children;
-                const sourceChildren = sourceElement.children;
-                for (let i = 0; i < children.length; i++) {
-                    applyComputedStyles(children[i], sourceChildren[i]);
-                }
-            };
-
-            applyComputedStyles(clone, contentEl);
-
-            // Remove the action buttons from the clone AFTER applying styles
+            // Remove the action buttons from the clone
             const actionsWrap = clone.querySelector('.results-actions');
             if (actionsWrap && actionsWrap.querySelector('button')) {
                 actionsWrap.remove();
+            }
+
+            // Remove the stepper from the clone
+            const stepper = clone.querySelector('.stepper');
+            if (stepper) {
+                stepper.remove();
             }
 
             // Remove quiz navigation buttons
@@ -1638,16 +1603,10 @@
                 navButtons.remove();
             }
 
-            // Remove stepper
-            const stepper = clone.querySelector('.stepper');
-            if (stepper) {
-                stepper.remove();
-            }
-
             // Remove contact button
-            const contactBtn = clone.querySelector('.btn');
-            if (contactBtn) {
-                contactBtn.remove();
+            const contactButton = clone.querySelector('.btn.btn-primary.mb-4');
+            if (contactButton) {
+                contactButton.remove();
             }
 
             // Add quiz title at the top
@@ -1656,10 +1615,36 @@
             titleElement.style.fontSize = '24px';
             titleElement.style.fontWeight = '700';
             titleElement.style.marginBottom = '20px';
-            titleElement.style.color = '#333';
-            wrapper.appendChild(titleElement);
+            clone.insertBefore(titleElement, clone.firstChild);
 
-            wrapper.appendChild(clone);
+            // Get all stylesheets
+            const styles = Array.from(document.querySelectorAll('link[rel=stylesheet]'))
+                .map((l) => `<link rel="stylesheet" href="${l.href}">`)
+                .join('\n');
+
+            // Get inline styles from style tags
+            const inlineStyles = Array.from(document.querySelectorAll('style'))
+                .map((s) => `<style>${s.innerHTML}</style>`)
+                .join('\n');
+
+            // Create a complete HTML document with styles
+            const wrapper = document.createElement('div');
+            wrapper.innerHTML = `
+                <!doctype html>
+                <html>
+                <head>
+                    <meta charset="utf-8">
+                    ${styles}
+                    ${inlineStyles}
+                    <title>${quiz.title || 'Business Health Report'}</title>
+                </head>
+                <body>
+                    <div class="ntg-quiz-body">
+                        ${clone.innerHTML}
+                    </div>
+                </body>
+                </html>
+            `;
 
             // Configure PDF options
             const opt = {
@@ -1670,7 +1655,7 @@
                 jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
             };
 
-            // Generate PDF
+            // Generate PDF from the complete HTML
             html2pdf().set(opt).from(wrapper).save();
         });
 
@@ -1717,6 +1702,12 @@
             const navButtons = clone.querySelector('.quiz-nav-buttons');
             if (navButtons) {
                 navButtons.remove();
+            }
+
+            // Remove contact button
+            const contactButton = clone.querySelector('.btn.btn-primary.mb-4');
+            if (contactButton) {
+                contactButton.remove();
             }
 
             // Add quiz title at the top

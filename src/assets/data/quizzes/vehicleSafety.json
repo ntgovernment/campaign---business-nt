@@ -19,7 +19,7 @@
                     ],
                     "recommendation": {
                         "title": "Alternative Questionnaires",
-                        "body": "<p>This survey is for businesses that use vehicles. We recommend that you complete the Property Safety Questionnaire (Link) or the Staff Safety Questionnaire (link).</p>"
+                        "body": "<p>This survey is for businesses that use vehicles. We recommend that you complete the Property Safety Questionnaire or the Staff Safety Questionnaire.</p>"
                     }
                 }
             ]
@@ -305,10 +305,6 @@
                         { "label": "No", "score": 0 },
                         { "label": "Unsure", "score": 0 }
                     ],
-                    "positiveMessage": {
-                        "title": "Reporting System in Place!",
-                        "body": ""
-                    },
                     "recommendation": {
                         "title": "Create Incident Reporting Process",
                         "body": "<p>A clear incident reporting process ensures safety issues are addressed quickly, helps prevent future incidents, and protects your business legally. Create a simple form for staff to report incidents, including what happened, when, and who was involved. Make sure staff know how and when to report, and that reports are reviewed and followed up promptly.</p><p>Consider applying to the <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program' target='_blank' rel='noopener noreferrer'>Business Growth Program</a> to help you with business safety.</p>"
@@ -353,15 +349,7 @@
                         { "label": "Yes", "score": 0 },
                         { "label": "No", "score": 0 },
                         { "label": "Unsure", "score": 0 }
-                    ],
-                    "positiveMessage": {
-                        "title": "Tools and Equipment",
-                        "body": ""
-                    },
-                    "recommendation": {
-                        "title": "Tools and Equipment",
-                        "body": ""
-                    }
+                    ]
                 },
                 {
                     "id": "toolsSecured",
@@ -441,23 +429,15 @@
                     "label": "Do you or your staff carry cash when using the company vehicle?",
                     "helpText": "",
                     "options": [
-                        { "label": "Yes", "score": 0 },
-                        { "label": "No", "score": 1 },
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
                         { "label": "Unsure", "score": 0 }
-                    ],
-                    "positiveMessage": {
-                        "title": "Cashless Operations",
-                        "body": ""
-                    },
-                    "recommendation": {
-                        "title": "Cash in Vehicles",
-                        "body": ""
-                    }
+                    ]
                 },
                 {
                     "id": "vehicleCashManagement",
                     "type": "group",
-                    "label": "Cash Management: Is cash stored in a locked container? Is cash removed when the vehicle is not in use? Do you have a cash handling procedure?",
+                    "label": "Is cash stored in a locked container? Is cash removed when the vehicle is not in use? Do you have a cash handling procedure?",
                     "conditional": {
                         "showWhen": {
                             "carryCash": "Yes"
@@ -516,15 +496,7 @@
                         { "label": "Yes", "score": 0 },
                         { "label": "No", "score": 1 },
                         { "label": "Unsure", "score": 0 }
-                    ],
-                    "positiveMessage": {
-                        "title": "No Sensitive Info",
-                        "body": ""
-                    },
-                    "recommendation": {
-                        "title": "Sensitive Information",
-                        "body": ""
-                    }
+                    ]
                 },
                 {
                     "id": "sensitiveInfoManagement",
@@ -602,10 +574,6 @@
                         { "label": "No", "score": 1 },
                         { "label": "Unsure", "score": 0 }
                     ],
-                    "positiveMessage": {
-                        "title": "No Remote Travel",
-                        "body": ""
-                    },
                     "recommendation": {
                         "title": "Remote Travel Risks",
                         "body": "<p>Remote travel without phone or internet access can pose serious safety risks if staff are unable to call for help or check in. Always have a travel plan, check-in schedule, and emergency contact procedures in place before heading out.</p>"

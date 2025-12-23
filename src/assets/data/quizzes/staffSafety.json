@@ -1,761 +1,777 @@
 {
-  "id": "staffSafety",
-  "title": "Staff Safety Quiz",
-  "introduction": {
-    "body": "<p>Well done in taking steps to explore how you can increase your staff safety. This questionnaire will take roughly 5-10 minutes. You will be able to download a report at the end of the questionnaire with suggestions on things you can do to improve your business staff safety.</p><p>If you have any questions or would like to talk about your business safety you can contact:<br/>NT Worksafe on 1800 019 115 or ntworksafe@nt.gov.au<br/>or a Territory Business Advisor on 1800 193 111 or businessinfo@nt.gov.au</p><p>If you or your staff have experienced a crime and would like support you can contact Victims of Crime NT:<br/>Level 2, 71 Smith St, Darwin City, Darwin 0800. PH: 08 8941 0995<br/>4/15 Leichardt Tce, Alice Springs 0871, PH: 08 8952 4466</p><p><strong>Disclaimer:</strong> Laws and regulations can change over time. While we aim to provide accurate guidance and point you to helpful resources, it's important that you check whether the information is suitable for your specific situation. Every business is different, so please make sure any advice or material you use is right for your circumstances before making decisions or taking action.</p>"
-  },
-  "pages": [
-    {
-      "title": "Access and Security",
-      "questions": [
-        {
-          "id": "publicAccess",
-          "type": "radio",
-          "label": "Is your business premises open to the public?",
-          "helpText": "",
-          "options": [
-            { "label": "Yes", "score": 0 },
-            { "label": "No", "score": 0 }
-          ]
-        },
-        {
-          "id": "signInSheet",
-          "type": "radio",
-          "label": "Does your business have a visitor sign in sheet?",
-          "helpText": "",
-          "conditional": {
-            "showWhen": {
-              "publicAccess": "No"
-            }
-          },
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Good Tracking!",
-            "body": "<p>A visitor sign-in sheet helps track access to your premises, improving security and accountability.</p>"
-          },
-          "recommendation": {
-            "title": "Implement Sign-In Sheet",
-            "body": "<p>Consider implementing a sign in/sign out sheet to have a record of who is onsite at all times.</p>"
-          }
-        },
-        {
-          "id": "doorbells",
-          "type": "radio",
-          "label": "Does your business have doorbells to indicate when a customer comes in?",
-          "helpText": "",
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Great Awareness!",
-            "body": "<p>Doorbells alert staff when customers arrive, improving awareness and enhancing customer service.</p>"
-          },
-          "recommendation": {
-            "title": "Install Doorbells",
-            "body": "<p>Doorbells or entry chimes help staff stay aware of customer movement and deter unnoticed entry. Install at main entrances for added awareness. They can be an inexpensive way of improving your business and staff safety.</p>"
-          }
-        },
-        {
-          "id": "cctvEntryExit",
-          "type": "radio",
-          "label": "Is there CCTV that captures entry/exit points at your business?",
-          "helpText": "",
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Well Monitored!",
-            "body": "<p>CCTV coverage of entry and exit points provides strong evidence and enhances security monitoring for your business.</p>"
-          },
-          "recommendation": {
-            "title": "Install CCTV at Entry Points",
-            "body": "<p>CCTV should clearly capture all entry and exit points. This helps identify who enters and exits, and supports investigations if incidents occur. Ensure you are complying with <a href='https://legislation.nt.gov.au/Legislation/SURVEILLANCE-DEVICES-ACT-2007' target='_blank' rel='noopener noreferrer'>CCTV policy</a> when installing security measures.</p>"
-          }
-        },
-        {
-          "id": "staffOnlySpaces",
-          "type": "radio",
-          "label": "Does your business have a clearly labelled staff only space?",
-          "helpText": "",
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Clear Boundaries!",
-            "body": "<p>Clearly labelled staff-only areas help maintain privacy, security, and a professional environment.</p>"
-          },
-          "recommendation": {
-            "title": "Create Staff-Only Areas",
-            "body": "<p>Clearly marked 'staff-only' areas help control access and reduce risk. Use signage to separate public and private zones within your business. Consider locking these areas for added security.</p>"
-          }
-        },
-        {
-          "id": "multipleEntryPoints",
-          "type": "radio",
-          "label": "Are there multiple entry and exit points at your business?",
-          "helpText": "",
-          "options": [
-            { "label": "Yes", "score": 0 },
-            { "label": "No", "score": 1 }
-          ],
-          "positiveMessage": {
-            "title": "Single Access Point",
-            "body": "<p>Managing multiple entry and exit points effectively enhances safety and improves traffic flow within your business.</p>"
-          },
-          "recommendation": {
-            "title": "Manage Multiple Access Points",
-            "body": "<p>Multiple access points can increase risk to your business and staff. If you do, ensure all are well-lit, monitored by CCTV, and secured when not in use.</p>"
-          }
-        },
-        {
-          "id": "entryExitLighting",
-          "type": "radio",
-          "label": "Are entry and exit points well lit, including car parks?",
-          "helpText": "This is particularly important if staff are entering or exiting your business when it is dark.",
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Well Lit!",
-            "body": "<p>Well-lit entry and exit points, including car parks, improve visibility and create a safer environment for staff and customers.</p>"
-          },
-          "recommendation": {
-            "title": "Improve Lighting",
-            "body": "<p>Good lighting at entrances, exits, and car parks deters crime and improves safety. Use sensor or timed lights to ensure visibility after hours.</p>"
-          }
-        }
-      ]
+    "id": "staffSafety",
+    "title": "Staff Safety Quiz",
+    "introduction": {
+        "body": "<p>Well done in taking steps to explore how you can increase your staff safety. This questionnaire will take roughly 5-10 minutes. You will be able to download a report at the end of the questionnaire with suggestions on things you can do to improve your business staff safety.</p><p>If you have any questions or would like to talk about your business safety you can contact:<br/>NT Worksafe on 1800 019 115 or ntworksafe@nt.gov.au<br/>or a Territory Business Advisor on 1800 193 111 or businessinfo@nt.gov.au</p><p>If you or your staff have experienced a crime and would like support you can contact Victims of Crime NT:<br/>Level 2, 71 Smith St, Darwin City, Darwin 0800. PH: 08 8941 0995<br/>4/15 Leichardt Tce, Alice Springs 0871, PH: 08 8952 4466</p><p><strong>Disclaimer:</strong> Laws and regulations can change over time. While we aim to provide accurate guidance and point you to helpful resources, it's important that you check whether the information is suitable for your specific situation. Every business is different, so please make sure any advice or material you use is right for your circumstances before making decisions or taking action.</p>"
     },
-    {
-      "title": "Key and Access Management",
-      "questions": [
+    "pages": [
         {
-          "id": "staffKeyStorage",
-          "type": "radio",
-          "label": "When on site, all keys, including personal keys, are always stored out of sight, or are with staff.",
-          "helpText": "",
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Keys Secure!",
-            "body": "<p>Keeping all keys out of sight or with staff prevents unauthorised access and strengthens on-site security.</p>"
-          },
-          "recommendation": {
-            "title": "Secure Key Storage",
-            "body": "<p>Business and staff keys should be kept out of sight or on staff at all times. Avoid leaving keys unattended or in visible areas to reduce security risks. Remind staff of the importance of this and if needed, put in place a policy.</p>"
-          }
+            "title": "Access and Security",
+            "questions": [
+                {
+                    "id": "publicAccess",
+                    "type": "radio",
+                    "label": "Is your business premises open to the public?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 0 },
+                        { "label": "No", "score": 0 }
+                    ]
+                },
+                {
+                    "id": "signInSheet",
+                    "type": "radio",
+                    "label": "Does your business have a visitor sign in sheet?",
+                    "helpText": "",
+                    "conditional": {
+                        "showWhen": {
+                            "publicAccess": "No"
+                        }
+                    },
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Good Tracking!",
+                        "body": "<p>A visitor sign-in sheet helps track access to your premises, improving security and accountability.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Implement Sign-In Sheet",
+                        "body": "<p>Consider implementing a sign in/sign out sheet to have a record of who is onsite at all times.</p>"
+                    }
+                },
+                {
+                    "id": "doorbells",
+                    "type": "radio",
+                    "label": "Does your business have doorbells to indicate when a customer comes in?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Great Awareness!",
+                        "body": "<p>Doorbells alert staff when customers arrive, improving awareness and enhancing customer service.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Install Doorbells",
+                        "body": "<p>Doorbells or entry chimes help staff stay aware of customer movement and deter unnoticed entry. Install at main entrances for added awareness. They can be an inexpensive way of improving your business and staff safety.</p>"
+                    }
+                },
+                {
+                    "id": "cctvEntryExit",
+                    "type": "radio",
+                    "label": "Is there CCTV that captures entry/exit points at your business?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Well Monitored!",
+                        "body": "<p>CCTV coverage of entry and exit points provides strong evidence and enhances security monitoring for your business.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Install CCTV at Entry Points",
+                        "body": "<p>CCTV should clearly capture all entry and exit points. This helps identify who enters and exits, and supports investigations if incidents occur. Ensure you are complying with <a href='https://legislation.nt.gov.au/Legislation/SURVEILLANCE-DEVICES-ACT-2007' target='_blank' rel='noopener noreferrer'>CCTV policy</a> when installing security measures.</p>"
+                    }
+                },
+                {
+                    "id": "staffOnlySpaces",
+                    "type": "radio",
+                    "label": "Does your business have a clearly labelled staff only space?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Clear Boundaries!",
+                        "body": "<p>Clearly labelled staff-only areas help maintain privacy, security, and a professional environment.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Create Staff-Only Areas",
+                        "body": "<p>Clearly marked 'staff-only' areas help control access and reduce risk. Use signage to separate public and private zones within your business. Consider locking these areas for added security.</p>"
+                    }
+                },
+                {
+                    "id": "multipleEntryPoints",
+                    "type": "radio",
+                    "label": "Are there multiple entry and exit points at your business?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 0 },
+                        { "label": "No", "score": 1 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Single Access Point",
+                        "body": "<p>Managing multiple entry and exit points effectively enhances safety and improves traffic flow within your business.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Manage Multiple Access Points",
+                        "body": "<p>Multiple access points can increase risk to your business and staff. If you do, ensure all are well-lit, monitored by CCTV, and secured when not in use.</p>"
+                    }
+                },
+                {
+                    "id": "entryExitLighting",
+                    "type": "radio",
+                    "label": "Are entry and exit points well lit, including car parks?",
+                    "helpText": "This is particularly important if staff are entering or exiting your business when it is dark.",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Well Lit!",
+                        "body": "<p>Well-lit entry and exit points, including car parks, improve visibility and create a safer environment for staff and customers.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Improve Lighting",
+                        "body": "<p>Good lighting at entrances, exits, and car parks deters crime and improves safety. Use sensor or timed lights to ensure visibility after hours.</p>"
+                    }
+                }
+            ]
         },
         {
-          "id": "lockingProcedures",
-          "type": "radio",
-          "label": "Are employees trained in locking/unlocking procedures?",
-          "helpText": "",
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Well Trained!",
-            "body": "<p>Your strength: training staff in locking and unlocking procedures ensures consistency and reduces security risks.</p>"
-          },
-          "recommendation": {
-            "title": "Train Staff on Procedures",
-            "body": "<p>Staff should be trained to follow secure opening and closing procedures, including checking for suspicious activity, locking all access points, and activating alarms. Regular refresher training helps reduce risks and ensures consistency.</p><p>If you need help in creating an opening or closing policy you can contact <a href='https://worksafe.nt.gov.au/safety-and-prevention/small-business-safety-program' target='_blank' rel='noopener noreferrer'>NT Worksafe</a> for a safety inspector visit.</p>"
-          }
+            "title": "Key and Access Management",
+            "questions": [
+                {
+                    "id": "staffKeyStorage",
+                    "type": "radio",
+                    "label": "When on site, all keys, including personal keys, are always stored out of sight, or are with staff.",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Keys Secure!",
+                        "body": "<p>Keeping all keys out of sight or with staff prevents unauthorised access and strengthens on-site security.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Secure Key Storage",
+                        "body": "<p>Business and staff keys should be kept out of sight or on staff at all times. Avoid leaving keys unattended or in visible areas to reduce security risks. Remind staff of the importance of this and if needed, put in place a policy.</p>"
+                    }
+                },
+                {
+                    "id": "lockingProcedures",
+                    "type": "radio",
+                    "label": "Are employees trained in locking/unlocking procedures?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Well Trained!",
+                        "body": "<p>Your strength: training staff in locking and unlocking procedures ensures consistency and reduces security risks.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Train Staff on Procedures",
+                        "body": "<p>Staff should be trained to follow secure opening and closing procedures, including checking for suspicious activity, locking all access points, and activating alarms. Regular refresher training helps reduce risks and ensures consistency.</p><p>If you need help in creating an opening or closing policy you can contact <a href='https://worksafe.nt.gov.au/safety-and-prevention/small-business-safety-program' target='_blank' rel='noopener noreferrer'>NT Worksafe</a> for a safety inspector visit.</p>"
+                    }
+                },
+                {
+                    "id": "staffKeyRegister",
+                    "type": "radio",
+                    "label": "Do you keep and maintain a key (or code) register for your business?",
+                    "helpText": "A keycode register (or key register) is a secure record that tracks all keys used in a business, including their unique codes, what they unlock, who has them, and when they were issued or returned. It helps manage access, improve accountability, and reduce the risk of lost or misused keys.",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Well Tracked!",
+                        "body": "<p>Your strength: maintaining a key or code register ensures controlled access and strengthens security across your business.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Create Key Register",
+                        "body": "<p>Maintaining a key or code register helps track who has access to your premises and assets. It should record key holders, issue/return dates, and key locations. This reduces the risk of lost or duplicated keys and improves accountability. Regular audits and secure storage are essential.</p>"
+                    }
+                },
+                {
+                    "id": "individualCodes",
+                    "type": "radio",
+                    "label": "If you have a coded door lock, do you ensure that staff have individual codes?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 },
+                        { "label": "N/A", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Individual Access!",
+                        "body": "<p>Your strength: providing individual codes for staff enhances accountability and reduces the risk of unauthorised access.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Assign Individual Codes",
+                        "body": "<p>Assigning individual codes to staff improves accountability and security. It allows you to track who accessed which area and when, and makes it easy to revoke access if needed. Avoid sharing codes between staff and regularly audit access logs.</p>"
+                    }
+                },
+                {
+                    "id": "exitProtocols",
+                    "type": "radio",
+                    "label": "Do you have protocols for changing entry codes / return of keys when staff members leave?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Secure Exit Process!",
+                        "body": "<p>Your strength: having clear protocols for changing codes and collecting keys when staff leave protects your business from unauthorised access.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Implement Exit Protocols",
+                        "body": "<p>Clear exit protocols help protect your business from unauthorised access. When a staff member leaves, make sure to change entry codes, collect keys, and disable swipe cards or digital credentials. These steps should be part of a formal offboarding checklist.</p>"
+                    }
+                },
+                {
+                    "id": "keyIdentification",
+                    "type": "radio",
+                    "label": "If a set of keys were lost, is there anything that identifies they belong to your business?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 0 },
+                        { "label": "No", "score": 1 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Protected Keys!",
+                        "body": "<p>Your Strength: avoiding identifiers on lost keys protects your business from unauthorised access and strengthens security.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Remove Key Identifiers",
+                        "body": "<p>Keys should not be labelled with business names, addresses, or identifiable information. Instead, use numbered or colour-coded tags linked to a secure internal key register. This protects your premises if keys are lost or stolen.</p>"
+                    }
+                }
+            ]
         },
         {
-          "id": "staffKeyRegister",
-          "type": "radio",
-          "label": "Do you keep and maintain a key (or code) register for your business?",
-          "helpText": "A keycode register (or key register) is a secure record that tracks all keys used in a business, including their unique codes, what they unlock, who has them, and when they were issued or returned. It helps manage access, improve accountability, and reduce the risk of lost or misused keys.",
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Well Tracked!",
-            "body": "<p>Your strength: maintaining a key or code register ensures controlled access and strengthens security across your business.</p>"
-          },
-          "recommendation": {
-            "title": "Create Key Register",
-            "body": "<p>Maintaining a key or code register helps track who has access to your premises and assets. It should record key holders, issue/return dates, and key locations. This reduces the risk of lost or duplicated keys and improves accountability. Regular audits and secure storage are essential.</p>"
-          }
+            "title": "Emergency Response",
+            "questions": [
+                {
+                    "id": "emergencyAccess",
+                    "type": "radio",
+                    "label": "Do you and your staff have access to a phone or emergency distress button in a common area?",
+                    "helpText": "An emergency distress button is a safety device that, when pressed, sends an immediate alert to security or emergency services. It's used in situations where someone feels threatened or needs urgent help, allowing for a quick response without having to speak or make a call.",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "recommendation": {
+                        "title": "Install Emergency Systems",
+                        "body": "<p>Having an emergency phone or distress button in a common area ensures staff can quickly call for help in case of a threat, injury, or emergency. These systems should be clearly marked, regularly tested, and staff trained on how and when to use them. A distress button can often be added to your security system.</p>"
+                    }
+                },
+                {
+                    "id": "emergencyPhoneTraining",
+                    "type": "radio",
+                    "label": "Are your staff trained on when and how to use the emergency phone or distress button?",
+                    "helpText": "",
+                    "conditional": {
+                        "showWhen": {
+                            "emergencyAccess": "Yes"
+                        }
+                    },
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Well Prepared!",
+                        "body": "<p>Training staff on when and how to use emergency phones or distress buttons ensures quick, confident responses in critical situations.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Train Staff on Emergency Systems",
+                        "body": "<p>Ensure staff are trained in the proper use of the emergency phone or distress button. Create a process or checklist for this training.</p>"
+                    }
+                },
+                {
+                    "id": "situationalTraining",
+                    "type": "group",
+                    "label": "Would your staff know what to do should the following situations occur?",
+                    "positiveMessage": {
+                        "title": "Well Prepared Team!",
+                        "body": "<p>Your team is well-prepared to handle the emergency situations you clicked yes to. Continue to refresh training regularly and keep procedures up to date.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Improve Situational Training",
+                        "body": "<p>It's important that staff understand the procedures for handling emergency situations you selected 'No' for and are regularly reminded of them. Every business is different, so it's valuable to have open conversations with your team about what these situations might look like and how to respond together.</p><p>If you need help in figuring out the appropriate actions and responses, you can approach your local police station or access <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program/business-growth-program-grant-applicants' target='_blank'>Business Growth Program</a> to engage a specialist to help you.</p><p>You may be able to access free or low cost de-escalation training for your staff through <a href='https://www.ppst.com.au/' target='_blank'>Personal Protection Strategies</a>.</p>"
+                    },
+                    "subQuestions": [
+                        {
+                            "id": "armedRobbery",
+                            "type": "radio",
+                            "label": "1. Armed Robbery",
+                            "helpText": "Armed robbery is when someone uses or threatens to use a weapon to steal from a person or business.",
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "theft",
+                            "type": "radio",
+                            "label": "2. Theft",
+                            "helpText": "Theft is the act of taking something that doesn't belong to you without permission, with the intent to keep it. In a business setting, this could include stealing money, products, equipment, or personal belongings.",
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "violentBehavior",
+                            "type": "radio",
+                            "label": "3. Violent or aggressive behaviour",
+                            "helpText": "Violent or aggressive behaviour is any action or speech that threatens, harms, or intimidates others. This can include shouting, physical attacks, threatening gestures, or verbal abuse, and it creates a dangerous or uncomfortable environment for staff and customers.",
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "emergencySituations",
+                            "type": "radio",
+                            "label": "4. Emergency Situations",
+                            "helpText": "An emergency situation is any unexpected event that poses an immediate risk to health, safety, property, or the environment, such as a fire, medical emergency, armed robbery, or natural disaster-and requires quick action to protect people and reduce harm.",
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "reportingCrime",
+                    "type": "radio",
+                    "label": "5. Reporting a crime",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 }
+                    ],
+                    "recommendation": {
+                        "title": "Reporting a Crime",
+                        "body": "<p><a href='https://victimsofcrime.org.au/' target='_blank'>Victims of Crime NT</a> outlines these steps to report a crime:</p><ul><li>If you are not safe, call Police 000</li><li>Avoid touching anything at the scene</li><li>If you are safe but need to report a crime, call  Police assistance line 131 444</li></li>Seek support from friends and/or family</li></ul>"
+                    }
+                },
+                {
+                    "id": "unsafeSituation",
+                    "type": "radio",
+                    "label": "6. A situation that makes them or other team members feel unsafe",
+                    "helpText": "A situation that makes someone feel unsafe is any moment or environment where a person feels threatened, at risk, or uncomfortable, physically or emotionally. This could be due to aggressive behaviour, poor lighting, lack of security, or even unclear emergency procedures. Feeling unsafe can affect how someone performs at work and should always be taken seriously.",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 }
+                    ],
+                    "recommendation": {
+                        "title": "Feeling Unsafe",
+                        "body": "<p>When staff feel unsafe, it's important they know they can speak up and be heard. Encourage open conversations, provide clear ways to report concerns, and respond with care and urgency. Give your team regular opportunities to talk about safety, offer support, and work together to create a secure and respectful workplace.</p><p><a href='https://victimsofcrime.org.au/wellbeing-support/' target='_blank'>Victims of Crime</a> offer wellbeing support to you and your staff following a crime or incident.</p>"
+                    }
+                },
+                {
+                    "id": "evacuation",
+                    "type": "radio",
+                    "label": "7. A situation that requires evacuation",
+                    "helpText": "A situation that requires evacuation is any event where it's unsafe to stay in the building or area, and people need to leave quickly to protect themselves. This can include fires, gas leaks, bomb threats, or structural damage-anything that puts health and safety at immediate risk.",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 }
+                    ],
+                    "recommendation": {
+                        "title": "Emergency Evacuation",
+                        "body": "<p>It's helpful to talk with your team about what to do in an emergency evacuation. Make sure everyone knows where the exits are, how to leave safely, and where to meet outside. Simple instructions, clear signage, and regular practice can make a big difference. Taking time to walk through different scearnios together helps staff feel confident and prepared.</p>"
+                    }
+                }
+            ]
         },
         {
-          "id": "individualCodes",
-          "type": "radio",
-          "label": "If you have a coded door lock, do you ensure that staff have individual codes?",
-          "helpText": "",
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 },
-            { "label": "N/A", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Individual Access!",
-            "body": "<p>Your strength: providing individual codes for staff enhances accountability and reduces the risk of unauthorised access.</p>"
-          },
-          "recommendation": {
-            "title": "Assign Individual Codes",
-            "body": "<p>Assigning individual codes to staff improves accountability and security. It allows you to track who accessed which area and when, and makes it easy to revoke access if needed. Avoid sharing codes between staff and regularly audit access logs.</p>"
-          }
+            "title": "Policies and Procedures",
+            "questions": [
+                {
+                    "id": "policies",
+                    "type": "group",
+                    "label": "Does your business have policies and/or procedures for the following?",
+                    "positiveMessage": {
+                        "title": "Comprehensive Policies!",
+                        "body": "<p>Your business has strong policies and procedures in place for everything you answered 'Yes' to. Continue to review and update them regularly to ensure they remain relevant and effective.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Develop Missing Policies",
+                        "body": "<p>Having these safety policies and procedures not only helps to keep your business safe, it is important work that can help reduce your insurance premiums.</p><p>If you need help in creating these policies and procedures you can access <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program/business-growth-program-grant-applicants' target='_blank' rel='noopener noreferrer'>Business Growth Program Funding</a> to engage a specialist to assist.</p><p>If you are unsure if you need any of these policies or procedures, you can request a <a href='https://worksafe.nt.gov.au/safety-and-prevention/small-business-safety-program' target='_blank' rel='noopener noreferrer'>NT Worksafe small business inspector</a> to talk it through.</p>"
+                    },
+                    "subQuestions": [
+                        {
+                            "id": "lockupProcedure",
+                            "type": "radio",
+                            "label": "1. Business premises lock up/unlocking",
+                            "helpText": "A business premises lock-up procedure is a defined set of steps used to securely close a workplace at the end of operations. It ensures all entry points are locked, alarms are activated, and the property is safe from unauthorized access or hazards.",
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "N/A", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "stockControl",
+                            "type": "radio",
+                            "label": "2. Stock control",
+                            "helpText": "A stock control procedure is a set of steps used to manage inventory levels, ensuring that stock is ordered, stored, tracked, and replenished efficiently. It helps prevent overstocking or shortages, supports accurate record-keeping, and maintains smooth business operations.",
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "N/A", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "securityAwareness",
+                            "type": "radio",
+                            "label": "3. Security awareness",
+                            "helpText": "A security awareness procedure trains staff to recognize and respond to potential threats, helping maintain a safe and secure workplace.",
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "N/A", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "workingIsolation",
+                            "type": "radio",
+                            "label": "4. Working in isolation",
+                            "helpText": "A working in isolation procedure outlines safety steps for individuals working alone, ensuring regular check-ins, emergency plans, and risk controls are in place.",
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "N/A", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "firstAidResponse",
+                            "type": "radio",
+                            "label": "5. First aid response",
+                            "helpText": "A first aid response procedure outlines the steps to provide immediate care during an injury or medical emergency until professional help arrives.",
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "N/A", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "emergencyResponse",
+                            "type": "radio",
+                            "label": "6. Emergency response",
+                            "helpText": "An emergency response procedure outlines the actions to take during critical incidents to ensure safety, minimise harm, and coordinate help effectively.",
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "N/A", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "evacuationProcedures",
+                            "type": "radio",
+                            "label": "7. Evacuation procedures",
+                            "helpText": "Evacuation procedures outline the steps to safely exit a building or area during emergencies, ensuring everyone reaches a designated safe zone.",
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "N/A", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "incidentReporting",
+                            "type": "radio",
+                            "label": "8. Incident reporting",
+                            "helpText": "Incident reporting procedures outline how to document and communicate workplace accidents, near misses, or hazards to ensure timely response and prevention.",
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "N/A", "score": 0 }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "deEscalationTrainingPolicy",
+                    "type": "radio",
+                    "label": "9. De-Escalation Training",
+                    "helpText": "De-escalation training teaches techniques to calmly manage and reduce conflict or aggressive behavior, promoting safety and positive outcomes.",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "N/A", "score": 0 }
+                    ],
+                    "recommendation": {
+                        "title": "Provide De-Escalation Training",
+                        "body": "<p>You may be able to access free or low cost de-escalation training for your staff through <a href='https://www.ppst.com.au/' target='_blank'>Personal Protection Strategies</a></p><p>Talk to a <a href='https://business.nt.gov.au/help-for-business/territory-business-advisors' target='_blank'>Territory Business Advisor</a> about upcoming business training opportunities</p>"
+                    }
+                }
+            ]
         },
         {
-          "id": "exitProtocols",
-          "type": "radio",
-          "label": "Do you have protocols for changing entry codes / return of keys when staff members leave?",
-          "helpText": "",
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Secure Exit Process!",
-            "body": "<p>Your strength: having clear protocols for changing codes and collecting keys when staff leave protects your business from unauthorised access.</p>"
-          },
-          "recommendation": {
-            "title": "Implement Exit Protocols",
-            "body": "<p>Clear exit protocols help protect your business from unauthorised access. When a staff member leaves, make sure to change entry codes, collect keys, and disable swipe cards or digital credentials. These steps should be part of a formal offboarding checklist.</p>"
-          }
-        },
-        {
-          "id": "keyIdentification",
-          "type": "radio",
-          "label": "If a set of keys were lost, is there anything that identifies they belong to your business?",
-          "helpText": "",
-          "options": [
-            { "label": "Yes", "score": 0 },
-            { "label": "No", "score": 1 },
-            { "label": "Unsure", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Protected Keys!",
-            "body": "<p>Your Strength: avoiding identifiers on lost keys protects your business from unauthorised access and strengthens security.</p>"
-          },
-          "recommendation": {
-            "title": "Remove Key Identifiers",
-            "body": "<p>Keys should not be labelled with business names, addresses, or identifiable information. Instead, use numbered or colour-coded tags linked to a secure internal key register. This protects your premises if keys are lost or stolen.</p>"
-          }
+            "title": "Staff Support and Training",
+            "questions": [
+                {
+                    "id": "staffSupport",
+                    "type": "radio",
+                    "label": "If your staff are involved in a crime at the workplace do they have access to appropriate support?",
+                    "helpText": "Support for staff involved in a workplace crime ensures access to appropriate care, including emotional, legal, and procedural assistance.",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Support Available!",
+                        "body": "<p>Your strength: providing access to appropriate support after a workplace crime shows care for staff well-being and helps recovery.</p><p>You can seek additional support from Victims of Crime NT who are specialised in helping to provide support to business owners and staff following a crime.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Provide Staff Support",
+                        "body": "<p>Victims of Crime NT are a free service who are specialised in helping to provide support to business owners and staff following a crime.</p><p>Find more information: <a href='https://victimsofcrime.org.au/' target='_blank' rel='noopener noreferrer'>https://victimsofcrime.org.au/</a><br/>or call<br/>Darwin: 08 8941 0995<br/>Alice Springs: 08 8952 4466</p><p>You can ask a police officer to refer you to this service.</p>"
+                    }
+                },
+                {
+                    "id": "workAlone",
+                    "type": "radio",
+                    "label": "Do your staff ever work alone?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 0 },
+                        { "label": "No", "score": 0 }
+                    ]
+                },
+                {
+                    "id": "aloneRiskManagement",
+                    "type": "radio",
+                    "label": "Are staff working on their own trained to identify and manage risks?",
+                    "helpText": "Employees trained to manage risk when working alone are equipped with skills and procedures to stay safe, assess hazards, and respond to emergencies independently.",
+                    "conditional": {
+                        "showWhen": {
+                            "workAlone": "Yes"
+                        }
+                    },
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Some", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Risk-Aware Team!",
+                        "body": "<p>Your strength: training staff who work alone to identify and manage risks promotes safety and builds confidence in handling challenging situations.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Train Solo Workers",
+                        "body": "<p>Staff working alone need to be confident in spotting and managing risks. Without backup, their safety depends on quick thinking and good judgement. Provide training focused on solo work environments. Covering risk identification, decision-making, and emergency response. Reinforce this with regular refreshers and scenario-based learning.</p><p>Talk to a <a href='https://business.nt.gov.au/help-for-business/territory-business-advisors' target='_blank' rel='noopener noreferrer'>Territory Business Advisor</a> about upcoming business training opportunities.</p><p>If you need help in creating these policies and procedures you can access <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program/business-growth-program-grant-applicants' target='_blank' rel='noopener noreferrer'>Business Growth Program</a> to engage a specialist to assist.</p>"
+                    }
+                },
+                {
+                    "id": "isolationPolicies",
+                    "type": "radio",
+                    "label": "Do you have additional policies or procedures (such as a working in isolation policy) that provides details on extra safety and security measures for working alone?",
+                    "helpText": "",
+                    "conditional": {
+                        "showWhen": {
+                            "workAlone": "Yes"
+                        }
+                    },
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Proactive Policies!",
+                        "body": "<p>Your strength: having clear policies for working in isolation demonstrates proactive risk management and prioritises staff safety.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Create Isolation Policies",
+                        "body": "<p>Having clear policies for working alone, like a 'working in isolation' policy, helps staff understand the extra precautions needed and ensures consistent safety practices across your business. Create a simple policy that outlines risks, safety procedures, check-in systems, and emergency contacts for working alone. Make sure staff are trained on it and know where to find it when needed.</p><p>If you are unsure where to start, you can request a <a href='https://worksafe.nt.gov.au/safety-and-prevention/small-business-safety-program' target='_blank' rel='noopener noreferrer'>NT Worksafe small business inspector</a> to talk it through.</p>"
+                    }
+                },
+                {
+                    "id": "afterHoursOperation",
+                    "type": "radio",
+                    "label": "Does your business operate outside of normal business hours that maybe considered high risk?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 0 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ]
+                },
+                {
+                    "id": "afterHoursSecurity",
+                    "type": "radio",
+                    "label": "Has your business implemented additional security processes to mitigate risk to staff after hours?",
+                    "helpText": "Additional security processes for staff working outside business hours refer to extra measures put in place to ensure their safety and protect company assets during non-standard operating time. These are processes such as sign-in protocols, restricted access, surveillance, or check-ins.",
+                    "conditional": {
+                        "showWhen": {
+                            "afterHoursOperation": "Yes"
+                        }
+                    },
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Protected After Hours!",
+                        "body": "<p>Your strength: implementing extra security measures after hours demonstrates proactive risk management and prioritises staff safety.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Add After-Hours Security",
+                        "body": "<p>Operating outside normal hours, especially in high-risk times, can expose staff to increased safety threats like poor visibility, isolation, or reduced public presence. Extra security measures help reduce these risks. Identify high-risk timeframes and implement added precautions such as increased lighting, check-in systems, duress alarms, or working in pairs. Make sure staff are trained and feel supported during these hours.</p><p>If you are unsure where to start, you can request a <a href='https://worksafe.nt.gov.au/safety-and-prevention/small-business-safety-program' target='_blank' rel='noopener noreferrer'>NT Worksafe small business inspector</a> to talk it through.</p><p>If you need help in creating these policies and procedures you can access <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program/business-growth-program-grant-applicants' target='_blank' rel='noopener noreferrer'>Business Growth Program</a> to engage a specialist to assist.</p>"
+                    }
+                },
+                {
+                    "id": "teamMeetings",
+                    "type": "radio",
+                    "label": "Do you hold regular team meetings or have other opportunities where staff can raise safety concerns?",
+                    "helpText": "Regular meetings help staff speak up about safety and security issues, so problems can be fixed early and everyone stays safe at work.",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Open Communication!",
+                        "body": "<p>Your strength: regular team meetings or open forums for safety concerns foster communication and create a proactive safety culture.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Create Safety Forums",
+                        "body": "<p>Regular safety meetings and open communication channels help staff raise concerns, share ideas, and improve workplace safety. Hold monthly or quarterly safety meetings, depending on your business size and risk level. Include safety as a standing agenda item in team meetings. Encourage staff to speak up without fear of reprisal. Use suggestion boxes, digital forms, or anonymous reporting tools. Act on feedback and communicate outcomes to staff.</p>"
+                    }
+                },
+                {
+                    "id": "regularTraining",
+                    "type": "radio",
+                    "label": "Are staff regularly trained or reminded about security features, procedures or policies?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Ongoing Training!",
+                        "body": "<p>Your strength: regular training keeps security top of mind and ensures your team is prepared to protect your business.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Implement Regular Training",
+                        "body": "<p>You can add this as a standing item in your regular staff meeting. It's a good idea to create a training schedule to make sure you are revisiting this training with staff, no matter how long they have been working in your business.</p>"
+                    }
+                },
+                {
+                    "id": "staffFeelUnsafe",
+                    "type": "radio",
+                    "label": "Have your staff ever communicated that they feel unsafe at work?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Never", "score": 1 },
+                        { "label": "At times", "score": 0 },
+                        { "label": "All the time", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Safe Workplace!",
+                        "body": "<p>A workplace where staff feel safe fosters trust, productivity, and a positive culture.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Address Safety Concerns",
+                        "body": "<p>It's important to take any reports of feeling unsafe seriously. Listen to staff members concerns and if there are simple solutions be sure to implement them.</p><p>You can access information about support your <a href='https://business.nt.gov.au/help-for-business/business-tools-and-learning/mental-health-in-the-workplace' target='_blank' rel='noopener noreferrer'>staff mental health here.</a></p><p>Victims of Crime NT offer <a href='https://victimsofcrime.org.au/wellbeing-support/' target='_blank' rel='noopener noreferrer'>wellbeing support to staff</a> following a crime incident.</p>"
+                    }
+                },
+                {
+                    "id": "deEscalationTraining",
+                    "type": "radio",
+                    "label": "Do you have designated team members that are trained to de-escalate situations if required?",
+                    "helpText": "De-escalation training teaches staff how to calmly and safely manage tense or aggressive situations to prevent conflict from getting worse.",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 },
+                        { "label": "N/A", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "De-Escalation Ready!",
+                        "body": "<p>Your strength: having trained team members ready to de-escalate situations shows strong commitment to safety and professionalism.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Train in De-Escalation",
+                        "body": "<p>De-escalation training can make a big difference in how staff respond to certain situations. Training is available in the NT. Talk to a <a href='https://business.nt.gov.au/help-for-business/territory-business-advisors' target='_blank' rel='noopener noreferrer'>Territory Business Advisor</a> or contact <a href='https://victimsofcrime.org.au/personal-safety-workshops/' target='_blank' rel='noopener noreferrer'>Victims of Crime</a> to seek out opportunities for staff to attend training sessions.</p>"
+                    }
+                },
+                {
+                    "id": "displayProcedures",
+                    "type": "radio",
+                    "label": "Do you display any safety or security procedures in your workplace?",
+                    "helpText": "Safety and security procedures in the workplace are rules and actions that help protect staff, visitors, and property from harm, accidents, or threats.",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Visible Procedures!",
+                        "body": "<p>Your strength: displaying safety and security procedures keeps everyone informed and promotes a culture of awareness and responsibility.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Display Procedures",
+                        "body": "<p>If you have a staff room this is a great place to put up information and reminders about safety and security. You can also display safety information at any counters or areas where staff might need it on hand.</p>"
+                    }
+                },
+                {
+                    "id": "emergencyContacts",
+                    "type": "radio",
+                    "label": "Are staff aware of who the emergency contact is during their work hours?",
+                    "helpText": "An emergency contact in the workplace is a person, usually a manager or business owner, who can be reached quickly if a staff member is injured, sick, or involved in an emergency. This could also include emergency services numbers.",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Clear Contacts!",
+                        "body": "<p>Your strength: clear emergency contact awareness can ensure quick responses and peace of mind for your team.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Share Emergency Contacts",
+                        "body": "<p>Being clear about who to contact and when (during hours or after hours) is important to help staff stay safe. Display contact details of the relevant people in staff rooms or at counters where staff might need it on hand.</p>"
+                    }
+                },
+                {
+                    "id": "incidentReportingProcess",
+                    "type": "radio",
+                    "label": "Does your business have incident reporting processes and staff are aware of this process?",
+                    "helpText": "The incident report process in the workplace is the steps staff follow to record and respond to accidents, injuries, or safety issues to help prevent them from happening again.",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Clear Reporting!",
+                        "body": "<p>Your strength: having clear incident reporting processes and staff awareness ensures accountability and quick resolution of issues.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Create Reporting Process",
+                        "body": "<p>Having a process to follow after an incident is not only important for your staff, but might be needed by insurance or licencing to make sure you are compliant.</p><p>If you are unsure where to start, you can request a <a href='https://worksafe.nt.gov.au/safety-and-prevention/small-business-safety-program' target='_blank' rel='noopener noreferrer'>NT Worksafe small business inspector</a> to talk it through.</p><p>If you need help in creating these policies and procedures you can access <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program/business-growth-program-grant-applicants' target='_blank' rel='noopener noreferrer'>Business Growth Program</a> to engage a specialist to assist.</p>"
+                    }
+                }
+            ]
         }
-      ]
-    },
-    {
-      "title": "Emergency Response",
-      "questions": [
-        {
-          "id": "emergencyAccess",
-          "type": "radio",
-          "label": "Do you and your staff have access to a phone or emergency distress button in a common area?",
-          "helpText": "An emergency distress button is a safety device that, when pressed, sends an immediate alert to security or emergency services. It's used in situations where someone feels threatened or needs urgent help, allowing for a quick response without having to speak or make a call.",
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 }
-          ],
-          "recommendation": {
-            "title": "Install Emergency Systems",
-            "body": "<p>Having an emergency phone or distress button in a common area ensures staff can quickly call for help in case of a threat, injury, or emergency. These systems should be clearly marked, regularly tested, and staff trained on how and when to use them. A distress button can often be added to your security system.</p>"
-          }
-        },
-        {
-          "id": "emergencyPhoneTraining",
-          "type": "radio",
-          "label": "Are your staff trained on when and how to use the emergency phone or distress button?",
-          "helpText": "",
-          "conditional": {
-            "showWhen": {
-              "emergencyAccess": "Yes"
-            }
-          },
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Well Prepared!",
-            "body": "<p>Training staff on when and how to use emergency phones or distress buttons ensures quick, confident responses in critical situations.</p>"
-          },
-          "recommendation": {
-            "title": "Train Staff on Emergency Systems",
-            "body": "<p>Ensure staff are trained in the proper use of the emergency phone or distress button. Create a process or checklist for this training.</p>"
-          }
-        },
-        {
-          "id": "situationalTraining",
-          "type": "group",
-          "label": "Would your staff know what to do should the following situations occur?",
-          "positiveMessage": {
-            "title": "Well Prepared Team!",
-            "body": "<p>Your team is well-prepared to handle the emergency situations you clicked yes to. Continue to refresh training regularly and keep procedures up to date.</p>"
-          },
-          "recommendation": {
-            "title": "Improve Situational Training",
-            "body": "<p>It's important that staff understand the procedures for handling emergency situations you selected 'No' for and are regularly reminded of them. Every business is different, so it's valuable to have open conversations with your team about what these situations might look like and how to respond together.</p><p>If you need help in figuring out the appropriate actions and responses, you can approach your local police station or access <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program/business-growth-program-grant-applicants' target='_blank'>Business Growth Program</a> to engage a specialist to help you.</p><p>You may be able to access free or low cost de-escalation training for your staff through <a href='https://www.ppst.com.au/' target='_blank'>Personal Protection Strategies</a>.</p>"
-          },
-          "subQuestions": [
-            {
-              "id": "armedRobbery",
-              "type": "radio",
-              "label": "1. Armed Robbery",
-              "helpText": "Armed robbery is when someone uses or threatens to use a weapon to steal from a person or business.",
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 }
-              ]
-            },
-            {
-              "id": "theft",
-              "type": "radio",
-              "label": "2. Theft",
-              "helpText": "Theft is the act of taking something that doesn't belong to you without permission, with the intent to keep it. In a business setting, this could include stealing money, products, equipment, or personal belongings.",
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 }
-              ]
-            },
-            {
-              "id": "violentBehavior",
-              "type": "radio",
-              "label": "3. Violent or aggressive behaviour",
-              "helpText": "Violent or aggressive behaviour is any action or speech that threatens, harms, or intimidates others. This can include shouting, physical attacks, threatening gestures, or verbal abuse, and it creates a dangerous or uncomfortable environment for staff and customers.",
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 }
-              ]
-            },
-            {
-              "id": "emergencySituations",
-              "type": "radio",
-              "label": "4. Emergency Situations",
-              "helpText": "An emergency situation is any unexpected event that poses an immediate risk to health, safety, property, or the environment, such as a fire, medical emergency, armed robbery, or natural disaster-and requires quick action to protect people and reduce harm.",
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 }
-              ]
-            },
-            {
-              "id": "reportingCrime",
-              "type": "radio",
-              "label": "5. Reporting a crime",
-              "helpText": "",
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 }
-              ]
-            },
-            {
-              "id": "unsafeSituation",
-              "type": "radio",
-              "label": "6. A situation that makes them or other team members feel unsafe",
-              "helpText": "A situation that makes someone feel unsafe is any moment or environment where a person feels threatened, at risk, or uncomfortable, physically or emotionally. This could be due to aggressive behaviour, poor lighting, lack of security, or even unclear emergency procedures. Feeling unsafe can affect how someone performs at work and should always be taken seriously.",
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 }
-              ]
-            },
-            {
-              "id": "evacuation",
-              "type": "radio",
-              "label": "7. A situation that requires evacuation",
-              "helpText": "A situation that requires evacuation is any event where it's unsafe to stay in the building or area, and people need to leave quickly to protect themselves. This can include fires, gas leaks, bomb threats, or structural damage-anything that puts health and safety at immediate risk.",
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Policies and Procedures",
-      "questions": [
-        {
-          "id": "policies",
-          "type": "group",
-          "label": "Does your business have policies and/or procedures for the following?",
-          "positiveMessage": {
-            "title": "Comprehensive Policies!",
-            "body": "<p>Your business has strong policies and procedures in place. Continue to review and update them regularly to ensure they remain relevant and effective.</p>"
-          },
-          "recommendation": {
-            "title": "Develop Policies",
-            "body": "<p>Having these safety policies and procedures not only helps to keep your business safe, it is important work that can help reduce your insurance premiums.</p><p>If you need help in creating these policies and procedures you can access <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program/business-growth-program-grant-applicants' target='_blank' rel='noopener noreferrer'>Business Growth Funding</a> to engage a specialist to assist.</p><p>If you are unsure if you need any of these policies or procedures, you can request a <a href='https://worksafe.nt.gov.au/safety-and-prevention/small-business-safety-program' target='_blank' rel='noopener noreferrer'>NT Worksafe small business inspector</a> to talk it through.</p>"
-          },
-          "subQuestions": [
-            {
-              "id": "lockupProcedure",
-              "type": "radio",
-              "label": "1. Business premises lock up/unlocking",
-              "helpText": "A business premises lock-up procedure is a defined set of steps used to securely close a workplace at the end of operations. It ensures all entry points are locked, alarms are activated, and the property is safe from unauthorized access or hazards.",
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 },
-                { "label": "N/A", "score": 0 }
-              ]
-            },
-            {
-              "id": "stockControl",
-              "type": "radio",
-              "label": "2. Stock control",
-              "helpText": "A stock control procedure is a set of steps used to manage inventory levels, ensuring that stock is ordered, stored, tracked, and replenished efficiently. It helps prevent overstocking or shortages, supports accurate record-keeping, and maintains smooth business operations.",
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 },
-                { "label": "N/A", "score": 0 }
-              ]
-            },
-            {
-              "id": "securityAwareness",
-              "type": "radio",
-              "label": "3. Security awareness",
-              "helpText": "A security awareness procedure trains staff to recognize and respond to potential threats, helping maintain a safe and secure workplace.",
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 },
-                { "label": "N/A", "score": 0 }
-              ]
-            },
-            {
-              "id": "workingIsolation",
-              "type": "radio",
-              "label": "4. Working in isolation",
-              "helpText": "A working in isolation procedure outlines safety steps for individuals working alone, ensuring regular check-ins, emergency plans, and risk controls are in place.",
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 },
-                { "label": "N/A", "score": 0 }
-              ]
-            },
-            {
-              "id": "firstAidResponse",
-              "type": "radio",
-              "label": "5. First aid response",
-              "helpText": "A first aid response procedure outlines the steps to provide immediate care during an injury or medical emergency until professional help arrives.",
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 },
-                { "label": "N/A", "score": 0 }
-              ]
-            },
-            {
-              "id": "emergencyResponse",
-              "type": "radio",
-              "label": "6. Emergency response",
-              "helpText": "An emergency response procedure outlines the actions to take during critical incidents to ensure safety, minimise harm, and coordinate help effectively.",
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 },
-                { "label": "N/A", "score": 0 }
-              ]
-            },
-            {
-              "id": "evacuationProcedures",
-              "type": "radio",
-              "label": "7. Evacuation procedures",
-              "helpText": "Evacuation procedures outline the steps to safely exit a building or area during emergencies, ensuring everyone reaches a designated safe zone.",
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 },
-                { "label": "N/A", "score": 0 }
-              ]
-            },
-            {
-              "id": "incidentReporting",
-              "type": "radio",
-              "label": "8. Incident reporting",
-              "helpText": "Incident reporting procedures outline how to document and communicate workplace accidents, near misses, or hazards to ensure timely response and prevention.",
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 },
-                { "label": "N/A", "score": 0 }
-              ]
-            },
-            {
-              "id": "deEscalationTrainingPolicy",
-              "type": "radio",
-              "label": "9. De-Escalation Training",
-              "helpText": "De-escalation training teaches techniques to calmly manage and reduce conflict or aggressive behavior, promoting safety and positive outcomes.",
-              "options": [
-                { "label": "Yes", "score": 1 },
-                { "label": "No", "score": 0 },
-                { "label": "N/A", "score": 0 }
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "Staff Support and Training",
-      "questions": [
-        {
-          "id": "staffSupport",
-          "type": "radio",
-          "label": "If your staff are involved in a crime at the workplace do they have access to appropriate support?",
-          "helpText": "Support for staff involved in a workplace crime ensures access to appropriate care, including emotional, legal, and procedural assistance.",
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Support Available!",
-            "body": "<p>Your strength: providing access to appropriate support after a workplace crime shows care for staff well-being and helps recovery.</p><p>You can seek additional support from Victims of Crime NT who are specialised in helping to provide support to business owners and staff following a crime.</p>"
-          },
-          "recommendation": {
-            "title": "Provide Staff Support",
-            "body": "<p>Victims of Crime NT are a free service who are specialised in helping to provide support to business owners and staff following a crime.</p><p>Find more information: <a href='https://victimsofcrime.org.au/' target='_blank' rel='noopener noreferrer'>https://victimsofcrime.org.au/</a><br/>or call<br/>Darwin: 08 8941 0995<br/>Alice Springs: 08 8952 4466</p><p>You can ask a police officer to refer you to this service.</p>"
-          }
-        },
-        {
-          "id": "workAlone",
-          "type": "radio",
-          "label": "Do your staff ever work alone?",
-          "helpText": "",
-          "options": [
-            { "label": "Yes", "score": 0 },
-            { "label": "No", "score": 0 }
-          ]
-        },
-        {
-          "id": "aloneRiskManagement",
-          "type": "radio",
-          "label": "Are staff working on their own trained to identify and manage risks?",
-          "helpText": "Employees trained to manage risk when working alone are equipped with skills and procedures to stay safe, assess hazards, and respond to emergencies independently.",
-          "conditional": {
-            "showWhen": {
-              "workAlone": "Yes"
-            }
-          },
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Some", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Risk-Aware Team!",
-            "body": "<p>Your strength: training staff who work alone to identify and manage risks promotes safety and builds confidence in handling challenging situations.</p>"
-          },
-          "recommendation": {
-            "title": "Train Solo Workers",
-            "body": "<p>Staff working alone need to be confident in spotting and managing risks. Without backup, their safety depends on quick thinking and good judgement. Provide training focused on solo work environments. Covering risk identification, decision-making, and emergency response. Reinforce this with regular refreshers and scenario-based learning.</p><p>Talk to a <a href='https://business.nt.gov.au/help-for-business/territory-business-advisors' target='_blank' rel='noopener noreferrer'>Territory Business Advisor</a> about upcoming business training opportunities.</p><p>If you need help in creating these policies and procedures you can access <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program/business-growth-program-grant-applicants' target='_blank' rel='noopener noreferrer'>Business Growth Funding</a> to engage a specialist to assist.</p>"
-          }
-        },
-        {
-          "id": "isolationPolicies",
-          "type": "radio",
-          "label": "Do you have additional policies or procedures (such as a working in isolation policy) that provides details on extra safety and security measures for working alone?",
-          "helpText": "",
-          "conditional": {
-            "showWhen": {
-              "workAlone": "Yes"
-            }
-          },
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Proactive Policies!",
-            "body": "<p>Your strength: having clear policies for working in isolation demonstrates proactive risk management and prioritises staff safety.</p>"
-          },
-          "recommendation": {
-            "title": "Create Isolation Policies",
-            "body": "<p>Having clear policies for working alone, like a 'working in isolation' policy, helps staff understand the extra precautions needed and ensures consistent safety practices across your business. Create a simple policy that outlines risks, safety procedures, check-in systems, and emergency contacts for working alone. Make sure staff are trained on it and know where to find it when needed.</p><p>If you are unsure where to start, you can request a <a href='https://worksafe.nt.gov.au/safety-and-prevention/small-business-safety-program' target='_blank' rel='noopener noreferrer'>NT Worksafe small business inspector</a> to talk it through.</p>"
-          }
-        },
-        {
-          "id": "afterHoursOperation",
-          "type": "radio",
-          "label": "Does your business operate outside of normal business hours that maybe considered high risk?",
-          "helpText": "",
-          "options": [
-            { "label": "Yes", "score": 0 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 }
-          ]
-        },
-        {
-          "id": "afterHoursSecurity",
-          "type": "radio",
-          "label": "Has your business implemented additional security processes to mitigate risk to staff after hours?",
-          "helpText": "Additional security processes for staff working outside business hours refer to extra measures put in place to ensure their safety and protect company assets during non-standard operating time. These are processes such as sign-in protocols, restricted access, surveillance, or check-ins.",
-          "conditional": {
-            "showWhen": {
-              "afterHoursOperation": "Yes"
-            }
-          },
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Protected After Hours!",
-            "body": "<p>Your strength: implementing extra security measures after hours demonstrates proactive risk management and prioritises staff safety.</p>"
-          },
-          "recommendation": {
-            "title": "Add After-Hours Security",
-            "body": "<p>Operating outside normal hours, especially in high-risk times, can expose staff to increased safety threats like poor visibility, isolation, or reduced public presence. Extra security measures help reduce these risks. Identify high-risk timeframes and implement added precautions such as increased lighting, check-in systems, duress alarms, or working in pairs. Make sure staff are trained and feel supported during these hours.</p><p>If you are unsure where to start, you can request a <a href='https://worksafe.nt.gov.au/safety-and-prevention/small-business-safety-program' target='_blank' rel='noopener noreferrer'>NT Worksafe small business inspector</a> to talk it through.</p><p>If you need help in creating these policies and procedures you can access <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program/business-growth-program-grant-applicants' target='_blank' rel='noopener noreferrer'>Business Growth Funding</a> to engage a specialist to assist.</p>"
-          }
-        },
-        {
-          "id": "teamMeetings",
-          "type": "radio",
-          "label": "Do you hold regular team meetings or have other opportunities where staff can raise safety concerns?",
-          "helpText": "Regular meetings help staff speak up about safety and security issues, so problems can be fixed early and everyone stays safe at work.",
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Open Communication!",
-            "body": "<p>Your strength: regular team meetings or open forums for safety concerns foster communication and create a proactive safety culture.</p>"
-          },
-          "recommendation": {
-            "title": "Create Safety Forums",
-            "body": "<p>Regular safety meetings and open communication channels help staff raise concerns, share ideas, and improve workplace safety. Hold monthly or quarterly safety meetings, depending on your business size and risk level. Include safety as a standing agenda item in team meetings. Encourage staff to speak up without fear of reprisal. Use suggestion boxes, digital forms, or anonymous reporting tools. Act on feedback and communicate outcomes to staff.</p>"
-          }
-        },
-        {
-          "id": "regularTraining",
-          "type": "radio",
-          "label": "Are staff regularly trained or reminded about security features, procedures or policies?",
-          "helpText": "",
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Ongoing Training!",
-            "body": "<p>Your strength: regular training keeps security top of mind and ensures your team is prepared to protect your business.</p>"
-          },
-          "recommendation": {
-            "title": "Implement Regular Training",
-            "body": "<p>You can add this as a standing item in your regular staff meeting. It's a good idea to create a training schedule to make sure you are revisiting this training with staff, no matter how long they have been working in your business.</p>"
-          }
-        },
-        {
-          "id": "staffFeelUnsafe",
-          "type": "radio",
-          "label": "Have your staff ever communicated that they feel unsafe at work?",
-          "helpText": "",
-          "options": [
-            { "label": "Never", "score": 1 },
-            { "label": "At times", "score": 0 },
-            { "label": "All the time", "score": 0 },
-            { "label": "Unsure", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Safe Workplace!",
-            "body": "<p>Your strength: a workplace where staff feel safe fosters trust, productivity, and a positive culture.</p>"
-          },
-          "recommendation": {
-            "title": "Address Safety Concerns",
-            "body": "<p>It's important to take any reports of feeling unsafe seriously. Listen to staff members concerns and if there are simple solutions be sure to implement them.</p><p>You can access information about support your staff mental health here: <a href='https://business.nt.gov.au/help-for-business/business-tools-and-learning/mental-health-in-the-workplace' target='_blank' rel='noopener noreferrer'>Mental Health in the Workplace</a></p><p>Victims of Crime NT offer <a href='https://victimsofcrime.org.au/wellbeing-support/' target='_blank' rel='noopener noreferrer'>wellbeing support</a> to staff following a crime incident.</p>"
-          }
-        },
-        {
-          "id": "deEscalationTraining",
-          "type": "radio",
-          "label": "Do you have designated team members that are trained to de-escalate situations if required?",
-          "helpText": "De-escalation training teaches staff how to calmly and safely manage tense or aggressive situations to prevent conflict from getting worse.",
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 },
-            { "label": "N/A", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "De-Escalation Ready!",
-            "body": "<p>Your strength: having trained team members ready to de-escalate situations shows strong commitment to safety and professionalism.</p>"
-          },
-          "recommendation": {
-            "title": "Train in De-Escalation",
-            "body": "<p>De-escalation training can make a big difference in how staff respond to certain situations. Training is available in the NT. Talk to a <a href='https://business.nt.gov.au/help-for-business/territory-business-advisors' target='_blank' rel='noopener noreferrer'>Territory Business Advisor</a> or contact <a href='https://victimsofcrime.org.au/personal-safety-workshops/' target='_blank' rel='noopener noreferrer'>Victims of Crime</a> to seek out opportunities for staff to attend training sessions.</p>"
-          }
-        },
-        {
-          "id": "displayProcedures",
-          "type": "radio",
-          "label": "Do you display any safety or security procedures in your workplace?",
-          "helpText": "Safety and security procedures in the workplace are rules and actions that help protect staff, visitors, and property from harm, accidents, or threats.",
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Visible Procedures!",
-            "body": "<p>Your strength: displaying safety and security procedures keeps everyone informed and promotes a culture of awareness and responsibility.</p>"
-          },
-          "recommendation": {
-            "title": "Display Procedures",
-            "body": "<p>If you have a staff room this is a great place to put up information and reminders about safety and security. You can also display safety information at any counters or areas where staff might need it on hand.</p>"
-          }
-        },
-        {
-          "id": "emergencyContacts",
-          "type": "radio",
-          "label": "Are staff aware of who the emergency contact is during their work hours?",
-          "helpText": "An emergency contact in the workplace is a person, usually a manager or business owner, who can be reached quickly if a staff member is injured, sick, or involved in an emergency. This could also include emergency services numbers.",
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Clear Contacts!",
-            "body": "<p>Your strength: clear emergency contact awareness can ensure quick responses and peace of mind for your team.</p>"
-          },
-          "recommendation": {
-            "title": "Share Emergency Contacts",
-            "body": "<p>Being clear about who to contact and when (during hours or after hours) is important to help staff stay safe. Display contact details of the relevant people in staff rooms or at counters where staff might need it on hand.</p>"
-          }
-        },
-        {
-          "id": "incidentReportingProcess",
-          "type": "radio",
-          "label": "Does your business have incident reporting processes and staff are aware of this process?",
-          "helpText": "The incident report process in the workplace is the steps staff follow to record and respond to accidents, injuries, or safety issues to help prevent them from happening again.",
-          "options": [
-            { "label": "Yes", "score": 1 },
-            { "label": "No", "score": 0 },
-            { "label": "Unsure", "score": 0 }
-          ],
-          "positiveMessage": {
-            "title": "Clear Reporting!",
-            "body": "<p>Your strength: having clear incident reporting processes and staff awareness ensures accountability and quick resolution of issues.</p>"
-          },
-          "recommendation": {
-            "title": "Create Reporting Process",
-            "body": "<p>Having a process to follow after an incident is not only important for your staff, but might be needed by insurance or licencing to make sure you are compliant.</p><p>If you are unsure where to start, you can request a <a href='https://worksafe.nt.gov.au/safety-and-prevention/small-business-safety-program' target='_blank' rel='noopener noreferrer'>NT Worksafe small business inspector</a> to talk it through.</p><p>If you need help in creating these policies and procedures you can access <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program/business-growth-program-grant-applicants' target='_blank' rel='noopener noreferrer'>Business Growth Funding</a> to engage a specialist to assist.</p>"
-          }
-        }
-      ]
+    ],
+    "conclusion": {
+        "body": "<p><strong>Well done in completing this business safety questionnaire.</strong></p><p>Download or save your results. Implementing small changes consistently will help you create a sustainable business practice!</p><p><strong>You can access information and resources on the following topics through these links:</strong></p><ul><li><a href='https://business.nt.gov.au/help-for-business/business-regulation-and-legislation-in-nt/workplace-safety-for-nt-business' target='_blank' rel='noopener noreferrer'>Workplace Safety for NT Businesses</a></li><li><a href='https://business.nt.gov.au/help-for-business/business-regulation-and-legislation-in-nt/workforce-for-nt-business' target='_blank' rel='noopener noreferrer'>Workforce for NT Businesses</a></li><li><a href='https://business.nt.gov.au/help-for-business/business-tools-and-learning/mental-health-in-the-workplace' target='_blank' rel='noopener noreferrer'>Mental Health in the workplace</a></li></ul>"
     }
-  ],
-  "conclusion": {
-    "body": "<p><strong>Well done in completing this business safety questionnaire.</strong></p><p>Download or save your results. Implementing small changes consistently will help you create a sustainable business practice!</p><p><strong>You can access information and resources on the following topics through these links:</strong></p><ul><li><a href='https://business.nt.gov.au/help-for-business/business-regulation-and-legislation-in-nt/workplace-safety-for-nt-business' target='_blank' rel='noopener noreferrer'>Workplace Safety for NT Businesses</a></li><li><a href='https://business.nt.gov.au/help-for-business/business-regulation-and-legislation-in-nt/workforce-for-nt-business' target='_blank' rel='noopener noreferrer'>Workforce for NT Businesses</a></li><li><a href='https://business.nt.gov.au/help-for-business/business-tools-and-learning/mental-health-in-the-workplace' target='_blank' rel='noopener noreferrer'>Mental Health in the workplace</a></li></ul>"
-  }
 }

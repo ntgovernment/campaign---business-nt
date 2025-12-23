@@ -32,6 +32,11 @@
         btn.addEventListener('click', () => {
             window.State.currentState.view = 'choose-topic';
             window.State.saveStateToUrl(window.State.currentState);
+            // Scroll to quiz body
+            const quizBody = document.querySelector('.ntg-quiz-body');
+            if (quizBody) {
+                quizBody.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         });
         nav.appendChild(btn);
         wrapper.appendChild(p);
@@ -1848,6 +1853,13 @@
                     window.State.currentState.quizId = prevId;
                     window.State.currentState.currentPage = 0;
                     window.State.saveStateToUrl(window.State.currentState);
+                    // Scroll to quiz body
+                    setTimeout(() => {
+                        const quizBody = document.querySelector('.ntg-quiz-body');
+                        if (quizBody) {
+                            quizBody.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }, 100);
                 }
             });
             nextBtn.addEventListener('click', () => {
@@ -1857,6 +1869,13 @@
                     window.State.currentState.quizId = nextId;
                     window.State.currentState.currentPage = 0;
                     window.State.saveStateToUrl(window.State.currentState);
+                    // Scroll to quiz body
+                    setTimeout(() => {
+                        const quizBody = document.querySelector('.ntg-quiz-body');
+                        if (quizBody) {
+                            quizBody.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }, 100);
                 }
             });
             navWrap.appendChild(prevBtn);

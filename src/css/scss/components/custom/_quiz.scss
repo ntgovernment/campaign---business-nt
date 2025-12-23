@@ -34,6 +34,7 @@
                 text-align: left;
                 padding: 0.75rem 0;
                 border-bottom: 1px solid tint-color($ntg-charcoal-grey, 50%);
+                color: var(--bs-body-color);
 
                 &:hover {
                     text-decoration: underline;
@@ -155,6 +156,7 @@
                     border: 0;
                     font-size: $font-size-sm;
                     font-weight: 700;
+                    color: var(--bs-heading-color);
 
                     &.primary {
                         background-color: $primary;
@@ -216,6 +218,7 @@
                 display: flex;
                 align-items: baseline;
                 transition: 0.2s color ease-in-out;
+                color: var(--bs-body-color);
 
                 &:not(:only-child):nth-child(1) {
                     &::before {

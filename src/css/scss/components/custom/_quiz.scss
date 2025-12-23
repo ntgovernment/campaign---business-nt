@@ -614,7 +614,8 @@
         }
 
         .conditional-group,
-        .conditional-subquestion-group {
+        .conditional-subquestion-group,
+        .question-group {
             border-left: 6px solid $ntg-monsoon-blue;
             padding-left: 1rem;
             margin-top: 1.5rem;
@@ -651,7 +652,7 @@
                     cursor: pointer;
                 }
 
-                &:has(input[value="Yes"]) label:hover {
+                &:has(input[value='Yes']) label:hover {
                     background-color: #2f9599;
                     border-color: #2f9599;
                     color: $white;
@@ -663,7 +664,7 @@
                     border-color: $primary;
                 }
 
-                &:has(input[value="Yes"]:checked) label {
+                &:has(input[value='Yes']:checked) label {
                     background-color: #2f9599;
                     border-color: #2f9599;
                 }
@@ -853,13 +854,13 @@
 
                 .message-item {
                     margin-bottom: 1rem;
-                    
+
                     &.recommendation {
                         padding-left: 3rem;
                         position: relative;
 
                         &::before {
-                            content: "";
+                            content: '';
                             width: 40px;
                             height: 40px;
                             display: block;

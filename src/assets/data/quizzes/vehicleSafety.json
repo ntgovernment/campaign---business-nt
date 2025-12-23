@@ -432,60 +432,63 @@
                         { "label": "Yes", "score": 1 },
                         { "label": "No", "score": 0 },
                         { "label": "Unsure", "score": 0 }
-                    ]
+                    ],
+                    "conditionalQuestionGroupPositiveMessage": {
+                        "title": "Cash Secured!",
+                        "body": "<p>Your strength: locking cash securely reduces theft risk and shows strong financial control practices. Having a clear cash handling procedure ensures consistency, accountability, and reduces financial risk.</p>"
+                    },
+                    "conditionalQuestionGroupRecommendation": {
+                        "title": "Improve Cash Management",
+                        "body": "<p>A clear procedure helps staff manage cash safely and consistently, reducing risk and improving accountability. Create a written process for carrying, storing, and depositing cash. Train staff on the procedure and review it regularly.</p>"
+                    }
                 },
                 {
-                    "id": "vehicleCashManagement",
-                    "type": "group",
-                    "label": "Is cash stored in a locked container? Is cash removed when the vehicle is not in use? Do you have a cash handling procedure?",
+                    "id": "cashLockedContainer",
+                    "type": "radio",
+                    "label": "Is cash stored in a locked container?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
                     "conditional": {
                         "showWhen": {
                             "carryCash": "Yes"
                         }
-                    },
-                    "positiveMessage": {
-                        "title": "Cash Secured!",
-                        "body": "<p>Your strength: locking cash securely reduces theft risk and shows strong financial control practices. Having a clear cash handling procedure ensures consistency, accountability, and reduces financial risk.</p>"
-                    },
-                    "recommendation": {
-                        "title": "Improve Cash Management",
-                        "body": "<p>A clear procedure helps staff manage cash safely and consistently, reducing risk and improving accountability. Create a written process for carrying, storing, and depositing cash. Train staff on the procedure and review it regularly.</p>"
-                    },
-                    "subQuestions": [
-                        {
-                            "id": "cashLockedContainer",
-                            "type": "radio",
-                            "label": "Is cash stored in a locked container?",
-                            "helpText": "",
-                            "options": [
-                                { "label": "Yes", "score": 1 },
-                                { "label": "No", "score": 0 },
-                                { "label": "Unsure", "score": 0 }
-                            ]
-                        },
-                        {
-                            "id": "cashRemovedWhenUnused",
-                            "type": "radio",
-                            "label": "Is cash removed when the vehicle is not in use?",
-                            "helpText": "",
-                            "options": [
-                                { "label": "Yes", "score": 1 },
-                                { "label": "No", "score": 0 },
-                                { "label": "Unsure", "score": 0 }
-                            ]
-                        },
-                        {
-                            "id": "cashHandlingProcedure",
-                            "type": "radio",
-                            "label": "Do you have a cash handling procedure?",
-                            "helpText": "",
-                            "options": [
-                                { "label": "Yes", "score": 1 },
-                                { "label": "No", "score": 0 },
-                                { "label": "Unsure", "score": 0 }
-                            ]
+                    }
+                },
+                {
+                    "id": "cashRemovedWhenUnused",
+                    "type": "radio",
+                    "label": "Is cash removed when the vehicle is not in use?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "conditional": {
+                        "showWhen": {
+                            "carryCash": "Yes"
                         }
-                    ]
+                    }
+                },
+                {
+                    "id": "cashHandlingProcedure",
+                    "type": "radio",
+                    "label": "Do you have a cash handling procedure?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "conditional": {
+                        "showWhen": {
+                            "carryCash": "Yes"
+                        }
+                    }
                 },
                 {
                     "id": "sensitiveInfo",

@@ -668,7 +668,8 @@
         }
 
         .page-messages,
-        .conditional-group-message {
+        .conditional-group-message,
+        .question-message {
             &:not(:empty) {
                 margin-top: 2rem;
             }

@@ -1678,106 +1678,85 @@
                 return;
             }
 
-            try {
-                // Show loading state
-                const originalText = pdfBtn.textContent;
-                pdfBtn.disabled = true;
-                pdfBtn.textContent = 'Generating PDF...';
+            // Clone content and remove action buttons
+            const contentEl = document.getElementById('quizContent');
+            const clone = contentEl.cloneNode(true);
 
-                // Clone content and remove action buttons
-                const contentEl = document.getElementById('quizContent');
-                const clone = contentEl.cloneNode(true);
+            // Remove the action buttons from the clone
+            const actionsWrap = clone.querySelector('.results-actions');
+            if (actionsWrap && actionsWrap.querySelector('button')) {
+                actionsWrap.remove();
+            }
 
-                // Remove the action buttons from the clone
-                const actionsWrap = clone.querySelector('.results-actions');
-                if (actionsWrap && actionsWrap.querySelector('button')) {
-                    actionsWrap.remove();
-                }
+            // Remove the stepper from the clone
+            const stepper = clone.querySelector('.stepper');
+            if (stepper) {
+                stepper.remove();
+            }
 
-                // Remove the stepper from the clone
-                const stepper = clone.querySelector('.stepper');
-                if (stepper) {
-                    stepper.remove();
-                }
+            // Remove quiz navigation buttons
+            const navButtons = clone.querySelector('.quiz-nav-buttons');
+            if (navButtons) {
+                navButtons.remove();
+            }
 
-                // Remove quiz navigation buttons
-                const navButtons = clone.querySelector('.quiz-nav-buttons');
-                if (navButtons) {
-                    navButtons.remove();
-                }
+            // Remove contact button
+            const contactButton = clone.querySelector('.btn.btn-primary.mb-4');
+            if (contactButton) {
+                contactButton.remove();
+            }
 
-                // Remove contact button
-                const contactButton = clone.querySelector('.btn.btn-primary.mb-4');
-                if (contactButton) {
-                    contactButton.remove();
-                }
+            // Add quiz title at the top
+            const titleElement = document.createElement('h1');
+            titleElement.textContent = quiz.title || 'Business Health Report';
+            titleElement.style.fontSize = '24px';
+            titleElement.style.fontWeight = '700';
+            titleElement.style.marginBottom = '20px';
+            clone.insertBefore(titleElement, clone.firstChild);
 
-                // Add quiz title at the top
-                const titleElement = document.createElement('h1');
-                titleElement.textContent = quiz.title || 'Business Health Report';
-                titleElement.style.fontSize = '24px';
-                titleElement.style.fontWeight = '700';
-                titleElement.style.marginBottom = '20px';
-                clone.insertBefore(titleElement, clone.firstChild);
+            // Open a new window with the content
+            const newWin = window.open('', '_blank');
+            if (!newWin) {
+                alert('Unable to open PDF window');
+                return;
+            }
 
-                // Get all stylesheets
-                const styles = Array.from(document.querySelectorAll('link[rel=stylesheet]'))
-                    .map((l) => `<link rel="stylesheet" href="${l.href}">`)
-                    .join('\n');
+            // Get all stylesheets
+            const styles = Array.from(document.querySelectorAll('link[rel=stylesheet]'))
+                .map((l) => `<link rel="stylesheet" href="${l.href}">`)
+                .join('\n');
 
-                // Get inline styles from style tags
-                const inlineStyles = Array.from(document.querySelectorAll('style'))
-                    .map((s) => `<style>${s.innerHTML}</style>`)
-                    .join('\n');
+            // Get inline styles from style tags
+            const inlineStyles = Array.from(document.querySelectorAll('style'))
+                .map((s) => `<style>${s.innerHTML}</style>`)
+                .join('\n');
 
-                // Create a complete HTML document with styles
-                const wrapper = document.createElement('div');
-                wrapper.innerHTML = `
-                    <!doctype html>
-                    <html>
-                    <head>
-                        <meta charset="utf-8">
-                        ${styles}
-                        ${inlineStyles}
-                        <title>${quiz.title || 'Business Health Report'}</title>
-                    </head>
-                    <body>
-                        <div class="ntg-quiz-body">
-                            ${clone.innerHTML}
-                        </div>
-                    </body>
-                    </html>
-                `;
+            const html = `<!doctype html><html><head><meta charset="utf-8">${styles}${inlineStyles}<title>PDF - ${quiz.title || 'Business Health Report'}</title></head><body><div class="ntg-quiz-body">${clone.innerHTML}</div></body></html>`;
+            newWin.document.open();
+            newWin.document.write(html);
+            newWin.document.close();
+            newWin.focus();
+            
 
-                // Detect if mobile device
-                const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-                
-                // Configure PDF options - use lower scale on mobile for better performance
+            // Wait for styles to load, then generate PDF from the new window
+            setTimeout(() => {
                 const opt = {
                     margin: 10,
                     filename: `${quiz.title || 'report'}.pdf`,
-                    image: { type: 'jpeg', quality: isMobile ? 0.85 : 0.98 },
-                    html2canvas: { 
-                        scale: isMobile ? 1 : 2, 
-                        useCORS: true,
-                        logging: false,
-                        letterRendering: true
-                    },
-                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait', compress: true },
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2, useCORS: true },
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
                 };
 
-                // Generate PDF from the complete HTML
-                await html2pdf().set(opt).from(wrapper).save();
+                // Get the body element from the new window
+                const element = newWin.document.querySelector('.ntg-quiz-body');
                 
-                // Reset button state
-                pdfBtn.disabled = false;
-                pdfBtn.textContent = originalText;
-            } catch (error) {
-                console.error('PDF generation failed:', error);
-                alert('Failed to generate PDF. Please try again or use the print option instead.');
-                pdfBtn.disabled = false;
-                pdfBtn.textContent = 'Download report';
-            }
+                // Generate PDF from the new window's content
+                html2pdf().set(opt).from(element).save().then(() => {
+                    // Optionally close the window after PDF generation
+                    newWin.close();
+                });
+            }, 1000);
         });
 
         copyBtn.addEventListener('click', async () => {

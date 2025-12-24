@@ -32,11 +32,6 @@
         btn.addEventListener('click', () => {
             window.State.currentState.view = 'choose-topic';
             window.State.saveStateToUrl(window.State.currentState);
-            // Scroll to quiz body
-            const quizBody = document.querySelector('.ntg-quiz-body');
-            if (quizBody) {
-                quizBody.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
         });
         nav.appendChild(btn);
         wrapper.appendChild(p);
@@ -726,7 +721,7 @@
             qEl.addEventListener('change', (ev) => {
                 // Save the focused input ID before DOM manipulation
                 const focusedInputId = ev.target ? ev.target.id : null;
-                
+
                 handleInputChange(ev, quiz, pageIndex);
                 // after handling input change, show inline message for the changed value
                 const val = (function () {
@@ -747,7 +742,7 @@
                 updatePageMessages(quiz, page);
                 updateInlineQuestionMessages(quiz, page);
                 updateConditionalGroupMessages(quiz, page);
-                
+
                 // Restore focus after ALL DOM updates are complete
                 if (focusedInputId) {
                     setTimeout(() => {
@@ -766,11 +761,11 @@
         updatePageMessages(quiz, page);
         updateInlineQuestionMessages(quiz, page);
         updateConditionalGroupMessages(quiz, page);
-        
+
         // Initialize Bootstrap tooltips
         if (window.bootstrap && window.bootstrap.Tooltip) {
             const tooltipTriggerList = contentEl.querySelectorAll('[data-bs-toggle="tooltip"]');
-            [...tooltipTriggerList].map(tooltipTriggerEl => new window.bootstrap.Tooltip(tooltipTriggerEl));
+            [...tooltipTriggerList].map((tooltipTriggerEl) => new window.bootstrap.Tooltip(tooltipTriggerEl));
         }
     }
 
@@ -850,16 +845,13 @@
                 msgDiv.appendChild(body);
                 messagesSection.appendChild(msgDiv);
             });
-            
-            // Add external link icons to all message bodies
-            addExternalLinkIcons(messagesSection);
         }
     }
 
     // Helper function to determine if answer should trigger positive or recommendation message
     function shouldShowMessage(question, answer, messageType) {
         if (!answer) return false;
-        
+
         // Check if question has custom trigger values
         if (messageType === 'positive' && question.positiveMessageOn) {
             return question.positiveMessageOn.includes(answer);
@@ -867,53 +859,18 @@
         if (messageType === 'recommendation' && question.recommendationOn) {
             return question.recommendationOn.includes(answer);
         }
-        
+
         // Fallback to default Yes/No logic for backward compatibility
         if (question.type === 'radio') {
             if (messageType === 'positive') {
-                return question.showRecommendationOnYes ? (answer === 'No') : (answer === 'Yes');
+                return question.showRecommendationOnYes ? answer === 'No' : answer === 'Yes';
             }
             if (messageType === 'recommendation') {
-                return question.showRecommendationOnYes ? (answer === 'Yes') : (answer === 'No' || answer === 'Unsure');
+                return question.showRecommendationOnYes ? answer === 'Yes' : answer === 'No' || answer === 'Unsure';
             }
         }
-        
-        return false;
-    }
 
-    // Helper function to add external link icons to message bodies
-    function addExternalLinkIcons(container) {
-        if (!container) return;
-        
-        const links = container.querySelectorAll('.message-body a');
-        links.forEach(function (link) {
-            const url = link.getAttribute('href');
-            if (!url) return;
-            
-            const arr = url.split('.');
-            
-            if (location.hostname === link.hostname || !link.hostname.length) {
-                if (arr[arr.length - 1] === 'pdf') {
-                    link.setAttribute('rel', 'noopener');
-                    link.setAttribute('title', 'Opens in a new window');
-                    link.setAttribute('target', '_blank');
-                }
-            } else {
-                link.classList.add('external-link');
-                
-                if (link.classList.contains('btn')) {
-                    link.classList.add('btn-external');
-                } else {
-                    const icon = '<i class="fa-solid fa-arrow-up-right-from-square ms-1" aria-hidden="true"></i>';
-                    
-                    if (!link.querySelector('[class*="fa-arrow-up-right-from-square"]') && !link.querySelector('img') && !link.querySelector('[class*="fa-brands"]')) {
-                        link.insertAdjacentHTML('beforeend', icon);
-                    }
-                }
-                
-                link.setAttribute('rel', 'noopener');
-            }
-        });
+        return false;
     }
 
     // Update inline question messages (for regular questions without subQuestions)
@@ -970,9 +927,6 @@
                     msgDiv.appendChild(title);
                     msgDiv.appendChild(body);
                     messageContainer.appendChild(msgDiv);
-                    
-                    // Add external link icons
-                    addExternalLinkIcons(messageContainer);
                 }
             } else {
                 messageContainer.innerHTML = '';
@@ -987,17 +941,17 @@
 
         // Find all conditional group message containers
         const conditionalGroups = document.querySelectorAll('.conditional-group-message');
-        
+
         conditionalGroups.forEach((messageContainer) => {
             const parentQid = messageContainer.dataset.parentQid;
             if (!parentQid) return;
 
             // Find the parent question - could be a regular question or a sub-question in a group
             let parentQuestion = null;
-            
+
             // First check if it's a regular question
             parentQuestion = page.questions.find((q) => q.id === parentQid);
-            
+
             // If not found, check if it's a sub-question in a group
             if (!parentQuestion) {
                 for (const q of page.questions) {
@@ -1025,9 +979,9 @@
                     const childQid = childEl.dataset.qid;
                     // Skip the parent question itself
                     if (childQid === parentQid) return;
-                    
+
                     const childQuestion = findQuestionInQuiz(quiz, childQid);
-                    
+
                     // Skip if not conditional or not depending on this parent
                     if (!childQuestion || !childQuestion.conditional || !childQuestion.conditional.showWhen) return;
                     const dependsOnId = Object.keys(childQuestion.conditional.showWhen)[0];
@@ -1560,8 +1514,8 @@
                             }
 
                             // Check if positive message should be shown on No (when showRecommendationOnYes is true, behavior is inverted)
-                            const shouldShowPos = subQ.showRecommendationOnYes ? (ans === 'No') : (ans === 'Yes');
-                            
+                            const shouldShowPos = subQ.showRecommendationOnYes ? ans === 'No' : ans === 'Yes';
+
                             if (shouldShowPos) {
                                 // Use conditionalQuestionGroupPositiveMessage from parent if it's a conditional question
                                 if (isConditional && parentQuestion && parentQuestion.conditionalQuestionGroupPositiveMessage) {
@@ -1575,8 +1529,8 @@
                             }
 
                             // Check if recommendation should be shown on Yes (special case for questions like cashOnsite)
-                            const shouldShowRec = subQ.showRecommendationOnYes ? (ans === 'Yes') : (ans === 'No' || ans === 'Unsure');
-                            
+                            const shouldShowRec = subQ.showRecommendationOnYes ? ans === 'Yes' : ans === 'No' || ans === 'Unsure';
+
                             if (shouldShowRec) {
                                 // Use conditionalQuestionGroupRecommendation from parent if it's a conditional question
                                 if (isConditional && parentQuestion && parentQuestion.conditionalQuestionGroupRecommendation) {
@@ -1606,8 +1560,8 @@
                         }
 
                         // Check if positive message should be shown on No (when showRecommendationOnYes is true, behavior is inverted)
-                        const shouldShowPos = q.showRecommendationOnYes ? (ans === 'No') : (ans === 'Yes');
-                        
+                        const shouldShowPos = q.showRecommendationOnYes ? ans === 'No' : ans === 'Yes';
+
                         if (shouldShowPos) {
                             // Use conditionalQuestionGroupPositiveMessage from parent if it's a conditional question
                             if (isConditional && parentQuestion && parentQuestion.conditionalQuestionGroupPositiveMessage) {
@@ -1621,8 +1575,8 @@
                         }
 
                         // Check if recommendation should be shown on Yes (special case for questions like cashOnsite)
-                        const shouldShowRec = q.showRecommendationOnYes ? (ans === 'Yes') : (ans === 'No' || ans === 'Unsure');
-                        
+                        const shouldShowRec = q.showRecommendationOnYes ? ans === 'Yes' : ans === 'No' || ans === 'Unsure';
+
                         if (shouldShowRec) {
                             // Use conditionalQuestionGroupRecommendation from parent if it's a conditional question
                             if (isConditional && parentQuestion && parentQuestion.conditionalQuestionGroupRecommendation) {
@@ -1769,12 +1723,13 @@
                 .map((s) => `<style>${s.innerHTML}</style>`)
                 .join('\n');
 
-            const html = `<!doctype html><html><head><meta charset="utf-8">${styles}${inlineStyles}<title>PDF - ${quiz.title || 'Business Health Report'}</title></head><body><div class="ntg-quiz-body">${clone.innerHTML}</div></body></html>`;
+            const html = `<!doctype html><html><head><meta charset="utf-8">${styles}${inlineStyles}<title>PDF - ${
+                quiz.title || 'Business Health Report'
+            }</title></head><body><div class="ntg-quiz-body">${clone.innerHTML}</div></body></html>`;
             newWin.document.open();
             newWin.document.write(html);
             newWin.document.close();
             newWin.focus();
-            
 
             // Wait for styles to load, then generate PDF from the new window
             setTimeout(() => {
@@ -1788,31 +1743,30 @@
 
                 // Get the body element from the new window
                 const element = newWin.document.querySelector('.ntg-quiz-body');
-                
+
                 // Generate PDF from the new window's content with page numbers
                 const worker = html2pdf().set(opt).from(element);
-                
-                worker.toPdf().get('pdf').then((pdf) => {
-                    const totalPages = pdf.internal.getNumberOfPages();
-                    
-                    // Add page numbers to each page
-                    for (let i = 1; i <= totalPages; i++) {
-                        pdf.setPage(i);
-                        pdf.setFontSize(9);
-                        pdf.setTextColor(128);
-                        pdf.text(
-                            `Page ${i} of ${totalPages}`,
-                            pdf.internal.pageSize.getWidth() / 2,
-                            pdf.internal.pageSize.getHeight() - 8,
-                            { align: 'center' }
-                        );
-                    }
-                }).then(() => {
-                    worker.save().then(() => {
-                        // Close the window after PDF generation
-                        newWin.close();
+
+                worker
+                    .toPdf()
+                    .get('pdf')
+                    .then((pdf) => {
+                        const totalPages = pdf.internal.getNumberOfPages();
+
+                        // Add page numbers to each page
+                        for (let i = 1; i <= totalPages; i++) {
+                            pdf.setPage(i);
+                            pdf.setFontSize(9);
+                            pdf.setTextColor(128);
+                            pdf.text(`Page ${i} of ${totalPages}`, pdf.internal.pageSize.getWidth() / 2, pdf.internal.pageSize.getHeight() - 8, { align: 'center' });
+                        }
+                    })
+                    .then(() => {
+                        worker.save().then(() => {
+                            // Close the window after PDF generation
+                            newWin.close();
+                        });
                     });
-                });
             }, 1000);
         });
 
@@ -1848,7 +1802,6 @@
                 actionsWrap.remove();
             }
 
-            
             // Remove the action buttons from the clone
             const stepper = clone.querySelector('.stepper');
             if (stepper) {
@@ -1998,7 +1951,7 @@
                     setTimeout(() => {
                         const quizBody = document.querySelector('.ntg-quiz-body');
                         if (quizBody) {
-                            console.log("Scrolling")
+                            console.log('Scrolling');
                             quizBody.scrollIntoView({ behavior: 'smooth', block: 'start' });
                         }
                     }, 100);
@@ -2013,7 +1966,7 @@
                     window.State.saveStateToUrl(window.State.currentState);
                     // Scroll to quiz body
                     setTimeout(() => {
-                        console.log("Scrolling")
+                        console.log('Scrolling');
                         const quizBody = document.querySelector('.ntg-quiz-body');
                         if (quizBody) {
                             quizBody.scrollIntoView({ behavior: 'smooth', block: 'start' });

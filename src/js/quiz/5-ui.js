@@ -1763,7 +1763,7 @@
                         logging: false,
                         letterRendering: true
                     },
-                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait', compress: true },
                 };
 
                 // Generate PDF from the complete HTML

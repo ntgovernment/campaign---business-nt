@@ -1720,6 +1720,12 @@
                 contactButton.remove();
             }
 
+            // Remove AI summary section if still loading
+            const aiSummary = clone.querySelector('.ai-summary-section');
+            if (aiSummary && aiSummary.querySelector('.summary-loading')) {
+                aiSummary.remove();
+            }
+
             // Add quiz title at the top
             const titleElement = document.createElement('h1');
             titleElement.textContent = quiz.title || 'Business Health Report';
@@ -1727,6 +1733,24 @@
             titleElement.style.fontWeight = '700';
             titleElement.style.marginBottom = '20px';
             clone.insertBefore(titleElement, clone.firstChild);
+
+            // Add footer with logo and disclaimer
+            const printFooter = document.createElement('div');
+            printFooter.className = 'row mt-5 pt-4 gy-2';
+            printFooter.style.borderTop = '1px solid #dee2e6';
+            const appEl = document.getElementById('app');
+            const logoUrl = appEl ? appEl.dataset.ntgLogo : '/assets/css-images/logo-ntg-color.svg';
+            printFooter.innerHTML = `
+                <div class="col-12">
+                    <img src="${logoUrl}" alt="Northern Territory Government" width="150" style="max-width: 150px; height: auto;">
+                </div>
+                <div class="col-12">
+                    <p>
+                        <strong>Disclaimer:</strong> Laws and regulations can change over time. While we aim to provide accurate guidance and point you to helpful resources, it's important that you check whether the information is suitable for your specific situation. Every business is different, so please make sure any advice or material you use is right for your circumstances before making decisions or taking action.
+                    </p>
+                </div>
+            `;
+            clone.appendChild(printFooter);
 
             // Open a new window with the content
             const newWin = window.open('', '_blank');
@@ -1755,7 +1779,7 @@
             // Wait for styles to load, then generate PDF from the new window
             setTimeout(() => {
                 const opt = {
-                    margin: 10,
+                    margin: [15, 10, 15, 10],
                     filename: `${quiz.title || 'report'}.pdf`,
                     image: { type: 'jpeg', quality: 0.98 },
                     html2canvas: { scale: 2, useCORS: true },
@@ -1765,10 +1789,29 @@
                 // Get the body element from the new window
                 const element = newWin.document.querySelector('.ntg-quiz-body');
                 
-                // Generate PDF from the new window's content
-                html2pdf().set(opt).from(element).save().then(() => {
-                    // Optionally close the window after PDF generation
-                    newWin.close();
+                // Generate PDF from the new window's content with page numbers
+                const worker = html2pdf().set(opt).from(element);
+                
+                worker.toPdf().get('pdf').then((pdf) => {
+                    const totalPages = pdf.internal.getNumberOfPages();
+                    
+                    // Add page numbers to each page
+                    for (let i = 1; i <= totalPages; i++) {
+                        pdf.setPage(i);
+                        pdf.setFontSize(9);
+                        pdf.setTextColor(128);
+                        pdf.text(
+                            `Page ${i} of ${totalPages}`,
+                            pdf.internal.pageSize.getWidth() / 2,
+                            pdf.internal.pageSize.getHeight() - 8,
+                            { align: 'center' }
+                        );
+                    }
+                }).then(() => {
+                    worker.save().then(() => {
+                        // Close the window after PDF generation
+                        newWin.close();
+                    });
                 });
             }, 1000);
         });
@@ -1824,6 +1867,12 @@
                 contactButton.remove();
             }
 
+            // Remove AI summary section if still loading
+            const aiSummary = clone.querySelector('.ai-summary-section');
+            if (aiSummary && aiSummary.querySelector('.summary-loading')) {
+                aiSummary.remove();
+            }
+
             // Add quiz title at the top
             const titleElement = document.createElement('h1');
             titleElement.textContent = quiz.title || 'Business Health Report';
@@ -1831,6 +1880,24 @@
             titleElement.style.fontWeight = '700';
             titleElement.style.marginBottom = '20px';
             clone.insertBefore(titleElement, clone.firstChild);
+
+            // Add footer with logo and disclaimer
+            const printFooter = document.createElement('div');
+            printFooter.className = 'row mt-5 pt-4 gy-2';
+            printFooter.style.borderTop = '1px solid #dee2e6';
+            const appEl = document.getElementById('app');
+            const logoUrl = appEl ? appEl.dataset.ntgLogo : '/assets/css-images/logo-ntg-color.svg';
+            printFooter.innerHTML = `
+                <div class="col-12">
+                    <img src="${logoUrl}" alt="Northern Territory Government" style="max-width: 150px; height: auto;">
+                </div>
+                <div class="col-12">
+                    <p>
+                        <strong>Disclaimer:</strong> Laws and regulations can change over time. While we aim to provide accurate guidance and point you to helpful resources, it's important that you check whether the information is suitable for your specific situation. Every business is different, so please make sure any advice or material you use is right for your circumstances before making decisions or taking action.
+                    </p>
+                </div>
+            `;
+            clone.appendChild(printFooter);
 
             // Open a new window with the content for printing
             const newWin = window.open('', '_blank');
@@ -1849,12 +1916,28 @@
                 .map((s) => `<style>${s.innerHTML}</style>`)
                 .join('\n');
 
-            // Add print-specific styles
+            // Add print-specific styles with page numbers
             const printStyles = `
                 <style>
                     @media print {
                         body { margin: 0; padding: 20px; }
                         * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+                        
+                        @page {
+                            margin: 20mm 15mm;
+                            @bottom-center {
+                                content: "Page " counter(page) " of " counter(pages);
+                                font-size: 9pt;
+                                color: #808080;
+                            }
+                        }
+                        
+                        /* Fallback for browsers that don't support @page margin boxes */
+                        body::after {
+                            content: "";
+                            display: block;
+                            height: 50px;
+                        }
                     }
                 </style>
             `;

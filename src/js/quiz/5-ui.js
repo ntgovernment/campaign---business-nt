@@ -651,6 +651,13 @@
             window.State.currentState.view = 'quiz';
             window.State.currentState.currentPage = prev;
             window.State.saveStateToUrl(window.State.currentState);
+            // Scroll to quiz body
+            setTimeout(() => {
+                const quizBody = document.querySelector('.ntg-quiz-body');
+                if (quizBody) {
+                    quizBody.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100);
         });
         next.addEventListener('click', () => {
             const nextPage = Math.min(quiz.pages.length - 1, pageIndex + 1);
@@ -663,6 +670,13 @@
                 window.State.currentState.currentPage = nextPage;
                 window.State.saveStateToUrl(window.State.currentState);
             }
+            // Scroll to quiz body
+            setTimeout(() => {
+                const quizBody = document.querySelector('.ntg-quiz-body');
+                if (quizBody) {
+                    quizBody.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100);
         });
         nav.appendChild(back);
         nav.appendChild(next);
@@ -1901,6 +1915,7 @@
                     setTimeout(() => {
                         const quizBody = document.querySelector('.ntg-quiz-body');
                         if (quizBody) {
+                            console.log("Scrolling")
                             quizBody.scrollIntoView({ behavior: 'smooth', block: 'start' });
                         }
                     }, 100);
@@ -1915,6 +1930,7 @@
                     window.State.saveStateToUrl(window.State.currentState);
                     // Scroll to quiz body
                     setTimeout(() => {
+                        console.log("Scrolling")
                         const quizBody = document.querySelector('.ntg-quiz-body');
                         if (quizBody) {
                             quizBody.scrollIntoView({ behavior: 'smooth', block: 'start' });

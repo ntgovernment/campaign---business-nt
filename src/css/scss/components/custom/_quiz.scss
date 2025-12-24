@@ -176,9 +176,26 @@
                         &:hover {
                             background-color: darken($primary, 5%);
                         }
+
+                        @include media-breakpoint-down(md) {
+                            display: none;
+                        }
                     }
 
                     &.secondary {
+                        i.fa-print + span {
+                            @include media-breakpoint-down(md) {
+                                font-size: 0;
+                            }
+
+                            &::before {
+                                @include media-breakpoint-down(md) {
+                                    content: "Print or Download Results";
+                                    font-size: $font-size-sm;
+                                }
+                            }
+                        }
+
                         span {
                             text-decoration: underline;
                         }

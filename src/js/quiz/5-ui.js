@@ -836,6 +836,9 @@
                 msgDiv.appendChild(body);
                 messagesSection.appendChild(msgDiv);
             });
+            
+            // Add external link icons to all message bodies
+            addExternalLinkIcons(messagesSection);
         }
     }
 
@@ -862,6 +865,41 @@
         }
         
         return false;
+    }
+
+    // Helper function to add external link icons to message bodies
+    function addExternalLinkIcons(container) {
+        if (!container) return;
+        
+        const links = container.querySelectorAll('.message-body a');
+        links.forEach(function (link) {
+            const url = link.getAttribute('href');
+            if (!url) return;
+            
+            const arr = url.split('.');
+            
+            if (location.hostname === link.hostname || !link.hostname.length) {
+                if (arr[arr.length - 1] === 'pdf') {
+                    link.setAttribute('rel', 'noopener');
+                    link.setAttribute('title', 'Opens in a new window');
+                    link.setAttribute('target', '_blank');
+                }
+            } else {
+                link.classList.add('external-link');
+                
+                if (link.classList.contains('btn')) {
+                    link.classList.add('btn-external');
+                } else {
+                    const icon = '<i class="fa-solid fa-arrow-up-right-from-square ms-1" aria-hidden="true"></i>';
+                    
+                    if (!link.querySelector('[class*="fa-arrow-up-right-from-square"]') && !link.querySelector('img') && !link.querySelector('[class*="fa-brands"]')) {
+                        link.insertAdjacentHTML('beforeend', icon);
+                    }
+                }
+                
+                link.setAttribute('rel', 'noopener');
+            }
+        });
     }
 
     // Update inline question messages (for regular questions without subQuestions)
@@ -918,6 +956,9 @@
                     msgDiv.appendChild(title);
                     msgDiv.appendChild(body);
                     messageContainer.appendChild(msgDiv);
+                    
+                    // Add external link icons
+                    addExternalLinkIcons(messageContainer);
                 }
             } else {
                 messageContainer.innerHTML = '';

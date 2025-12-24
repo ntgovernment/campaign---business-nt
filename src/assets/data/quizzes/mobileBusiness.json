@@ -96,6 +96,7 @@
                     "type": "radio",
                     "label": "Do staff or yourself attend peoples homes on their own?",
                     "helpText": "",
+                    "showRecommendationOnYes": true,
                     "conditional": {
                         "showWhen": {
                             "homeVisits": "Yes"
@@ -106,19 +107,19 @@
                         { "label": "No", "score": 1 },
                         { "label": "Unsure", "score": 0 }
                     ],
-                    "positiveMessage": {
+                    "recommendation": {
                         "title": "Address Solo Visit Risks",
-                        "body": "<p>Working alone in someone's home can increase vulnerability to safety and security risks. Without support nearby, it's harder to respond quickly if something goes wrong. If solo visits are necessary, use a buddy system or check-in process. Make sure someone knows where staff are, how long they'll be there, and has a way to contact them. Consider using mobile safety apps or duress alerts.</p><p>You may need to engage a specialist consultant to help you develop this. Consider <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program/business-growth-program-grant-applicants' target='_blank' rel='noopener noreferrer'>Business Growth</a> for funding assistance around this.</p>"
+                        "body": "<p>Working alone in someone's home can increase vulnerability to safety and security risks. Without support nearby, it's harder to respond quickly if something goes wrong. If solo visits are necessary, use a buddy system or check-in process. Make sure someone knows where staff are, how long they'll be there, and has a way to contact them. Consider using mobile safety apps or duress alerts</p><p>You may need to engage a specialist consultant to help you develop this. Consider <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program/business-growth-program-grant-applicants' target='_blank' rel='noopener noreferrer'>Business Growth</a> for funding assistance around this.</p>"
                     }
                 },
                 {
                     "id": "aloneVisitTraining",
                     "type": "radio",
-                    "label": "If attending alone are staff provided adequate safety and security training?",
+                    "label": "If attending alone, are staff provided adequate safety and security training?",
                     "helpText": "Adequate safety and security training means giving staff the right knowledge and skills to stay safe, handle emergencies, and protect themselves and others at work.",
                     "conditional": {
                         "showWhen": {
-                            "homeVisitAlone": "Yes"
+                            "homeVisits": "Yes"
                         }
                     },
                     "options": [
@@ -445,8 +446,5 @@
                 }
             ]
         }
-    ],
-    "conclusion": {
-        "body": "<p><strong>Well done in completing this business safety questionnaire.</strong></p><p>Download or save your results. Implementing small changes consistently will help you create a sustainable business practice!</p><p><strong>You can access information and resources on the following topics through these links:</strong></p><ul><li><a href='https://business.nt.gov.au/help-for-business/business-regulation-and-legislation-in-nt/workplace-safety-for-nt-business' target='_blank' rel='noopener noreferrer'>Workplace Safety for NT Businesses</a></li></ul>"
-    }
+    ]
 }

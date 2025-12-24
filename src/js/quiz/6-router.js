@@ -155,7 +155,7 @@
               for (const question of page.questions) {
                 if (question.type === 'group' && question.subQuestions) {
                   for (const subQ of question.subQuestions) {
-                    if (!window.Conditional.isVisible(subQ, answers)) continue;
+                    if (!window.Conditional.isVisible(subQ, answers, quiz)) continue;
                     total++;
                     const ans = answers[subQ.id];
                     if (typeof ans !== 'undefined' && ans !== null && ans !== '') {
@@ -167,7 +167,7 @@
                     }
                   }
                 } else {
-                  if (!window.Conditional.isVisible(question, answers)) continue;
+                  if (!window.Conditional.isVisible(question, answers, quiz)) continue;
                   total++;
                   const ans = answers[question.id];
                   if (typeof ans !== 'undefined' && ans !== null && ans !== '') {
@@ -220,7 +220,7 @@
             for (const qst of p.questions) {
               if (qst.type === 'group' && qst.subQuestions) {
                 for (const subQ of qst.subQuestions) {
-                  if (!window.Conditional.isVisible(subQ, answers)) continue;
+                  if (!window.Conditional.isVisible(subQ, answers, quiz)) continue;
                   const ans = answers[subQ.id];
                   if (typeof ans !== 'undefined' && ans !== null && ans !== '') {
                     if (Array.isArray(ans) && ans.length > 0) {
@@ -233,7 +233,7 @@
                   }
                 }
               } else {
-                if (!window.Conditional.isVisible(qst, answers)) continue; // skip hidden questions
+                if (!window.Conditional.isVisible(qst, answers, quiz)) continue; // skip hidden questions
                 const ans = answers[qst.id];
                 if (typeof ans !== 'undefined' && ans !== null && ans !== '') {
                   if (Array.isArray(ans) && ans.length > 0) {

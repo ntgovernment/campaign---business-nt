@@ -504,8 +504,8 @@
                 {
                     "id": "deEscalationTrainingPolicy",
                     "type": "radio",
-                    "label": "9. De-Escalation Training",
-                    "helpText": "De-escalation training teaches techniques to calmly manage and reduce conflict or aggressive behavior, promoting safety and positive outcomes.",
+                    "label": "De-Escalation Training",
+                    "helpText": "9. De-escalation training teaches techniques to calmly manage and reduce conflict or aggressive behavior, promoting safety and positive outcomes.",
                     "options": [
                         { "label": "Yes", "score": 1 },
                         { "label": "No", "score": 0 },

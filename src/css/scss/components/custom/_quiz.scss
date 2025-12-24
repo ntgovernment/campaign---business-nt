@@ -123,6 +123,7 @@
 
     &-body {
         flex-basis: 75%;
+        scroll-margin-top: 100px;
 
         h2 {
             margin-bottom: 2rem;
@@ -166,9 +167,26 @@
                         &:hover {
                             background-color: darken($primary, 5%);
                         }
+
+                        @include media-breakpoint-down(md) {
+                            display: none;
+                        }
                     }
 
                     &.secondary {
+                        i.fa-print + span {
+                            @include media-breakpoint-down(md) {
+                                font-size: 0;
+                            }
+
+                            &::before {
+                                @include media-breakpoint-down(md) {
+                                    content: 'Print or Download Results';
+                                    font-size: $font-size-sm;
+                                }
+                            }
+                        }
+
                         span {
                             text-decoration: underline;
                         }
@@ -611,8 +629,7 @@
         }
 
         .conditional-group,
-        .conditional-subquestion-group,
-        .question-group {
+        .conditional-subquestion-group {
             border-left: 6px solid $ntg-monsoon-blue;
             padding-left: 1rem;
             margin-top: 1.5rem;
@@ -629,6 +646,7 @@
         .options {
             display: flex;
             gap: 0.5rem;
+            flex-wrap: wrap;
 
             > div {
                 position: relative;

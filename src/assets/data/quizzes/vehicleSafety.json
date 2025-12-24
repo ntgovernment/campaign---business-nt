@@ -499,48 +499,46 @@
                         { "label": "Yes", "score": 0 },
                         { "label": "No", "score": 1 },
                         { "label": "Unsure", "score": 0 }
-                    ]
+                    ],
+                    "conditionalQuestionGroupPositiveMessage": {
+                        "title": "Information Protected!",
+                        "body": "<p>Your strength: removing sensitive information from unattended vehicles protects confidentiality and reduces security risks. Storing sensitive information securely safeguards privacy and demonstrates strong compliance practices.</p>"
+                    },
+                    "conditionalQuestionGroupRecommendation": {
+                        "title": "Protect Sensitive Information",
+                        "body": "<p>Carrying sensitive information in vehicles can expose your business to data breaches if the vehicle is broken into or stolen. Avoid leaving documents or devices with sensitive data in vehicles. If transport is necessary, store them in a locked compartment and remove them immediately after use. Consider using secure digital alternatives where possible.</p>"
+                    }
                 },
                 {
-                    "id": "sensitiveInfoManagement",
-                    "type": "group",
-                    "label": "Is this information removed from the vehicle when the vehicle is unattended? Is this information stored securely and sensitively?",
+                    "id": "sensitiveInfoRemoved",
+                    "type": "radio",
+                    "label": "Is this information removed from the vehicle when the vehicle is unattended?",
                     "conditional": {
                         "showWhen": {
                             "sensitiveInfo": "Yes"
                         }
                     },
-                    "positiveMessage": {
-                        "title": "Information Protected!",
-                        "body": "<p>Your strength: removing sensitive information from unattended vehicles protects confidentiality and reduces security risks. Storing sensitive information securely safeguards privacy and demonstrates strong compliance practices.</p>"
-                    },
-                    "recommendation": {
-                        "title": "Protect Sensitive Information",
-                        "body": "<p>Carrying sensitive information in vehicles can expose your business to data breaches if the vehicle is broken into or stolen. Avoid leaving documents or devices with sensitive data in vehicles. If transport is necessary, store them in a locked compartment and remove them immediately after use. Consider using secure digital alternatives where possible.</p>"
-                    },
-                    "subQuestions": [
-                        {
-                            "id": "sensitiveInfoRemoved",
-                            "type": "radio",
-                            "label": "Is this information removed from the vehicle when the vehicle is unattended?",
-                            "helpText": "",
-                            "options": [
-                                { "label": "Yes", "score": 1 },
-                                { "label": "No", "score": 0 },
-                                { "label": "Unsure", "score": 0 }
-                            ]
-                        },
-                        {
-                            "id": "sensitiveInfoStoredSecurely",
-                            "type": "radio",
-                            "label": "Is this information stored securely and sensitively?",
-                            "helpText": "",
-                            "options": [
-                                { "label": "Yes", "score": 1 },
-                                { "label": "No", "score": 0 },
-                                { "label": "Unsure", "score": 0 }
-                            ]
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ]
+                },
+                {
+                    "id": "sensitiveInfoStoredSecurely",
+                    "type": "radio",
+                    "label": "Is this information stored securely and sensitively?",
+                    "conditional": {
+                        "showWhen": {
+                            "sensitiveInfo": "Yes"
                         }
+                    },
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
                     ]
                 }
             ]

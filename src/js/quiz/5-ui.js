@@ -646,6 +646,13 @@
             window.State.currentState.view = 'quiz';
             window.State.currentState.currentPage = prev;
             window.State.saveStateToUrl(window.State.currentState);
+            // Scroll to quiz body
+            setTimeout(() => {
+                const quizBody = document.querySelector('.ntg-quiz-body');
+                if (quizBody) {
+                    quizBody.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100);
         });
         next.addEventListener('click', () => {
             const nextPage = Math.min(quiz.pages.length - 1, pageIndex + 1);
@@ -658,6 +665,13 @@
                 window.State.currentState.currentPage = nextPage;
                 window.State.saveStateToUrl(window.State.currentState);
             }
+            // Scroll to quiz body
+            setTimeout(() => {
+                const quizBody = document.querySelector('.ntg-quiz-body');
+                if (quizBody) {
+                    quizBody.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100);
         });
         nav.appendChild(back);
         nav.appendChild(next);
@@ -707,7 +721,7 @@
             qEl.addEventListener('change', (ev) => {
                 // Save the focused input ID before DOM manipulation
                 const focusedInputId = ev.target ? ev.target.id : null;
-                
+
                 handleInputChange(ev, quiz, pageIndex);
                 // after handling input change, show inline message for the changed value
                 const val = (function () {
@@ -728,7 +742,7 @@
                 updatePageMessages(quiz, page);
                 updateInlineQuestionMessages(quiz, page);
                 updateConditionalGroupMessages(quiz, page);
-                
+
                 // Restore focus after ALL DOM updates are complete
                 if (focusedInputId) {
                     setTimeout(() => {
@@ -747,11 +761,11 @@
         updatePageMessages(quiz, page);
         updateInlineQuestionMessages(quiz, page);
         updateConditionalGroupMessages(quiz, page);
-        
+
         // Initialize Bootstrap tooltips
         if (window.bootstrap && window.bootstrap.Tooltip) {
             const tooltipTriggerList = contentEl.querySelectorAll('[data-bs-toggle="tooltip"]');
-            [...tooltipTriggerList].map(tooltipTriggerEl => new window.bootstrap.Tooltip(tooltipTriggerEl));
+            [...tooltipTriggerList].map((tooltipTriggerEl) => new window.bootstrap.Tooltip(tooltipTriggerEl));
         }
     }
 
@@ -837,7 +851,7 @@
     // Helper function to determine if answer should trigger positive or recommendation message
     function shouldShowMessage(question, answer, messageType) {
         if (!answer) return false;
-        
+
         // Check if question has custom trigger values
         if (messageType === 'positive' && question.positiveMessageOn) {
             return question.positiveMessageOn.includes(answer);
@@ -845,17 +859,17 @@
         if (messageType === 'recommendation' && question.recommendationOn) {
             return question.recommendationOn.includes(answer);
         }
-        
+
         // Fallback to default Yes/No logic for backward compatibility
         if (question.type === 'radio') {
             if (messageType === 'positive') {
-                return question.showRecommendationOnYes ? (answer === 'No') : (answer === 'Yes');
+                return question.showRecommendationOnYes ? answer === 'No' : answer === 'Yes';
             }
             if (messageType === 'recommendation') {
-                return question.showRecommendationOnYes ? (answer === 'Yes') : (answer === 'No' || answer === 'Unsure');
+                return question.showRecommendationOnYes ? answer === 'Yes' : answer === 'No' || answer === 'Unsure';
             }
         }
-        
+
         return false;
     }
 
@@ -927,17 +941,17 @@
 
         // Find all conditional group message containers
         const conditionalGroups = document.querySelectorAll('.conditional-group-message');
-        
+
         conditionalGroups.forEach((messageContainer) => {
             const parentQid = messageContainer.dataset.parentQid;
             if (!parentQid) return;
 
             // Find the parent question - could be a regular question or a sub-question in a group
             let parentQuestion = null;
-            
+
             // First check if it's a regular question
             parentQuestion = page.questions.find((q) => q.id === parentQid);
-            
+
             // If not found, check if it's a sub-question in a group
             if (!parentQuestion) {
                 for (const q of page.questions) {
@@ -965,9 +979,9 @@
                     const childQid = childEl.dataset.qid;
                     // Skip the parent question itself
                     if (childQid === parentQid) return;
-                    
+
                     const childQuestion = findQuestionInQuiz(quiz, childQid);
-                    
+
                     // Skip if not conditional or not depending on this parent
                     if (!childQuestion || !childQuestion.conditional || !childQuestion.conditional.showWhen) return;
                     const dependsOnId = Object.keys(childQuestion.conditional.showWhen)[0];
@@ -1500,8 +1514,8 @@
                             }
 
                             // Check if positive message should be shown on No (when showRecommendationOnYes is true, behavior is inverted)
-                            const shouldShowPos = subQ.showRecommendationOnYes ? (ans === 'No') : (ans === 'Yes');
-                            
+                            const shouldShowPos = subQ.showRecommendationOnYes ? ans === 'No' : ans === 'Yes';
+
                             if (shouldShowPos) {
                                 // Use conditionalQuestionGroupPositiveMessage from parent if it's a conditional question
                                 if (isConditional && parentQuestion && parentQuestion.conditionalQuestionGroupPositiveMessage) {
@@ -1515,8 +1529,8 @@
                             }
 
                             // Check if recommendation should be shown on Yes (special case for questions like cashOnsite)
-                            const shouldShowRec = subQ.showRecommendationOnYes ? (ans === 'Yes') : (ans === 'No' || ans === 'Unsure');
-                            
+                            const shouldShowRec = subQ.showRecommendationOnYes ? ans === 'Yes' : ans === 'No' || ans === 'Unsure';
+
                             if (shouldShowRec) {
                                 // Use conditionalQuestionGroupRecommendation from parent if it's a conditional question
                                 if (isConditional && parentQuestion && parentQuestion.conditionalQuestionGroupRecommendation) {
@@ -1546,8 +1560,8 @@
                         }
 
                         // Check if positive message should be shown on No (when showRecommendationOnYes is true, behavior is inverted)
-                        const shouldShowPos = q.showRecommendationOnYes ? (ans === 'No') : (ans === 'Yes');
-                        
+                        const shouldShowPos = q.showRecommendationOnYes ? ans === 'No' : ans === 'Yes';
+
                         if (shouldShowPos) {
                             // Use conditionalQuestionGroupPositiveMessage from parent if it's a conditional question
                             if (isConditional && parentQuestion && parentQuestion.conditionalQuestionGroupPositiveMessage) {
@@ -1561,8 +1575,8 @@
                         }
 
                         // Check if recommendation should be shown on Yes (special case for questions like cashOnsite)
-                        const shouldShowRec = q.showRecommendationOnYes ? (ans === 'Yes') : (ans === 'No' || ans === 'Unsure');
-                        
+                        const shouldShowRec = q.showRecommendationOnYes ? ans === 'Yes' : ans === 'No' || ans === 'Unsure';
+
                         if (shouldShowRec) {
                             // Use conditionalQuestionGroupRecommendation from parent if it's a conditional question
                             if (isConditional && parentQuestion && parentQuestion.conditionalQuestionGroupRecommendation) {
@@ -1660,6 +1674,12 @@
                 contactButton.remove();
             }
 
+            // Remove AI summary section if still loading
+            const aiSummary = clone.querySelector('.ai-summary-section');
+            if (aiSummary && aiSummary.querySelector('.summary-loading')) {
+                aiSummary.remove();
+            }
+
             // Add quiz title at the top
             const titleElement = document.createElement('h1');
             titleElement.textContent = quiz.title || 'Business Health Report';
@@ -1667,6 +1687,31 @@
             titleElement.style.fontWeight = '700';
             titleElement.style.marginBottom = '20px';
             clone.insertBefore(titleElement, clone.firstChild);
+
+            // Add footer with logo and disclaimer
+            const printFooter = document.createElement('div');
+            printFooter.className = 'row mt-5 pt-4 gy-2';
+            printFooter.style.borderTop = '1px solid #dee2e6';
+            const appEl = document.getElementById('app');
+            const logoUrl = appEl ? appEl.dataset.ntgLogo : '/assets/css-images/logo-ntg-color.svg';
+            printFooter.innerHTML = `
+                <div class="col-12">
+                    <img src="${logoUrl}" alt="Northern Territory Government" width="150" style="max-width: 150px; height: auto;">
+                </div>
+                <div class="col-12">
+                    <p>
+                        <strong>Disclaimer:</strong> Laws and regulations can change over time. While we aim to provide accurate guidance and point you to helpful resources, it's important that you check whether the information is suitable for your specific situation. Every business is different, so please make sure any advice or material you use is right for your circumstances before making decisions or taking action.
+                    </p>
+                </div>
+            `;
+            clone.appendChild(printFooter);
+
+            // Open a new window with the content
+            const newWin = window.open('', '_blank');
+            if (!newWin) {
+                alert('Unable to open PDF window');
+                return;
+            }
 
             // Get all stylesheets
             const styles = Array.from(document.querySelectorAll('link[rel=stylesheet]'))
@@ -1678,36 +1723,51 @@
                 .map((s) => `<style>${s.innerHTML}</style>`)
                 .join('\n');
 
-            // Create a complete HTML document with styles
-            const wrapper = document.createElement('div');
-            wrapper.innerHTML = `
-                <!doctype html>
-                <html>
-                <head>
-                    <meta charset="utf-8">
-                    ${styles}
-                    ${inlineStyles}
-                    <title>${quiz.title || 'Business Health Report'}</title>
-                </head>
-                <body>
-                    <div class="ntg-quiz-body">
-                        ${clone.innerHTML}
-                    </div>
-                </body>
-                </html>
-            `;
+            const html = `<!doctype html><html><head><meta charset="utf-8">${styles}${inlineStyles}<title>PDF - ${
+                quiz.title || 'Business Health Report'
+            }</title></head><body><div class="ntg-quiz-body">${clone.innerHTML}</div></body></html>`;
+            newWin.document.open();
+            newWin.document.write(html);
+            newWin.document.close();
+            newWin.focus();
 
-            // Configure PDF options
-            const opt = {
-                margin: 10,
-                filename: `${quiz.title || 'report'}.pdf`,
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2, useCORS: true },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-            };
+            // Wait for styles to load, then generate PDF from the new window
+            setTimeout(() => {
+                const opt = {
+                    margin: [15, 10, 15, 10],
+                    filename: `${quiz.title || 'report'}.pdf`,
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 2, useCORS: true },
+                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                };
 
-            // Generate PDF from the complete HTML
-            html2pdf().set(opt).from(wrapper).save();
+                // Get the body element from the new window
+                const element = newWin.document.querySelector('.ntg-quiz-body');
+
+                // Generate PDF from the new window's content with page numbers
+                const worker = html2pdf().set(opt).from(element);
+
+                worker
+                    .toPdf()
+                    .get('pdf')
+                    .then((pdf) => {
+                        const totalPages = pdf.internal.getNumberOfPages();
+
+                        // Add page numbers to each page
+                        for (let i = 1; i <= totalPages; i++) {
+                            pdf.setPage(i);
+                            pdf.setFontSize(9);
+                            pdf.setTextColor(128);
+                            pdf.text(`Page ${i} of ${totalPages}`, pdf.internal.pageSize.getWidth() / 2, pdf.internal.pageSize.getHeight() - 8, { align: 'center' });
+                        }
+                    })
+                    .then(() => {
+                        worker.save().then(() => {
+                            // Close the window after PDF generation
+                            newWin.close();
+                        });
+                    });
+            }, 1000);
         });
 
         copyBtn.addEventListener('click', async () => {
@@ -1742,7 +1802,6 @@
                 actionsWrap.remove();
             }
 
-            
             // Remove the action buttons from the clone
             const stepper = clone.querySelector('.stepper');
             if (stepper) {
@@ -1761,6 +1820,12 @@
                 contactButton.remove();
             }
 
+            // Remove AI summary section if still loading
+            const aiSummary = clone.querySelector('.ai-summary-section');
+            if (aiSummary && aiSummary.querySelector('.summary-loading')) {
+                aiSummary.remove();
+            }
+
             // Add quiz title at the top
             const titleElement = document.createElement('h1');
             titleElement.textContent = quiz.title || 'Business Health Report';
@@ -1768,6 +1833,24 @@
             titleElement.style.fontWeight = '700';
             titleElement.style.marginBottom = '20px';
             clone.insertBefore(titleElement, clone.firstChild);
+
+            // Add footer with logo and disclaimer
+            const printFooter = document.createElement('div');
+            printFooter.className = 'row mt-5 pt-4 gy-2';
+            printFooter.style.borderTop = '1px solid #dee2e6';
+            const appEl = document.getElementById('app');
+            const logoUrl = appEl ? appEl.dataset.ntgLogo : '/assets/css-images/logo-ntg-color.svg';
+            printFooter.innerHTML = `
+                <div class="col-12">
+                    <img src="${logoUrl}" alt="Northern Territory Government" style="max-width: 150px; height: auto;">
+                </div>
+                <div class="col-12">
+                    <p>
+                        <strong>Disclaimer:</strong> Laws and regulations can change over time. While we aim to provide accurate guidance and point you to helpful resources, it's important that you check whether the information is suitable for your specific situation. Every business is different, so please make sure any advice or material you use is right for your circumstances before making decisions or taking action.
+                    </p>
+                </div>
+            `;
+            clone.appendChild(printFooter);
 
             // Open a new window with the content for printing
             const newWin = window.open('', '_blank');
@@ -1786,12 +1869,28 @@
                 .map((s) => `<style>${s.innerHTML}</style>`)
                 .join('\n');
 
-            // Add print-specific styles
+            // Add print-specific styles with page numbers
             const printStyles = `
                 <style>
                     @media print {
                         body { margin: 0; padding: 20px; }
                         * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+                        
+                        @page {
+                            margin: 20mm 15mm;
+                            @bottom-center {
+                                content: "Page " counter(page) " of " counter(pages);
+                                font-size: 9pt;
+                                color: #808080;
+                            }
+                        }
+                        
+                        /* Fallback for browsers that don't support @page margin boxes */
+                        body::after {
+                            content: "";
+                            display: block;
+                            height: 50px;
+                        }
                     }
                 </style>
             `;
@@ -1848,6 +1947,14 @@
                     window.State.currentState.quizId = prevId;
                     window.State.currentState.currentPage = 0;
                     window.State.saveStateToUrl(window.State.currentState);
+                    // Scroll to quiz body
+                    setTimeout(() => {
+                        const quizBody = document.querySelector('.ntg-quiz-body');
+                        if (quizBody) {
+                            console.log('Scrolling');
+                            quizBody.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }, 100);
                 }
             });
             nextBtn.addEventListener('click', () => {
@@ -1857,6 +1964,14 @@
                     window.State.currentState.quizId = nextId;
                     window.State.currentState.currentPage = 0;
                     window.State.saveStateToUrl(window.State.currentState);
+                    // Scroll to quiz body
+                    setTimeout(() => {
+                        console.log('Scrolling');
+                        const quizBody = document.querySelector('.ntg-quiz-body');
+                        if (quizBody) {
+                            quizBody.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }, 100);
                 }
             });
             navWrap.appendChild(prevBtn);

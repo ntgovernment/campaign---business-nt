@@ -541,7 +541,7 @@
 
             label {
                 font-size: $font-size-sm;
-                font-weight: 700;
+                font-weight: 500;
             }
 
             > label {
@@ -617,6 +617,13 @@
             padding-left: 1rem;
             margin-top: 1.5rem;
             margin-bottom: 1.5rem;
+
+            .question-group {
+                border-left: none;
+                padding-left: 0;
+                margin-top: 1rem;
+                margin-bottom: 0;
+            }
         }
 
         .options {
@@ -743,7 +750,7 @@
 
             + .btn-primary {
                 color: $black !important;
-                
+
                 &:hover {
                     background-color: darken($primary, 10%) !important;
                     border-color: darken($primary, 10%) !important;

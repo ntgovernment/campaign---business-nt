@@ -3,6 +3,12 @@
 */
 (async function(){
   document.addEventListener('DOMContentLoaded', async function init(){
+    // Only initialize if the quiz app element exists on the page
+    const appElement = document.querySelector('#app.ntg-quiz');
+    if (!appElement) {
+      return;
+    }
+
     // Initialize cache and prefetch all JSON files in parallel
     try {
       await window.JSONCache.init();
@@ -23,6 +29,12 @@
       document.addEventListener('modal:resume', ()=>{
         // simply hide modal and re-route to ensure UI focuses correctly
         Router.route();
+        // Reset focus to top of page for proper tab navigation
+        setTimeout(() => {
+          document.body.setAttribute('tabindex', '-1');
+          document.body.focus();
+          document.body.removeAttribute('tabindex');
+        }, 100);
       }, { once:true });
 
       document.addEventListener('modal:fresh', ()=>{

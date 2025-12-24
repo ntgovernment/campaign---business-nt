@@ -572,7 +572,7 @@
 
             label {
                 font-size: $font-size-sm;
-                font-weight: 700;
+                font-weight: 500;
             }
 
             > label {
@@ -642,8 +642,7 @@
         }
 
         .conditional-group,
-        .conditional-subquestion-group,
-        .question-group {
+        .conditional-subquestion-group {
             border-left: 6px solid $ntg-monsoon-blue;
             padding-left: 1rem;
             margin-top: 1.5rem;

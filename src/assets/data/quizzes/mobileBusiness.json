@@ -119,7 +119,8 @@
                     "helpText": "Adequate safety and security training means giving staff the right knowledge and skills to stay safe, handle emergencies, and protect themselves and others at work.",
                     "conditional": {
                         "showWhen": {
-                            "homeVisits": "Yes"
+                            "homeVisits": "Yes",
+                            "homeVisitAlone": "Yes"
                         }
                     },
                     "options": [

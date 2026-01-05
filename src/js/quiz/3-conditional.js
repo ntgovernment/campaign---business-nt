@@ -11,6 +11,7 @@
       for(const key in rule){
         const expected = rule[key];
         const actual = answers[key];
+        
         if(Array.isArray(expected)){
           // expected as array means any of them
           if(!expected.includes(actual)) return false;
@@ -18,6 +19,7 @@
           if(actual !== expected) return false;
         }
       }
+      
       return true;
     }
   };

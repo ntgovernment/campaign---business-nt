@@ -238,6 +238,7 @@
                     "type": "radio",
                     "label": "If a set of keys were lost, is there anything that identifies they belong to your business?",
                     "helpText": "",
+                    "showRecommendationOnYes": true,
                     "options": [
                         { "label": "Yes", "score": 0 },
                         { "label": "No", "score": 1 },
@@ -690,7 +691,7 @@
                     },
                     "recommendation": {
                         "title": "Address Safety Concerns",
-                        "body": "<p>It's important to take any reports of feeling unsafe seriously. Listen to staff members concerns and if there are simple solutions be sure to implement them.</p><p>You can access information about support your <a href='https://business.nt.gov.au/help-for-business/business-tools-and-learning/mental-health-in-the-workplace' target='_blank' rel='noopener noreferrer'>staff mental health here.</a></p><p>Victims of Crime NT offer <a href='https://victimsofcrime.org.au/wellbeing-support/' target='_blank' rel='noopener noreferrer'>wellbeing support to staff</a> following a crime incident.</p>"
+                        "body": "<p>It's important to take any reports of feeling unsafe seriously. Listen to staff members concerns and if there are simple solutions be sure to implement them.</p><p>You can access information about support your staff mental health here: <a href='https://business.nt.gov.au/help-for-business/business-tools-and-learning/mental-health-in-the-workplace' target='_blank' rel='noopener noreferrer'>Mental Health in the Workplace.</a></p><p>Victims of Crime NT offer <a href='https://victimsofcrime.org.au/wellbeing-support/' target='_blank' rel='noopener noreferrer'>wellbeing support</a> to staff following a crime incident.</p>"
                     }
                 },
                 {

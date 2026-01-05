@@ -155,7 +155,7 @@
                     "helpText": "",
                     "conditional": {
                         "showWhen": {
-                            "multipleLocations": "Yes"
+                            "mobileMultipleLocations": "Yes"
                         }
                     },
                     "options": [
@@ -179,7 +179,7 @@
                     "helpText": "",
                     "conditional": {
                         "showWhen": {
-                            "multipleLocations": "Yes"
+                            "mobileMultipleLocations": "Yes"
                         }
                     },
                     "options": [
@@ -203,7 +203,7 @@
                     "helpText": "Situational awareness means being alert to what's happening around you, like people, places, and potential dangers, so you can make safe and smart decisions. It's especially important in jobs where staff work alone, visit homes, or deal with unpredictable situations.",
                     "conditional": {
                         "showWhen": {
-                            "multipleLocations": "Yes"
+                            "mobileMultipleLocations": "Yes"
                         }
                     },
                     "options": [
@@ -213,7 +213,7 @@
                     ],
                     "positiveMessage": {
                         "title": "Alert Team!",
-                        "body": "<p>Your strength: training in situational awareness helps your team stay alert and respond effectively to potential risks.</p>"
+                        "body": "<p>Training in situational awareness helps your team stay alert and respond effectively to potential risks.</p>"
                     },
                     "recommendation": {
                         "title": "Train Situational Awareness",

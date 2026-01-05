@@ -5,25 +5,25 @@
       "id": "propertySafety",
       "title": "Property Safety Questionnaire",
       "description": "General property safety requirements",
-      "icon": "https://ntgov-web-dev.matrix.squiz.cloud/business/_resources/images/workplace-safety-for-nt-business/safety-6.jpg/_nocache"
+      "icon": "https://ntgov-web-dev.matrix.squiz.cloud/business/_resources/images/workplace-safety-for-nt-business/safety-6.jpg/small.jpg/_nocache"
     },
     {
       "id": "staffSafety",
       "title": "Staff Safety Questionnaire",
       "description": "Staff Safety Questionnaire",
-      "icon": "https://ntgov-web-dev.matrix.squiz.cloud/business/_resources/images/workforce-for-nt-business/LHP-DITT-ASP-ASP-Podiatry-8509.jpg/_nocache"
+      "icon": "https://ntgov-web-dev.matrix.squiz.cloud/business/_resources/images/workforce-for-nt-business/LHP-DITT-ASP-ASP-Podiatry-8509.jpg/small.jpg/_nocache"
     },
     {
       "id": "mobileBusiness",
       "title": "Mobile Business Questionnaire",
       "description": "Mobile Business Quiz",
-      "icon": "https://ntgov-web-dev.matrix.squiz.cloud/business/_resources/images/workforce-for-nt-business/Workforce-photo-1.jpg/_nocache"
+      "icon": "https://ntgov-web-dev.matrix.squiz.cloud/business/_resources/images/workforce-for-nt-business/Workforce-photo-1.jpg/small.jpg/_nocache"
     },
     {
       "id": "vehicleSafety",
       "title": "Vehicle Safety Questionnaire",
       "description": "Vehicle Safety Quiz",
-      "icon": "https://ntgov-web-dev.matrix.squiz.cloud/business/_resources/images/NT-workforce-support-for-small-businessDSC_3239-1.JPG/_nocache"
+      "icon": "https://ntgov-web-dev.matrix.squiz.cloud/business/_resources/images/NT-workforce-support-for-small-businessDSC_3239-1.JPG/small.jpg/_nocache"
     }
   ]
 }

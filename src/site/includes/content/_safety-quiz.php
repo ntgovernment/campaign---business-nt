@@ -1,7 +1,8 @@
 <div class="container pb-5">
     <div
         class="ntg-quiz"
-        id="app"
+        id="app" 
+        data-business-logo="/assets/images/territory-business-logo.svg"
         data-ntg-logo="/assets/css-images/logo-ntg-color.svg"
         data-quiz-main-navigation="../assets/data/mainNavigation.json"
         data-propertySafety="../assets/data/quizzes/property-safety-quiz.json"

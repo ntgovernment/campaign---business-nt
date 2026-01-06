@@ -1639,135 +1639,380 @@
         pdfBtn.className = 'primary';
         pdfBtn.textContent = 'Download report';
 
-        // PDF generation using html2pdf
+        // PDF generation using jsPDF
         pdfBtn.addEventListener('click', async () => {
-            if (!window.html2pdf) {
-                alert('html2pdf not loaded');
+            if (!window.jspdf) {
+                alert('jsPDF not loaded');
                 return;
             }
 
-            // Clone content and remove action buttons
-            const contentEl = document.getElementById('quizContent');
-            const clone = contentEl.cloneNode(true);
+            try {
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF({
+                    orientation: 'portrait',
+                    unit: 'mm',
+                    format: 'a4'
+                });
 
-            // Remove the action buttons from the clone
-            const actionsWrap = clone.querySelector('.results-actions');
-            if (actionsWrap && actionsWrap.querySelector('button')) {
-                actionsWrap.remove();
-            }
+                // PDF settings
+                const pageWidth = pdf.internal.pageSize.getWidth();
+                const pageHeight = pdf.internal.pageSize.getHeight();
+                const margin = 15;
+                const contentWidth = pageWidth - (margin * 2);
+                let yPosition = margin;
+                
+                // Get app element for data attributes
+                const appEl = document.getElementById('app');
 
-            // Remove the stepper from the clone
-            const stepper = clone.querySelector('.stepper');
-            if (stepper) {
-                stepper.remove();
-            }
-
-            // Remove quiz navigation buttons
-            const navButtons = clone.querySelector('.quiz-nav-buttons');
-            if (navButtons) {
-                navButtons.remove();
-            }
-
-            // Remove contact button
-            const contactButton = clone.querySelector('.btn.btn-primary.mb-4');
-            if (contactButton) {
-                contactButton.remove();
-            }
-
-            // Remove AI summary section if still loading
-            const aiSummary = clone.querySelector('.ai-summary-section');
-            if (aiSummary && aiSummary.querySelector('.summary-loading')) {
-                aiSummary.remove();
-            }
-
-            // Add quiz title at the top
-            const titleElement = document.createElement('h1');
-            titleElement.textContent = quiz.title || 'Business Health Report';
-            titleElement.style.fontSize = '24px';
-            titleElement.style.fontWeight = '700';
-            titleElement.style.marginBottom = '20px';
-            clone.insertBefore(titleElement, clone.firstChild);
-
-            // Add footer with logo and disclaimer
-            const printFooter = document.createElement('div');
-            printFooter.className = 'row mt-5 pt-4 gy-2';
-            printFooter.style.borderTop = '1px solid #dee2e6';
-            const appEl = document.getElementById('app');
-            const logoUrl = appEl ? appEl.dataset.ntgLogo : '/assets/css-images/logo-ntg-color.svg';
-            printFooter.innerHTML = `
-                <div class="col-12">
-                    <img src="${logoUrl}" alt="Northern Territory Government" width="150" style="max-width: 150px; height: auto;">
-                </div>
-                <div class="col-12">
-                    <p>
-                        <strong>Disclaimer:</strong> Laws and regulations can change over time. While we aim to provide accurate guidance and point you to helpful resources, it's important that you check whether the information is suitable for your specific situation. Every business is different, so please make sure any advice or material you use is right for your circumstances before making decisions or taking action.
-                    </p>
-                </div>
-            `;
-            clone.appendChild(printFooter);
-
-            // Open a new window with the content
-            const newWin = window.open('', '_blank');
-            if (!newWin) {
-                alert('Unable to open PDF window');
-                return;
-            }
-
-            // Get all stylesheets
-            const styles = Array.from(document.querySelectorAll('link[rel=stylesheet]'))
-                .map((l) => `<link rel="stylesheet" href="${l.href}">`)
-                .join('\n');
-
-            // Get inline styles from style tags
-            const inlineStyles = Array.from(document.querySelectorAll('style'))
-                .map((s) => `<style>${s.innerHTML}</style>`)
-                .join('\n');
-
-            const html = `<!doctype html><html><head><meta charset="utf-8">${styles}${inlineStyles}<title>PDF - ${
-                quiz.title || 'Business Health Report'
-            }</title></head><body><div class="ntg-quiz-body">${clone.innerHTML}</div></body></html>`;
-            newWin.document.open();
-            newWin.document.write(html);
-            newWin.document.close();
-            newWin.focus();
-
-            // Wait for styles to load, then generate PDF from the new window
-            setTimeout(() => {
-                const opt = {
-                    margin: [15, 10, 15, 10],
-                    filename: `${quiz.title || 'report'}.pdf`,
-                    image: { type: 'jpeg', quality: 0.98 },
-                    html2canvas: { scale: 2, useCORS: true },
-                    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+                // Helper function to convert DOM element to image
+                const elementToImage = (element) => {
+                    return new Promise((resolve) => {
+                        const canvas = document.createElement('canvas');
+                        const rect = element.getBoundingClientRect();
+                        const scale = 3; // Higher resolution
+                        
+                        canvas.width = rect.width * scale;
+                        canvas.height = rect.height * scale;
+                        
+                        const ctx = canvas.getContext('2d');
+                        ctx.scale(scale, scale);
+                        
+                        // Get computed styles
+                        const styles = window.getComputedStyle(element);
+                        const bgColor = styles.backgroundColor;
+                        const color = styles.color;
+                        
+                        // Draw circular background
+                        ctx.fillStyle = bgColor || '#0093b8';
+                        ctx.beginPath();
+                        ctx.arc(rect.width / 2, rect.height / 2, rect.width / 2, 0, Math.PI * 2);
+                        ctx.fill();
+                        
+                        // Draw inner white circle
+                        ctx.fillStyle = '#ffffff';
+                        ctx.beginPath();
+                        ctx.arc(rect.width / 2, rect.height / 2, (rect.width / 2) - 16, 0, Math.PI * 2);
+                        ctx.fill();
+                        
+                        // Draw text
+                        const percentText = element.querySelector('.percent-text');
+                        const strengthText = element.querySelector('.strength-text');
+                        
+                        ctx.textAlign = 'center';
+                        ctx.fillStyle = color || '#000000';
+                        
+                        if (percentText) {
+                            ctx.font = 'bold 32px Helvetica';
+                            ctx.fillText(percentText.textContent, rect.width / 2, rect.height / 2 - 5);
+                        }
+                        
+                        if (strengthText) {
+                            ctx.font = '14px Helvetica';
+                            ctx.fillText(strengthText.textContent, rect.width / 2, rect.height / 2 + 20);
+                        }
+                        
+                        resolve(canvas.toDataURL('image/png'));
+                    });
                 };
 
-                // Get the body element from the new window
-                const element = newWin.document.querySelector('.ntg-quiz-body');
+                // Helper function to check if we need a new page
+                const checkPageBreak = (heightNeeded) => {
+                    if (yPosition + heightNeeded > pageHeight - margin - 10) {
+                        pdf.addPage();
+                        yPosition = margin;
+                        return true;
+                    }
+                    return false;
+                };
 
-                // Generate PDF from the new window's content with page numbers
-                const worker = html2pdf().set(opt).from(element);
-
-                worker
-                    .toPdf()
-                    .get('pdf')
-                    .then((pdf) => {
-                        const totalPages = pdf.internal.getNumberOfPages();
-
-                        // Add page numbers to each page
-                        for (let i = 1; i <= totalPages; i++) {
-                            pdf.setPage(i);
-                            pdf.setFontSize(9);
-                            pdf.setTextColor(128);
-                            pdf.text(`Page ${i} of ${totalPages}`, pdf.internal.pageSize.getWidth() / 2, pdf.internal.pageSize.getHeight() - 8, { align: 'center' });
-                        }
-                    })
-                    .then(() => {
-                        worker.save().then(() => {
-                            // Close the window after PDF generation
-                            newWin.close();
-                        });
+                // Helper function to add text with word wrapping
+                const addText = (text, fontSize, fontWeight = 'normal', color = [0, 0, 0], leftMargin = 0) => {
+                    pdf.setFontSize(fontSize);
+                    // Use helvetica as fallback for Montserrat
+                    // Map font weights: normal (400), medium (500), bold (700)
+                    let fontStyle = 'normal';
+                    if (fontWeight === 'bold' || fontWeight === 700) {
+                        fontStyle = 'bold';
+                    }
+                    pdf.setFont('helvetica', fontStyle);
+                    pdf.setTextColor(...color);
+                    
+                    const lines = pdf.splitTextToSize(text, contentWidth - leftMargin);
+                    const lineHeight = fontSize * 0.4;
+                    
+                    checkPageBreak(lines.length * lineHeight);
+                    
+                    lines.forEach((line) => {
+                        pdf.text(line, margin + leftMargin, yPosition);
+                        yPosition += lineHeight;
                     });
-            }, 1000);
+                    
+                    return lines.length * lineHeight;
+                };
+
+                // Add business logo at the top
+                const businessLogoUrl = appEl ? appEl.dataset.businessLogo : null;
+                if (businessLogoUrl) {
+                    try {
+                        const businessLogoImg = new Image();
+                        businessLogoImg.crossOrigin = 'anonymous';
+                        
+                        await new Promise((resolve, reject) => {
+                            businessLogoImg.onload = () => {
+                                try {
+                                    const canvas = document.createElement('canvas');
+                                    canvas.width = businessLogoImg.width;
+                                    canvas.height = businessLogoImg.height;
+                                    const ctx = canvas.getContext('2d');
+                                    ctx.drawImage(businessLogoImg, 0, 0);
+                                    
+                                    const logoDataUrl = canvas.toDataURL('image/png');
+                                    
+                                    const logoWidth = 50;
+                                    const logoHeight = (businessLogoImg.height / businessLogoImg.width) * logoWidth;
+                                    
+                                    pdf.addImage(logoDataUrl, 'PNG', margin, yPosition, logoWidth, logoHeight);
+                                    yPosition += logoHeight + 10;
+                                    resolve();
+                                } catch (err) {
+                                    console.error('Error adding business logo:', err);
+                                    resolve();
+                                }
+                            };
+                            
+                            businessLogoImg.onerror = () => {
+                                console.error('Failed to load business logo');
+                                resolve();
+                            };
+                            
+                            businessLogoImg.src = businessLogoUrl.startsWith('/') ? window.location.origin + businessLogoUrl : businessLogoUrl;
+                        });
+                    } catch (e) {
+                        console.error('Business logo loading error:', e);
+                    }
+                }
+
+                // Add title (matching h2 size and weight)
+                yPosition += 5;
+                addText(quiz.title || 'Business Health Report', 22, 500, [0, 0, 0]);
+                yPosition += 5;
+
+                // Get content element
+                const contentEl = document.getElementById('quizContent');
+                
+                // Capture and add score circle as image
+                const scoreCircle = contentEl.querySelector('.score-circle');
+                if (scoreCircle) {
+                    const scoreCircleImage = await elementToImage(scoreCircle);
+                    
+                    // Add "Overall Health" heading (h3 size)
+                    addText('Overall Health', 18, 500, [0, 0, 0]);
+                    yPosition += 2;
+                    
+                    // Add "Health Score" label (smaller, bold)
+                    pdf.setFontSize(9);
+                    pdf.setFont('helvetica', 'bold');
+                    pdf.text('Health Score', margin, yPosition);
+                    yPosition += 5;
+                    
+                    // Add score circle image (40mm width)
+                    const imgSize = 40;
+                    checkPageBreak(imgSize + 5);
+                    pdf.addImage(scoreCircleImage, 'PNG', margin, yPosition, imgSize, imgSize);
+                    yPosition += imgSize + 10;
+                }
+                
+                // Process quiz results
+                const resultsHeader = contentEl.querySelector('h2');
+                if (resultsHeader && !resultsHeader.textContent.includes('Overall Health')) {
+                    addText(resultsHeader.textContent.trim(), 18, 500, [0, 0, 0]);
+                    yPosition += 3;
+                }
+
+                // Process score/results cards
+                const resultsCards = contentEl.querySelectorAll('.results-card, .result-item');
+                resultsCards.forEach((card) => {
+                    checkPageBreak(20);
+                    
+                    const title = card.querySelector('h3, h4, .card-title, strong');
+                    if (title) {
+                        addText(title.textContent.trim(), 14, 500, [0, 70, 130]);
+                        yPosition += 2;
+                    }
+                    
+                    const description = card.querySelector('p, .card-text, .description');
+                    if (description) {
+                        addText(description.textContent.trim(), 10, 'normal', [43, 41, 45]);
+                        yPosition += 4;
+                    }
+                });
+
+                // Process all paragraphs and headings
+                const allElements = contentEl.querySelectorAll('h1, h2, h3, h4, h5, h6, p, ul, ol, .alert, .card-body');
+                allElements.forEach((el) => {
+                    // Skip already processed elements
+                    if (el.closest('.results-actions') || el.closest('.stepper') || 
+                        el.closest('.quiz-nav-buttons') || el.closest('.btn-primary') || 
+                        el.closest('.ai-summary-section')) {
+                        return;
+                    }
+
+                    const tagName = el.tagName.toLowerCase();
+                    const text = el.textContent.trim();
+                    
+                    if (!text) return;
+
+                    // Handle headings
+                    if (tagName.startsWith('h')) {
+                        const level = parseInt(tagName.charAt(1));
+                        // Calculate font size based on heading level (matching CSS scale)
+                        const headingSizes = {
+                            1: 22, // h1 size
+                            2: 18, // h2 size
+                            3: 16, // h3 size
+                            4: 14, // h4 size
+                            5: 12, // h5 size
+                            6: 11  // h6 size
+                        };
+                        const fontSize = headingSizes[level] || 12;
+                        checkPageBreak(10);
+                        yPosition += 3;
+                        addText(text, fontSize, 500, [0, 0, 0]);
+                        yPosition += 2;
+                    }
+                    // Handle lists
+                    else if (tagName === 'ul' || tagName === 'ol') {
+                        const items = el.querySelectorAll('li');
+                        items.forEach((li, index) => {
+                            const bullet = tagName === 'ul' ? '' : `${index + 1}.`;
+                            checkPageBreak(8);
+                            pdf.setFontSize(10);
+                            pdf.setTextColor(43, 41, 45);
+                            pdf.text(bullet, margin, yPosition);
+                            addText(li.textContent.trim(), 10, 'normal', [43, 41, 45], 8);
+                        });
+                        yPosition += 3;
+                    }
+                    // Handle alerts/callouts
+                    else if (el.classList.contains('alert')) {
+                        checkPageBreak(15);
+                        pdf.setFillColor(240, 240, 240);
+                        pdf.rect(margin, yPosition - 3, contentWidth, 10, 'F');
+                        addText(text, 10, 'normal', [100, 100, 0]);
+                        yPosition += 3;
+                    }
+                    // Handle paragraphs
+                    else if (tagName === 'p' && !el.closest('.results-card')) {
+                        checkPageBreak(10);
+                        addText(text, 10, 'normal', [43, 41, 45]);
+                        yPosition += 3;
+                    }
+                });
+
+                // Add AI Summary if exists
+                const aiSummary = contentEl.querySelector('.ai-summary-section');
+                if (aiSummary && !aiSummary.querySelector('.summary-loading')) {
+                    checkPageBreak(20);
+                    yPosition += 5;
+                    
+                    const summaryTitle = aiSummary.querySelector('h3, h4');
+                    if (summaryTitle) {
+                        addText(summaryTitle.textContent.trim(), 16, 500, [0, 100, 0]);
+                        yPosition += 2;
+                    }
+                    
+                    const summaryText = aiSummary.querySelector('.summary-content, p');
+                    if (summaryText) {
+                        addText(summaryText.textContent.trim(), 10, 'normal', [43, 41, 45]);
+                        yPosition += 5;
+                    }
+                }
+
+                // Add logo and disclaimer as normal content
+                yPosition += 10;
+                checkPageBreak(20);
+                
+                pdf.setDrawColor(222, 226, 230);
+                pdf.line(margin, yPosition, pageWidth - margin, yPosition);
+                yPosition += 5;
+                
+                // Add logo before disclaimer
+                const logoUrl = appEl ? appEl.dataset.ntgLogo : null;
+                if (logoUrl) {
+                    try {
+                        // Load and add logo image
+                        const logoImg = new Image();
+                        logoImg.crossOrigin = 'anonymous';
+                        
+                        await new Promise((resolve, reject) => {
+                            logoImg.onload = () => {
+                                try {
+                                    // Create canvas to convert logo to data URL
+                                    const canvas = document.createElement('canvas');
+                                    canvas.width = logoImg.width;
+                                    canvas.height = logoImg.height;
+                                    const ctx = canvas.getContext('2d');
+                                    ctx.drawImage(logoImg, 0, 0);
+                                    
+                                    const logoDataUrl = canvas.toDataURL('image/png');
+                                    
+                                    // Add logo to PDF (40mm width)
+                                    const logoWidth = 40;
+                                    const logoHeight = (logoImg.height / logoImg.width) * logoWidth;
+                                    
+                                    pdf.addImage(logoDataUrl, 'PNG', margin, yPosition, logoWidth, logoHeight);
+                                    yPosition += logoHeight + 5;
+                                    resolve();
+                                } catch (err) {
+                                    console.error('Error adding logo:', err);
+                                    resolve(); // Continue even if logo fails
+                                }
+                            };
+                            
+                            logoImg.onerror = () => {
+                                console.error('Failed to load logo');
+                                resolve(); // Continue even if logo fails
+                            };
+                            
+                            // Handle relative and absolute URLs
+                            logoImg.src = logoUrl.startsWith('/') ? window.location.origin + logoUrl : logoUrl;
+                        });
+                    } catch (e) {
+                        console.error('Logo loading error:', e);
+                        // Skip logo if can't load
+                    }
+                }
+                
+                pdf.setFontSize(8);
+                pdf.setFont('helvetica', 'bold');
+                pdf.setTextColor(43, 41, 45);
+                pdf.text('Disclaimer:', margin, yPosition);
+                yPosition += 4;
+                
+                const disclaimer = 'Laws and regulations can change over time. While we aim to provide accurate guidance and point you to helpful resources, it\'s important that you check whether the information is suitable for your specific situation. Every business is different, so please make sure any advice or material you use is right for your circumstances before making decisions or taking action.';
+                addText(disclaimer, 8, 'normal', [100, 100, 100]);
+
+                // Add page numbers
+                const totalPages = pdf.internal.getNumberOfPages();
+                for (let i = 1; i <= totalPages; i++) {
+                    pdf.setPage(i);
+                    pdf.setFontSize(9);
+                    pdf.setTextColor(128);
+                    pdf.text(
+                        `Page ${i} of ${totalPages}`,
+                        pageWidth / 2,
+                        pageHeight - 8,
+                        { align: 'center' }
+                    );
+                }
+
+                // Save the PDF
+                pdf.save(`${quiz.title || 'report'}.pdf`);
+
+            } catch (error) {
+                console.error('Error generating PDF:', error);
+                alert('Error generating PDF. Please try again.');
+            }
         });
 
         copyBtn.addEventListener('click', async () => {

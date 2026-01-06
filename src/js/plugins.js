@@ -15,7 +15,7 @@ const pluginsToBuild = [
     "src/js/plugins/responsive-helper.js",
     "src/js/plugins/megamenu.js",
     "src/js/plugins/sameheight.js",
-    "src/js/plugins/html2pdf.js"
+    "src/js/plugins/jspdf.js"
 ];
 
 module.exports = pluginsToBuild;

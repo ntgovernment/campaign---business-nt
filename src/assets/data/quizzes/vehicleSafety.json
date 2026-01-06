@@ -317,7 +317,7 @@
                     "helpText": "",
                     "conditional": {
                         "showWhen": {
-                            "incidentReporting": "Yes"
+                            "vehicleIncidentReporting": "Yes"
                         }
                     },
                     "options": [
@@ -406,6 +406,7 @@
                     "helpText": "",
                     "conditional": {
                         "showWhen": {
+                            "carryTools": "Yes",
                             "toolsRemovedAfterHours": "No"
                         }
                     },

@@ -401,33 +401,14 @@
         }
 
         .stepper {
+            counter-reset: step;
             display: flex;
             justify-content: space-between;
             gap: 1rem;
-            counter-reset: step;
-            position: relative;
             margin-bottom: 2rem;
+            position: relative;
 
-            @include media-breakpoint-down(md) {
-                overflow-x: auto;
-                overflow-y: hidden;
-                scrollbar-width: thin;
-                scrollbar-color: $ntg-coastline-blue transparent;
-                padding-bottom: 1rem;
-
-                &::-webkit-scrollbar {
-                    height: 6px;
-                }
-
-                &::-webkit-scrollbar-thumb {
-                    background-color: $ntg-coastline-blue;
-                }
-
-                &::-webkit-scrollbar-track {
-                    background: transparent;
-                }
-            }
-
+            // track
             &::before {
                 content: '';
                 background-color: tint-color($ntg-arafura-blue, 90%);
@@ -438,6 +419,7 @@
                 top: calc((26px - 10px) * 0.5);
             }
 
+            // progress
             &::after {
                 content: '';
                 background-color: $ntg-coastline-blue;
@@ -450,18 +432,18 @@
             }
 
             .step {
-                flex: 1;
                 padding-top: 2rem;
-                text-align: center;
                 position: relative;
                 z-index: 1;
-                text-decoration: none;
                 color: var(--bs-body-color);
+                text-decoration: none;
+                text-align: center;
 
-                @include media-breakpoint-down(md) {
-                    white-space: nowrap;
+                @include media-breakpoint-up(md) {
+                    flex: 1;
                 }
 
+                // circle
                 &::before {
                     counter-increment: step;
                     content: counter(step);
@@ -483,6 +465,13 @@
                     transition: 0.2s background-color ease-in-out, 0.2s color ease-in-out;
                 }
 
+                span {
+                    @include media-breakpoint-down(md) {
+                        display: none;
+                    }
+                }
+
+                // step one
                 &:first-child {
                     text-align: left;
 
@@ -492,6 +481,7 @@
                     }
                 }
 
+                // last step
                 &:last-child {
                     text-align: right;
 

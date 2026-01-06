@@ -747,33 +747,45 @@ function initVideoControl() {
 }
 
 function initQuizUI() {
-    // Listen for stepper updates (triggered when quiz page renders)
-    window.addEventListener('stepperUpdated', updateProgressBar);
+    updateStepperProgress();
+    window.addEventListener('stepperUpdated', updateStepperProgress);
+    window.addEventListener('resize', updateStepperProgress);
 
-    // Also update on page load if stepper already exists
-    updateProgressBar();
-
-    function updateProgressBar() {
+    function updateStepperProgress() {
         const stepper = document.querySelector('.stepper');
         if (!stepper) return;
 
         const steps = stepper.querySelectorAll('.step');
         if (steps.length === 0) return;
 
-        let activeIndex = -1;
-        steps.forEach((step, index) => {
-            if (step.classList.contains('active')) {
-                activeIndex = index;
-            }
-        });
+        const activeStep = stepper.querySelector('.step.active');
+        if (!activeStep) return;
 
-        if (activeIndex < 0) return;
+        // Get the stepper's bounding rectangle
+        const stepperRect = stepper.getBoundingClientRect();
+        const stepperWidth = stepperRect.width;
 
-        // Calculate progress based on step index for even distribution
-        // This ensures the progress bar aligns properly on both desktop and mobile
-        const progressWidth = steps.length > 1 ? (activeIndex / (steps.length - 1)) * 100 : 0;
+        // Get the active step's bounding rectangle
+        const activeStepRect = activeStep.getBoundingClientRect();
 
-        // Set CSS custom property for the progress bar width
-        stepper.style.setProperty('--progress-width', `${Math.min(100, Math.max(0, progressWidth))}%`);
+        // Calculate the center position of the active step's circle
+        const circleCenter = activeStepRect.left - stepperRect.left + activeStepRect.width / 2;
+
+        // Calculate percentage based on actual position
+        const progressPercentage = (circleCenter / stepperWidth) * 100;
+
+        // Clamp between 0 and 100
+        const clampedPercentage = Math.max(0, Math.min(100, progressPercentage));
+
+        // Handle edge cases: first step = 0%, last step = 100%
+        const activeIndex = Array.from(steps).indexOf(activeStep);
+
+        if (activeIndex === 0) {
+            stepper.style.setProperty('--progress-width', '0%');
+        } else if (activeIndex === steps.length - 1) {
+            stepper.style.setProperty('--progress-width', '100%');
+        } else {
+            stepper.style.setProperty('--progress-width', `${clampedPercentage}%`);
+        }
     }
 }

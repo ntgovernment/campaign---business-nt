@@ -264,7 +264,9 @@
             const s = document.createElement('a');
             s.href = '#';
             s.className = 'step';
-            s.textContent = p.title || `Page ${idx + 1}`;
+            const t = document.createElement('span');
+            t.textContent = p.title || `Page ${idx + 1}`;
+            s.appendChild(t);
             const pageComplete = isPageCompleted(p, answers);
             // detect if any visible question on this page has an answer
             let pageHasAnswers = false;
@@ -322,7 +324,9 @@
         const resultsStep = document.createElement('a');
         resultsStep.href = '#';
         resultsStep.className = 'step';
-        resultsStep.textContent = 'Your results';
+        const resultsText = document.createElement('span');
+        resultsText.textContent = 'Your results';
+        resultsStep.appendChild(resultsText);
         resultsStep.addEventListener('click', (e) => {
             e.preventDefault();
             window.State.currentState.view = 'results';
@@ -1187,7 +1191,9 @@
             const s = document.createElement('a');
             s.href = '#';
             s.className = 'step';
-            s.textContent = p.title || `Page ${idx + 1}`;
+            const t = document.createElement('span');
+            t.textContent = p.title || `Page ${idx + 1}`;
+            s.appendChild(t);
             const pageComplete = isPageCompleted(p, answers);
             // detect if any visible question on this page has an answer
             let pageHasAnswers = false;
@@ -1242,7 +1248,9 @@
         const resultsStep = document.createElement('a');
         resultsStep.href = '#';
         resultsStep.className = 'step active';
-        resultsStep.textContent = 'Your results';
+        const resultsText = document.createElement('span');
+        resultsText.textContent = 'Your results';
+        resultsStep.appendChild(resultsText);
         stepper.appendChild(resultsStep);
 
         contentEl.appendChild(stepper);

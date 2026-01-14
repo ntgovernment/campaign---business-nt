@@ -1,0 +1,180 @@
+{
+  "id": "changeDisruption",
+  "title": "Manage Change and Prepare for Disruptions or Emergencies Quiz",
+  "introduction": {
+    "body": "<p>This section explores how change can impact your business.</p><p>Northern Territory businesses should prepare for emergencies such as cyclones, floods, bushfires, power outages, and workplace incidents. Technology disruptions, changes in the economy or regulatory changes can also pose as challenges and disruptions.</p><p>Planning ahead with clear safety procedures and recovery strategies helps protect staff, minimise disruption, and support business continuity.</p><p>Evaluate how prepared you are for changes and crises and identify the areas where you need to act.</p>"
+  },
+  "pages": [
+    {
+      "title": "Economy and Regulation",
+      "questions": [
+        {
+          "id": "economicChanges",
+          "type": "radio",
+          "label": "Do you understand how changes in the economy could impact your business?",
+          "helpText": "Economic shifts like interest rates, inflation, or consumer confidence can affect customer spending and business costs.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Economically Aware!",
+            "body": "<p>Your Strengths: You understand how economic shifts, like interest rates or inflation, can affect your business and are prepared to respond.</p>"
+          },
+          "recommendation": {
+            "title": "Understand Economic Impact",
+            "body": "<p>Opportunity to Improve: Economic changes can influence customer spending, supply costs, and business confidence. By staying informed and planning ahead, you can adjust your operations and reduce risk. This is especially important in the NT, where regional economies may be more sensitive to national and global trends. You might think of building cash reserves, have a plan to reduce non-essential costs, ensuring your customer base is diverse and secure lines of credit before you need them.</p><p>You can engage a service provider through the Business Growth Program to help you develop the right strategy for you.</p><p>Consider doing a SWOT analysis to understand where you might begin to adapt.</p>"
+          }
+        },
+        {
+          "id": "regulatoryChanges",
+          "type": "radio",
+          "label": "Does your business have processes in place to respond to changes in laws or policies?",
+          "helpText": "Being prepared for regulatory changes helps your business stay compliant and avoid disruption.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Compliance Ready!",
+            "body": "<p>Your Strengths: You have systems in place to stay compliant and adapt to legal or policy changes.</p>"
+          },
+          "recommendation": {
+            "title": "Monitor Regulatory Changes",
+            "body": "<p>Opportunity to Improve: Laws and regulations can change quickly. Having clear processes to monitor and respond to updates can help you stay compliant and avoid disruption. These might be in workplace safety, consumer rights, or environmental rules.</p><p>Understand the work health and safety laws relevant to your place of work.</p><p>Know your rights and responsibilities under the Competition and Consumer Act 2010.</p><p>Find out more about NT business regulation and legislation.</p>"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Market Changes",
+      "questions": [
+        {
+          "id": "marketTrends",
+          "type": "radio",
+          "label": "Do you regularly review and analyse your competitors and market trends?",
+          "helpText": "Understanding your competitive landscape helps you anticipate changes and stay relevant.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Market Savvy!",
+            "body": "<p>Your Strengths: You keep track of your competitors and market changes to stay ahead.</p>"
+          },
+          "recommendation": {
+            "title": "Analyze Competition",
+            "body": "<p>Opportunity to Improve: Knowing what your competitors offer helps you stand out, set competitive prices, and respond quickly to changes. Regular reviews help you stay relevant and identify new opportunities. Consider a competitor analysis or profile to document what you find.</p>"
+          }
+        },
+        {
+          "id": "newTechnologies",
+          "type": "radio",
+          "label": "Are you aware of new technologies that could impact your business positively or negatively?",
+          "helpText": "Technology can improve efficiency but may also disrupt traditional business models or increase competition.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Tech Aware!",
+            "body": "<p>Your Strengths: You stay informed about emerging technologies and how they may affect your business.</p>"
+          },
+          "recommendation": {
+            "title": "Stay Technology Informed",
+            "body": "<p>Opportunity to Improve: Technology can help you innovate and improve efficiency, but it can also disrupt traditional business models. Stay aware of changes so you can adapt, compete, and take advantage of new tools.</p><p>Develop a digital strategy for your business.</p><p>Consider the Business Growth Program for help in engaging a consultant to work with you in this space.</p>"
+          }
+        },
+        {
+          "id": "customerDemographics",
+          "type": "radio",
+          "label": "Do you understand how changing customer demographics or values could affect your business?",
+          "helpText": "Shifts in customer preferences or population trends may require you to adapt your products or services.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Customer Insights!",
+            "body": "<p>Your Strengths: You understand your community and customer base and can adapt to demographic and social changes.</p>"
+          },
+          "recommendation": {
+            "title": "Monitor Demographics",
+            "body": "<p>Opportunity to Improve: Shifts in population, values, or customer expectations can affect who buys from you and what they want. Stay informed about your market and be ready to evolve your products, services, and communication to meet changing needs. Investigate if there are other customers you can target, and how to communicate with them. Industry bodies can help keep you informed of any changes happening in your industry.</p><p>Learn about market researching.</p>"
+          }
+        },
+        {
+          "id": "industryMembership",
+          "type": "radio",
+          "label": "Are you an active member of an industry association or trade body?",
+          "helpText": "Joining an organisation that represents your industry can provide valuable support and resources to help your business grow and stay informed. Benefits may include: Industry updates, Practical resources, Training and education, Networking opportunities, Mentoring and support, Advocacy and representation.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 },
+            { "label": "N/A", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Industry Connected!",
+            "body": "<p>Your Strengths: You're connected to your industry and benefit from shared resources, updates, and support.</p>"
+          },
+          "recommendation": {
+            "title": "Join Industry Association",
+            "body": "<p>Opportunity to Improve: Most industries in Australia are represented by industry associations or a relevant trade body. Industry associations offer valuable insights, training, networking, and advocacy. Membership can also boost your credibility and help you stay informed about changes that affect your sector.</p><p>Explore the peak bodies in the NT.</p>"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Risk Management",
+      "questions": [
+        {
+          "id": "riskAssessment",
+          "type": "radio",
+          "label": "Have you completed a risk assessment to identify and manage potential threats to your business?",
+          "helpText": "Risk assessments help you prepare for internal and external challenges before they occur.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Risk Prepared!",
+            "body": "<p>Your Strengths: You have identified risks and have strategies in place to manage them.</p>"
+          },
+          "recommendation": {
+            "title": "Complete Risk Assessment",
+            "body": "<p>Opportunity to Improve: A risk assessment helps you prepare for challenges before they happen. It is a key part of building a resilient business, especially in the NT where environmental, health, and infrastructure risks can vary widely.</p><p>Learn about risk assessment and planning.</p><p>Make a risk management plan.</p>"
+          }
+        },
+        {
+          "id": "disasterPlan",
+          "type": "radio",
+          "label": "Do you have a crisis or disaster plan in place to maintain operations during disruptions?",
+          "helpText": "Planning for emergencies like natural disasters or cyber-attacks helps protect your business continuity. A crisis can be anything that negatively impacts your business-as-usual activities, such as: a natural disaster, a cyber-attack or violent crime, a pandemic, the loss of a critical staff member, the loss of a critical infrastructure such as power or internet.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Crisis Ready!",
+            "body": "<p>Your Strengths: You are prepared to keep your business running during emergencies or disruptions.</p>"
+          },
+          "recommendation": {
+            "title": "Create Disaster Plan",
+            "body": "<p>Opportunity to Improve: A crisis can be anything from a natural disaster to a cyber-attack. Having a business continuity plan helps you respond quickly, reduce losses, and recover faster.</p><p>Learn about Disaster preparedness for business in the NT.</p><p>Create an emergency management plan.</p>"
+          }
+        }
+      ]
+    }
+  ],
+  "conclusion": {
+    "body": "<p><strong>Well done in completing this change and disruption management questionnaire.</strong></p><p>Download or save your results. Implementing small changes consistently will help you create a sustainable business practice!</p>"
+  }
+}

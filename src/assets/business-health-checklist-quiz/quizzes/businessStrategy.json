@@ -1,0 +1,217 @@
+{
+  "id": "businessStrategy",
+  "title": "Business Strategy Quiz",
+  "introduction": {
+    "body": "<p>This section explores your business's strategy, goals and areas for growth. Assess your current business planning, strategy and what makes your business stand out.</p>"
+  },
+  "pages": [
+    {
+      "title": "Goals and Strategy",
+      "questions": [
+        {
+          "id": "businessGoals",
+          "type": "radio",
+          "label": "Have you written down the goals you want to achieve through owning your own business?",
+          "helpText": "",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Clear Goals!",
+            "body": "<p>Your Strength: Clear goals help guide your strategy and decision making in business.</p>"
+          },
+          "recommendation": {
+            "title": "Write Down Your Goals",
+            "body": "<p>Being clear about why you are in business and what you are working to achieve will help you focus on what is important. It can be the basis of your decisions. Having clear goals can motivate your staff and get everyone working towards the same thing.</p>"
+          }
+        },
+        {
+          "id": "businessStrategy",
+          "type": "radio",
+          "label": "Do you have a written business strategy that outlines how you are going to work towards your business goals?",
+          "helpText": "A clear strategy helps you stay focused and make informed decisions as your business evolves.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Clear Strategy!",
+            "body": "<p>Your Strength: You have got a clear plan that helps guide your business decisions and priorities.</p>"
+          },
+          "recommendation": {
+            "title": "Develop Your Strategy",
+            "body": "<p>Opportunity to Improve: Take time to write down a clear path to achieving your business goals. It does not have to be complicated. What do you do every day, week, month or year to move towards what you are trying to achieve. A simple strategy can help you stay on track, make better decisions, and grow with confidence.</p><p>You can also create a one-page business strategic plan. It is good practice to review this every year. There are resources online.</p><p>You can access funding through Business Growth Program to engage a business advisor to help you develop this.</p>"
+          }
+        },
+        {
+          "id": "longTermSuccess",
+          "type": "radio",
+          "label": "Is your business strategy set up to support long-term success financially, environmentally, and with your team?",
+          "helpText": "A sustainable strategy helps your business stay strong over time. This means thinking about: Making enough profit to stay viable, Reducing your impact on the environment, Supporting and keeping good staff. Planning for long-term sustainability helps your business stay resilient and ready for the future.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Sustainable Strategy!",
+            "body": "<p>Your Strength: You have built a strategy that supports long-term success for your business, your team, and the environment.</p>"
+          },
+          "recommendation": {
+            "title": "Build Sustainability",
+            "body": "<p>Opportunity to Improve: Think about how your business can be more sustainable financially, environmentally, and socially. Even small changes can help your business stay strong and make a positive impact.</p><p>Consider applying for funding through Business Growth Program to work with a specialist service provider to make a sustainable business strategy with you.</p>"
+          }
+        },
+        {
+          "id": "reviewingStrategy",
+          "type": "radio",
+          "label": "Do you regularly review and update your business goals and strategy (at least annually)?",
+          "helpText": "Markets change, so do customer needs. It is important to review your goals regularly. Updating your goals helps make sure they still make sense and keep your business heading in the right direction.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Regular Reviews!",
+            "body": "<p>Your Strength: You regularly review your goals to keep your business focused and flexible.</p>"
+          },
+          "recommendation": {
+            "title": "Schedule Regular Reviews",
+            "body": "<p>Opportunity to Improve: Set a time each year to check in on your goals. You can do this by yourself, with your leadership team or with an external specialist. Making small updates can help you stay on track and respond to changes in your industry or community.</p>"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Strengthening Strategy",
+      "questions": [
+        {
+          "id": "valueProposition",
+          "type": "radio",
+          "label": "Have you clearly worked out what makes your business stand out from the crowd? (your value proposition)",
+          "helpText": "Knowing what makes your business unique, your value proposition, helps you attract the right customers and stand out from competitors. It could be your service, your location, your story, your products, or the experience you offer. When you are clear on what sets you apart, it is easier to promote your business and grow.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Unique Value!",
+            "body": "<p>Your Strength: You know what makes your business special and use it to connect with your customers.</p>"
+          },
+          "recommendation": {
+            "title": "Define Your Value Proposition",
+            "body": "<p>Opportunity to Improve: Take time to define what makes your business different. This helps you focus your business strategy. You can market to and attract loyal customers and stand out in a busy market.</p><p>Access tools and resources for marketing and customer engagement.</p>"
+          }
+        },
+        {
+          "id": "diversification",
+          "type": "radio",
+          "label": "Have you thought about offering new products, services, or reaching new customers to reduce risk?",
+          "helpText": "Diversifying your business can help protect you from changes in the market or customer demand. You might: Add new services or experiences, Team up with other businesses, Try new suppliers, Explore new customer groups or markets. It is a smart way to spread your risk and keep your business strong.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Diversifying!",
+            "body": "<p>Your Strength: You are actively looking for ways to grow and protect your business by diversifying.</p>"
+          },
+          "recommendation": {
+            "title": "Explore Diversification",
+            "body": "<p>Opportunity to Improve: Think about how you could expand what you offer or who you serve. Diversifying helps you stay flexible and better prepared for changes in the market.</p><p>Learn about growing your business in the NT.</p>"
+          }
+        },
+        {
+          "id": "partnerships",
+          "type": "radio",
+          "label": "Have you thought about partnerships, collaborations or teaming up with other businesses to strengthen your strategy?",
+          "helpText": "Working with others can open up new opportunities, reduce costs, and help you grow. You might: Share resources, Create joint offers or packages, Reach new customers, Build new skills or capabilities. Strategic partnerships can make your business stronger and more flexible.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Collaborative Approach!",
+            "body": "<p>Your Strength: You are open to working with others to grow your business and explore new opportunities.</p>"
+          },
+          "recommendation": {
+            "title": "Build Partnerships",
+            "body": "<p>Opportunity to Improve: Look for businesses you could collaborate with whether it is sharing ideas, creating joint offers, or reaching new markets together. Partnerships can help you do more with less and build long-term success.</p><p>Learn about how collaboration can help your business.</p><p>If you are an Aboriginal Business, consider linking in with NT Indigenous Business Network (NTIBN) as part of your collaboration strategy.</p><p>If you are a business looking for new procurement opportunities, explore the Industry Capability Network (ICN).</p>"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Data and Trends",
+      "questions": [
+        {
+          "id": "trackingData",
+          "type": "radio",
+          "label": "Do you use data or key numbers to track how your business is going and if you are meeting your goals?",
+          "helpText": "Tracking your progress helps you see what is working and what needs attention. You might look at things like: Sales numbers, Customer feedback, Website traffic, Profit margins, Staff performance. Using this info helps you make better decisions and stay on track with your goals.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Data-Driven!",
+            "body": "<p>Your Strength: You use data and key numbers to measure progress and guide your business decisions.</p>"
+          },
+          "recommendation": {
+            "title": "Start Tracking Data",
+            "body": "<p>Opportunity to Improve: Start tracking a few key numbers that matter most to your business. It does not have to be complicated, just knowing what to watch can help you grow and improve.</p><p>Learn how data can improve your business.</p>"
+          }
+        },
+        {
+          "id": "marketTrends",
+          "type": "radio",
+          "label": "Do you keep an eye on changes in your industry, market trends, or what your customers want?",
+          "helpText": "Things change like new trends, customer needs, and even competitors. By staying informed, you can adjust your strategy, stay ahead of the game, and keep your business competitive.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Market Aware!",
+            "body": "<p>Your Strength: You stay up to date with what is happening in your industry and use that knowledge to guide your business.</p>"
+          },
+          "recommendation": {
+            "title": "Monitor Market Trends",
+            "body": "<p>Opportunity to Improve: Make time to check in on market trends and customer feedback. Even small insights can help you make better decisions and spot new opportunities.</p><p>Learn about doing market research.</p>"
+          }
+        },
+        {
+          "id": "feedbackLoops",
+          "type": "radio",
+          "label": "Do you ask your staff, customers, or advisors for feedback to help improve your business?",
+          "helpText": "Getting feedback gives you fresh ideas and helps you see things you might miss. It can help you: Improve your products or services, Make better decisions, Strengthen your strategy, Build stronger relationships with your team and customers. Listening to others can help your business grow in the right direction.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Feedback Culture!",
+            "body": "<p>Your Strength: You actively seek feedback and use it to improve your business.</p>"
+          },
+          "recommendation": {
+            "title": "Create Feedback Channels",
+            "body": "<p>Opportunity to Improve: Make it easy for people to share their thoughts. You could implement this through chats, surveys, or regular check-ins. Feedback is a powerful tool to help you make smart changes and stay connected to your customers and team.</p><p>Read about engaging with customers, including asking for feedback.</p>"
+          }
+        }
+      ]
+    }
+  ],
+  "conclusion": {
+    "body": "<p><strong>Well done in completing this business strategy questionnaire.</strong></p><p>Download or save your results. Implementing small changes consistently will help you create a sustainable business practice!</p>"
+  }
+}

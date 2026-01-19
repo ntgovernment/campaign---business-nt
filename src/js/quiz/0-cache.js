@@ -22,15 +22,31 @@
                     throw new Error('App element not found');
                 }
 
-                // Get all JSON URLs from data attributes
-                const urls = {
-                    mainNavigation: appEl.dataset.quizMainNavigation || '../assets/data/mainNavigation.json',
-                    uiMessages: appEl.dataset.uiMessages || '../assets/data/uiMessages.json',
-                    propertySafety: appEl.dataset.propertySafety,
-                    staffSafety: appEl.dataset.staffSafety,
-                    mobileBusiness: appEl.dataset.mobileBusiness,
-                    vehicleSafety: appEl.dataset.vehicleSafety
-                };
+                // Get all JSON URLs from data attributes based on quiz type
+                let urls;
+                const isBusinessHealth = appEl.dataset.quiz === 'business-health-checklist';
+                
+                if (isBusinessHealth) {
+                    urls = {
+                        mainNavigation: appEl.dataset.quizMainNavigation,
+                        uiMessages: appEl.dataset.uiMessages,
+                        businessOperations: appEl.dataset.businessOperations,
+                        businessStrategy: appEl.dataset.businessStrategy,
+                        financialManagement: appEl.dataset.financialManagement,
+                        manageChangeAndPrepareForDisruptions: appEl.dataset.manageChangeAndPrepareForDisruptions,
+                        staffAndPeopleManagement: appEl.dataset.staffAndPeopleManagement,
+                        understandYourCustomers: appEl.dataset.understandYourCustomers
+                    };
+                } else {
+                    urls = {
+                        mainNavigation: appEl.dataset.quizMainNavigation || '../assets/data/mainNavigation.json',
+                        uiMessages: appEl.dataset.uiMessages || '../assets/data/uiMessages.json',
+                        propertySafety: appEl.dataset.propertySafety,
+                        staffSafety: appEl.dataset.staffSafety,
+                        mobileBusiness: appEl.dataset.mobileBusiness,
+                        vehicleSafety: appEl.dataset.vehicleSafety
+                    };
+                }
 
                 // Filter out undefined URLs and create fetch promises
                 const fetchPromises = Object.entries(urls)

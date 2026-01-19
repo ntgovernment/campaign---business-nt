@@ -1,14 +1,17 @@
 <div class="container pb-5">
     <div
         class="ntg-quiz"
-        id="app" 
+        id="app"
+        data-quiz="business-health-checklist" 
         data-business-logo="/assets/images/territory-business-logo.svg"
         data-ntg-logo="/assets/css-images/logo-ntg-color.svg"
         data-quiz-main-navigation="../assets/business-health-checklist-quiz/mainNavigation.json"
-        data-propertySafety="../assets/business-health-checklist-quiz/quizzes/property-safety-quiz.json"
-        data-staffSafety="../assets/business-health-checklist-quiz/quizzes/staffSafetyquiz.json"
-        data-mobileBusiness="../assets/business-health-checklist-quiz/quizzes/mobileBusiness.json"
-        data-vehicleSafety="../assets/business-health-checklist-quiz/quizzes/vehicleSafety.json"
+        data-businessOperations="../assets/business-health-checklist-quiz/quizzes/businessOperations.json"
+        data-businessStrategy="../assets/business-health-checklist-quiz/quizzes/businessStrategy.json"
+        data-financialManagement="../assets/business-health-checklist-quiz/quizzes/financialManagement.json"
+        data-manageChangeAndPrepareForDisruptions="../assets/business-health-checklist-quiz/quizzes/manageChangeAndPrepareForDisruptions.json"
+        data-staffAndPeopleManagement="../assets/business-health-checklist-quiz/quizzes/staffAndPeopleManagement.json"
+        data-understandYourCustomers="../assets/business-health-checklist-quiz/quizzes/understandYourCustomers.json"
         data-ui-messages="../assets/business-health-checklist-quiz/uiMessages.json"
         data-openai-api-key="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"
     >

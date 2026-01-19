@@ -10,11 +10,27 @@
     // Helper function to get quiz URL from data attribute
     function getQuizUrl(quizId) {
         const appEl = document.getElementById('app');
-        if (appEl && appEl.dataset[quizId]) {
-            return appEl.dataset[quizId];
+        if (!appEl) {
+            return `../assets/data/quizzes/${quizId}.json`;
         }
-        // Fallback to default path
-        return `../assets/data/quizzes/${quizId}.json`;
+        
+        // Check if it's business health quiz
+        const isBusinessHealth = appEl.dataset.quiz === 'business-health-checklist';
+        
+        if (isBusinessHealth) {
+            // Business quizzes
+            if (appEl.dataset[quizId]) {
+                return appEl.dataset[quizId];
+            }
+            // Business health quizzes are in business-health-checklist-quiz/quizzes/
+            return `../assets/business-health-checklist-quiz/quizzes/${quizId}.json`;
+        } else {
+            // Safety quizzes
+            if (appEl.dataset[quizId]) {
+                return appEl.dataset[quizId];
+            }
+            return `../assets/data/quizzes/${quizId}.json`;
+        }
     }
 
     async function renderStart(contentEl, uiMessages) {

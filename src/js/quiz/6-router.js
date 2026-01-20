@@ -20,15 +20,15 @@
     
     if (isBusinessHealth) {
       // Safety quizzes
-      if (appEl.dataset[quizId]) {
-        return appEl.dataset[quizId];
+      if (appEl.dataset[quizId.toLowerCase()]) {
+        return appEl.dataset[quizId.toLowerCase() ];
       }
       // Business health quizzes are in business-health-checklist-quiz/quizzes/
       return `../assets/business-health-checklist-quiz/quizzes/${quizId}.json`;
     } else {
       // Safety quizzes
-      if (appEl.dataset[quizId]) {
-        return appEl.dataset[quizId];
+      if (appEl.dataset[quizId.toLowerCase()]) {
+        return appEl.dataset[quizId.toLowerCase()];
       }
       return `../assets/data/quizzes/${quizId}.json`;
     }

@@ -1428,6 +1428,15 @@
 
         contentEl.appendChild(overallCard);
 
+        // Add paragraph for business health quiz
+        const appEl = document.getElementById('app');
+        const isBusinessHealth = appEl && appEl.dataset.quiz === 'business-health-checklist';
+        if (isBusinessHealth) {
+            const paragraph = document.createElement('p');
+            paragraph.innerHTML = 'Well done in completing this business health checklist to help you better understand your business and opportunities to improve.<br><br>Pick out a few key actions to work on at a time. Trying to change or improve everything at once will be difficult.<br><br>Would you like to speak to a Territory Business Advisor to speak about your results and make a plan of action?';
+            contentEl.appendChild(paragraph);
+        }
+
         const contactBtn = document.createElement('a');
         contactBtn.href = '#';
         contactBtn.className = 'btn btn-primary mb-4';

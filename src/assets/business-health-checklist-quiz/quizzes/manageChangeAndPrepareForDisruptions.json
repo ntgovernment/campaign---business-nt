@@ -66,7 +66,7 @@
             "body": "<p>Your Strengths: You keep track of your competitors and market changes to stay ahead.</p>"
           },
           "recommendation": {
-            "title": "Analyze Competition",
+            "title": "Analyse Competition",
             "body": "<p>Opportunity to Improve: Knowing what your competitors offer helps you stand out, set competitive prices, and respond quickly to changes. Regular reviews help you stay relevant and identify new opportunities. Consider a competitor analysis or profile to document what you find.</p>"
           }
         },
@@ -112,7 +112,7 @@
           "id": "industryMembership",
           "type": "radio",
           "label": "Are you an active member of an industry association or trade body?",
-          "helpText": "Joining an organisation that represents your industry can provide valuable support and resources to help your business grow and stay informed. Benefits may include: Industry updates, Practical resources, Training and education, Networking opportunities, Mentoring and support, Advocacy and representation.",
+          "helpText": "Joining an organisation that represents your industry can provide valuable support and resources to help your business grow and stay informed. Benefits may include industry updates, practical resources, training and education, networking opportunities, mentoring and support and advocacy and representation.",
           "options": [
             { "label": "Yes", "score": 1 },
             { "label": "No", "score": 0 },

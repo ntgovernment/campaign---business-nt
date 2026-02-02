@@ -62,14 +62,14 @@
           },
           "recommendation": {
             "title": "Strengthen Systems",
-            "body": "<p>Opportunity to Improve: Strengthen your systems and processes. Review your day-to-day operations like marketing, HR, and risk management, to make sure they are supporting your business effectively. Strong systems help your business run smoothly and prepare you for growth or unexpected challenges.</p><p>Find <a href='https://business.nt.gov.au/help-for-business/business-tools-and-learning/business-operations' target='_blank'>business operations</a> templates.</p><p>Find <a href='https://business.nt.gov.au/help-for-business/business-tools-and-learning/financial-management' target='_blank'>financial management</a> templates.</p><p>Find <a href='https://business.nt.gov.au/help-for-business/business-tools-and-learning/marketing-and-customer-engagement' target='_blank'>marketing and customer engagement</a> templates.</p><p>Explore other topics around <a href='https://business.nt.gov.au/help-for-business/business-and-industry-development-support-team' target='_blank'>Help for your Business</a>.</p>"
+            "body": "<p>Opportunity to Improve: Strengthen your systems and processes. Review your day-to-day operations like marketing, HR, and risk management, to make sure they are supporting your business effectively. Strong systems help your business run smoothly and prepare you for growth or unexpected challenges.</p><p>Find <a href='https://business.nt.gov.au/help-for-business/business-tools-and-learning/business-operations' target='_blank'>business operations</a> templates.</p><p>Find <a href='https://business.nt.gov.au/help-for-business/business-tools-and-learning/financial-management' target='_blank'>financial management</a> templates.</p><p>Find <a href='https://business.nt.gov.au/help-for-business/business-tools-and-learning/marketing-and-customer-engagement' target='_blank'>marketing and customer engagement</a> templates.</p><p>Explore other topics around <a href='https://business.nt.gov.au/help-for-business' target='_blank'>Help for your Business</a>.</p>"
           }
         },
         {
           "id": "policiesProcedures",
           "type": "radio",
           "label": "Do you have the right policies and procedures in place to ensure a safe and consistent workplace?",
-          "helpText": "These may include policies for: Workplace health and safety, Privacy and data protection, Employment and HR practices, Customer service standards.",
+          "helpText": "These may include policies for workplace health and safety, privacy and data protection, employment and HR practices or customer service standards.",
           "options": [
             { "label": "Yes", "score": 1 },
             { "label": "No", "score": 0 },
@@ -88,7 +88,7 @@
           "id": "businessPremises",
           "type": "radio",
           "label": "Are your business premises suitable and in the right location for your needs now and in the future?",
-          "helpText": "Your premises should support your current operations and allow for future growth. This could include: Warehouse, manufacturing or storage space, Shared or independent office space, Retail or shopfront space, A home office.",
+          "helpText": "Your premises should support your current operations and allow for future growth. This could include warehouse, manufacturing or storage space, shared or independent office space, retail or shopfront space or a home office.",
           "options": [
             { "label": "Yes", "score": 1 },
             { "label": "No", "score": 0 },
@@ -107,7 +107,7 @@
           "id": "successionPlanning",
           "type": "radio",
           "label": "Do you have a succession and/or exit plan for your business?",
-          "helpText": "Whether you plan to sell, transfer, or close your business, having a plan helps ensure a smooth transition. Your plan should consider: Legal and financial arrangements, Staff training and development, Intellectual property, Property and resources.",
+          "helpText": "Whether you plan to sell, transfer, or close your business, having a plan helps ensure a smooth transition. Your plan should consider any legal and financial arrangements, staff training and development, intellectual property, property and resources.",
           "options": [
             { "label": "Yes", "score": 1 },
             { "label": "No", "score": 0 },
@@ -131,7 +131,7 @@
           "id": "businessSafety",
           "type": "radio",
           "label": "Do you have measures in place to keep your business, staff, and assets safe and secure?",
-          "helpText": "Safety and security measures can include: Workplace health and safety procedures, Physical security (locks, alarms, CCTV), Cyber security protections, Emergency response plans, Staff training on safety protocols.",
+          "helpText": "Safety and security measures can include workplace health and safety procedures, physical security (locks, alarms, CCTV), cyber security protections, emergency response plans and staff training on safety protocols.",
           "options": [
             { "label": "Yes", "score": 1 },
             { "label": "No", "score": 0 },
@@ -150,7 +150,7 @@
           "id": "cyberSecurity",
           "type": "radio",
           "label": "Do you have a cyber security policy to protect your business and customer data?",
-          "helpText": "Cyber security protects your systems and data from theft, damage, or unauthorised access. Consider: Whether your data storage meets legal obligations, If your customers trust your data handling practices, Whether your staff are trained and your policies are up to date.",
+          "helpText": "Cyber security protects your systems and data from theft, damage, or unauthorised access. Consider whether your data storage meets legal obligations, if your customers trust your data handling practices and whether your staff are trained and your policies are up to date.",
           "options": [
             { "label": "Yes", "score": 1 },
             { "label": "No", "score": 0 },
@@ -232,7 +232,7 @@
           "id": "workplaceCulture",
           "type": "radio",
           "label": "Does your leadership create a positive workplace where staff feel supported and want to stay?",
-          "helpText": "A positive workplace culture helps attract, retain, and motivate staff. Your business and HR processes should: Protect staff against discrimination and harassment, Reduce risks to health and safety, Promote diversity and work-life balance, Encourage professional development, Support clear and open communication.",
+          "helpText": "A positive workplace culture helps attract, retain, and motivate staff. Your business and HR processes should protect staff against discrimination and harassment, reduce risks to health and safety, promote diversity and work-life balance and encourage professional development.",
           "options": [
             { "label": "Yes", "score": 1 },
             { "label": "No", "score": 0 },
@@ -270,7 +270,7 @@
           "id": "businessCollaboration",
           "type": "radio",
           "label": "Do you collaborate with other businesses, suppliers and partners in your sector?",
-          "helpText": "Collaborating could be: Joint research with universities or organisations, Shared revenue or resource arrangements, Cross-promotion or referral partnerships, Mutual support when capacity is reached, Advocacy with other businesses or peak bodies, Licensing, technology sharing, or knowledge exchange, Working together to achieve shared goals.",
+          "helpText": "Collaborating could be joint research with universities or organisations, shared revenue or resource arrangements, cross-promotion or referral partnerships, mutual support when capacity is reached, advocacy with other businesses or peak bodies, licensing, technology sharing, or knowledge exchange or working together to achieve shared goals.",
           "options": [
             { "label": "Yes", "score": 1 },
             { "label": "No", "score": 0 },

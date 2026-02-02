@@ -53,6 +53,24 @@
         wrapper.appendChild(p);
         wrapper.appendChild(nav);
         contentEl.appendChild(wrapper);
+
+        function handleContactModal(e) {
+            e.preventDefault();
+            const modalEl = document.getElementById('floatingContact');
+
+            if (modalEl && window.bootstrap && window.bootstrap.Modal) {
+                const modal = new window.bootstrap.Modal(modalEl);
+                modal.show();
+            } else {
+                window.location.href = 'https://business.nt.gov.au/contact';
+            }
+        }
+
+        /* Static button - only bind if it exists */
+        const territoryBtn = document.getElementById('territoryBusinessAdvisorModal');
+        if (territoryBtn) {
+            territoryBtn.addEventListener('click', handleContactModal);
+        }
     }
 
     async function renderChooseTopic(contentEl, navJson) {
@@ -1442,18 +1460,26 @@
         contactBtn.className = 'btn btn-primary mb-4';
         contactBtn.textContent = 'Contact a Territory Business Advisor';
 
-        // Manually trigger modal since the button is dynamically generated
-        contactBtn.addEventListener('click', (e) => {
+        function handleContactModal(e) {
             e.preventDefault();
             const modalEl = document.getElementById('floatingContact');
+
             if (modalEl && window.bootstrap && window.bootstrap.Modal) {
                 const modal = new window.bootstrap.Modal(modalEl);
                 modal.show();
             } else {
-                // Fallback if modal doesn't exist
                 window.location.href = 'https://business.nt.gov.au/contact';
             }
-        });
+        }
+
+        // Bind both buttons safely
+        contactBtn.addEventListener('click', handleContactModal);
+
+        /* Static button - only bind if it exists */
+        const territoryBtn = document.getElementById('territoryBusinessAdvisorModal');
+        if (territoryBtn) {
+            territoryBtn.addEventListener('click', handleContactModal);
+        }
 
         contentEl.appendChild(contactBtn);
 

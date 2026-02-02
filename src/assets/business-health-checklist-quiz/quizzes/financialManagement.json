@@ -12,7 +12,7 @@
           "id": "yearlyBudget",
           "type": "radio",
           "label": "Do you have a budget for the next 12 months?",
-          "helpText": "A budget helps you plan for what your business will spend and earn over the next year. It includes things like: Regular expenses, Future costs you expect, How much money you think you'll make.",
+          "helpText": "A budget helps you plan for what your business will spend and earn over the next year. It includes things like regular expenses, future costs you expect and how much money you think you will make.",
           "options": [
             { "label": "Yes", "score": 1 },
             { "label": "No", "score": 0 },
@@ -31,7 +31,7 @@
           "id": "runningCosts",
           "type": "radio",
           "label": "Do you know what it costs to run your business?",
-          "helpText": "Running a business comes with different types of costs, like: Fixed costs - things you pay regularly, like rent, licences, or permits. Variable costs - things that change depending on how busy you are, like electricity, stock, or wages.",
+          "helpText": "Running a business comes with different types of costs, like fixed costs (things you pay regularly, like rent, licences, or permits) and variable costs (things that change depending on how busy you are, like electricity, stock, or wages).",
           "options": [
             { "label": "Yes", "score": 1 },
             { "label": "No", "score": 0 },
@@ -81,7 +81,7 @@
           },
           "recommendation": {
             "title": "Calculate Break-Even",
-            "body": "<p>Opportunity to Improve: Learn how to work out your break-even point. It is a key number for your business. Even if you are making lots of sales, you could still be losing money if your costs are too high. Knowing your break-even point helps you: Set the right prices, Decide if you can afford to offer discounts, See how much profit you're really making. The more you sell above your break-even point, the stronger your business is likely to be.</p><p>Access <a href='https://business.nt.gov.au/help-for-business/business-tools-and-learning/financial-management' target='_blank'>financial planning resources.</a></p><p>Learn about <a href='https://business.gov.au/products-and-services/develop-a-pricing-strategy' target='_blank'>developing a pricing strategy.</a></p>"
+            "body": "<p>Learn how to work out your break-even point. It is a key number for your business. Even if you are making lots of sales, you could still be losing money if your costs are too high. Knowing your break-even point helps you set the right prices, decide if you can afford to offer discounts and see how much profit you're really making. The more you sell above your break-even point, the stronger your business is likely to be.</p><p>Access <a href='https://business.nt.gov.au/help-for-business/business-tools-and-learning/financial-management' target='_blank'>financial planning resources.</a></p><p>Learn about <a href='https://business.gov.au/products-and-services/develop-a-pricing-strategy' target='_blank'>developing a pricing strategy.</a></p>"
           }
         }
       ]
@@ -93,7 +93,7 @@
           "id": "salesImpacts",
           "type": "radio",
           "label": "Do you know what affects your sales?",
-          "helpText": "Your sales can go up or down depending on things like: Who your customers are and how many you have, How much it costs to get your supplies, especially in remote or regional areas, How you promote your business (on your own or through others), Other things outside your control, like the weather, local events, or changes in the economy.",
+          "helpText": "Your sales can go up or down depending on things like who your customers are and how many you have, how much it costs to get your supplies, especially in remote or regional areas, how you promote your business (on your own or through others) or other things outside your control, like the weather, local events, or changes in the economy.",
           "options": [
             { "label": "Yes", "score": 1 },
             { "label": "No", "score": 0 },
@@ -112,7 +112,7 @@
           "id": "grantsAndPrograms",
           "type": "radio",
           "label": "Do you know about any grants, incentives or support programs that could help your business?",
-          "helpText": "There are programs out there that can support your business. Some are from the NT Government, others from the Australian Government or local councils. They might help with things like: Growing your business (e.g. building or upgrading equipment), Hiring staff (e.g. wage subsidies or training support), Managing costs (e.g. tax breaks or energy efficiency programs).",
+          "helpText": "There are programs out there that can support your business. Some are from the NT Government, others from the Australian Government or local councils. They might help with things like growing your business (e.g. building or upgrading equipment), hiring staff (e.g. wage subsidies or training support) and managing costs (e.g. tax breaks or energy efficiency programs).",
           "options": [
             { "label": "Yes", "score": 1 },
             { "label": "No", "score": 0 },
@@ -124,14 +124,14 @@
           },
           "recommendation": {
             "title": "Explore Support Programs",
-            "body": "<p>Opportunity to Improve: Explore what grants, incentives or programs might be available to help your business grow or save money. Even small programs can make a big difference, especially in regional or remote areas.</p><p>Access the <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program' target='_blank'>NT Grants Portal.</a></p><p>Access the <a href='https://business.gov.au/grants-and-programs' target='_blank'>Australian Government Grant and Program finder</a>.</p><p>Learn about <a href='https://business.nt.gov.au/help-for-business/business-regulation-and-legislation-in-nt/workforce-for-nt-business' target='_blank'>skilling your NT workforce</a>.</p>"
+            "body": "<p>Opportunity to Improve: Explore what grants, incentives or programs might be available to help your business grow or save money. Even small programs can make a big difference, especially in regional or remote areas.</p><p>Access the <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program' target='_blank'>Business grants and funding.</a></p><p>Access the <a href='https://nt.gov.au/industry/business-grants-funding' target='_blank'>Australian Government Grant and Program finder</a>.</p><p>Learn about <a href='https://business.nt.gov.au/help-for-business/business-regulation-and-legislation-in-nt/workforce-for-nt-business' target='_blank'>skilling your NT workforce</a>.</p>"
           }
         },
         {
           "id": "accessToFunding",
           "type": "radio",
           "label": "Do you have access to enough money to support your business when you need it?",
-          "helpText": "Whether you are starting out, growing, or going through a slow patch, having access to funding is important. This could include: Loans or credit (debt funding), Investors or partners (equity funding), Other ways to raise money when needed. Understanding how to get funding and when to use it, can help you reach your goals and keep your business running smoothly.",
+          "helpText": "Whether you are starting out, growing, or going through a slow patch, having access to funding is important. This could include loans or credit (debt funding), investors or partners (equity funding) or other ways to raise money when needed. Understanding how to get funding and when to use it, can help you reach your goals and keep your business running smoothly.",
           "options": [
             { "label": "Yes", "score": 1 },
             { "label": "No", "score": 0 },
@@ -155,7 +155,7 @@
           "id": "performanceSystems",
           "type": "radio",
           "label": "Do you have systems in place to keep track of your business's money and performance?",
-          "helpText": "Good financial controls help you stay on top of your business. This includes: Keeping your records up to date, Tracking sales and costs against your budget, Managing debt and chasing unpaid invoices, Having a smooth invoicing process, Keeping an eye on cash flow, Understanding what drives your costs, Setting the right prices for your products or services.",
+          "helpText": "Good financial controls help you stay on top of your business. This includes keeping your records up to date, tracking sales and costs against your budget, managing debt and chasing unpaid invoices, having a smooth invoicing process, keeping an eye on cash flow, understanding what drives your costs and setting the right prices for your products or services.",
           "options": [
             { "label": "Yes", "score": 1 },
             { "label": "No", "score": 0 },
@@ -174,7 +174,7 @@
           "id": "legalObligations",
           "type": "radio",
           "label": "Does your business have enough money set aside to meet tax, super, and other legal obligations?",
-          "helpText": "It is important to keep money aside for things like: GST, PAYG (Pay As You Go tax), Workers' compensation, Income tax, Superannuation for your staff. You also need to make sure you have fair and legal staff contracts in place (if you employ people). Staying on top of these helps you avoid fines and keeps your business running smoothly.",
+          "helpText": "It is important to keep money aside for things like GST, PAYG (Pay As You Go tax), workers' compensation, income tax and superannuation for your staff. You also need to make sure you have fair and legal staff contracts in place (if you employ people). Staying on top of these helps you avoid fines and keeps your business running smoothly.",
           "options": [
             { "label": "Yes", "score": 1 },
             { "label": "No", "score": 0 },
@@ -186,14 +186,14 @@
           },
           "recommendation": {
             "title": "Plan for Obligations",
-            "body": "<p>Opportunity to Improve: Make sure you understand what your business needs to pay and when. Setting aside money regularly for tax, super, and other costs helps you stay compliant and avoid last-minute stress. You can set up different bank accounts to easily keep track of these buckets of money.</p><p>Learn more about your <a href='https://business.gov.au/finance/tax' target='_blank'>tax obligations</a>.</p><p>Learn about all the stages of <a href='https://business.gov.au/people/employees/staff-development-and-training' target='_blank'>managing employees.</a></p>"
+            "body": "<p>Opportunity to Improve: Make sure you understand what your business needs to pay and when. Setting aside money regularly for tax, super, and other costs helps you stay compliant and avoid last-minute stress. You can set up different bank accounts to easily keep track of these buckets of money.</p><p>Learn more about your <a href='https://business.gov.au/finance/tax' target='_blank'>tax obligations</a>.</p><p>Learn about all the stages of <a href='https://business.gov.au/people/employees' target='_blank'>managing employees.</a></p>"
           }
         },
         {
           "id": "businessModelReview",
           "type": "radio",
           "label": "Have you thought about changing how your business works to cut costs or attract more customers?",
-          "helpText": "Sometimes small changes to your business model can make a big difference. You could: Add new services or experiences, Team up with other businesses to offer packages, Try new suppliers to save money, Look into new markets or customer groups. Being flexible and open to change can help your business grow and stay competitive.",
+          "helpText": "Sometimes small changes to your business model can make a big difference. You could add new services or experiences, team up with other businesses to offer packages, try new suppliers to save money or investigate new markets or customer groups. Being flexible and open to change can help your business grow and stay competitive.",
           "options": [
             { "label": "Yes", "score": 1 },
             { "label": "No", "score": 0 },

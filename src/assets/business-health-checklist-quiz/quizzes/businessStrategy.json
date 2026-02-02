@@ -50,7 +50,7 @@
           "id": "longTermSuccess",
           "type": "radio",
           "label": "Is your business strategy set up to support long-term success financially, environmentally, and with your team?",
-          "helpText": "A sustainable strategy helps your business stay strong over time. This means thinking about: Making enough profit to stay viable, Reducing your impact on the environment, Supporting and keeping good staff. Planning for long-term sustainability helps your business stay resilient and ready for the future.",
+          "helpText": "A sustainable strategy helps your business stay strong over time. This means thinking about making enough profit to stay viable, reducing your impact on the environment and supporting and keeping good staff. Planning for long-term sustainability helps your business stay resilient and ready for the future.",
           "options": [
             { "label": "Yes", "score": 1 },
             { "label": "No", "score": 0 },
@@ -112,7 +112,7 @@
           "id": "diversification",
           "type": "radio",
           "label": "Have you thought about offering new products, services, or reaching new customers to reduce risk?",
-          "helpText": "Diversifying your business can help protect you from changes in the market or customer demand. You might: Add new services or experiences, Team up with other businesses, Try new suppliers, Explore new customer groups or markets. It is a smart way to spread your risk and keep your business strong.",
+          "helpText": "Diversifying your business can help protect you from changes in the market or customer demand. You might add new services or experiences, team up with other businesses, try new suppliers or explore new customer groups or markets. It is a smart way to spread your risk and keep your business strong.",
           "options": [
             { "label": "Yes", "score": 1 },
             { "label": "No", "score": 0 },
@@ -131,7 +131,7 @@
           "id": "partnerships",
           "type": "radio",
           "label": "Have you thought about partnerships, collaborations or teaming up with other businesses to strengthen your strategy?",
-          "helpText": "Working with others can open up new opportunities, reduce costs, and help you grow. You might: Share resources, Create joint offers or packages, Reach new customers, Build new skills or capabilities. Strategic partnerships can make your business stronger and more flexible.",
+          "helpText": "Working with others can open up new opportunities, reduce costs, and help you grow. You might share resources, create joint offers or packages, reach new customers or build new skills or capabilities. Strategic partnerships can make your business stronger and more flexible.",
           "options": [
             { "label": "Yes", "score": 1 },
             { "label": "No", "score": 0 },
@@ -155,7 +155,7 @@
           "id": "trackingData",
           "type": "radio",
           "label": "Do you use data or key numbers to track how your business is going and if you are meeting your goals?",
-          "helpText": "Tracking your progress helps you see what is working and what needs attention. You might look at things like: Sales numbers, Customer feedback, Website traffic, Profit margins, Staff performance. Using this info helps you make better decisions and stay on track with your goals.",
+          "helpText": "Tracking your progress helps you see what is working and what needs attention. You might look at things like sales numbers, customer feedback, website traffic, profit margins and staff performance. Using this information helps you make better decisions and stay on track with your goals.",
           "options": [
             { "label": "Yes", "score": 1 },
             { "label": "No", "score": 0 },
@@ -193,7 +193,7 @@
           "id": "feedbackLoops",
           "type": "radio",
           "label": "Do you ask your staff, customers, or advisors for feedback to help improve your business?",
-          "helpText": "Getting feedback gives you fresh ideas and helps you see things you might miss. It can help you: Improve your products or services, Make better decisions, Strengthen your strategy, Build stronger relationships with your team and customers. Listening to others can help your business grow in the right direction.",
+          "helpText": "Getting feedback gives you fresh ideas and helps you see things you might miss. It can help you improve your products or services, make better decisions, strengthen your strategy, build stronger relationships with your team and customers. Listening to others can help your business grow in the right direction.",
           "options": [
             { "label": "Yes", "score": 1 },
             { "label": "No", "score": 0 },

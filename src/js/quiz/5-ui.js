@@ -1881,12 +1881,12 @@
                 });
 
                 // Process all paragraphs and headings
-                const allElements = contentEl.querySelectorAll('h1, h2, h3, h4, h5, h6, p, ul, ol, .alert, .card-body');
+                const allElements = contentEl.querySelectorAll('h1, h2, h3, h4, h5, h6, p, ul, ol, .alert, .card-body, .message-body');
                 allElements.forEach((el) => {
                     // Skip already processed elements
                     if (el.closest('.results-actions') || el.closest('.stepper') || 
                         el.closest('.quiz-nav-buttons') || el.closest('.btn-primary') || 
-                        el.closest('.ai-summary-section')) {
+                        el.closest('.ai-summary-section') || el.closest('.discover-more-section')) {
                         return;
                     }
 
@@ -1894,6 +1894,82 @@
                     const text = el.textContent.trim();
                     
                     if (!text) return;
+
+                    // Special handling for message-body (recommendations) with HTML content
+                    if (el.classList.contains('message-body')) {
+                        // Parse HTML content to handle links
+                        const tempDiv = document.createElement('div');
+                        tempDiv.innerHTML = el.innerHTML;
+                        let currentX = margin;
+                        const fontSize = 10;
+                        const lineHeight = fontSize * 0.4;
+                        
+                        checkPageBreak(15);
+                        
+                        // Process text nodes and links
+                        const processNode = (node) => {
+                            if (node.nodeType === Node.TEXT_NODE) {
+                                const textContent = node.textContent.trim();
+                                if (textContent) {
+                                    pdf.setFontSize(fontSize);
+                                    pdf.setFont('helvetica', 'normal');
+                                    pdf.setTextColor(43, 41, 45);
+                                    
+                                    const words = pdf.splitTextToSize(textContent, contentWidth - (currentX - margin));
+                                    words.forEach((word) => {
+                                        if (currentX + pdf.getTextWidth(word) > pageWidth - margin) {
+                                            yPosition += lineHeight;
+                                            currentX = margin;
+                                            checkPageBreak(lineHeight);
+                                        }
+                                        pdf.text(word, currentX, yPosition);
+                                        currentX += pdf.getTextWidth(word) + pdf.getTextWidth(' ');
+                                    });
+                                }
+                            } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'A') {
+                                const linkText = node.textContent.trim();
+                                const href = node.getAttribute('href');
+                                if (linkText && href) {
+                                    pdf.setFontSize(fontSize);
+                                    pdf.setFont('helvetica', 'normal');
+                                    pdf.setTextColor(0, 123, 255); // Blue color for links
+                                    
+                                    const words = pdf.splitTextToSize(linkText, contentWidth - (currentX - margin));
+                                    words.forEach((word, index) => {
+                                        if (currentX + pdf.getTextWidth(word) > pageWidth - margin) {
+                                            yPosition += lineHeight;
+                                            currentX = margin;
+                                            checkPageBreak(lineHeight);
+                                        }
+                                        
+                                        // Add the text
+                                        pdf.text(word, currentX, yPosition);
+                                        
+                                        // Add clickable link
+                                        const textWidth = pdf.getTextWidth(word);
+                                        const textHeight = fontSize * 0.4;
+                                        pdf.link(currentX, yPosition - textHeight + 2, textWidth, textHeight, { url: href });
+                                        
+                                        currentX += textWidth + pdf.getTextWidth(' ');
+                                        
+                                        // Underline the link
+                                        pdf.setDrawColor(0, 123, 255);
+                                        pdf.line(currentX - textWidth - pdf.getTextWidth(' '), yPosition + 1, currentX - pdf.getTextWidth(' '), yPosition + 1);
+                                    });
+                                }
+                            } else if (node.nodeType === Node.ELEMENT_NODE) {
+                                // Handle other elements like <strong>, <em>, etc.
+                                const children = Array.from(node.childNodes);
+                                children.forEach(processNode);
+                            }
+                        };
+                        
+                        const childNodes = Array.from(tempDiv.childNodes);
+                        childNodes.forEach(processNode);
+                        
+                        yPosition += lineHeight + 3;
+                        return;
+                    }
 
                     // Handle headings
                     if (tagName.startsWith('h')) {
@@ -1917,14 +1993,94 @@
                     else if (tagName === 'ul' || tagName === 'ol') {
                         const items = el.querySelectorAll('li');
                         items.forEach((li, index) => {
-                            const bullet = tagName === 'ul' ? '' : `${index + 1}.`;
+                            const bullet = tagName === 'ul' ? '•' : `${index + 1}.`;
                             checkPageBreak(8);
                             pdf.setFontSize(10);
                             pdf.setTextColor(43, 41, 45);
                             pdf.text(bullet, margin, yPosition);
-                            addText(li.textContent.trim(), 10, 'normal', [43, 41, 45], 8);
+                            
+                            // Check if li contains HTML (links)
+                            if (li.innerHTML !== li.textContent) {
+                                // Process HTML content like message-body
+                                const tempDiv = document.createElement('div');
+                                tempDiv.innerHTML = li.innerHTML;
+                                let currentX = margin + 8; // Indent for bullet
+                                const fontSize = 10;
+                                const lineHeight = fontSize * 0.4;
+                                
+                                const processNode = (node) => {
+                                    if (node.nodeType === Node.TEXT_NODE) {
+                                        const textContent = node.textContent.trim();
+                                        if (textContent) {
+                                            pdf.setFontSize(fontSize);
+                                            pdf.setFont('helvetica', 'normal');
+                                            pdf.setTextColor(43, 41, 45);
+                                            
+                                            // Use splitTextToSize to properly handle line wrapping
+                                            const lines = pdf.splitTextToSize(textContent, contentWidth - 8);
+                                            checkPageBreak(lines.length * lineHeight);
+                                            
+                                            lines.forEach((line, lineIndex) => {
+                                                if (lineIndex > 0) {
+                                                    yPosition += lineHeight;
+                                                    currentX = margin + 8; // Reset indent for wrapped lines
+                                                }
+                                                pdf.text(line, currentX, yPosition);
+                                                currentX += pdf.getTextWidth(line);
+                                            });
+                                        }
+                                    } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'A') {
+                                        const linkText = node.textContent.trim();
+                                        const href = node.getAttribute('href');
+                                        if (linkText && href) {
+                                            pdf.setFontSize(fontSize);
+                                            pdf.setFont('helvetica', 'normal');
+                                            pdf.setTextColor(0, 123, 255); // Blue color for links
+                                            
+                                            // Use splitTextToSize for link text too
+                                            const lines = pdf.splitTextToSize(linkText, contentWidth - 8);
+                                            checkPageBreak(lines.length * lineHeight);
+                                            
+                                            lines.forEach((line, lineIndex) => {
+                                                if (lineIndex > 0) {
+                                                    yPosition += lineHeight;
+                                                    currentX = margin + 8; // Reset indent for wrapped lines
+                                                }
+                                                
+                                                // Add the text
+                                                pdf.text(line, currentX, yPosition);
+                                                
+                                                // Add clickable link
+                                                const textWidth = pdf.getTextWidth(line);
+                                                const textHeight = fontSize * 0.4;
+                                                pdf.link(currentX, yPosition - textHeight + 2, textWidth, textHeight, { url: href });
+                                                
+                                                currentX += textWidth;
+                                                
+                                                // Underline the link
+                                                pdf.setDrawColor(0, 123, 255);
+                                                pdf.line(currentX - textWidth, yPosition + 1, currentX, yPosition + 1);
+                                            });
+                                        }
+                                    } else if (node.nodeType === Node.ELEMENT_NODE) {
+                                        // Handle other elements
+                                        const children = Array.from(node.childNodes);
+                                        children.forEach(processNode);
+                                    }
+                                };
+                                
+                                const childNodes = Array.from(tempDiv.childNodes);
+                                childNodes.forEach(processNode);
+                                
+                                // Add spacing after this list item (similar to addText)
+                                yPosition += lineHeight;
+                            } else {
+                                // Simple text content
+                                addText(li.textContent.trim(), 10, 'normal', [43, 41, 45], 8);
+                            }
                         });
-                        yPosition += 3;
+                        // Additional spacing after the list
+                        yPosition += 2;
                     }
                     // Handle alerts/callouts
                     else if (el.classList.contains('alert')) {
@@ -2190,6 +2346,7 @@
 
         if (isBusinessHealth) {
             const paragraph = document.createElement('div');
+            paragraph.className = 'discover-more-section';
             paragraph.innerHTML = '<h3>Discover more</h3><ul><li>Learn about <a href="https://business.nt.gov.au/help-for-business/applying-for-business-funding-and-grants">applying for business funding and grants</a></li><li>Find <a href="https://business.nt.gov.au/help-for-business/business-tools-and-learning/mental-health-in-the-workplace">mental health and wellbeing resources for businesses</a></li><li>Subscribe to the <a href="https://web.businesscrm.nt.gov.au/cn/awlvn/industry_det">NT Business Bulletin/a> for ongoing updates for businesses in the NT</li></li><li>Find current <a href="https://business.nt.gov.au/about-nt-business/events-and-business-awards">business events and awards/a> </li></ul>';
             contentEl.appendChild(paragraph);
         }

@@ -1907,12 +1907,22 @@
                 });
 
                 // Process all paragraphs and headings
-                const allElements = contentEl.querySelectorAll('h1, h2, h3, h4, h5, h6, p, ul, ol, .alert, .card-body, .message-body');
+                const allElements = contentEl.querySelectorAll('h1, h2, h3, h4, h5, h6, p, ul, ol, .alert, .card-body, .message-body, .message-item');
                 allElements.forEach((el) => {
-                    // Skip already processed elements
+                    // Skip already processed elements (but allow message-body and message-item in recommendations)
                     if (el.closest('.results-actions') || el.closest('.stepper') || 
                         el.closest('.quiz-nav-buttons') || el.closest('.btn-primary') || 
                         el.closest('.ai-summary-section') || el.closest('.discover-more-section')) {
+                        return;
+                    }
+                    
+                    // For elements in quiz-recommendations, only process message-item and message-body (skip h3, h4, etc.)
+                    if (el.closest('.quiz-recommendations') && !el.classList.contains('message-body') && !el.classList.contains('message-item')) {
+                        return;
+                    }
+                    
+                    // Skip message-body if it's inside message-item (will be processed as part of message-item)
+                    if (el.classList.contains('message-body') && el.closest('.message-item')) {
                         return;
                     }
 
@@ -1920,6 +1930,166 @@
                     const text = el.textContent.trim();
                     
                     if (!text) return;
+
+                    // Special handling for message-item (contains title and body)
+                    if (el.classList.contains('message-item')) {
+                        checkPageBreak(15);
+                        
+                        const titleEl = el.querySelector('.message-title');
+                        const bodyEl = el.querySelector('.message-body');
+                        
+                        // Render title
+                        if (titleEl && titleEl.textContent.trim()) {
+                            addText(titleEl.textContent.trim(), 12, 'bold', [0, 70, 130]);
+                            yPosition += 2;
+                        }
+                        
+                        // Render body with link handling
+                        if (bodyEl) {
+                            const fontSize = 10;
+                            const lineHeight = fontSize * 0.4;
+                            
+                            // Get all paragraph elements
+                            const paragraphs = bodyEl.querySelectorAll('p');
+                            
+                            if (paragraphs.length > 0) {
+                                // Process each paragraph separately
+                                paragraphs.forEach((pEl, pIndex) => {
+                                    const tempDiv = document.createElement('div');
+                                    tempDiv.innerHTML = pEl.innerHTML;
+                                    let currentX = margin;
+                                    
+                                    // Process text nodes and links
+                                    const processNode = (node) => {
+                                        if (node.nodeType === Node.TEXT_NODE) {
+                                            const textContent = node.textContent.trim();
+                                            if (textContent) {
+                                                pdf.setFontSize(fontSize);
+                                                pdf.setFont('helvetica', 'normal');
+                                                pdf.setTextColor(43, 41, 45);
+                                                
+                                                const words = pdf.splitTextToSize(textContent, contentWidth - (currentX - margin));
+                                                words.forEach((word) => {
+                                                    if (currentX + pdf.getTextWidth(word) > pageWidth - margin) {
+                                                        yPosition += lineHeight;
+                                                        currentX = margin;
+                                                        checkPageBreak(lineHeight);
+                                                    }
+                                                    pdf.text(word, currentX, yPosition);
+                                                    currentX += pdf.getTextWidth(word) + pdf.getTextWidth(' ');
+                                                });
+                                            }
+                                        } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'A') {
+                                            const linkText = node.textContent.trim();
+                                            const href = node.getAttribute('href');
+                                            if (linkText && href) {
+                                                pdf.setFontSize(fontSize);
+                                                pdf.setFont('helvetica', 'normal');
+                                                pdf.setTextColor(0, 123, 255); // Blue color for links
+                                                
+                                                const words = pdf.splitTextToSize(linkText, contentWidth - (currentX - margin));
+                                                words.forEach((word) => {
+                                                    if (currentX + pdf.getTextWidth(word) > pageWidth - margin) {
+                                                        yPosition += lineHeight;
+                                                        currentX = margin;
+                                                        checkPageBreak(lineHeight);
+                                                    }
+                                                    
+                                                    // Add the text
+                                                    pdf.text(word, currentX, yPosition);
+                                                    
+                                                    // Add clickable link
+                                                    const textWidth = pdf.getTextWidth(word);
+                                                    const textHeight = fontSize * 0.4;
+                                                    pdf.link(currentX, yPosition - textHeight + 2, textWidth, textHeight, { url: href });
+                                                    
+                                                    currentX += textWidth + pdf.getTextWidth(' ');
+                                                    
+                                                    // Underline the link
+                                                    pdf.setDrawColor(0, 123, 255);
+                                                    pdf.line(currentX - textWidth - pdf.getTextWidth(' '), yPosition + 1, currentX - pdf.getTextWidth(' '), yPosition + 1);
+                                                });
+                                            }
+                                        } else if (node.nodeType === Node.ELEMENT_NODE) {
+                                            // Handle other elements
+                                            const children = Array.from(node.childNodes);
+                                            children.forEach(processNode);
+                                        }
+                                    };
+                                    
+                                    const childNodes = Array.from(tempDiv.childNodes);
+                                    childNodes.forEach(processNode);
+                                    
+                                    // Add spacing after each paragraph (except the last one)
+                                    yPosition += lineHeight + 3;
+                                });
+                            } else {
+                                // Fallback: render entire body as before if no <p> tags
+                                const tempDiv = document.createElement('div');
+                                tempDiv.innerHTML = bodyEl.innerHTML;
+                                let currentX = margin;
+                                
+                                const processNode = (node) => {
+                                    if (node.nodeType === Node.TEXT_NODE) {
+                                        const textContent = node.textContent.trim();
+                                        if (textContent) {
+                                            pdf.setFontSize(fontSize);
+                                            pdf.setFont('helvetica', 'normal');
+                                            pdf.setTextColor(43, 41, 45);
+                                            
+                                            const words = pdf.splitTextToSize(textContent, contentWidth - (currentX - margin));
+                                            words.forEach((word) => {
+                                                if (currentX + pdf.getTextWidth(word) > pageWidth - margin) {
+                                                    yPosition += lineHeight;
+                                                    currentX = margin;
+                                                    checkPageBreak(lineHeight);
+                                                }
+                                                pdf.text(word, currentX, yPosition);
+                                                currentX += pdf.getTextWidth(word) + pdf.getTextWidth(' ');
+                                            });
+                                        }
+                                    } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'A') {
+                                        const linkText = node.textContent.trim();
+                                        const href = node.getAttribute('href');
+                                        if (linkText && href) {
+                                            pdf.setFontSize(fontSize);
+                                            pdf.setFont('helvetica', 'normal');
+                                            pdf.setTextColor(0, 123, 255);
+                                            
+                                            const words = pdf.splitTextToSize(linkText, contentWidth - (currentX - margin));
+                                            words.forEach((word) => {
+                                                if (currentX + pdf.getTextWidth(word) > pageWidth - margin) {
+                                                    yPosition += lineHeight;
+                                                    currentX = margin;
+                                                    checkPageBreak(lineHeight);
+                                                }
+                                                
+                                                pdf.text(word, currentX, yPosition);
+                                                
+                                                const textWidth = pdf.getTextWidth(word);
+                                                const textHeight = fontSize * 0.4;
+                                                pdf.link(currentX, yPosition - textHeight + 2, textWidth, textHeight, { url: href });
+                                                
+                                                currentX += textWidth + pdf.getTextWidth(' ');
+                                                
+                                                pdf.setDrawColor(0, 123, 255);
+                                                pdf.line(currentX - textWidth - pdf.getTextWidth(' '), yPosition + 1, currentX - pdf.getTextWidth(' '), yPosition + 1);
+                                            });
+                                        }
+                                    } else if (node.nodeType === Node.ELEMENT_NODE) {
+                                        const children = Array.from(node.childNodes);
+                                        children.forEach(processNode);
+                                    }
+                                };
+                                
+                                const childNodes = Array.from(tempDiv.childNodes);
+                                childNodes.forEach(processNode);
+                                
+                                yPosition += lineHeight + 3;
+                            }
+                        }
+                        return;
+                    }
 
                     // Special handling for message-body (recommendations) with HTML content
                     if (el.classList.contains('message-body')) {
@@ -2120,7 +2290,7 @@
                     else if (tagName === 'p' && !el.closest('.results-card')) {
                         checkPageBreak(10);
                         addText(text, 10, 'normal', [43, 41, 45]);
-                        yPosition += 3;
+                        yPosition += 5;
                     }
                 });
 

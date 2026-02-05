@@ -2189,7 +2189,7 @@
                     else if (tagName === 'ul' || tagName === 'ol') {
                         const items = el.querySelectorAll('li');
                         items.forEach((li, index) => {
-                            const bullet = tagName === 'ul' ? '•' : `${index + 1}.`;
+                            const bullet = tagName === 'ul' ? '-' : `${index + 1}.`;
                             checkPageBreak(8);
                             pdf.setFontSize(10);
                             pdf.setTextColor(43, 41, 45);

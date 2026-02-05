@@ -1,0 +1,217 @@
+{
+  "id": "staffAndPeopleManagement",
+  "title": "Staff and People Management Quiz",
+  "introduction": {
+    "body": "<p>This section explores employing, supporting and ensuring you are compliant with your staff management. Assess your management, feedback loops and support systems for staff within your business.</p>"
+  },
+  "pages": [
+    {
+      "title": "Processes",
+      "questions": [
+        {
+          "id": "jobDescriptions",
+          "type": "radio",
+          "label": "Do you have clear job descriptions and expectations for all staff roles?",
+          "helpText": "Clear roles help staff understand their responsibilities and contribute effectively to the business.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Clear Roles!",
+            "body": "<p>Your Strengths: You have defined roles that create structure, reduce confusion, and support smoother day-to-day operations.</p>"
+          },
+          "recommendation": {
+            "title": "Define Job Roles",
+            "body": "<p>Opportunity to Improve: Take time to review and document the key responsibilities and expectations for each role. Make sure they are clear, so staff are sure of their duties. This will also help you keep your staff accountable to their work and responsibilities.</p><p>Regularly updating these descriptions and discussing them with staff can improve performance, accountability, and job satisfaction.</p><p>Learn more about <a href='https://smallbusiness.fairwork.gov.au/managing-employee-performance' target='_blank'>managing employees performance</a>.</p><p>Find more information and templates on <a href='https://business.nt.gov.au/help-for-business/business-tools-and-learning/hiring-people-and-managing-staff' target='_blank'>hiring people and managing staff</a>.</p>"
+          }
+        },
+        {
+          "id": "staffPerformance",
+          "type": "radio",
+          "label": "Do you provide regular feedback and conduct performance reviews for your staff?",
+          "helpText": "Ongoing feedback supports staff development and helps align performance with business goals.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Feedback Culture!",
+            "body": "<p>Your Strengths: You provide consistent feedback to help build a culture of growth, accountability and continuous improvement.</p>"
+          },
+          "recommendation": {
+            "title": "Implement Performance Reviews",
+            "body": "<p>Opportunity to Improve: Introduce regular check-ins and structured performance reviews with your staff. This can improve communication, boost morale, and identify areas for development. Without consistent feedback, staff may feel undervalued or unclear about how they are performing. Even informal feedback, when delivered constructively, can make a big difference in staff engagement and productivity.</p><p>Fair Work has a range of resources to help you with <a href='https://www.fairwork.gov.au/employment-conditions/performance-in-the-workplace' target='_blank'>managing staff performance</a>.</p>"
+          }
+        },
+        {
+          "id": "recruitmentProcesses",
+          "type": "radio",
+          "label": "Do you have a process for recruiting the right people for your business needs?",
+          "helpText": "Effective recruitment ensures you bring in people with the right skills and values.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Recruitment Ready!",
+            "body": "<p>Your Strengths: You have a clear recruitment process to help attract candidates with the right skills, experience, and values.</p>"
+          },
+          "recommendation": {
+            "title": "Develop Recruitment Process",
+            "body": "<p>Opportunity to Improve: Without a structured recruitment process, hiring decisions may be rushed or misaligned with business needs. Consider developing a simple recruitment plan that includes clear role descriptions, selection criteria, and interview steps. This helps ensure consistency, reduces hiring risks, and improves the chances of finding staff who are a strong fit for your team and culture.</p><p>Learn more with this 25 minute <a href='https://www.fairwork.gov.au/sites/default/files/minisite/static/7cbbdb6b-395b-496e-8426-a903a4e3b85d/FWO-hiring-employees/index.html' target='_blank'>course on hiring employees</a>.</p><p>Access further <a href='https://business.nt.gov.au/help-for-business/business-tools-and-learning/hiring-people-and-managing-staff' target='_blank'>hiring tools and templates</a>.</p>"
+          }
+        },
+        {
+          "id": "staffTurnover",
+          "type": "radio",
+          "label": "Do you have a plan to manage staff turnover or succession in key roles?",
+          "helpText": "Planning for turnover helps maintain business continuity and reduces disruption.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Succession Planning!",
+            "body": "<p>Your Strengths: Your succession planning helps maintain business continuity and reduces disruption when staff leave.</p>"
+          },
+          "recommendation": {
+            "title": "Plan for Turnover",
+            "body": "<p>Opportunity to Improve: Without a plan for turnover, your business may face delays or operational gaps when key staff leave. Identify critical roles and consider cross-training, documentation of key processes, and mentoring potential successors. Proactive planning ensures smoother transitions and protects your business from unexpected staffing changes.</p>"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Compliance and Planning",
+      "questions": [
+        {
+          "id": "businessCompliance",
+          "type": "radio",
+          "label": "Do you comply with all relevant workplace laws, awards, and safety requirements?",
+          "helpText": "Compliance protects your business and ensures fair and safe working conditions.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Compliant!",
+            "body": "<p>Your Strengths: You have strong compliance practices help protect your business from legal risks and build trust with staff and customers.</p>"
+          },
+          "recommendation": {
+            "title": "Ensure Compliance",
+            "body": "<p>Opportunity to Improve: If you are unsure about your legal obligations, you may be exposed to fines, disputes, or workplace incidents. Take time to review the latest workplace laws, awards, and safety requirements relevant to your business, resources like <a href='https://worksafe.nt.gov.au/' target='_blank'>NT WorkSafe</a> and the <a href='https://www.fairwork.gov.au/' target='_blank'>Fair Work Ombudsman</a> offer practical guidance and support. Regularly updating your policies and training staff on compliance can help ensure a fair, safe, and legally sound workplace.</p><p>Contact NT WorkSafe to arrange a <a href='https://worksafe.nt.gov.au/laws-and-compliance/workplace-visits' target='_blank'>business visit</a> to talk through your WorkSafe practices and policies.</p><p>You can contact the <a href='https://business.nt.gov.au/help-for-business/territory-business-centres' target='_blank'>Territory Business Centre</a> regarding any business licence requirements.</p>"
+          }
+        },
+        {
+          "id": "reviewingStructure",
+          "type": "radio",
+          "label": "Do you regularly assess whether your staffing levels and structure meet your business needs?",
+          "helpText": "Right-sizing your team ensures you can deliver effectively without over- or under-resourcing.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Right-Sized Team!",
+            "body": "<p>Your strength: You make time for regular staffing reviews to help ensure your team is aligned with current workloads, priorities, and growth plans.</p>"
+          },
+          "recommendation": {
+            "title": "Review Staffing Structure",
+            "body": "<p>Opportunity to Improve: If staffing levels are not reviewed, your business may face inefficiencies, burnout, or missed opportunities. Periodically assess whether roles are still relevant, workloads are manageable, and your structure supports business goals. Adjusting your team proactively can improve service delivery, reduce costs, and support long-term sustainability.</p><p>You can access funding through <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program' target='_blank'>Business Growth Program</a> to work with a service provider to review this if you are unsure where to start.</p>"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Culture and Staff Development",
+      "questions": [
+        {
+          "id": "staffWellbeing",
+          "type": "radio",
+          "label": "Do you have systems in place to support staff wellbeing and work-life balance?",
+          "helpText": "Supporting wellbeing can improve staff retention, morale, and productivity.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Wellbeing Focus!",
+            "body": "<p>Your Strengths: You provide opportunities for staff wellbeing and work-life balance which helps retain talent and boosts morale and productivity.</p>"
+          },
+          "recommendation": {
+            "title": "Support Staff Wellbeing",
+            "body": "<p>Opportunity to Improve: If wellbeing and work-life balance are not actively supported, staff may experience stress, burnout, or disengagement. Consider introducing flexible work arrangements, access to mental health resources, or regular check-ins to discuss workload and wellbeing. Even small steps, like encouraging breaks or recognising achievements, can make a significant difference to staff satisfaction and retention.</p><p>Learn about <a href='https://business.nt.gov.au/help-for-business/business-tools-and-learning/mental-health-in-the-workplace' target='_blank'>mental health in the workplace</a>.</p><p>Understand what breaks your employees are entitled to under their <a href='https://www.fwc.gov.au/work-conditions/enterprise-agreements' target='_blank'>enterprise agreements</a>.</p>"
+          }
+        },
+        {
+          "id": "trainingDevelopment",
+          "type": "radio",
+          "label": "Do you offer training or development opportunities to build staff skills?",
+          "helpText": "Investing in staff capability helps your business grow and adapt to change.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Investing in Growth!",
+            "body": "<p>Your Strengths: You are investing in staff development to keep your team skilled, adaptable, and ready for business growth.</p>"
+          },
+          "recommendation": {
+            "title": "Provide Training Opportunities",
+            "body": "<p>Opportunity to Improve: Without ongoing training, staff skills can become outdated, limiting your business's ability to innovate and respond to change. Consider offering regular training sessions, workshops, or access to online learning resources to help staff grow. Supporting professional development not only benefits your business but also increases staff engagement and retention.</p><p>Learn about <a href='https://business.nt.gov.au/help-for-business/business-regulation-and-legislation-in-nt/workforce-for-nt-business' target='_blank'>skilling your workforce</a>.</p>"
+          }
+        },
+        {
+          "id": "staffInput",
+          "type": "radio",
+          "label": "Do you involve staff in decision-making or seek their input on business improvements?",
+          "helpText": "Engaging staff can boost motivation and lead to better business outcomes.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Engaged Team!",
+            "body": "<p>Your Strengths: You tap into staff insights to help with decision making and uncover practical ideas and build a stronger business and team culture.</p>"
+          },
+          "recommendation": {
+            "title": "Involve Your Team",
+            "body": "<p>Opportunity to Improve: If staff are not engaged in decisions, they may feel disconnected or undervalued, which can affect morale and performance. Creating opportunities for staff to share ideas through meetings, suggestion boxes, or informal chats, can lead to practical improvements and a stronger team culture. When staff feel heard, they are more likely to contribute positively and stay committed to the business.</p><p>You can engage an external advisor to run staff days or planning days to help get the most out of them.</p>"
+          }
+        },
+        {
+          "id": "managingConflict",
+          "type": "radio",
+          "label": "Do you have a clear process for resolving staff issues or conflicts?",
+          "helpText": "A fair and transparent process helps maintain a positive and respectful workplace.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Conflict Resolution!",
+            "body": "<p>Your strength: You have a structured approach to conflict resolution that helps preserve team relationships and workplace harmony.</p>"
+          },
+          "recommendation": {
+            "title": "Develop Conflict Resolution Process",
+            "body": "<p>Opportunity to Improve: Without a clear process, unresolved issues can escalate and negatively impact morale and productivity. Establishing a fair and transparent procedure can help staff feel supported and respected, such as documenting steps for raising concerns, mediation options, and follow-up. Encouraging open communication and early intervention also reduces the likelihood of long-term conflict.</p><p>Access this 25-minute course for managers in <a href='https://www.fairwork.gov.au/sites/default/files/minisite/static/fce92863-dc42-4367-ac38-bbfbf8dd7fbe/difficult-conversations-manager/index.html' target='_blank'>managing difficult conversations</a> in the workplace. There is also a <a href='https://view.officeapps.live.com/op/view.aspx?src=https%3A%2F%2Fwww.fairwork.gov.au%2Fsites%2Fdefault%2Ffiles%2Fmigration%2F712%2Fmanagers-guide-to-difficult-conversations-in-the-workplace.docx&wdOrigin=BROWSELINK' target='_blank'>managers guide</a>.</p>"
+          }
+        }
+      ]
+    }
+  ],
+  "conclusion": {
+    "body": "<p><strong>Well done in completing this staff and people management questionnaire.</strong></p><p>Download or save your results. Implementing small changes consistently will help you create a sustainable business practice!</p>"
+  }
+}

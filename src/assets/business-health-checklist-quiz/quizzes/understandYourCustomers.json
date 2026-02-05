@@ -1,0 +1,220 @@
+{
+  "id": "understandYourCustomers",
+  "title": "Understand Your Customers and Marketing Quiz",
+  "introduction": {
+    "body": "<p>This section explores your business's target markets and how to attract and retain customers. Find out how you currently engage with your customers and where you can improve.</p><p>Did you know that you can engage a service provider through the Business Growth Program to develop a comprehensive Marketing plan for you, including goals, identifying key customers and your unique selling points.</p>"
+  },
+  "pages": [
+    {
+      "title": "Know Your Customers",
+      "questions": [
+        {
+          "id": "understandingCustomers",
+          "type": "radio",
+          "label": "Do you clearly understand who your main customers are?",
+          "helpText": "Knowing your key customer groups helps you offer the right products, services, and messages.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Customer Focused!",
+            "body": "<p>Your Strengths: You know who your customers are and how to meet their needs.</p>"
+          },
+          "recommendation": {
+            "title": "Identify Your Customers",
+            "body": "<p>Opportunity to Improve: Take time to research your customer groups. When you understand who your customers are, you can make better decisions about your products, services, and marketing. It also helps you plan for growth and reach new markets. Use data from your sales.</p><p>If you are looking for help, you can engage a service provider through the <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program' target='_blank'>Business Growth Program</a> to assist.</p><p>Learn more about <a href='https://business.gov.au/marketing-and-advertising/identify-your-target-market' target='_blank'>identifying your target market.</a></p>"
+          }
+        },
+        {
+          "id": "customerDemographics",
+          "type": "radio",
+          "label": "Do you know your customers' characteristics, like their age, location, and interests?",
+          "helpText": "This helps you tailor your offerings and marketing more effectively.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Know Your Audience!",
+            "body": "<p>Your Strengths: You know what your customers want and need.</p>"
+          },
+          "recommendation": {
+            "title": "Learn About Demographics",
+            "body": "<p>Opportunity to Improve: Knowing your customers' needs helps you deliver better products and services. Satisfied customers are more likely to return and recommend your business.</p><p>Some examples of how to get to know your customers:</p><ul><li>Ask them questions directly through surveys or polling</li><li>Analyse customer data from your own sales records or social media</li></ul><p>It can also help you make decisions about how, where and how much to spend on marketing efforts. E.g. Are your customers actively using Facebook or Instagram more? Are they more likely to google you or contact you after being recommended by a friend.</p>"
+          }
+        },
+        {
+          "id": "customerNeeds",
+          "type": "radio",
+          "label": "Do you understand what your customers need, want, and expect from your business?",
+          "helpText": "Meeting customer expectations builds trust and loyalty.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Customer Service Excellence!",
+            "body": "<p>Your Strengths: You have a clear approach to managing customer service and relationships.</p>"
+          },
+          "recommendation": {
+            "title": "Understand Customer Expectations",
+            "body": "<p>Opportunity to Improve: A planned approach to customer service helps build strong relationships and support, especially during tough times. Ask for feedback through reviews or surveys to understand how you are doing.</p><p>Learn about <a href='https://business.gov.au/people/customers/manage-customer-relationships' target='_blank'>managing customer relationships.</a></p><p>Learn about <a href='https://business.gov.au/people/customers/handle-customer-complaints' target='_blank'>handling customer complaints.</a></p>"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Listen to Your Customers",
+      "questions": [
+        {
+          "id": "customerFeedback",
+          "type": "radio",
+          "label": "Do you actively seek and record customer feedback, complaints, or suggestions?",
+          "helpText": "Feedback helps you improve and respond to customer needs.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Feedback Driven!",
+            "body": "<p>Your Strengths: You are building a strong reputation and loyal customer base.</p>"
+          },
+          "recommendation": {
+            "title": "Gather Feedback",
+            "body": "<p>Opportunity to Improve: A good reputation and loyal customers help your business grow. You can work on this by using feedback to improve your services and build trust.</p><p>Learn about how to <a href='https://business.gov.au/people/customers/communicate-with-customers' target='_blank'>communicate with customers.</a></p>"
+          }
+        },
+        {
+          "id": "customerLoyalty",
+          "type": "radio",
+          "label": "Do you have loyal customers who return and refer others to your business?",
+          "helpText": "Customer loyalty is a sign of strong relationships and a positive reputation.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Loyal Customer Base!",
+            "body": "<p>Your Strengths: You know what makes your business stand out.</p>"
+          },
+          "recommendation": {
+            "title": "Build Loyalty",
+            "body": "<p>Opportunity to Improve: It is important to know what makes your business different from other businesses. Find out what your customers like about your business and use that in your marketing. Knowing what makes you different helps build loyalty.</p><p>Learn about developing a <a href='https://business.gov.au/planning/business-plans/develop-your-marketing-plan' target='_blank'>marketing plan.</a></p>"
+          }
+        },
+        {
+          "id": "competitiveEdge",
+          "type": "radio",
+          "label": "Do you know why customers choose your business over others?",
+          "helpText": "Understanding your competitive edge helps you stay ahead.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 },
+            { "label": "N/A", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Competitive Advantage!",
+            "body": "<p>Your Strengths: You know your target markets and what they value.</p>"
+          },
+          "recommendation": {
+            "title": "Understand Your Edge",
+            "body": "<p>Opportunity to Improve: 'Everyone' is not a target market. Focus on specific customer groups and tailor your marketing to them.</p><p>Read about how you can <a href='https://business.gov.au/news/keep-your-customers-coming-back' target='_blank'>keep your customers coming back.</a></p>"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Strategies",
+      "questions": [
+        {
+          "id": "customerTargets",
+          "type": "radio",
+          "label": "Do you target more than one customer group?",
+          "helpText": "Diversifying your customer base can reduce risk and open new growth opportunities.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 },
+            { "label": "N/A", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Diversified Customer Base!",
+            "body": "<p>Your Strengths: You use the right marketing channels for different customer groups.</p>"
+          },
+          "recommendation": {
+            "title": "Diversify Your Market",
+            "body": "<p>Opportunity to Improve: Relying on one customer group can be risky. Explore new markets to grow your business. Your new customers might be interstate, overseas, in a different area or a different age group. Get creative in how you think of your customers.</p>"
+          }
+        },
+        {
+          "id": "effectiveMarketing",
+          "type": "radio",
+          "label": "Is your marketing effective in reaching and engaging your target customer groups?",
+          "helpText": "Effective marketing helps attract and keep the right customers.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 },
+            { "label": "N/A", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Marketing Success!",
+            "body": "<p>Your Strengths: Your marketing is working to help market your business to the right customers and stay in touch with your current customers.</p>"
+          },
+          "recommendation": {
+            "title": "Improve Marketing Effectiveness",
+            "body": "<p>Opportunity to Improve: Consider the different marketing channels you can use. Being online can help attract new customers to your business. It can also increase how many customers you can reach, improve your customer communication and build customer loyalty. Before you start using any of these online channels, review the different options and see which is the best fit for your business.</p><p>Learn more about <a href='https://business.gov.au/marketing-and-advertising/advertise-your-business' target='_blank'>advertising your business.</a></p><p>Learn about <a href='https://business.gov.au/online-and-digital/digital-tools-for-business#digital-tools-to-market-your-business' target='_blank'>digital tools for marketing your business.</a></p><p>Engage a service provider through the <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program' target='_blank'>Business Growth Program</a> to develop a comprehensive marketing plan for your business.</p>"
+          }
+        },
+        {
+          "id": "digitalPresence",
+          "type": "radio",
+          "label": "Do you have an active and regularly updated digital presence (e.g. website, social media)?",
+          "helpText": "A strong online presence keeps customers informed and connected to your business.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Strong Digital Presence!",
+            "body": "<p>Your Strengths: You keep your customers informed and engaged through your online platforms. Your digital presence provides opportunities to attract new customers and maintain strong relationships with existing ones.</p>"
+          },
+          "recommendation": {
+            "title": "Build Online Presence",
+            "body": "<p>Opportunity to Improve: Keeping your website and social media up to date helps customers find accurate information about your business, builds trust, and shows that you're active and engaged. A strong online presence also makes it easier for new customers to discover your business, especially in remote or regional areas of the NT where digital visibility is key.</p><p>Find information about <a href='https://business.gov.au/online-and-digital/digital-tools-for-business' target='_blank'>online and digital</a> strategies and tools that your business can use.</p>"
+          }
+        },
+        {
+          "id": "customerInsights",
+          "type": "radio",
+          "label": "Do you use customer insights to improve your products, services, or marketing?",
+          "helpText": "Using data and feedback helps you make informed decisions and stay customer focused.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Insight Driven!",
+            "body": "<p>Your strength: You make informed decisions based on what your customers tell you. Using feedback and data shows you're committed to continuous improvement and staying customer focused.</p>"
+          },
+          "recommendation": {
+            "title": "Use Customer Data",
+            "body": "<p>Opportunity to Improve: Listening to your customers, through feedback, reviews, or data, helps you make smarter decisions and stay competitive. By using what you learn, you can improve your offerings, respond to changing needs, and build stronger relationships with your customers.</p>"
+          }
+        }
+      ]
+    }
+  ],
+  "conclusion": {
+    "body": "<p><strong>Well done in completing this customer and marketing questionnaire.</strong></p><p>Download or save your results. Implementing small changes consistently will help you create a sustainable business practice!</p>"
+  }
+}

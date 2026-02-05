@@ -6,17 +6,17 @@ $prefix: bs-;
 $spacer: 1rem;
 
 $spacers: (
-  0: 0,
-  1: $spacer * 0.25,
-  2: $spacer * 0.5,
-  3: $spacer * 1,
-  4: $spacer * 1.5,
-  5: $spacer * 2,
-  6: $spacer * 2.5,
-  7: $spacer * 3,
-  8: $spacer * 5,
-  9: $spacer * 7.5,
-  10: $spacer * 10
+    0: 0,
+    1: $spacer * 0.25,
+    2: $spacer * 0.5,
+    3: $spacer * 1,
+    4: $spacer * 1.5,
+    5: $spacer * 2,
+    6: $spacer * 2.5,
+    7: $spacer * 3,
+    8: $spacer * 5,
+    9: $spacer * 7.5,
+    10: $spacer * 10,
 );
 
 $enable-dark-mode: true;
@@ -37,11 +37,11 @@ $enable-important-utilities: true;
 $enable-smooth-scroll: true;
 
 $aspect-ratios: (
-  "1x1": 100%,
-  "4x3": calc(3 / 4 * 100%),
-  "16x9": calc(9 / 16 * 100%),
-  "21x9": calc(9 / 21 * 100%),
-  "32x9": calc(9 / 32 * 100%)
+    '1x1': 100%,
+    '4x3': calc(3 / 4 * 100%),
+    '16x9': calc(9 / 16 * 100%),
+    '21x9': calc(9 / 21 * 100%),
+    '32x9': calc(9 / 32 * 100%),
 );
 
 // Cards
@@ -54,6 +54,7 @@ $accordion-button-focus-border-color: transparent;
 $accordion-button-focus-box-shadow: none;
 
 // Alerts
+$alert-padding-y: 1.5rem;
 $alert-border-width: 3px;
 $alert-bg-scale: -10%;
 
@@ -67,7 +68,7 @@ $btn-padding-y: 0.75rem;
 $btn-padding-x: 1.5rem;
 $btn-border-width: 2px;
 $btn-border-radius: 0;
-$btn-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, padding .15s ease-in-out;
+$btn-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, padding 0.15s ease-in-out;
 
 $btn-border-radius-sm: 0;
 
@@ -83,44 +84,22 @@ $pagination-hover-border-color: $primary;
 $table-border-color: $body-color;
 $table-cell-padding-y: 1rem;
 $table-cell-padding-x: 1rem;
-$table-cell-padding-y-sm: .5rem;
-$table-cell-padding-x-sm: .5rem;
+$table-cell-padding-y-sm: 0.5rem;
+$table-cell-padding-x-sm: 0.5rem;
 
 //Alert
 $alert-border-width: 0;
 
 /* -------- Custom -------- */
-$font-lato: "Lato", system-ui,
-  -apple-system,
-  "Segoe UI",
-  Roboto,
-  "Helvetica Neue",
-  "Noto Sans",
-  "Liberation Sans",
-  Arial,
-  sans-serif,
-  "Apple Color Emoji",
-  "Segoe UI Emoji",
-  "Segoe UI Symbol",
-  "Noto Color Emoji";
+$font-lato: 'Lato', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
 
-$font-montserrat: "Montserrat", system-ui,
-  -apple-system,
-  "Segoe UI",
-  Roboto,
-  "Helvetica Neue",
-  "Noto Sans",
-  "Liberation Sans",
-  Arial,
-  sans-serif,
-  "Apple Color Emoji",
-  "Segoe UI Emoji",
-  "Segoe UI Symbol",
-  "Noto Color Emoji";
+$font-montserrat: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
 
 // These variables are required
-$focus-ring-width: .25rem;
-$focus-ring-opacity: .25;
+$focus-ring-width: 0.25rem;
+$focus-ring-opacity: 0.25;
 $focus-ring-color: rgba($primary, $focus-ring-opacity);
 $focus-ring-blur: 0;
 $focus-ring-box-shadow: 0 0 $focus-ring-blur $focus-ring-width $focus-ring-color;

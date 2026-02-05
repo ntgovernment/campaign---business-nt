@@ -1,0 +1,41 @@
+{
+  "categoryTitle": "Business Health Checklist",
+  "quizzes": [
+    {
+      "id": "businessStrategy",
+      "title": "Business Strategy",
+      "description": "Explore your businesses plans, vision and objective and competitive positioning. Assess your current strategy and realign it with your business goals.",
+      "icon": "https://ntgov-web-dev.matrix.squiz.cloud/business/_resources/images/business-tools-and-learning/All-Cast-NT_6284.jpg/_nocache"
+    },
+    {
+      "id": "financialManagement",
+      "title": "Financial Management",
+      "description": "Explore your businesses financial management, cash flow and ongoing viability. Assess your business financial knowledge and implementation.",
+      "icon": "https://ntgov-web-dev.matrix.squiz.cloud/business/_resources/images/banners/HeaderFinancial-Management-Tools-and-KnowledgeESS_5769.jpg/_nocache"
+    },
+    {
+      "id": "understandYourCustomers",
+      "title": "Understanding Your Customers and Marketing Your Business",
+      "description": "Explore your businesses target markets, your relationships with customers and marketing strategies.",
+      "icon": "https://ntgov-web-dev.matrix.squiz.cloud/business/_resources/images/banners/Marketing-and-Customer-EngagementLH104321.jpg/_nocache"
+    },
+    {
+      "id": "businessOperations",
+      "title": "Business Operations",
+      "description": "Explore your daily operations including resourcing requirements and business relationships with suppliers, partners and employees. Review your current situation and discover any gaps in your knowledge.",
+      "icon": "https://ntgov-web-dev.matrix.squiz.cloud/business/_resources/images/banners/HeaderBusiness-Operations-Tools-and-templatesLH100036.jpg/_nocache"
+    },
+    {
+      "id": "staffAndPeopleManagement",
+      "title": "Staff and People Management",
+      "description": "Explore your people and staff management strengths and areas for improvement including administrational requirements, motivating staff and supporting staff. Assess your current staff and people management activities and opportunities to enhance your practices.",
+      "icon": "https://ntgov-web-dev.matrix.squiz.cloud/business/_resources/images/NT-workforce-support-for-small-businessDSC_3239-1.JPG/small.jpg/_nocache"
+    },
+    {
+      "id": "manageChangeAndPrepareForDisruptions",
+      "title": "Manage Change and Prepare for Disruptions or Emergencies",
+      "description": "Explore how ready your business is to react to change and unexpected disruptions or emergencies. Disasters can include rapid changes to the economy, technology disruptions, natural disasters and emergencies. Evaluate how prepared you are for changes and crises and identify the areas where you can take action in preparation now.",
+      "icon": "https://ntgov-web-dev.matrix.squiz.cloud/business/_resources/images/banners/BannerDisaster-Preparedness-for-BusinessDSC_3088.JPG/_nocache"
+    }
+  ]
+}

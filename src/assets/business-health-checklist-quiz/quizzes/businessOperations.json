@@ -1,0 +1,294 @@
+{
+  "id": "businessOperations",
+  "title": "Business Operations Quiz",
+  "introduction": {
+    "body": "<p>Explore your daily operations including resourcing requirements and business relationships with suppliers, partners and employees. Review your current situation and discover any gaps in your knowledge.</p>"
+  },
+  "pages": [
+    {
+      "title": "Planning and Systems",
+      "questions": [
+        {
+          "id": "businessPlan",
+          "type": "radio",
+          "label": "Do you have a current business plan?",
+          "helpText": "A business plan helps guide your operations, growth, and decision-making. It should be reviewed and updated at least once a year.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Plan in Place!",
+            "body": "<p>Your Strengths: Your business plan is current and regularly refreshed to stay aligned with your goals.</p>"
+          },
+          "recommendation": {
+            "title": "Create a Business Plan",
+            "body": "<p>Opportunity to Improve: Ensure you have a business plan, and you keep it fresh. A current business plan helps you stay focused on your goals and vision. It also gives you more control over your direction and helps you respond confidently to new opportunities or challenges.</p><p>Find out <a href='https://business.gov.au/planning/business-plans' target='_blank'>how to write a business plan</a>.</p><p>Explore the <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program' target='_blank'>Business Growth Program</a> for funding and advisory support.</p>"
+          }
+        },
+        {
+          "id": "businessStructure",
+          "type": "radio",
+          "label": "Does your current business structure support your goals?",
+          "helpText": "Your business structure can influence your tax, liability, costs, and control. Common structures include sole trader, company, partnership, and trust.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Right Structure!",
+            "body": "<p>Your Strengths: Your current business structure supports your goals and future growth.</p>"
+          },
+          "recommendation": {
+            "title": "Review Business Structure",
+            "body": "<p>Opportunity to Improve: As your business evolves, your structure may need to change. The right setup gives you flexibility, control, and protection. Be aware of how each option works and consider what might be right for you. Talking to an accountant may be helpful for you to figure out the right set up for you.</p><p>Learn more about <a href='https://www.asic.gov.au/for-business-and-companies/business-basics/sole-trader-partnership-company-trust/' target='_blank'>business structures</a> with this information from ASIC.</p><p>You can also find information from the ATO <a href='https://www.ato.gov.au/businesses-and-organisations/starting-registering-or-closing-a-business/starting-your-own-business/business-structures-key-tax-obligations' target='_blank'>on business structures and the tax obligations</a> associated.</p>"
+          }
+        },
+        {
+          "id": "systemsProcesses",
+          "type": "radio",
+          "label": "Do you know the key systems and processes you need to run your business each day?",
+          "helpText": "These may include financial management, HR, marketing, risk management, operations, supply chain, and sustainability.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Systems Working!",
+            "body": "<p>Your Strengths: Your key systems and processes are clear, well-understood, and working for your business.</p>"
+          },
+          "recommendation": {
+            "title": "Strengthen Systems",
+            "body": "<p>Opportunity to Improve: Strengthen your systems and processes. Review your day-to-day operations like marketing, HR, and risk management, to make sure they are supporting your business effectively. Strong systems help your business run smoothly and prepare you for growth or unexpected challenges.</p><p>Find <a href='https://business.nt.gov.au/help-for-business/business-tools-and-learning/business-operations' target='_blank'>business operations</a> templates.</p><p>Find <a href='https://business.nt.gov.au/help-for-business/business-tools-and-learning/financial-management' target='_blank'>financial management</a> templates.</p><p>Find <a href='https://business.nt.gov.au/help-for-business/business-tools-and-learning/marketing-and-customer-engagement' target='_blank'>marketing and customer engagement</a> templates.</p><p>Explore other topics around <a href='https://business.nt.gov.au/help-for-business' target='_blank'>Help for your Business</a>.</p>"
+          }
+        },
+        {
+          "id": "policiesProcedures",
+          "type": "radio",
+          "label": "Do you have the right policies and procedures in place to ensure a safe and consistent workplace?",
+          "helpText": "These may include policies for workplace health and safety, privacy and data protection, employment and HR practices or customer service standards.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Policies Established!",
+            "body": "<p>Your Strengths: Your policies and procedures support the running of your business. Your staff and management team know where to find these documents and how to use them.</p>"
+          },
+          "recommendation": {
+            "title": "Develop Policies",
+            "body": "<p>Clear policies help create a safe, fair, and consistent workplace. They protect your business, support staff wellbeing, and ensure compliance with legal obligations. Review your policies regularly and make sure your team is trained to follow them.</p><p>You can request a visit from an <a href='https://worksafe.nt.gov.au/safety-and-prevention/small-business-safety-program' target='_blank'>NT WorkSafe</a> inspector to help identify and improve your workplace health and safety systems.</p><p>You can apply for funding through the <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program' target='_blank'>Business Growth Program</a> to engage consultants who will support the development of systems and practices for maintaining a safe workplace.</p>"
+          }
+        },
+        {
+          "id": "businessPremises",
+          "type": "radio",
+          "label": "Are your business premises suitable and in the right location for your needs now and in the future?",
+          "helpText": "Your premises should support your current operations and allow for future growth. This could include warehouse, manufacturing or storage space, shared or independent office space, retail or shopfront space or a home office.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Suitable Premises!",
+            "body": "<p>Your Strengths: Your current premises support your business needs now and into the future.</p>"
+          },
+          "recommendation": {
+            "title": "Review Premises",
+            "body": "<p>Opportunity to Improve: Review whether your premises still meets your operational needs and future plans. The right location and setup can improve productivity, customer access, and staff satisfaction. Consider cash flow and the timing of changing premises if needed.</p><p>A <a href='https://business.gov.au/planning/business-plans' target='_blank'>business plan</a> can help you figure out where your business is going.</p><p>Read more about <a href='https://business.nt.gov.au/doing-business/starting-a-business-in-the-nt/business-tenancies-and-commercial-property' target='_blank'>business tenancies and commercial property</a>.</p>"
+          }
+        },
+        {
+          "id": "successionPlanning",
+          "type": "radio",
+          "label": "Do you have a succession and/or exit plan for your business?",
+          "helpText": "Whether you plan to sell, transfer, or close your business, having a plan helps ensure a smooth transition. Your plan should consider any legal and financial arrangements, staff training and development, intellectual property, property and resources.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Future Ready!",
+            "body": "<p>Your Strengths: You are future-ready. You have a clear succession or exit plan to guide the smooth transfer or closure of your business when you are ready.</p>"
+          },
+          "recommendation": {
+            "title": "Plan for the Future",
+            "body": "<p>Opportunity to Improve: Plan for the future. A well-prepared exit or succession plan gives you control over how your business transitions. It protects your legacy and supports staff, customers, and stakeholders through the change.</p><p>Find out more about <a href='https://business.nt.gov.au/doing-business/exiting-your-business-in-the-nt' target='_blank'>exiting your business</a>.</p>"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Security and Regulation",
+      "questions": [
+        {
+          "id": "businessSafety",
+          "type": "radio",
+          "label": "Do you have measures in place to keep your business, staff, and assets safe and secure?",
+          "helpText": "Safety and security measures can include workplace health and safety procedures, physical security (locks, alarms, CCTV), cyber security protections, emergency response plans and staff training on safety protocols.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Safe and Secure!",
+            "body": "<p>You have taken steps to protect your business, staff, and assets with clear safety and security measures in place.</p>"
+          },
+          "recommendation": {
+            "title": "Strengthen Safety Measures",
+            "body": "<p>Opportunity to improve: A strong safety and security plan reduces risks and builds trust with staff and customers. Review your physical, digital, and operational safeguards regularly to ensure they meet current standards and legal requirements.</p><p>Access business safety and security questionnaires.</p><p>Read more about <a href='https://business.nt.gov.au/help-for-business/business-tools-and-learning/crime-prevention-for-business' target='_blank'>Crime Prevention for Business</a>.</p>"
+          }
+        },
+        {
+          "id": "cyberSecurity",
+          "type": "radio",
+          "label": "Do you have a cyber security policy to protect your business and customer data?",
+          "helpText": "Cyber security protects your systems and data from theft, damage, or unauthorised access. Consider whether your data storage meets legal obligations, if your customers trust your data handling practices and whether your staff are trained and your policies are up to date.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 },
+            { "label": "N/A", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Cyber Protected!",
+            "body": "<p>Your Strengths: You are doing what you can to stay protected. Your cyber security policy is current, and your team is supported with a clear training plan.</p>"
+          },
+          "recommendation": {
+            "title": "Develop Cyber Security",
+            "body": "<p>Opportunity to Improve: Explore how to protect your business online. Develop a cyber security policy and keep your team informed. It helps safeguard your business from cyber threats and ensures you meet legal requirements.</p><p>Understand more about <a href='https://cyber.nt.gov.au/' target='_blank'>cyber security</a>.</p><p>Consider applying for the NT <a href='https://cyber.nt.gov.au/cyber-invest-business-program' target='_blank'>Cyber Invest Business Program</a>.</p>"
+          }
+        },
+        {
+          "id": "permitsLicences",
+          "type": "radio",
+          "label": "Do you have the right permits, licences and insurance to run your business?",
+          "helpText": "Requirements vary depending on your products, services, and location. Including local, NT, and Australian Government laws.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Compliant!",
+            "body": "<p>Your Strengths: Your business meets all the necessary permit, licence, and insurance requirements to operate with confidence.</p>"
+          },
+          "recommendation": {
+            "title": "Check Your Compliance",
+            "body": "<p>Opportunity to Improve: Check your compliance. Make sure you have the correct registrations for your business activities and location. Staying compliant protects your business, builds trust, and helps avoid costly disruptions.</p><p>Get in touch with the <a href='https://business.nt.gov.au/help-for-business/territory-business-centres' target='_blank'>Territory Business Centres</a> to help you find the registrations, licences and permits you need to start or run your business.</p><p>Learn about <a href='https://business.nt.gov.au/help-for-business/business-regulation-and-legislation-in-nt' target='_blank'>NT Business regulation and legislation</a> requirements to operate your business.</p><p>Use the <a href='https://ablis.business.gov.au/' target='_blank'>Australian Business Licence and Information Service - ABLIS</a> to find licences for your business.</p>"
+          }
+        },
+        {
+          "id": "protectingIdeas",
+          "type": "radio",
+          "label": "Do you know how to protect your business, products, services and ideas both in Australia and internationally?",
+          "helpText": "This may include: intellectual property (IP) agreements, business name registration, product or technology patents.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "IP Protected!",
+            "body": "<p>Your Strengths: You know how to protect your business, your offerings, and your intellectual property.</p>"
+          },
+          "recommendation": {
+            "title": "Protect Your Ideas",
+            "body": "<p>Opportunity to Improve: Learn more about how to protect your business to strengthen it. Safeguarding your business ideas and assets helps prevent legal issues and unfair competition.</p><p>Learn more about the <a href='https://business.gov.au/planning/protect-your-brand-idea-or-creation/intellectual-property' target='_blank'>different types of intellectual property</a> to identify, protect and commercialise your idea.</p><p>Read more about <a href='https://www.ato.gov.au/businesses-and-organisations/starting-registering-or-closing-a-business/registration-obligations-for-businesses/work-out-which-registrations-you-need' target='_blank'>what registrations you need</a> from the Australian Taxation Office.</p>"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Managing Your Business",
+      "questions": [
+        {
+          "id": "timeManagement",
+          "type": "radio",
+          "label": "Do you and your team have the time and skills to manage your business well?",
+          "helpText": "Your team should have the time, skills, knowledge and attitude to support your business and help achieve its goals. If you are a sole trader, this may include working with external partners.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Well Resourced!",
+            "body": "<p>Your Strengths: Your team has the time, skills, and backing they need with strong external partners to help drive success.</p>"
+          },
+          "recommendation": {
+            "title": "Build Team Capacity",
+            "body": "<p>Opportunity to Improve: Review your team's capacity and skills regularly. This can be done at the same time, or as part of your business plan. A strong, well-matched team improves productivity, supports quality service, and creates a positive work environment.</p><p>Find information and templates about <a href='https://business.nt.gov.au/help-for-business/business-tools-and-learning/hiring-people-and-managing-staff' target='_blank'>hiring people and managing staff.</a></p><p>Learn more about <a href='https://business.nt.gov.au/help-for-business/business-tools-and-learning/mental-health-in-the-workplace' target='_blank'>mental health and wellbeing resources for businesses</a>.</p><p>If you need support in reviewing your staffing model, you can apply for <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program' target='_blank'>Business Growth Program</a> funding to engage a consultant.</p>"
+          }
+        },
+        {
+          "id": "workplaceCulture",
+          "type": "radio",
+          "label": "Does your leadership create a positive workplace where staff feel supported and want to stay?",
+          "helpText": "A positive workplace culture helps attract, retain, and motivate staff. Your business and HR processes should protect staff against discrimination and harassment, reduce risks to health and safety, promote diversity and work-life balance and encourage professional development.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Positive Culture!",
+            "body": "<p>Your Strengths: You have built a strong foundation. Your workplace culture is positive, and your processes are well-structured and fit for purpose.</p>"
+          },
+          "recommendation": {
+            "title": "Build Workplace Culture",
+            "body": "<p>Opportunity to Improve: Consider how you can build a stronger workplace culture to attract great people, boost engagement, and support staff retention. Start with ensuring you have clear HR processes help maintain performance and create a supportive, productive environment. You can also consider establishing business values, a vision and upskilling your own leadership skills.</p><p>Read more about <a href='https://business.gov.au/people/employees/staff-development-and-training' target='_blank'>developing staff</a>, including training and mentoring staff.</p><p>Find out how to create a <a href='https://www.safeworkaustralia.gov.au/safety-topic/managing-health-and-safety/leadership-and-culture' target='_blank'>positive workplace health and safety culture</a>.</p>"
+          }
+        },
+        {
+          "id": "partnerRelationships",
+          "type": "radio",
+          "label": "Do you have strong relationships with your key partners, suppliers and distributors?",
+          "helpText": "Your partners may include: Wholesalers, Industry organisations, Collaborating businesses, Resource suppliers, Investors, Professional services (e.g. lawyers, accountants), Asset managers (e.g. landlords).",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Strong Partnerships!",
+            "body": "<p>Your Strengths: You actively build and maintain strong relationships with your key partners, distributors, and suppliers.</p>"
+          },
+          "recommendation": {
+            "title": "Strengthen Relationships",
+            "body": "<p>Opportunity to Improve: Consider how to strengthen your business relationships. Engage with your key partners, distributors, and suppliers to build strong, mutually beneficial connections. Positive relationships can lead to better pricing, reliable service, and new opportunities.</p><p>Learn how to <a href='https://business.gov.au/people/suppliers' target='_blank'>find suppliers, negotiate contracts, maintain relationships and resolve disputes with suppliers</a>.</p>"
+          }
+        },
+        {
+          "id": "businessCollaboration",
+          "type": "radio",
+          "label": "Do you collaborate with other businesses, suppliers and partners in your sector?",
+          "helpText": "Collaborating could be joint research with universities or organisations, shared revenue or resource arrangements, cross-promotion or referral partnerships, mutual support when capacity is reached, advocacy with other businesses or peak bodies, licensing, technology sharing, or knowledge exchange or working together to achieve shared goals.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Collaborative Network!",
+            "body": "<p>Your Strengths: Your business works in harmony with others in your sector building strong, complementary relationships with suppliers, partners, and fellow businesses.</p>"
+          },
+          "recommendation": {
+            "title": "Explore Collaboration",
+            "body": "<p>Opportunity to Improve: Look for opportunities to collaborate to grow your business. Teaming up with other businesses, suppliers, or partners can lead to fresh ideas and better outcomes. Choose collaborators with a solid reputation and make sure everyone's clear on how the partnership will work.</p><p>Understand more about the <a href='https://business.gov.au/planning/innovation/how-collaboration-can-help-your-business' target='_blank'>benefits of collaboration</a>.</p><p>Get in touch with a <a href='https://business.nt.gov.au/help-for-business/territory-business-advisors' target='_blank'>Territory Business Advisor</a> to see how and where you can connect with other businesses or industry organisations.</p>"
+          }
+        }
+      ]
+    }
+  ],
+  "conclusion": {
+    "body": "<p><strong>Well done in completing this business operations questionnaire.</strong></p><p>Download or save your results. Implementing small changes consistently will help you create a sustainable business practice!</p>"
+  }
+}

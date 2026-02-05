@@ -14,9 +14,9 @@
 @import './base/typography';
 
 @import '../../../node_modules/bootstrap/scss/variables'; // required
-@import "../../../node_modules/bootstrap/scss/variables-dark"; // required
+@import '../../../node_modules/bootstrap/scss/variables-dark'; // required
 
-@import "../../../node_modules/bootstrap/scss/maps"; // required
+@import '../../../node_modules/bootstrap/scss/maps'; // required
 @import './base/color-map-overrides';
 @import '../../../node_modules/bootstrap/scss/mixins'; // required
 @import '../../../node_modules/bootstrap/scss/root'; // required
@@ -53,10 +53,10 @@
 @import '../../../node_modules/bootstrap/scss/close';
 // @import '../../../node_modules/bootstrap/scss/toasts';
 @import '../../../node_modules/bootstrap/scss/modal'; // requires transitions
-// @import '../../../node_modules/bootstrap/scss/tooltip';
+@import '../../../node_modules/bootstrap/scss/tooltip';
 // import '../../../node_modules/bootstrap/scss/popover';
-@import "../../../node_modules/bootstrap/scss/carousel";
-// @import '../../../node_modules/bootstrap/scss/spinners';
+@import '../../../node_modules/bootstrap/scss/carousel';
+@import '../../../node_modules/bootstrap/scss/spinners';
 // @import '../../../node_modules/bootstrap/scss/offcanvas';
 // @import '../../../node_modules/bootstrap/scss/placeholders';
 

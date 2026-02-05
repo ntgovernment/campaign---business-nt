@@ -18,6 +18,7 @@
     initLinkCheck();
     initAddHoverClassOnCardHover();
     initVideoControl();
+    initQuizUI();
 })();
 
 function initSameHeight() {
@@ -48,12 +49,12 @@ function initMegaMenu() {
 
     navLinks.forEach(function (link) {
         const config = {
-            attributes: true
+            attributes: true,
         };
         const callback = (mutationList, observer) => {
             for (const mutation of mutationList) {
                 // listen for changes in the link's attributes
-                if (mutation.type === "attributes") {
+                if (mutation.type === 'attributes') {
                     var scrollPosition = scrollY;
                     for (i = 0; i < navLinks.length; i++) {
                         if (navLinks[i].classList.contains('open')) {
@@ -69,7 +70,7 @@ function initMegaMenu() {
                     }
                 }
             }
-        }
+        };
         // initialise MutationObserver
         const observer = new MutationObserver(callback);
         observer.observe(link, config);
@@ -80,7 +81,7 @@ function initMegaMenu() {
     const delta = 5;
     window.addEventListener('scroll', function () {
         var scrollTop = window.scrollY;
-        var scrollUp = (lastScrollTop > scrollTop);
+        var scrollUp = lastScrollTop > scrollTop;
         // ensure scroll is more than delta
         if (Math.abs(lastScrollTop - scrollTop) <= delta) {
             return false;
@@ -122,7 +123,7 @@ function initMegaMenu() {
      * detects if there is only one group of links in the columns section
      * of a panel and adds a class that spreads the links across the width
      * of the panel
-    */
+     */
     var panels = document.querySelectorAll('.ntg-main-nav__panel');
     panels.forEach(function (panel) {
         var columns = panel.querySelector('.ntg-main-nav__panel-columns');
@@ -140,29 +141,29 @@ function initAddHoverClassOnCardHover() {
     // Select the card link and the parent card
     const linkCards = document.querySelectorAll('.card--link-card');
 
-    linkCards.forEach(card => {
+    linkCards.forEach((card) => {
         // const cardLink = card.querySelector('.card-link');
 
         // if(cardLink) {
-            // Add event listeners to add and remove the hover class
-            card.addEventListener('mouseover', () => {
-                card.classList.add('hover');
-            });
+        // Add event listeners to add and remove the hover class
+        card.addEventListener('mouseover', () => {
+            card.classList.add('hover');
+        });
 
-            card.addEventListener('mouseout', () => {
-                card.classList.remove('hover');
-            });
-            
-            // Add event listeners for keyboard focus
-            card.addEventListener('focus', () => {
-                card.classList.add('hover');
-            });
+        card.addEventListener('mouseout', () => {
+            card.classList.remove('hover');
+        });
 
-            card.addEventListener('blur', () => {
-                card.classList.remove('hover');
-            });
+        // Add event listeners for keyboard focus
+        card.addEventListener('focus', () => {
+            card.classList.add('hover');
+        });
+
+        card.addEventListener('blur', () => {
+            card.classList.remove('hover');
+        });
         // }
-    })
+    });
 }
 
 function initLinkCheck() {
@@ -184,14 +185,14 @@ function initLinkCheck() {
                 return false;
             }
         } else {
-            link.classList.add("external-link");
+            link.classList.add('external-link');
 
-            if (link.classList.contains("btn")) {
-                link.classList.add("btn-external");
+            if (link.classList.contains('btn')) {
+                link.classList.add('btn-external');
             } else {
                 var fontWeight = window.getComputedStyle(link).getPropertyValue('font-weight');
                 let iconWeight;
-    
+
                 // if (fontWeight == '300') {
                 //     iconWeight = 'fa-light';
                 // } else if (fontWeight == '400') {
@@ -199,14 +200,14 @@ function initLinkCheck() {
                 // } else if (fontWeight == '700') {
                 //     iconWeight = 'fa-solid';
                 // }
-    
+
                 var icon = '<i class="fa-solid fa-arrow-up-right-from-square ms-1 aria-hidden="true"></i>';
-    
-                if(!link.querySelector('[class*="fa-arrow-up-right-from-square"]') && !link.querySelector('img') && !link.querySelector('[class*="fa-brands"]')) {
+
+                if (!link.querySelector('[class*="fa-arrow-up-right-from-square"]') && !link.querySelector('img') && !link.querySelector('[class*="fa-brands"]')) {
                     link.insertAdjacentHTML('beforeend', icon);
                 }
             }
-            
+
             link.setAttribute('rel', 'noopener');
             link.setAttribute('title', 'Opens in a new window');
             link.setAttribute('target', '_blank');
@@ -219,13 +220,13 @@ function initPriorityNav() {
     if (!mainNav) {
         return false;
     }
-    
+
     new PriorityNav('.ntg-main-nav');
 }
 
 function initResponsiveMenu() {
     var mainNav = document.getElementById('mainmenu');
-    if( !mainNav) {
+    if (!mainNav) {
         return false;
     }
 
@@ -236,36 +237,37 @@ function initResponsiveMenu() {
 
 function initMmenu() {
     const mmenuWrapper = document.getElementById('mmenu-wrapper');
-    const pageHeader = document.getElementsByClassName("page-header-container")[0];
+    const pageHeader = document.getElementsByClassName('page-header-container')[0];
 
     if (!mmenuWrapper) {
         return false;
     }
 
-    
-    if (pageHeader.getAttribute("data-bs-theme")) {
-        mmenuWrapper.setAttribute("data-bs-theme", pageHeader.getAttribute("data-bs-theme"));
+    if (pageHeader.getAttribute('data-bs-theme')) {
+        mmenuWrapper.setAttribute('data-bs-theme', pageHeader.getAttribute('data-bs-theme'));
     }
 
-    document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener('DOMContentLoaded', () => {
         let btnContent = ``;
         let options = {
-            "offCanvas": {
-                "position": "right-front"
-            }
-        }
+            offCanvas: {
+                position: 'right-front',
+            },
+        };
 
-        if (mmenuWrapper.getAttribute("data-btn-link") && mmenuWrapper.getAttribute("data-btn-text")) {
-            btnContent = `<a role="button" class="btn btn-light d-flex btn-mmenu" href="${mmenuWrapper.getAttribute("data-btn-link")}">${mmenuWrapper.getAttribute("data-btn-text")}</a>`
+        if (mmenuWrapper.getAttribute('data-btn-link') && mmenuWrapper.getAttribute('data-btn-text')) {
+            btnContent = `<a role="button" class="btn btn-light d-flex btn-mmenu" href="${mmenuWrapper.getAttribute('data-btn-link')}">${mmenuWrapper.getAttribute('data-btn-text')}</a>`;
 
             mmenuWrapper.removeAttribute('data-btn-link');
             mmenuWrapper.removeAttribute('data-btn-text');
 
-            options["navbars"] = [{
-                use: true,
-                position: "bottom",
-                content: btnContent,
-             }];
+            options['navbars'] = [
+                {
+                    use: true,
+                    position: 'bottom',
+                    content: btnContent,
+                },
+            ];
         }
 
         const mmenu = new Mmenu('#mmenu-wrapper', options);
@@ -279,13 +281,12 @@ function initMmenu() {
             }
         });
 
-        
         // inserts close button to navbars
         var panels = document.querySelector('.mm-panels');
         var close = document.createElement('a');
-        close.setAttribute('class', "mm-btn mm-btn--close-wrapper mm-navbar__btn");
-        close.setAttribute('aria-label', "Close menu");
-        close.setAttribute('href', "#wrapper");
+        close.setAttribute('class', 'mm-btn mm-btn--close-wrapper mm-navbar__btn');
+        close.setAttribute('aria-label', 'Close menu');
+        close.setAttribute('href', '#wrapper');
         close.innerHTML = `<div class="mm-btn--close">
                                 <span class="top-line" aria-hidden="true"></span>
                                 <span class="bot-line" aria-hidden="true"></span>
@@ -300,14 +301,14 @@ function initMenuEdge() {
     var links = document.querySelectorAll('.ntg-main-nav__links > li');
 
     if (!links) {
-        return false
+        return false;
     }
 
-    links.forEach(link => {
+    links.forEach((link) => {
         var second = link.querySelector('ul > li > ul');
         var third = link.querySelector('ul > li > ul > li > ul');
 
-        if ((second || third) && !link.classList.contains("more")) {
+        if ((second || third) && !link.classList.contains('more')) {
             link.addEventListener('mouseenter', function () {
                 avoidEdge();
             });
@@ -330,23 +331,23 @@ function initMenuEdge() {
             var isThirdVisible = left + width_2 <= wnWidth;
 
             if (!isThirdVisible) {
-                link.classList.add("edge");
+                link.classList.add('edge');
             } else {
-                link.classList.remove("edge");
+                link.classList.remove('edge');
             }
 
             if (!isSecondVisible) {
-                link.classList.add("all");
+                link.classList.add('all');
             } else {
-                link.classList.remove("all");
+                link.classList.remove('all');
             }
 
             function offset(elem) {
                 var rect = elem.getBoundingClientRect();
-                
+
                 return {
                     left: rect.left + window.scrollX,
-                }
+                };
             }
         }
     });
@@ -359,14 +360,14 @@ function initSuperfish() {
             delay: 250,
             speed: 250,
             speedOut: 250,
-            cssArrows: false
+            cssArrows: false,
         });
     });
 }
 
 function initStickyHeader() {
-    const header = document.querySelector(".page-header-container");
-    const banner = document.querySelector(".ntg-banner");
+    const header = document.querySelector('.page-header-container');
+    const banner = document.querySelector('.ntg-banner');
     if (!banner) {
         var stickyHeader = new StickyHeader(header);
     } else {
@@ -393,7 +394,7 @@ function initInPageNav() {
             element = element.querySelector('a');
             heading = element.parentElement;
         }
-        
+
         list.insertAdjacentHTML(
             'beforeend',
             '<li><a href="#' +
@@ -521,10 +522,10 @@ function initFlickity() {
             cellAlign: alignment,
             pageDots: false,
             on: {
-                ready: function() {
+                ready: function () {
                     setSliderHeightToMax(this);
-                }
-            }
+                },
+            },
         });
 
         const cellElements = flkty.getCellElements();
@@ -534,24 +535,24 @@ function initFlickity() {
 
             if (links.length > 0) {
                 links.forEach((link) => {
-                    link.addEventListener("focus", (e) => {
+                    link.addEventListener('focus', (e) => {
                         flkty.select(i);
-                    })
+                    });
                 });
             }
         }
 
         // make cell elements equal height
         function setSliderHeightToMax(slider) {
-            slider.cells.forEach(cell => cell.element.style.height = '');
-                
-            let heights = slider.cells.map(cell => cell.element.offsetHeight),
+            slider.cells.forEach((cell) => (cell.element.style.height = ''));
+
+            let heights = slider.cells.map((cell) => cell.element.offsetHeight),
                 max = Math.max.apply(Math, heights);
-            
-            slider.cells.forEach(cell => cell.element.style.height = max + 'px');
+
+            slider.cells.forEach((cell) => (cell.element.style.height = max + 'px'));
         }
 
-        window.addEventListener('resize', function(){
+        window.addEventListener('resize', function () {
             setSliderHeightToMax(flkty);
         });
     });
@@ -563,18 +564,18 @@ function toggleCarouselButton() {
 
     // filter out carousels that haven't been initialized
     var initializedCarousels = [];
-    
+
     carousels.forEach((carousel) => {
         let carouselOptions = {
-            ride: "carousel"
+            ride: 'carousel',
         };
 
         if (!isNaN(parseInt(carousel.getAttribute('data-bs-interval')))) {
-            console.log(parseInt(carousel.getAttribute('data-bs-interval')))
-            carouselOptions["interval"] = parseInt(carousel.getAttribute('data-bs-interval'));
+            console.log(parseInt(carousel.getAttribute('data-bs-interval')));
+            carouselOptions['interval'] = parseInt(carousel.getAttribute('data-bs-interval'));
         } else {
-            carouselOptions["interval"] = false;
-            carouselOptions["ride"] = false;
+            carouselOptions['interval'] = false;
+            carouselOptions['ride'] = false;
         }
 
         const car = new bootstrap.Carousel(carousel, carouselOptions);
@@ -592,15 +593,15 @@ function toggleCarouselButton() {
             toggleButton.addEventListener('click', function (e) {
                 if (paused) {
                     bootstrapCarousel.cycle();
-                    bootstrapCarousel._config.ride = "carousel";
-                    playPauseIcon.classList.remove("fa-play");
-                    playPauseIcon.classList.add("fa-pause");
+                    bootstrapCarousel._config.ride = 'carousel';
+                    playPauseIcon.classList.remove('fa-play');
+                    playPauseIcon.classList.add('fa-pause');
                     paused = false;
                 } else {
                     bootstrapCarousel.pause();
                     bootstrapCarousel._config.ride = false;
-                    playPauseIcon.classList.remove("fa-pause");
-                    playPauseIcon.classList.add("fa-play");
+                    playPauseIcon.classList.remove('fa-pause');
+                    playPauseIcon.classList.add('fa-play');
                     paused = true;
                 }
             });
@@ -640,7 +641,7 @@ function initCountUp() {
             prefix: prefix,
             suffix: suffix,
             enableScrollSpy: true,
-            scrollSpyOnce: 1
+            scrollSpyOnce: 1,
         });
     });
 }
@@ -669,7 +670,9 @@ function initResizeButtons() {
 
 function initResponsivePagination() {
     var pagination = document.querySelectorAll('.pagination');
-    if (!pagination) { return false; }
+    if (!pagination) {
+        return false;
+    }
 
     pagination.forEach((e) => {
         // select all page items without exclude class, useful for excluding previous and next page items
@@ -681,7 +684,7 @@ function initResponsivePagination() {
             hidePageItems(items);
         });
     });
-    
+
     function hidePageItems(elems) {
         if (window.matchMedia('(max-width: 992px)').matches) {
             if (elems.length > 5) {
@@ -724,7 +727,7 @@ function initVideoControl() {
         } else {
             return false;
         }
-        
+
         if (e.classList.contains('pause')) {
             // switch icon
             e.classList.remove('pause');
@@ -739,6 +742,50 @@ function initVideoControl() {
 
             // play video
             video.play();
+        }
+    }
+}
+
+function initQuizUI() {
+    updateStepperProgress();
+    window.addEventListener('stepperUpdated', updateStepperProgress);
+    window.addEventListener('resize', updateStepperProgress);
+
+    function updateStepperProgress() {
+        const stepper = document.querySelector('.stepper');
+        if (!stepper) return;
+
+        const steps = stepper.querySelectorAll('.step');
+        if (steps.length === 0) return;
+
+        const activeStep = stepper.querySelector('.step.active');
+        if (!activeStep) return;
+
+        // Get the stepper's bounding rectangle
+        const stepperRect = stepper.getBoundingClientRect();
+        const stepperWidth = stepperRect.width;
+
+        // Get the active step's bounding rectangle
+        const activeStepRect = activeStep.getBoundingClientRect();
+
+        // Calculate the center position of the active step's circle
+        const circleCenter = activeStepRect.left - stepperRect.left + activeStepRect.width / 2;
+
+        // Calculate percentage based on actual position
+        const progressPercentage = (circleCenter / stepperWidth) * 100;
+
+        // Clamp between 0 and 100
+        const clampedPercentage = Math.max(0, Math.min(100, progressPercentage));
+
+        // Handle edge cases: first step = 0%, last step = 100%
+        const activeIndex = Array.from(steps).indexOf(activeStep);
+
+        if (activeIndex === 0) {
+            stepper.style.setProperty('--progress-width', '0%');
+        } else if (activeIndex === steps.length - 1) {
+            stepper.style.setProperty('--progress-width', '100%');
+        } else {
+            stepper.style.setProperty('--progress-width', `${clampedPercentage}%`);
         }
     }
 }

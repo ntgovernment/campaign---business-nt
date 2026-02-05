@@ -1,0 +1,2628 @@
+/* ui.js
+   Renders Start, Choose Topic, Quiz pages and Results pages.
+   Uses data JSON files under /data.
+*/
+(function (global) {
+    async function fetchJSON(path) {
+        return window.JSONCache.get(path);
+    }
+
+    // Helper function to get quiz URL from data attribute
+    function getQuizUrl(quizId) {
+        const appEl = document.getElementById('app');
+        if (!appEl) {
+            return `../assets/data/quizzes/${quizId}.json`;
+        }
+        
+        // Check if it's business health quiz
+        const isBusinessHealth = appEl.dataset.quiz === 'business-health-checklist';
+        
+        if (isBusinessHealth) {
+            // Business quizzes
+            if (appEl.dataset[quizId.toLowerCase()]) {
+                return appEl.dataset[quizId.toLowerCase()];
+            }
+            // Business health quizzes are in business-health-checklist-quiz/quizzes/
+            return `../assets/business-health-checklist-quiz/quizzes/${quizId}.json`;
+        } else {
+            // Safety quizzes
+            if (appEl.dataset[quizId.toLowerCase()]) {
+                return appEl.dataset[quizId.toLowerCase()];
+            }
+            return `../assets/data/quizzes/${quizId}.json`;
+        }
+    }
+
+    async function renderStart(contentEl, uiMessages) {
+        document.getElementById('pageTitle').textContent = uiMessages.introTitle || 'Get Started';
+        contentEl.innerHTML = '';
+        const wrapper = document.createElement('div');
+        // const h = document.createElement('h2'); h.textContent = uiMessages.introTitle || 'Welcome';
+        const p = document.createElement('div');
+        p.innerHTML = uiMessages.introText || 'Start the quizzes to assess your business safety.'; // Allow HTML content
+        const nav = document.createElement('div');
+        nav.className = 'nav-buttons';
+        const btn = document.createElement('button');
+        btn.className = 'primary';
+        btn.textContent = 'Choose a topic';
+        btn.addEventListener('click', () => {
+            window.State.currentState.view = 'choose-topic';
+            window.State.saveStateToUrl(window.State.currentState);
+        });
+        nav.appendChild(btn);
+        wrapper.appendChild(p);
+        wrapper.appendChild(nav);
+        contentEl.appendChild(wrapper);
+
+        function handleContactModal(e) {
+            e.preventDefault();
+            const modalEl = document.getElementById('floatingContact');
+
+            if (modalEl && window.bootstrap && window.bootstrap.Modal) {
+                const modal = new window.bootstrap.Modal(modalEl);
+                modal.show();
+            } else {
+                window.location.href = 'https://business.nt.gov.au/contact';
+            }
+        }
+
+        /* Static button - only bind if it exists */
+        const territoryBtn = document.getElementById('territoryBusinessAdvisorModal');
+        if (territoryBtn) {
+            territoryBtn.addEventListener('click', handleContactModal);
+        }
+    }
+
+    async function renderChooseTopic(contentEl, navJson) {
+        document.getElementById('pageTitle').textContent = 'Choose a Topic';
+        contentEl.innerHTML = '';
+        const grid = document.createElement('div');
+        grid.className = 'cards';
+        for (const q of navJson.quizzes) {
+            const card = document.createElement('div');
+            card.className = 'card quiz-card';
+
+            // Left side - Image
+            const imageWrap = document.createElement('div');
+            imageWrap.className = 'card-image';
+            const img = document.createElement('img');
+            img.src = q.icon || '../assets/images/quiz-placeholder.jpg';
+            img.alt = q.title;
+            imageWrap.appendChild(img);
+
+            // Middle - Content
+            const content = document.createElement('div');
+            content.className = 'card-content';
+            const title = document.createElement('h3');
+            title.textContent = q.title;
+            const desc = document.createElement('p');
+            desc.textContent = q.description;
+            const startBtn = document.createElement('a');
+            startBtn.className = 'card-link';
+            startBtn.textContent = 'Take the Questionnaire';
+            startBtn.innerHTML = 'Take the Questionnaire <i class="fa-solid fa-chevron-right"></i>';
+            startBtn.href = '#';
+            startBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                // Set quiz id and start at page 0 in state, then save to URL
+                if (window.State) {
+                    window.State.currentState.view = 'quiz';
+                    window.State.currentState.quizId = q.id;
+                    window.State.currentState.currentPage = 0;
+                    if (!window.State.currentState.answers) window.State.currentState.answers = {};
+                    window.State.saveStateToUrl(window.State.currentState);
+                }
+            });
+            content.appendChild(title);
+            content.appendChild(desc);
+            content.appendChild(startBtn);
+
+            // Right side - Circular progress
+            const progressWrap = document.createElement('div');
+            progressWrap.className = 'card-progress';
+            const percent = await computeProgress(q.id);
+            const circleProgress = document.createElement('div');
+            circleProgress.className = 'circle-progress';
+            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+            svg.setAttribute('width', '100');
+            svg.setAttribute('height', '100');
+            svg.setAttribute('viewBox', '0 0 100 100');
+
+            const circleBg = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            circleBg.setAttribute('cx', '50');
+            circleBg.setAttribute('cy', '50');
+            circleBg.setAttribute('r', '45');
+            circleBg.setAttribute('fill', 'none');
+            circleBg.setAttribute('stroke', '#e0e0e0');
+            circleBg.setAttribute('stroke-width', '8');
+
+            const circleFill = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            circleFill.setAttribute('cx', '50');
+            circleFill.setAttribute('cy', '50');
+            circleFill.setAttribute('r', '45');
+            circleFill.setAttribute('fill', 'none');
+            circleFill.setAttribute('stroke', '#0093b8');
+            circleFill.setAttribute('stroke-width', '8');
+            circleFill.setAttribute('stroke-dasharray', '283');
+            circleFill.setAttribute('stroke-dashoffset', String(283 - (283 * percent) / 100));
+            circleFill.setAttribute('transform', 'rotate(-90 50 50)');
+
+            svg.appendChild(circleBg);
+            svg.appendChild(circleFill);
+
+            const percentLabel = document.createElement('div');
+            percentLabel.className = 'percent-label';
+            percentLabel.innerHTML = `<strong>${percent}%</strong><br><span>Complete</span>`;
+
+            circleProgress.appendChild(svg);
+            circleProgress.appendChild(percentLabel);
+            progressWrap.appendChild(circleProgress);
+
+            card.appendChild(imageWrap);
+            card.appendChild(content);
+            card.appendChild(progressWrap);
+            grid.appendChild(card);
+        }
+        contentEl.appendChild(grid);
+    }
+
+    async function computeProgress(quizId) {
+        try {
+            const quiz = await fetchJSON(getQuizUrl(quizId));
+            const answers = (window.State && window.State.currentState && window.State.currentState.answers) || {};
+            // count only visible questions (respect conditionals)
+            let total = 0;
+            let answered = 0;
+            for (const page of quiz.pages) {
+                for (const question of page.questions) {
+                    if (question.type === 'group' && question.subQuestions) {
+                        // Count sub-questions in a group
+                        for (const subQ of question.subQuestions) {
+                            if (!Conditional.isVisible(subQ, answers)) continue;
+                            total++;
+                            const ans = answers[subQ.id];
+                            if (typeof ans !== 'undefined' && ans !== null && ans !== '') {
+                                if (Array.isArray(ans)) {
+                                    if (ans.length > 0) answered++;
+                                } else {
+                                    answered++;
+                                }
+                            }
+                        }
+                    } else {
+                        // Regular question
+                        if (!Conditional.isVisible(question, answers)) continue;
+                        total++;
+                        const ans = answers[question.id];
+                        if (typeof ans !== 'undefined' && ans !== null && ans !== '') {
+                            if (Array.isArray(ans)) {
+                                if (ans.length > 0) answered++;
+                            } else {
+                                answered++;
+                            }
+                        }
+                    }
+                }
+            }
+            return total ? Math.round((answered / total) * 100) : 0;
+        } catch (e) {
+            return 0;
+        }
+    }
+
+    function isPageCompleted(page, answers) {
+        // check if all visible questions in a page are answered
+        for (const q of page.questions) {
+            if (q.type === 'group' && q.subQuestions) {
+                // Check all sub-questions in the group
+                for (const subQ of q.subQuestions) {
+                    if (!Conditional.isVisible(subQ, answers)) continue;
+                    const ans = answers[subQ.id];
+                    if (typeof ans === 'undefined' || ans === null || ans === '') return false;
+                    if (Array.isArray(ans) && ans.length === 0) return false;
+                }
+            } else {
+                if (!Conditional.isVisible(q, answers)) continue; // skip conditionally hidden
+                const ans = answers[q.id];
+                if (typeof ans === 'undefined' || ans === null || ans === '') return false;
+                if (Array.isArray(ans) && ans.length === 0) return false;
+            }
+        }
+        return (
+            page.questions.length > 0 &&
+            page.questions.some((q) => {
+                if (q.type === 'group' && q.subQuestions) return q.subQuestions.some((subQ) => Conditional.isVisible(subQ, answers));
+                return Conditional.isVisible(q, answers);
+            })
+        );
+    }
+
+    // Helper: render inline message for a question based on selected value
+    function showInlineMessageForQuestion(question, questionEl, value) {
+        if (!questionEl) return;
+        const msgDiv = questionEl.querySelector('.inline-message');
+        if (!msgDiv) return;
+        msgDiv.style.display = 'none';
+        msgDiv.innerHTML = '';
+        if (!question.messageOnSelect) return;
+
+        // messageOnSelect can be a mapping from value -> string|object, or a default string
+        let payload = null;
+        if (typeof question.messageOnSelect === 'string') {
+            payload = question.messageOnSelect;
+        } else if (value && question.messageOnSelect[value]) {
+            payload = question.messageOnSelect[value];
+        } else if (question.messageOnSelect['*']) {
+            // wildcard
+            payload = question.messageOnSelect['*'];
+        }
+
+        if (!payload) return;
+
+        // payload may be string (HTML) or object { title, body, html, class }
+        if (typeof payload === 'string') {
+            msgDiv.innerHTML = payload;
+            msgDiv.classList.remove('info-box');
+            msgDiv.style.display = 'block';
+            return;
+        }
+        // object
+        const cls = payload.class || 'info-box';
+        msgDiv.className = 'inline-message ' + cls;
+        if (payload.html) msgDiv.innerHTML = payload.html;
+        else {
+            let out = '';
+            if (payload.title) out += `<strong>${payload.title}</strong>`;
+            if (payload.body) out += `<div>${payload.body}</div>`;
+            msgDiv.innerHTML = out;
+        }
+        msgDiv.style.display = 'block';
+    }
+
+    async function renderQuizPage(contentEl, quizId, pageIndex) {
+        document.getElementById('pageTitle').textContent = 'Quiz';
+        contentEl.innerHTML = '';
+        const quiz = await fetchJSON(getQuizUrl(quizId));
+        if (!quiz) {
+            contentEl.textContent = 'Quiz not found.';
+            return;
+        }
+        // set currentState quizId
+        if (window.State) window.State.currentState.quizId = quizId;
+
+        // Stepper (page steps) - show all pages with completion status
+        const stepper = document.createElement('div');
+        stepper.className = 'stepper';
+        const answers = window.State.currentState.answers || {};
+        quiz.pages.forEach((p, idx) => {
+            const s = document.createElement('a');
+            s.href = '#';
+            s.className = 'step';
+            const t = document.createElement('span');
+            t.textContent = p.title || `Page ${idx + 1}`;
+            s.appendChild(t);
+            const pageComplete = isPageCompleted(p, answers);
+            // detect if any visible question on this page has an answer
+            let pageHasAnswers = false;
+            for (const q of p.questions) {
+                if (q.type === 'group' && q.subQuestions) {
+                    // Check sub-questions in the group
+                    for (const subQ of q.subQuestions) {
+                        if (!Conditional.isVisible(subQ, answers)) continue;
+                        const a = answers[subQ.id];
+                        if (typeof a !== 'undefined' && a !== null && a !== '') {
+                            if (Array.isArray(a) && a.length > 0) {
+                                pageHasAnswers = true;
+                                break;
+                            } else if (!Array.isArray(a)) {
+                                pageHasAnswers = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (pageHasAnswers) break;
+                } else {
+                    if (!Conditional.isVisible(q, answers)) continue;
+                    const a = answers[q.id];
+                    if (typeof a !== 'undefined' && a !== null && a !== '') {
+                        if (Array.isArray(a) && a.length > 0) {
+                            pageHasAnswers = true;
+                            break;
+                        } else if (!Array.isArray(a)) {
+                            pageHasAnswers = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            if (pageComplete) {
+                s.classList.add('completed');
+            } else if (pageHasAnswers) {
+                s.classList.add('in-progress');
+            }
+            if (idx === pageIndex) {
+                s.classList.add('active');
+            } else if (idx < pageIndex) {
+                s.classList.add('completed');
+            }
+            s.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.State.currentState.view = 'quiz';
+                window.State.currentState.currentPage = idx;
+                window.State.saveStateToUrl(window.State.currentState);
+            });
+            stepper.appendChild(s);
+        });
+
+        // Add "Your results" step
+        const resultsStep = document.createElement('a');
+        resultsStep.href = '#';
+        resultsStep.className = 'step';
+        const resultsText = document.createElement('span');
+        resultsText.textContent = 'Your results';
+        resultsStep.appendChild(resultsText);
+        resultsStep.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.State.currentState.view = 'results';
+            window.State.saveStateToUrl(window.State.currentState);
+        });
+        stepper.appendChild(resultsStep);
+
+        contentEl.appendChild(stepper);
+
+        // Dispatch event to update progress bar
+        window.dispatchEvent(new CustomEvent('stepperUpdated'));
+
+        const page = quiz.pages[pageIndex];
+        const pageTitle = document.createElement('div');
+        pageTitle.className = 'page-title';
+        pageTitle.textContent = page.title;
+        contentEl.appendChild(pageTitle);
+
+        // Helper function to create a single question element
+        function createQuestionElement(question, isSubQuestion = false) {
+            const qwrap = document.createElement('div');
+            qwrap.className = isSubQuestion ? 'sub-question' : 'question';
+            qwrap.dataset.qid = question.id;
+
+            // Create label wrapper with info icon if helpText exists
+            if (question.helpText) {
+                const labelWrapper = document.createElement('div');
+                labelWrapper.className = 'question-label-wrapper';
+                const label = document.createElement('label');
+                label.textContent = question.label || question.id;
+                const helpIcon = document.createElement('button');
+                helpIcon.type = 'button';
+                helpIcon.className = 'help-icon';
+                helpIcon.textContent = 'i';
+                helpIcon.setAttribute('data-bs-toggle', 'tooltip');
+                helpIcon.setAttribute('data-bs-placement', 'top');
+                helpIcon.setAttribute('data-bs-title', question.helpText);
+                labelWrapper.appendChild(label);
+                labelWrapper.appendChild(helpIcon);
+                qwrap.appendChild(labelWrapper);
+            } else {
+                const label = document.createElement('label');
+                label.textContent = question.label || question.id;
+                qwrap.appendChild(label);
+            }
+
+            const optionsWrap = document.createElement('div');
+            optionsWrap.className = 'options';
+            // expose minScore for checkbox scoring
+            if (typeof question.minScore !== 'undefined') qwrap.dataset.minScore = question.minScore;
+            // check conditional visibility
+            const visible = Conditional.isVisible(question, window.State.currentState.answers || {});
+            if (!visible) {
+                qwrap.style.display = 'none';
+            }
+
+            if (question.type === 'radio') {
+                question.options.forEach((opt) => {
+                    const isObj = typeof opt === 'object' && opt !== null;
+                    const optionLabel = isObj ? opt.label || opt.value : String(opt);
+                    const optionValue = isObj ? opt.value || opt.label : String(opt);
+                    const optScore = isObj && typeof opt.score !== 'undefined' ? Number(opt.score) : String(optionLabel).toLowerCase() === 'yes' ? 1 : 0;
+                    const id = `${question.id}__${optionValue}`.replace(/\s+/g, '_');
+                    const div = document.createElement('div');
+                    const inp = document.createElement('input');
+                    inp.type = 'radio';
+                    inp.name = question.id;
+                    inp.value = optionValue;
+                    inp.id = id;
+                    inp.dataset.score = String(optScore);
+                    const lab = document.createElement('label');
+                    lab.htmlFor = id;
+                    lab.textContent = optionLabel;
+                    div.appendChild(inp);
+                    div.appendChild(lab);
+                    optionsWrap.appendChild(div);
+                });
+            } else if (question.type === 'checkbox') {
+                question.options.forEach((opt) => {
+                    const optionValue = String(opt);
+                    const id = `${question.id}__${optionValue}`.replace(/\s+/g, '_');
+                    const div = document.createElement('div');
+                    const inp = document.createElement('input');
+                    inp.type = 'checkbox';
+                    inp.name = question.id;
+                    inp.value = optionValue;
+                    inp.id = id;
+                    const lab = document.createElement('label');
+                    lab.htmlFor = id;
+                    lab.textContent = optionValue;
+                    div.appendChild(inp);
+                    div.appendChild(lab);
+                    optionsWrap.appendChild(div);
+                });
+            } else if (question.type === 'number' || question.type === 'text') {
+                const inp = document.createElement('input');
+                inp.type = question.type === 'number' ? 'number' : 'text';
+                inp.name = question.id;
+                inp.className = 'text-input';
+                optionsWrap.appendChild(inp);
+            }
+
+            qwrap.appendChild(optionsWrap);
+
+            // inline message placeholder
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'inline-message';
+            messageDiv.style.display = 'none';
+            qwrap.appendChild(messageDiv);
+
+            // question message placeholder (for positive/recommendation messages)
+            const questionMessageDiv = document.createElement('div');
+            questionMessageDiv.className = 'question-message';
+            questionMessageDiv.dataset.qid = question.id;
+            qwrap.appendChild(questionMessageDiv);
+
+            return qwrap;
+        }
+
+        // Build question elements first (do not append yet) so we can group conditional questions
+        const qwraps = [];
+        page.questions.forEach((question) => {
+            if (question.type === 'group') {
+                // Handle grouped questions
+                const groupWrap = document.createElement('div');
+                groupWrap.className = 'question-group';
+                groupWrap.dataset.qid = question.id;
+
+                // Group header
+                const groupHeader = document.createElement('div');
+                groupHeader.className = 'question-group-header';
+
+                if (question.helpText) {
+                    const labelWrapper = document.createElement('div');
+                    labelWrapper.className = 'question-label-wrapper';
+                    const label = document.createElement('label');
+                    label.textContent = question.label || question.id;
+                    const helpIcon = document.createElement('button');
+                    helpIcon.type = 'button';
+                    helpIcon.className = 'help-icon';
+                    helpIcon.textContent = 'i';
+                    helpIcon.setAttribute('data-bs-toggle', 'tooltip');
+                    helpIcon.setAttribute('data-bs-placement', 'top');
+                    helpIcon.setAttribute('data-bs-title', question.helpText);
+                    labelWrapper.appendChild(label);
+                    labelWrapper.appendChild(helpIcon);
+                    groupHeader.appendChild(labelWrapper);
+                } else {
+                    const label = document.createElement('label');
+                    label.textContent = question.label || question.id;
+                    groupHeader.appendChild(label);
+                }
+
+                groupWrap.appendChild(groupHeader);
+
+                // Sub-questions - group them by conditional relationships
+                if (question.subQuestions && question.subQuestions.length > 0) {
+                    // Build map of parent -> children for conditionals within this group
+                    const subQMap = {};
+                    question.subQuestions.forEach((subQ, idx) => {
+                        subQMap[subQ.id] = idx;
+                    });
+
+                    const conditionalGroups = {};
+                    question.subQuestions.forEach((subQ, idx) => {
+                        if (subQ.conditional && subQ.conditional.showWhen) {
+                            const parentId = Object.keys(subQ.conditional.showWhen)[0];
+                            if (subQMap[parentId] !== undefined) {
+                                const parentIdx = subQMap[parentId];
+                                conditionalGroups[parentIdx] = conditionalGroups[parentIdx] || [];
+                                conditionalGroups[parentIdx].push(idx);
+                            }
+                        }
+                    });
+
+                    const processed = new Set();
+                    question.subQuestions.forEach((subQ, idx) => {
+                        if (processed.has(idx)) return;
+
+                        if (conditionalGroups[idx]) {
+                            // This sub-question has conditional children - wrap them together
+                            const condWrapper = document.createElement('div');
+                            condWrapper.className = 'conditional-subquestion-group';
+
+                            // Add parent
+                            const parentEl = createQuestionElement(subQ, true);
+                            condWrapper.appendChild(parentEl);
+                            processed.add(idx);
+
+                            // Add children
+                            conditionalGroups[idx].forEach((childIdx) => {
+                                const childEl = createQuestionElement(question.subQuestions[childIdx], true);
+                                condWrapper.appendChild(childEl);
+                                processed.add(childIdx);
+                            });
+
+                            // Add conditional group message placeholder
+                            const conditionalGroupMessageDiv = document.createElement('div');
+                            conditionalGroupMessageDiv.className = 'conditional-group-message';
+                            conditionalGroupMessageDiv.dataset.parentQid = subQ.id;
+                            condWrapper.appendChild(conditionalGroupMessageDiv);
+
+                            groupWrap.appendChild(condWrapper);
+                        } else {
+                            // Regular sub-question without conditional children
+                            const subQEl = createQuestionElement(subQ, true);
+                            groupWrap.appendChild(subQEl);
+                            processed.add(idx);
+                        }
+                    });
+                }
+
+                qwraps.push(groupWrap);
+            } else {
+                // Regular question
+                qwraps.push(createQuestionElement(question, false));
+            }
+        });
+
+        // Map question id to index on this page
+        const idToIndex = {};
+        page.questions.forEach((q, i) => (idToIndex[q.id] = i));
+
+        // Build groups: parentIndex -> [childIndex,...]
+        const groups = {};
+        page.questions.forEach((q, i) => {
+            if (q.conditional && q.conditional.showWhen) {
+                const keys = Object.keys(q.conditional.showWhen || {});
+                if (keys.length) {
+                    const parentId = keys[0];
+                    const pIdx = idToIndex[parentId];
+                    if (typeof pIdx !== 'undefined') {
+                        groups[pIdx] = groups[pIdx] || [];
+                        groups[pIdx].push(i);
+                    }
+                }
+            }
+        });
+
+        // Append qwraps to the content, grouping conditional children with their parent when possible
+        const appended = new Set();
+        for (let i = 0; i < page.questions.length; i++) {
+            if (appended.has(i)) continue;
+            if (groups[i]) {
+                // If the parent has only one dependent child, append parent and child without the group wrapper
+                const childIndices = (groups[i] || []).slice().sort((a, b) => a - b);
+
+                if (childIndices.length == 1) {
+                    // single child - always apply conditional-group class since there's a conditional relationship
+                    const ci = childIndices[0];
+                    const groupDiv = document.createElement('div');
+                    groupDiv.className = 'conditional-group';
+                    groupDiv.appendChild(qwraps[i]);
+                    appended.add(i);
+                    if (!appended.has(ci)) {
+                        groupDiv.appendChild(qwraps[ci]);
+                        appended.add(ci);
+                    }
+                    // Add message container for conditional group messages
+                    const conditionalGroupMessageDiv = document.createElement('div');
+                    conditionalGroupMessageDiv.className = 'conditional-group-message';
+                    conditionalGroupMessageDiv.dataset.parentQid = page.questions[i].id;
+                    groupDiv.appendChild(conditionalGroupMessageDiv);
+                    contentEl.appendChild(groupDiv);
+                } else {
+                    const groupDiv = document.createElement('div');
+                    groupDiv.className = 'conditional-group';
+                    // parent
+                    groupDiv.appendChild(qwraps[i]);
+                    appended.add(i);
+                    // children sorted ascending
+                    childIndices.forEach((ci) => {
+                        if (!appended.has(ci)) {
+                            groupDiv.appendChild(qwraps[ci]);
+                            appended.add(ci);
+                        }
+                    });
+                    // Add message container for conditional group messages
+                    const conditionalGroupMessageDiv = document.createElement('div');
+                    conditionalGroupMessageDiv.className = 'conditional-group-message';
+                    conditionalGroupMessageDiv.dataset.parentQid = page.questions[i].id;
+                    groupDiv.appendChild(conditionalGroupMessageDiv);
+                    contentEl.appendChild(groupDiv);
+                }
+            } else {
+                // ensure this index is not a child of some earlier group
+                let isChild = false;
+                for (const pIdx in groups) {
+                    if (groups[pIdx].includes(i)) {
+                        isChild = true;
+                        break;
+                    }
+                }
+                if (isChild) {
+                    continue;
+                }
+                contentEl.appendChild(qwraps[i]);
+                appended.add(i);
+            }
+        }
+
+        // Page messages section (positive messages and recommendations)
+        const messagesSection = document.createElement('div');
+        messagesSection.className = 'page-messages';
+        messagesSection.id = 'pageMessages';
+        contentEl.appendChild(messagesSection);
+
+        // nav
+        const nav = document.createElement('div');
+        nav.className = 'nav-buttons';
+        const back = document.createElement('button');
+        back.className = 'secondary';
+        back.textContent = 'Previous page';
+        const next = document.createElement('button');
+        next.className = 'primary';
+        next.textContent = 'Next page';
+        back.disabled = pageIndex === 0;
+        back.addEventListener('click', () => {
+            const prev = Math.max(0, pageIndex - 1);
+            // update state and save to URL
+            window.State.currentState.view = 'quiz';
+            window.State.currentState.currentPage = prev;
+            window.State.saveStateToUrl(window.State.currentState);
+            // Scroll to quiz body
+            setTimeout(() => {
+                const quizBody = document.querySelector('.ntg-quiz-body');
+                if (quizBody) {
+                    quizBody.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100);
+        });
+        next.addEventListener('click', () => {
+            const nextPage = Math.min(quiz.pages.length - 1, pageIndex + 1);
+            if (nextPage === pageIndex) {
+                // go to results view - set view and save state
+                window.State.currentState.view = 'results';
+                window.State.saveStateToUrl(window.State.currentState);
+            } else {
+                window.State.currentState.view = 'quiz';
+                window.State.currentState.currentPage = nextPage;
+                window.State.saveStateToUrl(window.State.currentState);
+            }
+            // Scroll to quiz body
+            setTimeout(() => {
+                const quizBody = document.querySelector('.ntg-quiz-body');
+                if (quizBody) {
+                    quizBody.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }, 100);
+        });
+        nav.appendChild(back);
+        nav.appendChild(next);
+        contentEl.appendChild(nav);
+
+        // populate inputs from state and attach change handlers
+        const stateAnswers = window.State.currentState.answers || {};
+        for (const qEl of contentEl.querySelectorAll('.question, .sub-question')) {
+            const qid = qEl.dataset.qid;
+            const question = findQuestionInQuiz(quiz, qid);
+            if (!question) continue;
+            // fill values
+            if (question.type === 'radio') {
+                const val = stateAnswers[qid];
+                if (val) {
+                    const inp = qEl.querySelector(`input[type=radio][value="${val}"]`);
+                    if (inp) inp.checked = true;
+                }
+            } else if (question.type === 'checkbox') {
+                const val = stateAnswers[qid] || [];
+                qEl.querySelectorAll('input[type=checkbox]').forEach((ch) => {
+                    ch.checked = val.includes(ch.value);
+                });
+            } else {
+                const val = stateAnswers[qid];
+                const inp = qEl.querySelector('input');
+                if (inp && typeof val !== 'undefined') inp.value = val;
+            }
+
+            // show inline message for pre-filled values (on load)
+            const currentVal = (function () {
+                if (question.type === 'radio') {
+                    const sel = qEl.querySelector(`input[type=radio]:checked`);
+                    return sel ? sel.value : null;
+                } else if (question.type === 'checkbox') {
+                    const arr = [];
+                    qEl.querySelectorAll('input[type=checkbox]:checked').forEach((c) => arr.push(c.value));
+                    return arr;
+                } else {
+                    const inp = qEl.querySelector('input');
+                    return inp ? inp.value : null;
+                }
+            })();
+            showInlineMessageForQuestion(question, qEl, currentVal);
+
+            // change handler
+            qEl.addEventListener('change', (ev) => {
+                // Save the focused input ID before DOM manipulation
+                const focusedInputId = ev.target ? ev.target.id : null;
+
+                handleInputChange(ev, quiz, pageIndex);
+                // after handling input change, show inline message for the changed value
+                const val = (function () {
+                    if (question.type === 'radio') {
+                        const sel = qEl.querySelector(`input[type=radio]:checked`);
+                        return sel ? sel.value : null;
+                    } else if (question.type === 'checkbox') {
+                        const arr = [];
+                        qEl.querySelectorAll('input[type=checkbox]:checked').forEach((c) => arr.push(c.value));
+                        return arr;
+                    } else {
+                        const inp = qEl.querySelector('input');
+                        return inp ? inp.value : null;
+                    }
+                })();
+                showInlineMessageForQuestion(question, qEl, val);
+                // Update page messages and inline question messages
+                updatePageMessages(quiz, page);
+                updateInlineQuestionMessages(quiz, page);
+                updateConditionalGroupMessages(quiz, page);
+
+                // Restore focus after ALL DOM updates are complete
+                if (focusedInputId) {
+                    setTimeout(() => {
+                        const inputToFocus = document.getElementById(focusedInputId);
+                        if (inputToFocus) {
+                            inputToFocus.focus();
+                        }
+                    }, 10); // Slightly longer delay to ensure all DOM updates complete
+                }
+            });
+        }
+
+        // Initialize conditional-subquestion-group wrapper visibility on page load
+        updateConditionalGroupBorders(quiz);
+        // Initialize page messages and inline question messages
+        updatePageMessages(quiz, page);
+        updateInlineQuestionMessages(quiz, page);
+        updateConditionalGroupMessages(quiz, page);
+
+        // Initialize Bootstrap tooltips
+        if (window.bootstrap && window.bootstrap.Tooltip) {
+            const tooltipTriggerList = contentEl.querySelectorAll('[data-bs-toggle="tooltip"]');
+            [...tooltipTriggerList].map((tooltipTriggerEl) => new window.bootstrap.Tooltip(tooltipTriggerEl));
+        }
+    }
+
+    function updatePageMessages(quiz, page) {
+        const messagesSection = document.getElementById('pageMessages');
+        if (!messagesSection) return;
+
+        const answers = window.State.currentState.answers || {};
+        const messages = { positive: [], recommendation: [] };
+
+        // Check each question on the page - ONLY for group-level messages
+        for (const q of page.questions) {
+            if (q.type === 'group' && q.subQuestions) {
+                // For groups, check group-level messages only
+                let hasPositive = false;
+                let hasNegative = false;
+
+                for (const subQ of q.subQuestions) {
+                    if (!Conditional.isVisible(subQ, answers)) continue;
+                    const ans = answers[subQ.id];
+                    if (subQ.type === 'radio') {
+                        if (shouldShowMessage(subQ, ans, 'positive')) hasPositive = true;
+                        if (shouldShowMessage(subQ, ans, 'recommendation')) hasNegative = true;
+                    }
+                }
+
+                if (hasPositive && q.positiveMessage) {
+                    messages.positive.push(q.positiveMessage);
+                }
+                if (hasNegative && q.recommendation) {
+                    messages.recommendation.push(q.recommendation);
+                }
+            }
+            // Regular questions are handled by updateInlineQuestionMessages
+        }
+
+        // Generate message keys for comparison
+        const newMessageKeys = JSON.stringify(messages);
+        const currentMessageKeys = messagesSection.dataset.messageKeys || '';
+
+        // Only update DOM if messages have changed
+        if (newMessageKeys === currentMessageKeys) return;
+
+        messagesSection.dataset.messageKeys = newMessageKeys;
+        messagesSection.innerHTML = '';
+
+        // Display messages if there are any
+        if (messages.positive.length > 0 || messages.recommendation.length > 0) {
+            const heading = document.createElement('h3');
+            heading.textContent = 'Feedback';
+            messagesSection.appendChild(heading);
+
+            messages.positive.forEach((msg) => {
+                const msgDiv = document.createElement('div');
+                msgDiv.className = 'message-item positive';
+                const title = document.createElement('div');
+                title.className = 'message-title';
+                title.textContent = msg.title;
+                const body = document.createElement('div');
+                body.className = 'message-body';
+                body.innerHTML = msg.body; // Allow HTML content
+                msgDiv.appendChild(title);
+                msgDiv.appendChild(body);
+                messagesSection.appendChild(msgDiv);
+            });
+
+            messages.recommendation.forEach((msg) => {
+                const msgDiv = document.createElement('div');
+                msgDiv.className = 'message-item recommendation';
+                const title = document.createElement('div');
+                title.className = 'message-title';
+                title.textContent = msg.title;
+                const body = document.createElement('div');
+                body.className = 'message-body';
+                body.innerHTML = msg.body; // Allow HTML content
+                msgDiv.appendChild(title);
+                msgDiv.appendChild(body);
+                messagesSection.appendChild(msgDiv);
+            });
+        }
+    }
+
+    // Helper function to determine if answer should trigger positive or recommendation message
+    function shouldShowMessage(question, answer, messageType) {
+        if (!answer) return false;
+
+        // Check if question has custom trigger values
+        if (messageType === 'positive' && question.positiveMessageOn) {
+            return question.positiveMessageOn.includes(answer);
+        }
+        if (messageType === 'recommendation' && question.recommendationOn) {
+            return question.recommendationOn.includes(answer);
+        }
+
+        // Fallback to default Yes/No logic for backward compatibility
+        if (question.type === 'radio') {
+            if (messageType === 'positive') {
+                return question.showRecommendationOnYes ? answer === 'No' : answer === 'Yes';
+            }
+            if (messageType === 'recommendation') {
+                return question.showRecommendationOnYes ? answer === 'Yes' : answer === 'No' || answer === 'Unsure';
+            }
+        }
+
+        return false;
+    }
+
+    // Update inline question messages (for regular questions without subQuestions)
+    function updateInlineQuestionMessages(quiz, page) {
+        const answers = window.State.currentState.answers || {};
+
+        // Find all regular questions (not in groups)
+        for (const q of page.questions) {
+            // Skip group questions
+            if (q.type === 'group' && q.subQuestions) continue;
+
+            // Find the question element
+            const qEl = document.querySelector(`.question[data-qid="${q.id}"]`);
+            if (!qEl) continue;
+
+            const messageContainer = qEl.querySelector('.question-message');
+            if (!messageContainer) continue;
+
+            // Check if question is visible
+            if (!Conditional.isVisible(q, answers)) {
+                messageContainer.innerHTML = '';
+                continue;
+            }
+
+            const ans = answers[q.id];
+            let messageToShow = null;
+
+            if (q.type === 'radio') {
+                // Check if positive message should be shown
+                if (shouldShowMessage(q, ans, 'positive') && q.positiveMessage) {
+                    messageToShow = { ...q.positiveMessage, type: 'positive' };
+                } else if (shouldShowMessage(q, ans, 'recommendation') && q.recommendation) {
+                    messageToShow = { ...q.recommendation, type: 'recommendation' };
+                }
+            }
+
+            // Update the message container
+            if (messageToShow) {
+                const newMessageKey = JSON.stringify(messageToShow);
+                const currentMessageKey = messageContainer.dataset.messageKey || '';
+
+                if (newMessageKey !== currentMessageKey) {
+                    messageContainer.dataset.messageKey = newMessageKey;
+                    messageContainer.innerHTML = '';
+
+                    const msgDiv = document.createElement('div');
+                    msgDiv.className = `message-item ${messageToShow.type}`;
+                    const title = document.createElement('div');
+                    title.className = 'message-title';
+                    title.textContent = messageToShow.title;
+                    const body = document.createElement('div');
+                    body.className = 'message-body';
+                    body.innerHTML = messageToShow.body;
+                    msgDiv.appendChild(title);
+                    msgDiv.appendChild(body);
+                    messageContainer.appendChild(msgDiv);
+                }
+            } else {
+                messageContainer.innerHTML = '';
+                messageContainer.dataset.messageKey = '';
+            }
+        }
+    }
+
+    // Update conditional group messages (for .conditional-subquestion-group and .conditional-group)
+    function updateConditionalGroupMessages(quiz, page) {
+        const answers = window.State.currentState.answers || {};
+
+        // Find all conditional group message containers
+        const conditionalGroups = document.querySelectorAll('.conditional-group-message');
+
+        conditionalGroups.forEach((messageContainer) => {
+            const parentQid = messageContainer.dataset.parentQid;
+            if (!parentQid) return;
+
+            // Find the parent question - could be a regular question or a sub-question in a group
+            let parentQuestion = null;
+
+            // First check if it's a regular question
+            parentQuestion = page.questions.find((q) => q.id === parentQid);
+
+            // If not found, check if it's a sub-question in a group
+            if (!parentQuestion) {
+                for (const q of page.questions) {
+                    if (q.type === 'group' && q.subQuestions) {
+                        parentQuestion = q.subQuestions.find((sq) => sq.id === parentQid);
+                        if (parentQuestion) break;
+                    }
+                }
+            }
+
+            if (!parentQuestion) return;
+
+            // Collect messages to show (both positive and recommendation)
+            const messages = { positive: [], recommendation: [] };
+
+            // Check all conditional children of this parent
+            let shouldShowPositive = false;
+            let shouldShowRecommendation = false;
+
+            // Find the wrapper - could be .conditional-subquestion-group or .conditional-group
+            const wrapper = messageContainer.closest('.conditional-subquestion-group, .conditional-group');
+            if (wrapper) {
+                const childQuestions = wrapper.querySelectorAll('.sub-question, .question');
+                childQuestions.forEach((childEl) => {
+                    const childQid = childEl.dataset.qid;
+                    // Skip the parent question itself
+                    if (childQid === parentQid) return;
+
+                    const childQuestion = findQuestionInQuiz(quiz, childQid);
+
+                    // Skip if not conditional or not depending on this parent
+                    if (!childQuestion || !childQuestion.conditional || !childQuestion.conditional.showWhen) return;
+                    const dependsOnId = Object.keys(childQuestion.conditional.showWhen)[0];
+                    if (dependsOnId !== parentQid) return;
+
+                    // Check if child is visible
+                    if (!Conditional.isVisible(childQuestion, answers)) return;
+
+                    const ans = answers[childQid];
+                    if (childQuestion.type === 'radio') {
+                        if (shouldShowMessage(childQuestion, ans, 'positive')) shouldShowPositive = true;
+                        if (shouldShowMessage(childQuestion, ans, 'recommendation')) shouldShowRecommendation = true;
+                    }
+                });
+            }
+
+            // Add messages to arrays (only once each)
+            if (shouldShowPositive && parentQuestion.conditionalQuestionGroupPositiveMessage) {
+                if (!messages.positive.some((m) => m.title === parentQuestion.conditionalQuestionGroupPositiveMessage.title)) {
+                    messages.positive.push(parentQuestion.conditionalQuestionGroupPositiveMessage);
+                }
+            }
+            if (shouldShowRecommendation && parentQuestion.conditionalQuestionGroupRecommendation) {
+                if (!messages.recommendation.some((m) => m.title === parentQuestion.conditionalQuestionGroupRecommendation.title)) {
+                    messages.recommendation.push(parentQuestion.conditionalQuestionGroupRecommendation);
+                }
+            }
+
+            // Generate message keys for comparison
+            const newMessageKeys = JSON.stringify(messages);
+            const currentMessageKeys = messageContainer.dataset.messageKey || '';
+
+            // Only update DOM if messages have changed
+            if (newMessageKeys === currentMessageKeys) return;
+
+            messageContainer.dataset.messageKey = newMessageKeys;
+            messageContainer.innerHTML = '';
+
+            // Display messages if there are any
+            if (messages.positive.length > 0 || messages.recommendation.length > 0) {
+                messages.positive.forEach((msg) => {
+                    const msgDiv = document.createElement('div');
+                    msgDiv.className = 'message-item positive';
+                    const title = document.createElement('div');
+                    title.className = 'message-title';
+                    title.textContent = msg.title;
+                    const body = document.createElement('div');
+                    body.className = 'message-body';
+                    body.innerHTML = msg.body;
+                    msgDiv.appendChild(title);
+                    msgDiv.appendChild(body);
+                    messageContainer.appendChild(msgDiv);
+                });
+
+                messages.recommendation.forEach((msg) => {
+                    const msgDiv = document.createElement('div');
+                    msgDiv.className = 'message-item recommendation';
+                    const title = document.createElement('div');
+                    title.className = 'message-title';
+                    title.textContent = msg.title;
+                    const body = document.createElement('div');
+                    body.className = 'message-body';
+                    body.innerHTML = msg.body;
+                    msgDiv.appendChild(title);
+                    msgDiv.appendChild(body);
+                    messageContainer.appendChild(msgDiv);
+                });
+            }
+        });
+    }
+
+    function findQuestionInQuiz(quiz, qid) {
+        for (const page of quiz.pages) {
+            for (const q of page.questions) {
+                if (q.id === qid) return q;
+                // Check in subQuestions for grouped questions
+                if (q.type === 'group' && q.subQuestions) {
+                    for (const subQ of q.subQuestions) {
+                        if (subQ.id === qid) return subQ;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    function handleInputChange(ev, quiz, pageIndex) {
+        const target = ev.target;
+        const questionEl = target.closest('.question, .sub-question');
+        if (!questionEl) return;
+        const qid = questionEl.dataset.qid;
+        const question = findQuestionInQuiz(quiz, qid);
+        if (!question) return;
+
+        // Save the currently focused input for restoration later
+        const focusedInput = target;
+        const focusedInputId = focusedInput.id;
+
+        // collect value
+        let value;
+        if (question.type === 'radio') {
+            const sel = questionEl.querySelector(`input[type=radio]:checked`);
+            value = sel ? sel.value : null;
+        } else if (question.type === 'checkbox') {
+            const arr = [];
+            questionEl.querySelectorAll('input[type=checkbox]:checked').forEach((ch) => arr.push(ch.value));
+            value = arr;
+        } else {
+            const inp = questionEl.querySelector('input');
+            value = inp ? inp.value : null;
+            if (question.type === 'number' && value !== '') value = Number(value);
+        }
+
+        // save to state
+        if (!window.State.currentState.answers) window.State.currentState.answers = {};
+        window.State.currentState.answers[qid] = value;
+        window.State.currentState.currentPage = pageIndex;
+        // inline messageOnSelect
+        if (question.messageOnSelect) {
+            const msgDiv = questionEl.querySelector('.inline-message');
+            let shown = false;
+            if (typeof value === 'string' && question.messageOnSelect[value]) {
+                msgDiv.textContent = question.messageOnSelect[value];
+                msgDiv.style.display = 'block';
+                shown = true;
+            } else if (Array.isArray(value)) {
+                // show first matching
+                for (const v of value)
+                    if (question.messageOnSelect[v]) {
+                        msgDiv.textContent = question.messageOnSelect[v];
+                        msgDiv.style.display = 'block';
+                        shown = true;
+                        break;
+                    }
+            }
+            if (!shown) msgDiv.style.display = 'none';
+        }
+
+        // Re-evaluate conditionals for this page: show/hide other questions
+        for (const other of document.querySelectorAll('.question, .sub-question')) {
+            const otherId = other.dataset.qid;
+            const q = findQuestionInQuiz(quiz, otherId);
+            if (!q) continue;
+            const visible = Conditional.isVisible(q, window.State.currentState.answers || {});
+            other.style.display = visible ? '' : 'none';
+            if (!visible) {
+                delete window.State.currentState.answers[otherId];
+            }
+        }
+
+        // Update conditional-subquestion-group wrapper visibility
+        updateConditionalGroupBorders(quiz);
+
+        // Restore focus to the input that triggered the change
+        if (focusedInputId) {
+            // Use setTimeout to ensure DOM updates are complete
+            setTimeout(() => {
+                const inputToFocus = document.getElementById(focusedInputId);
+                if (inputToFocus) {
+                    inputToFocus.focus();
+                }
+            }, 0);
+        }
+
+        // auto-save state to URL without triggering hashchange/re-render
+        window.State.saveStateToUrl(window.State.currentState, true);
+    }
+
+    function updateConditionalGroupBorders(quiz) {
+        const wrappers = document.querySelectorAll('.conditional-subquestion-group');
+        wrappers.forEach((wrapper) => {
+            const subQuestions = wrapper.querySelectorAll('.sub-question');
+            let hasConditional = false;
+            subQuestions.forEach((sq) => {
+                const sqId = sq.dataset.qid;
+                const sqQuestion = findQuestionInQuiz(quiz, sqId);
+                if (sqQuestion && sqQuestion.conditional && sqQuestion.conditional.showWhen) {
+                    // Always apply class if conditional question exists, regardless of visibility
+                    hasConditional = true;
+                }
+            });
+
+            // Only update class if it needs to change
+            const hasClass = wrapper.classList.contains('has-visible-conditional');
+            if (hasConditional && !hasClass) {
+                wrapper.classList.add('has-visible-conditional');
+            } else if (!hasConditional && hasClass) {
+                wrapper.classList.remove('has-visible-conditional');
+            }
+        });
+    }
+
+    async function renderResults(contentEl, quizId) {
+        document.getElementById('pageTitle').textContent = 'Results';
+        contentEl.innerHTML = '';
+        const quiz = await window.JSONCache.get(getQuizUrl(quizId));
+        const answers = window.State.currentState.answers || {};
+
+        // Stepper (page steps) - show all pages with completion status
+        const stepper = document.createElement('div');
+        stepper.className = 'stepper';
+        quiz.pages.forEach((p, idx) => {
+            const s = document.createElement('a');
+            s.href = '#';
+            s.className = 'step';
+            const t = document.createElement('span');
+            t.textContent = p.title || `Page ${idx + 1}`;
+            s.appendChild(t);
+            const pageComplete = isPageCompleted(p, answers);
+            // detect if any visible question on this page has an answer
+            let pageHasAnswers = false;
+            for (const q of p.questions) {
+                if (q.type === 'group' && q.subQuestions) {
+                    // Check sub-questions in the group
+                    for (const subQ of q.subQuestions) {
+                        if (!Conditional.isVisible(subQ, answers)) continue;
+                        const a = answers[subQ.id];
+                        if (typeof a !== 'undefined' && a !== null && a !== '') {
+                            if (Array.isArray(a) && a.length > 0) {
+                                pageHasAnswers = true;
+                                break;
+                            } else if (!Array.isArray(a)) {
+                                pageHasAnswers = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (pageHasAnswers) break;
+                } else {
+                    if (!Conditional.isVisible(q, answers)) continue;
+                    const a = answers[q.id];
+                    if (typeof a !== 'undefined' && a !== null && a !== '') {
+                        if (Array.isArray(a) && a.length > 0) {
+                            pageHasAnswers = true;
+                            break;
+                        } else if (!Array.isArray(a)) {
+                            pageHasAnswers = true;
+                            break;
+                        }
+                    }
+                }
+            }
+            if (pageComplete) {
+                s.classList.add('completed');
+            } else if (pageHasAnswers) {
+                s.classList.add('in-progress');
+            }
+            // All page steps should be marked as completed when viewing results
+            s.classList.add('completed');
+            s.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.State.currentState.view = 'quiz';
+                window.State.currentState.currentPage = idx;
+                window.State.saveStateToUrl(window.State.currentState);
+            });
+            stepper.appendChild(s);
+        });
+
+        // Add "Your results" step (active)
+        const resultsStep = document.createElement('a');
+        resultsStep.href = '#';
+        resultsStep.className = 'step active';
+        const resultsText = document.createElement('span');
+        resultsText.textContent = 'Your results';
+        resultsStep.appendChild(resultsText);
+        stepper.appendChild(resultsStep);
+
+        contentEl.appendChild(stepper);
+
+        // Dispatch event to update progress bar
+        window.dispatchEvent(new CustomEvent('stepperUpdated'));
+
+        // Calculate overall and per-page scores
+        let totalScore = 0;
+        let totalPossible = 0;
+        const pageScores = [];
+
+        for (const page of quiz.pages) {
+            let pageScore = 0;
+            let pagePossible = 0;
+
+            for (const q of page.questions) {
+                if (q.type === 'group' && q.subQuestions) {
+                    for (const subQ of q.subQuestions) {
+                        // Only count if question is visible (respects conditionals)
+                        if (!Conditional.isVisible(subQ, answers)) continue;
+
+                        // Add to possible score
+                        if (subQ.type === 'radio' && subQ.options) {
+                            const maxScore = Math.max(
+                                ...subQ.options.map((opt) => {
+                                    if (typeof opt === 'object' && typeof opt.score !== 'undefined') return Number(opt.score);
+                                    return 1;
+                                })
+                            );
+                            pagePossible += maxScore;
+                        }
+
+                        // Calculate actual score
+                        let qScore = 0;
+                        if (subQ.type === 'radio') {
+                            const val = answers[subQ.id];
+                            if (typeof val !== 'undefined' && val !== null) {
+                                const opt = (subQ.options || []).find((o) => {
+                                    if (typeof o === 'object') return (o.value || o.label) == val || o.label == val;
+                                    return o == val;
+                                });
+                                if (opt) {
+                                    if (typeof opt === 'object' && typeof opt.score !== 'undefined') qScore = Number(opt.score);
+                                    else qScore = String(val).toLowerCase() === 'yes' ? 1 : 0;
+                                }
+                            }
+                        }
+                        pageScore += qScore;
+                    }
+                } else {
+                    // Regular question
+                    if (!Conditional.isVisible(q, answers)) continue;
+
+                    // Add to possible score
+                    if (q.type === 'radio' && q.options) {
+                        const maxScore = Math.max(
+                            ...q.options.map((opt) => {
+                                if (typeof opt === 'object' && typeof opt.score !== 'undefined') return Number(opt.score);
+                                return 1;
+                            })
+                        );
+                        pagePossible += maxScore;
+                    } else if (q.type === 'checkbox' && typeof q.minScore !== 'undefined') {
+                        pagePossible += Number(q.minScore);
+                    }
+
+                    // Calculate actual score
+                    let qScore = 0;
+                    if (q.type === 'radio') {
+                        const val = answers[q.id];
+                        if (typeof val !== 'undefined' && val !== null) {
+                            const opt = (q.options || []).find((o) => {
+                                if (typeof o === 'object') return (o.value || o.label) == val || o.label == val;
+                                return o == val;
+                            });
+                            if (opt) {
+                                if (typeof opt === 'object' && typeof opt.score !== 'undefined') qScore = Number(opt.score);
+                                else qScore = String(val).toLowerCase() === 'yes' ? 1 : 0;
+                            }
+                        }
+                    } else if (q.type === 'checkbox') {
+                        const val = answers[q.id] || [];
+                        const count = Array.isArray(val) ? val.length : 0;
+                        if (typeof q.minScore !== 'undefined' && q.minScore) {
+                            if (count >= Number(q.minScore)) qScore = Number(q.minScore);
+                        }
+                    }
+                    pageScore += qScore;
+                }
+            }
+
+            totalScore += pageScore;
+            totalPossible += pagePossible;
+            pageScores.push({
+                title: page.title,
+                score: pageScore,
+                possible: pagePossible,
+                percentage: pagePossible > 0 ? Math.round((pageScore / pagePossible) * 100) : 0,
+            });
+        }
+
+        // Results
+        const overallCard = document.createElement('div');
+        overallCard.className = 'quiz-results';
+        const overallTitle = document.createElement('h3');
+        overallTitle.textContent = 'Overall Health';
+        overallCard.appendChild(overallTitle);
+
+        const healthScoreLabel = document.createElement('div');
+        healthScoreLabel.classList.add('health-score-label');
+        healthScoreLabel.textContent = 'Health Score';
+        overallCard.appendChild(healthScoreLabel);
+
+        const scoreCircle = document.createElement('div');
+        scoreCircle.classList.add('score-circle');
+        const overallPercentage = totalPossible > 0 ? Math.round((totalScore / totalPossible) * 100) : 0;
+        scoreCircle.style.setProperty('--score-percentage', `${overallPercentage}`);
+
+        const percentText = document.createElement('div');
+        percentText.textContent = overallPercentage + '%';
+        percentText.classList.add('percent-text');
+
+        const strengthText = document.createElement('div');
+        strengthText.textContent = 'Strengths';
+        strengthText.classList.add('strength-text');
+
+        scoreCircle.appendChild(percentText);
+        scoreCircle.appendChild(strengthText);
+        overallCard.appendChild(scoreCircle);
+
+        // Page scores
+        pageScores.forEach((ps) => {
+            const scoreSection = document.createElement('div');
+            scoreSection.classList.add('page-score-section');
+
+            const scoreTitle = document.createElement('div');
+            scoreTitle.textContent = ps.title + ' Score';
+            scoreTitle.classList.add('page-score-title');
+            scoreSection.appendChild(scoreTitle);
+
+            const progressBar = document.createElement('div');
+            progressBar.className = 'progress';
+            // progressBar.style.height = '8px';
+
+            const progressFill = document.createElement('i');
+            progressFill.style.width = ps.percentage + '%';
+
+            progressBar.appendChild(progressFill);
+            scoreSection.appendChild(progressBar);
+
+            const scoreValue = document.createElement('div');
+            scoreValue.textContent = `${ps.score}/${ps.possible}`;
+            scoreValue.classList.add('page-score-value');
+            scoreSection.appendChild(scoreValue);
+
+            overallCard.appendChild(scoreSection);
+        });
+
+        contentEl.appendChild(overallCard);
+
+        // Add paragraph for business health quiz
+        const appEl = document.getElementById('app');
+        const isBusinessHealth = appEl && appEl.dataset.quiz === 'business-health-checklist';
+        if (isBusinessHealth) {
+            const paragraph = document.createElement('p');
+            paragraph.innerHTML = 'Well done in completing this business health checklist to help you better understand your business and opportunities to improve.<br><br>Pick out a few key actions to work on at a time. Trying to change or improve everything at once will be difficult.<br><br>Would you like to speak to a Territory Business Advisor to speak about your results and make a plan of action?';
+            contentEl.appendChild(paragraph);
+        }
+
+        const contactBtn = document.createElement('a');
+        contactBtn.href = '#';
+        contactBtn.className = 'btn btn-primary mb-4';
+        contactBtn.textContent = 'Contact a Territory Business Advisor';
+
+        function handleContactModal(e) {
+            e.preventDefault();
+            const modalEl = document.getElementById('floatingContact');
+
+            if (modalEl && window.bootstrap && window.bootstrap.Modal) {
+                const modal = new window.bootstrap.Modal(modalEl);
+                modal.show();
+            } else {
+                window.location.href = 'https://business.nt.gov.au/contact';
+            }
+        }
+
+        // Bind both buttons safely
+        contactBtn.addEventListener('click', handleContactModal);
+
+        /* Static button - only bind if it exists */
+        const territoryBtn = document.getElementById('territoryBusinessAdvisorModal');
+        if (territoryBtn) {
+            territoryBtn.addEventListener('click', handleContactModal);
+        }
+
+        contentEl.appendChild(contactBtn);
+
+        // AI-generated summary
+        const aiSummarySection = document.createElement('div');
+        aiSummarySection.classList.add('ai-summary-section');
+        aiSummarySection.innerHTML =
+            '<div class="summary-loading"><div class="spinner-border spinner-border-sm text-primary" role="status"><span class="visually-hidden">Loading...</span></div><span class="ms-2">Generating AI summary...</span></div>';
+        overallCard.appendChild(aiSummarySection);
+
+        // Generate AI summary asynchronously
+        (async () => {
+            if (window.AISummaryGenerator) {
+                window.AISummaryGenerator.initFromDataAttribute();
+                const summary = await window.AISummaryGenerator.generateSummary({
+                    quizId,
+                    quizTitle: quiz.title || 'Business Health Assessment',
+                    overallPercentage,
+                    pageScores,
+                    answers,
+                    quiz,
+                });
+
+                if (summary) {
+                    aiSummarySection.innerHTML = '';
+                    const summaryTitle = document.createElement('h4');
+                    summaryTitle.textContent = summary.title;
+                    summaryTitle.classList.add('summary-title');
+                    const summaryContent = document.createElement('p');
+                    summaryContent.textContent = summary.content;
+                    summaryContent.classList.add('summary-content');
+                    aiSummarySection.appendChild(summaryTitle);
+                    aiSummarySection.appendChild(summaryContent);
+                } else {
+                    // Remove loading indicator if AI summary fails
+                    aiSummarySection.remove();
+                }
+            } else {
+                // Remove if AI generator not available
+                aiSummarySection.remove();
+            }
+        })();
+
+        // Recommendations section grouped by page
+        const recommendationsCard = document.createElement('div');
+        recommendationsCard.className = 'quiz-recommendations';
+        const recTitle = document.createElement('h3');
+        recTitle.textContent = 'Recommendations';
+        recommendationsCard.appendChild(recTitle);
+
+        let hasRecommendations = false;
+
+        for (const page of quiz.pages) {
+            const pageRecs = { positive: [], recommendation: [] };
+
+            for (const q of page.questions) {
+                if (q.type === 'group' && q.subQuestions) {
+                    let hasPositive = false;
+                    let hasNegative = false;
+
+                    for (const subQ of q.subQuestions) {
+                        if (!Conditional.isVisible(subQ, answers)) continue;
+                        const ans = answers[subQ.id];
+                        if (subQ.type === 'radio') {
+                            if (ans === 'Yes') hasPositive = true;
+                            if (ans === 'No' || ans === 'Unsure') hasNegative = true;
+                        }
+                    }
+
+                    if (hasPositive && q.positiveMessage) {
+                        pageRecs.positive.push(q.positiveMessage);
+                    }
+                    if (hasNegative && q.recommendation) {
+                        pageRecs.recommendation.push(q.recommendation);
+                    }
+
+                    // Also check each subQuestion for its own messages
+                    for (const subQ of q.subQuestions) {
+                        if (!Conditional.isVisible(subQ, answers)) continue;
+                        const ans = answers[subQ.id];
+
+                        if (subQ.type === 'radio') {
+                            // Check if this is a conditional question
+                            const isConditional = subQ.conditional && subQ.conditional.showWhen;
+
+                            // Find the parent question this depends on
+                            let parentQuestion = null;
+                            if (isConditional) {
+                                const dependsOnId = Object.keys(subQ.conditional.showWhen)[0];
+                                parentQuestion = q.subQuestions.find((sq) => sq.id === dependsOnId);
+                            }
+
+                            // Check if positive message should be shown on No (when showRecommendationOnYes is true, behavior is inverted)
+                            const shouldShowPos = subQ.showRecommendationOnYes ? ans === 'No' : ans === 'Yes';
+
+                            if (shouldShowPos) {
+                                // Use conditionalQuestionGroupPositiveMessage from parent if it's a conditional question
+                                if (isConditional && parentQuestion && parentQuestion.conditionalQuestionGroupPositiveMessage) {
+                                    // Only add once per parent question
+                                    if (!pageRecs.positive.some((m) => m.title === parentQuestion.conditionalQuestionGroupPositiveMessage.title)) {
+                                        pageRecs.positive.push(parentQuestion.conditionalQuestionGroupPositiveMessage);
+                                    }
+                                } else if (subQ.positiveMessage) {
+                                    pageRecs.positive.push(subQ.positiveMessage);
+                                }
+                            }
+
+                            // Check if recommendation should be shown on Yes (special case for questions like cashOnsite)
+                            const shouldShowRec = subQ.showRecommendationOnYes ? ans === 'Yes' : ans === 'No' || ans === 'Unsure';
+
+                            if (shouldShowRec) {
+                                // Use conditionalQuestionGroupRecommendation from parent if it's a conditional question
+                                if (isConditional && parentQuestion && parentQuestion.conditionalQuestionGroupRecommendation) {
+                                    // Only add once per parent question
+                                    if (!pageRecs.recommendation.some((m) => m.title === parentQuestion.conditionalQuestionGroupRecommendation.title)) {
+                                        pageRecs.recommendation.push(parentQuestion.conditionalQuestionGroupRecommendation);
+                                    }
+                                } else if (subQ.recommendation) {
+                                    pageRecs.recommendation.push(subQ.recommendation);
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    if (!Conditional.isVisible(q, answers)) continue;
+                    const ans = answers[q.id];
+
+                    if (q.type === 'radio') {
+                        // Check if this is a conditional question
+                        const isConditional = q.conditional && q.conditional.showWhen;
+
+                        // Find the parent question this depends on
+                        let parentQuestion = null;
+                        if (isConditional) {
+                            const dependsOnId = Object.keys(q.conditional.showWhen)[0];
+                            parentQuestion = page.questions.find((pq) => pq.id === dependsOnId);
+                        }
+
+                        // Check if positive message should be shown on No (when showRecommendationOnYes is true, behavior is inverted)
+                        const shouldShowPos = q.showRecommendationOnYes ? ans === 'No' : ans === 'Yes';
+
+                        if (shouldShowPos) {
+                            // Use conditionalQuestionGroupPositiveMessage from parent if it's a conditional question
+                            if (isConditional && parentQuestion && parentQuestion.conditionalQuestionGroupPositiveMessage) {
+                                // Only add once per parent question
+                                if (!pageRecs.positive.some((m) => m.title === parentQuestion.conditionalQuestionGroupPositiveMessage.title)) {
+                                    pageRecs.positive.push(parentQuestion.conditionalQuestionGroupPositiveMessage);
+                                }
+                            } else if (q.positiveMessage) {
+                                pageRecs.positive.push(q.positiveMessage);
+                            }
+                        }
+
+                        // Check if recommendation should be shown on Yes (special case for questions like cashOnsite)
+                        const shouldShowRec = q.showRecommendationOnYes ? ans === 'Yes' : ans === 'No' || ans === 'Unsure';
+
+                        if (shouldShowRec) {
+                            // Use conditionalQuestionGroupRecommendation from parent if it's a conditional question
+                            if (isConditional && parentQuestion && parentQuestion.conditionalQuestionGroupRecommendation) {
+                                // Only add once per parent question
+                                if (!pageRecs.recommendation.some((m) => m.title === parentQuestion.conditionalQuestionGroupRecommendation.title)) {
+                                    pageRecs.recommendation.push(parentQuestion.conditionalQuestionGroupRecommendation);
+                                }
+                            } else if (q.recommendation) {
+                                pageRecs.recommendation.push(q.recommendation);
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Display this page's recommendations if any
+            if (pageRecs.recommendation.length > 0) {
+                hasRecommendations = true;
+                const pageSection = document.createElement('div');
+                pageSection.className = 'page-recommendations';
+
+                const pageHeading = document.createElement('h4');
+                pageHeading.textContent = page.title;
+                pageSection.appendChild(pageHeading);
+
+                pageRecs.recommendation.forEach((msg) => {
+                    const msgDiv = document.createElement('div');
+                    msgDiv.className = 'message-item recommendation';
+                    const title = document.createElement('div');
+                    title.className = 'message-title';
+                    title.textContent = msg.title;
+                    const body = document.createElement('div');
+                    body.className = 'message-body';
+                    body.innerHTML = msg.body; // Allow HTML content
+                    msgDiv.appendChild(title);
+                    msgDiv.appendChild(body);
+                    pageSection.appendChild(msgDiv);
+                });
+
+                recommendationsCard.appendChild(pageSection);
+            }
+        }
+
+        if (hasRecommendations) {
+            contentEl.appendChild(recommendationsCard);
+        }
+
+        // Results actions: Download PDF, Copy Link, Print
+        const actionsWrap = document.createElement('div');
+        actionsWrap.classList.add('results-actions');
+        const copyBtn = document.createElement('button');
+        copyBtn.className = 'secondary';
+        copyBtn.insertAdjacentHTML('afterbegin', `<i class="fa-solid fa-link"></i><span>Copy link to this report</span>`);
+
+        const printBtn = document.createElement('button');
+        printBtn.className = 'secondary';
+        printBtn.insertAdjacentHTML('afterbegin', `<i class="fa-solid fa-print"></i><span>Print results</span>`);
+
+        const pdfBtn = document.createElement('button');
+        pdfBtn.className = 'primary';
+        pdfBtn.textContent = 'Download report';
+
+        // PDF generation using jsPDF
+        pdfBtn.addEventListener('click', async () => {
+            if (!window.jspdf) {
+                alert('jsPDF not loaded');
+                return;
+            }
+
+            try {
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF({
+                    orientation: 'portrait',
+                    unit: 'mm',
+                    format: 'a4'
+                });
+
+                // PDF settings
+                const pageWidth = pdf.internal.pageSize.getWidth();
+                const pageHeight = pdf.internal.pageSize.getHeight();
+                const margin = 15;
+                const contentWidth = pageWidth - (margin * 2);
+                let yPosition = margin;
+                
+                // Get app element for data attributes
+                const appEl = document.getElementById('app');
+
+                // Helper function to convert DOM element to image
+                const elementToImage = (element) => {
+                    return new Promise((resolve) => {
+                        const canvas = document.createElement('canvas');
+                        const rect = element.getBoundingClientRect();
+                        const scale = 3; // Higher resolution
+                        
+                        canvas.width = rect.width * scale;
+                        canvas.height = rect.height * scale;
+                        
+                        const ctx = canvas.getContext('2d');
+                        ctx.scale(scale, scale);
+                        
+                        // Get computed styles
+                        const styles = window.getComputedStyle(element);
+                        const bgColor = styles.backgroundColor;
+                        const color = styles.color;
+                        
+                        // Draw circular background
+                        ctx.fillStyle = bgColor || '#0093b8';
+                        ctx.beginPath();
+                        ctx.arc(rect.width / 2, rect.height / 2, rect.width / 2, 0, Math.PI * 2);
+                        ctx.fill();
+                        
+                        // Draw inner white circle
+                        ctx.fillStyle = '#ffffff';
+                        ctx.beginPath();
+                        ctx.arc(rect.width / 2, rect.height / 2, (rect.width / 2) - 16, 0, Math.PI * 2);
+                        ctx.fill();
+                        
+                        // Draw text
+                        const percentText = element.querySelector('.percent-text');
+                        const strengthText = element.querySelector('.strength-text');
+                        
+                        ctx.textAlign = 'center';
+                        ctx.fillStyle = color || '#000000';
+                        
+                        if (percentText) {
+                            ctx.font = 'bold 32px Helvetica';
+                            ctx.fillText(percentText.textContent, rect.width / 2, rect.height / 2 - 5);
+                        }
+                        
+                        if (strengthText) {
+                            ctx.font = '14px Helvetica';
+                            ctx.fillText(strengthText.textContent, rect.width / 2, rect.height / 2 + 20);
+                        }
+                        
+                        resolve(canvas.toDataURL('image/png'));
+                    });
+                };
+
+                // Helper function to check if we need a new page
+                const checkPageBreak = (heightNeeded) => {
+                    if (yPosition + heightNeeded > pageHeight - margin - 10) {
+                        pdf.addPage();
+                        yPosition = margin;
+                        return true;
+                    }
+                    return false;
+                };
+
+                // Helper function to add text with word wrapping
+                const addText = (text, fontSize, fontWeight = 'normal', color = [0, 0, 0], leftMargin = 0) => {
+                    pdf.setFontSize(fontSize);
+                    // Use helvetica as fallback for Montserrat
+                    // Map font weights: normal (400), medium (500), bold (700)
+                    let fontStyle = 'normal';
+                    if (fontWeight === 'bold' || fontWeight === 700) {
+                        fontStyle = 'bold';
+                    }
+                    pdf.setFont('helvetica', fontStyle);
+                    pdf.setTextColor(...color);
+                    
+                    const lines = pdf.splitTextToSize(text, contentWidth - leftMargin);
+                    const lineHeight = fontSize * 0.4;
+                    
+                    checkPageBreak(lines.length * lineHeight);
+                    
+                    lines.forEach((line) => {
+                        pdf.text(line, margin + leftMargin, yPosition);
+                        yPosition += lineHeight;
+                    });
+                    
+                    return lines.length * lineHeight;
+                };
+
+                // Add business logo at the top
+                const businessLogoUrl = appEl ? appEl.dataset.businessLogo : null;
+                if (businessLogoUrl) {
+                    try {
+                        const businessLogoImg = new Image();
+                        businessLogoImg.crossOrigin = 'anonymous';
+                        
+                        await new Promise((resolve, reject) => {
+                            businessLogoImg.onload = () => {
+                                try {
+                                    const canvas = document.createElement('canvas');
+                                    canvas.width = businessLogoImg.width;
+                                    canvas.height = businessLogoImg.height;
+                                    const ctx = canvas.getContext('2d');
+                                    ctx.drawImage(businessLogoImg, 0, 0);
+                                    
+                                    const logoDataUrl = canvas.toDataURL('image/png');
+                                    
+                                    const logoWidth = 50;
+                                    const logoHeight = (businessLogoImg.height / businessLogoImg.width) * logoWidth;
+                                    
+                                    pdf.addImage(logoDataUrl, 'PNG', margin, yPosition, logoWidth, logoHeight);
+                                    yPosition += logoHeight + 10;
+                                    resolve();
+                                } catch (err) {
+                                    console.error('Error adding business logo:', err);
+                                    resolve();
+                                }
+                            };
+                            
+                            businessLogoImg.onerror = () => {
+                                console.error('Failed to load business logo');
+                                resolve();
+                            };
+                            
+                            businessLogoImg.src = businessLogoUrl.startsWith('/') ? window.location.origin + businessLogoUrl : businessLogoUrl;
+                        });
+                    } catch (e) {
+                        console.error('Business logo loading error:', e);
+                    }
+                }
+
+                // Add title (matching h2 size and weight)
+                yPosition += 5;
+                addText(quiz.title || 'Business Health Report', 22, 500, [0, 0, 0]);
+                yPosition += 5;
+
+                // Get content element
+                const contentEl = document.getElementById('quizContent');
+                
+                // Capture and add score circle as image
+                const scoreCircle = contentEl.querySelector('.score-circle');
+                if (scoreCircle) {
+                    const scoreCircleImage = await elementToImage(scoreCircle);
+                    
+                    // Add "Overall Health" heading (h3 size)
+                    addText('Overall Health', 18, 500, [0, 0, 0]);
+                    yPosition += 2;
+                    
+                    // Add "Health Score" label (smaller, bold)
+                    pdf.setFontSize(9);
+                    pdf.setFont('helvetica', 'bold');
+                    pdf.text('Health Score', margin, yPosition);
+                    yPosition += 5;
+                    
+                    // Add score circle image (40mm width)
+                    const imgSize = 40;
+                    checkPageBreak(imgSize + 5);
+                    pdf.addImage(scoreCircleImage, 'PNG', margin, yPosition, imgSize, imgSize);
+                    yPosition += imgSize + 10;
+                }
+                
+                // Process quiz results
+                const resultsHeader = contentEl.querySelector('h2');
+                if (resultsHeader && !resultsHeader.textContent.includes('Overall Health')) {
+                    addText(resultsHeader.textContent.trim(), 18, 500, [0, 0, 0]);
+                    yPosition += 3;
+                }
+
+                // Process score/results cards
+                const resultsCards = contentEl.querySelectorAll('.results-card, .result-item');
+                resultsCards.forEach((card) => {
+                    checkPageBreak(20);
+                    
+                    const title = card.querySelector('h3, h4, .card-title, strong');
+                    if (title) {
+                        addText(title.textContent.trim(), 14, 500, [0, 70, 130]);
+                        yPosition += 2;
+                    }
+                    
+                    const description = card.querySelector('p, .card-text, .description');
+                    if (description) {
+                        addText(description.textContent.trim(), 10, 'normal', [43, 41, 45]);
+                        yPosition += 4;
+                    }
+                });
+
+                // Process all paragraphs and headings
+                const allElements = contentEl.querySelectorAll('h1, h2, h3, h4, h5, h6, p, ul, ol, .alert, .card-body, .message-body, .message-item');
+                allElements.forEach((el) => {
+                    // Skip already processed elements (but allow message-body and message-item in recommendations)
+                    if (el.closest('.results-actions') || el.closest('.stepper') || 
+                        el.closest('.quiz-nav-buttons') || el.closest('.btn-primary') || 
+                        el.closest('.ai-summary-section') || el.closest('.discover-more-section')) {
+                        return;
+                    }
+                    
+                    // For elements in quiz-recommendations, only process message-item and message-body (skip h3, h4, etc.)
+                    if (el.closest('.quiz-recommendations') && !el.classList.contains('message-body') && !el.classList.contains('message-item')) {
+                        return;
+                    }
+                    
+                    // Skip message-body if it's inside message-item (will be processed as part of message-item)
+                    if (el.classList.contains('message-body') && el.closest('.message-item')) {
+                        return;
+                    }
+
+                    const tagName = el.tagName.toLowerCase();
+                    const text = el.textContent.trim();
+                    
+                    if (!text) return;
+
+                    // Special handling for message-item (contains title and body)
+                    if (el.classList.contains('message-item')) {
+                        checkPageBreak(15);
+                        
+                        const titleEl = el.querySelector('.message-title');
+                        const bodyEl = el.querySelector('.message-body');
+                        
+                        // Render title
+                        if (titleEl && titleEl.textContent.trim()) {
+                            addText(titleEl.textContent.trim(), 12, 'bold', [0, 70, 130]);
+                            yPosition += 2;
+                        }
+                        
+                        // Render body with link handling
+                        if (bodyEl) {
+                            const fontSize = 10;
+                            const lineHeight = fontSize * 0.4;
+                            
+                            // Get all paragraph elements
+                            const paragraphs = bodyEl.querySelectorAll('p');
+                            
+                            if (paragraphs.length > 0) {
+                                // Process each paragraph separately
+                                paragraphs.forEach((pEl, pIndex) => {
+                                    const tempDiv = document.createElement('div');
+                                    tempDiv.innerHTML = pEl.innerHTML;
+                                    let currentX = margin;
+                                    
+                                    // Process text nodes and links
+                                    const processNode = (node) => {
+                                        if (node.nodeType === Node.TEXT_NODE) {
+                                            const textContent = node.textContent.trim();
+                                            if (textContent) {
+                                                pdf.setFontSize(fontSize);
+                                                pdf.setFont('helvetica', 'normal');
+                                                pdf.setTextColor(43, 41, 45);
+                                                
+                                                const words = pdf.splitTextToSize(textContent, contentWidth - (currentX - margin));
+                                                words.forEach((word) => {
+                                                    if (currentX + pdf.getTextWidth(word) > pageWidth - margin) {
+                                                        yPosition += lineHeight;
+                                                        currentX = margin;
+                                                        checkPageBreak(lineHeight);
+                                                    }
+                                                    pdf.text(word, currentX, yPosition);
+                                                    currentX += pdf.getTextWidth(word) + pdf.getTextWidth(' ');
+                                                });
+                                            }
+                                        } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'A') {
+                                            const linkText = node.textContent.trim();
+                                            const href = node.getAttribute('href');
+                                            if (linkText && href) {
+                                                pdf.setFontSize(fontSize);
+                                                pdf.setFont('helvetica', 'normal');
+                                                pdf.setTextColor(0, 123, 255); // Blue color for links
+                                                
+                                                const words = pdf.splitTextToSize(linkText, contentWidth - (currentX - margin));
+                                                words.forEach((word) => {
+                                                    if (currentX + pdf.getTextWidth(word) > pageWidth - margin) {
+                                                        yPosition += lineHeight;
+                                                        currentX = margin;
+                                                        checkPageBreak(lineHeight);
+                                                    }
+                                                    
+                                                    // Add the text
+                                                    pdf.text(word, currentX, yPosition);
+                                                    
+                                                    // Add clickable link
+                                                    const textWidth = pdf.getTextWidth(word);
+                                                    const textHeight = fontSize * 0.4;
+                                                    pdf.link(currentX, yPosition - textHeight + 2, textWidth, textHeight, { url: href });
+                                                    
+                                                    currentX += textWidth + pdf.getTextWidth(' ');
+                                                    
+                                                    // Underline the link
+                                                    pdf.setDrawColor(0, 123, 255);
+                                                    pdf.line(currentX - textWidth - pdf.getTextWidth(' '), yPosition + 1, currentX - pdf.getTextWidth(' '), yPosition + 1);
+                                                });
+                                            }
+                                        } else if (node.nodeType === Node.ELEMENT_NODE) {
+                                            // Handle other elements
+                                            const children = Array.from(node.childNodes);
+                                            children.forEach(processNode);
+                                        }
+                                    };
+                                    
+                                    const childNodes = Array.from(tempDiv.childNodes);
+                                    childNodes.forEach(processNode);
+                                    
+                                    // Add spacing after each paragraph (except the last one)
+                                    yPosition += lineHeight + 3;
+                                });
+                            } else {
+                                // Fallback: render entire body as before if no <p> tags
+                                const tempDiv = document.createElement('div');
+                                tempDiv.innerHTML = bodyEl.innerHTML;
+                                let currentX = margin;
+                                
+                                const processNode = (node) => {
+                                    if (node.nodeType === Node.TEXT_NODE) {
+                                        const textContent = node.textContent.trim();
+                                        if (textContent) {
+                                            pdf.setFontSize(fontSize);
+                                            pdf.setFont('helvetica', 'normal');
+                                            pdf.setTextColor(43, 41, 45);
+                                            
+                                            const words = pdf.splitTextToSize(textContent, contentWidth - (currentX - margin));
+                                            words.forEach((word) => {
+                                                if (currentX + pdf.getTextWidth(word) > pageWidth - margin) {
+                                                    yPosition += lineHeight;
+                                                    currentX = margin;
+                                                    checkPageBreak(lineHeight);
+                                                }
+                                                pdf.text(word, currentX, yPosition);
+                                                currentX += pdf.getTextWidth(word) + pdf.getTextWidth(' ');
+                                            });
+                                        }
+                                    } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'A') {
+                                        const linkText = node.textContent.trim();
+                                        const href = node.getAttribute('href');
+                                        if (linkText && href) {
+                                            pdf.setFontSize(fontSize);
+                                            pdf.setFont('helvetica', 'normal');
+                                            pdf.setTextColor(0, 123, 255);
+                                            
+                                            const words = pdf.splitTextToSize(linkText, contentWidth - (currentX - margin));
+                                            words.forEach((word) => {
+                                                if (currentX + pdf.getTextWidth(word) > pageWidth - margin) {
+                                                    yPosition += lineHeight;
+                                                    currentX = margin;
+                                                    checkPageBreak(lineHeight);
+                                                }
+                                                
+                                                pdf.text(word, currentX, yPosition);
+                                                
+                                                const textWidth = pdf.getTextWidth(word);
+                                                const textHeight = fontSize * 0.4;
+                                                pdf.link(currentX, yPosition - textHeight + 2, textWidth, textHeight, { url: href });
+                                                
+                                                currentX += textWidth + pdf.getTextWidth(' ');
+                                                
+                                                pdf.setDrawColor(0, 123, 255);
+                                                pdf.line(currentX - textWidth - pdf.getTextWidth(' '), yPosition + 1, currentX - pdf.getTextWidth(' '), yPosition + 1);
+                                            });
+                                        }
+                                    } else if (node.nodeType === Node.ELEMENT_NODE) {
+                                        const children = Array.from(node.childNodes);
+                                        children.forEach(processNode);
+                                    }
+                                };
+                                
+                                const childNodes = Array.from(tempDiv.childNodes);
+                                childNodes.forEach(processNode);
+                                
+                                yPosition += lineHeight + 3;
+                            }
+                        }
+                        return;
+                    }
+
+                    // Special handling for message-body (recommendations) with HTML content
+                    if (el.classList.contains('message-body')) {
+                        // Parse HTML content to handle links
+                        const tempDiv = document.createElement('div');
+                        tempDiv.innerHTML = el.innerHTML;
+                        let currentX = margin;
+                        const fontSize = 10;
+                        const lineHeight = fontSize * 0.4;
+                        
+                        checkPageBreak(15);
+                        
+                        // Process text nodes and links
+                        const processNode = (node) => {
+                            if (node.nodeType === Node.TEXT_NODE) {
+                                const textContent = node.textContent.trim();
+                                if (textContent) {
+                                    pdf.setFontSize(fontSize);
+                                    pdf.setFont('helvetica', 'normal');
+                                    pdf.setTextColor(43, 41, 45);
+                                    
+                                    const words = pdf.splitTextToSize(textContent, contentWidth - (currentX - margin));
+                                    words.forEach((word) => {
+                                        if (currentX + pdf.getTextWidth(word) > pageWidth - margin) {
+                                            yPosition += lineHeight;
+                                            currentX = margin;
+                                            checkPageBreak(lineHeight);
+                                        }
+                                        pdf.text(word, currentX, yPosition);
+                                        currentX += pdf.getTextWidth(word) + pdf.getTextWidth(' ');
+                                    });
+                                }
+                            } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'A') {
+                                const linkText = node.textContent.trim();
+                                const href = node.getAttribute('href');
+                                if (linkText && href) {
+                                    pdf.setFontSize(fontSize);
+                                    pdf.setFont('helvetica', 'normal');
+                                    pdf.setTextColor(0, 123, 255); // Blue color for links
+                                    
+                                    const words = pdf.splitTextToSize(linkText, contentWidth - (currentX - margin));
+                                    words.forEach((word, index) => {
+                                        if (currentX + pdf.getTextWidth(word) > pageWidth - margin) {
+                                            yPosition += lineHeight;
+                                            currentX = margin;
+                                            checkPageBreak(lineHeight);
+                                        }
+                                        
+                                        // Add the text
+                                        pdf.text(word, currentX, yPosition);
+                                        
+                                        // Add clickable link
+                                        const textWidth = pdf.getTextWidth(word);
+                                        const textHeight = fontSize * 0.4;
+                                        pdf.link(currentX, yPosition - textHeight + 2, textWidth, textHeight, { url: href });
+                                        
+                                        currentX += textWidth + pdf.getTextWidth(' ');
+                                        
+                                        // Underline the link
+                                        pdf.setDrawColor(0, 123, 255);
+                                        pdf.line(currentX - textWidth - pdf.getTextWidth(' '), yPosition + 1, currentX - pdf.getTextWidth(' '), yPosition + 1);
+                                    });
+                                }
+                            } else if (node.nodeType === Node.ELEMENT_NODE) {
+                                // Handle other elements like <strong>, <em>, etc.
+                                const children = Array.from(node.childNodes);
+                                children.forEach(processNode);
+                            }
+                        };
+                        
+                        const childNodes = Array.from(tempDiv.childNodes);
+                        childNodes.forEach(processNode);
+                        
+                        yPosition += lineHeight + 3;
+                        return;
+                    }
+
+                    // Handle headings
+                    if (tagName.startsWith('h')) {
+                        const level = parseInt(tagName.charAt(1));
+                        // Calculate font size based on heading level (matching CSS scale)
+                        const headingSizes = {
+                            1: 22, // h1 size
+                            2: 18, // h2 size
+                            3: 16, // h3 size
+                            4: 14, // h4 size
+                            5: 12, // h5 size
+                            6: 11  // h6 size
+                        };
+                        const fontSize = headingSizes[level] || 12;
+                        checkPageBreak(10);
+                        yPosition += 3;
+                        addText(text, fontSize, 500, [0, 0, 0]);
+                        yPosition += 2;
+                    }
+                    // Handle lists
+                    else if (tagName === 'ul' || tagName === 'ol') {
+                        const items = el.querySelectorAll('li');
+                        items.forEach((li, index) => {
+                            const bullet = tagName === 'ul' ? '-' : `${index + 1}.`;
+                            checkPageBreak(8);
+                            pdf.setFontSize(10);
+                            pdf.setTextColor(43, 41, 45);
+                            pdf.text(bullet, margin, yPosition);
+                            
+                            // Check if li contains HTML (links)
+                            if (li.innerHTML !== li.textContent) {
+                                // Process HTML content like message-body
+                                const tempDiv = document.createElement('div');
+                                tempDiv.innerHTML = li.innerHTML;
+                                let currentX = margin + 8; // Indent for bullet
+                                const fontSize = 10;
+                                const lineHeight = fontSize * 0.4;
+                                
+                                const processNode = (node) => {
+                                    if (node.nodeType === Node.TEXT_NODE) {
+                                        const textContent = node.textContent.trim();
+                                        if (textContent) {
+                                            pdf.setFontSize(fontSize);
+                                            pdf.setFont('helvetica', 'normal');
+                                            pdf.setTextColor(43, 41, 45);
+                                            
+                                            // Use splitTextToSize to properly handle line wrapping
+                                            const lines = pdf.splitTextToSize(textContent, contentWidth - 8);
+                                            checkPageBreak(lines.length * lineHeight);
+                                            
+                                            lines.forEach((line, lineIndex) => {
+                                                if (lineIndex > 0) {
+                                                    yPosition += lineHeight;
+                                                    currentX = margin + 8; // Reset indent for wrapped lines
+                                                }
+                                                pdf.text(line, currentX, yPosition);
+                                                currentX += pdf.getTextWidth(line);
+                                            });
+                                        }
+                                    } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'A') {
+                                        const linkText = node.textContent.trim();
+                                        const href = node.getAttribute('href');
+                                        if (linkText && href) {
+                                            pdf.setFontSize(fontSize);
+                                            pdf.setFont('helvetica', 'normal');
+                                            pdf.setTextColor(0, 123, 255); // Blue color for links
+                                            
+                                            // Use splitTextToSize for link text too
+                                            const lines = pdf.splitTextToSize(linkText, contentWidth - 8);
+                                            checkPageBreak(lines.length * lineHeight);
+                                            
+                                            lines.forEach((line, lineIndex) => {
+                                                if (lineIndex > 0) {
+                                                    yPosition += lineHeight;
+                                                    currentX = margin + 8; // Reset indent for wrapped lines
+                                                }
+                                                
+                                                // Add the text
+                                                pdf.text(line, currentX, yPosition);
+                                                
+                                                // Add clickable link
+                                                const textWidth = pdf.getTextWidth(line);
+                                                const textHeight = fontSize * 0.4;
+                                                pdf.link(currentX, yPosition - textHeight + 2, textWidth, textHeight, { url: href });
+                                                
+                                                currentX += textWidth;
+                                                
+                                                // Underline the link
+                                                pdf.setDrawColor(0, 123, 255);
+                                                pdf.line(currentX - textWidth, yPosition + 1, currentX, yPosition + 1);
+                                            });
+                                        }
+                                    } else if (node.nodeType === Node.ELEMENT_NODE) {
+                                        // Handle other elements
+                                        const children = Array.from(node.childNodes);
+                                        children.forEach(processNode);
+                                    }
+                                };
+                                
+                                const childNodes = Array.from(tempDiv.childNodes);
+                                childNodes.forEach(processNode);
+                                
+                                // Add spacing after this list item (similar to addText)
+                                yPosition += lineHeight;
+                            } else {
+                                // Simple text content
+                                addText(li.textContent.trim(), 10, 'normal', [43, 41, 45], 8);
+                            }
+                        });
+                        // Additional spacing after the list
+                        yPosition += 2;
+                    }
+                    // Handle alerts/callouts
+                    else if (el.classList.contains('alert')) {
+                        checkPageBreak(15);
+                        pdf.setFillColor(240, 240, 240);
+                        pdf.rect(margin, yPosition - 3, contentWidth, 10, 'F');
+                        addText(text, 10, 'normal', [100, 100, 0]);
+                        yPosition += 3;
+                    }
+                    // Handle paragraphs
+                    else if (tagName === 'p' && !el.closest('.results-card')) {
+                        checkPageBreak(10);
+                        addText(text, 10, 'normal', [43, 41, 45]);
+                        yPosition += 5;
+                    }
+                });
+
+                // Add AI Summary if exists
+                const aiSummary = contentEl.querySelector('.ai-summary-section');
+                if (aiSummary && !aiSummary.querySelector('.summary-loading')) {
+                    checkPageBreak(20);
+                    yPosition += 5;
+                    
+                    const summaryTitle = aiSummary.querySelector('h3, h4');
+                    if (summaryTitle) {
+                        addText(summaryTitle.textContent.trim(), 16, 500, [0, 100, 0]);
+                        yPosition += 2;
+                    }
+                    
+                    const summaryText = aiSummary.querySelector('.summary-content, p');
+                    if (summaryText) {
+                        addText(summaryText.textContent.trim(), 10, 'normal', [43, 41, 45]);
+                        yPosition += 5;
+                    }
+                }
+
+                // Add logo and disclaimer as normal content
+                yPosition += 10;
+                checkPageBreak(20);
+                
+                pdf.setDrawColor(222, 226, 230);
+                pdf.line(margin, yPosition, pageWidth - margin, yPosition);
+                yPosition += 5;
+                
+                // Add logo before disclaimer
+                const logoUrl = appEl ? appEl.dataset.ntgLogo : null;
+                if (logoUrl) {
+                    try {
+                        // Load and add logo image
+                        const logoImg = new Image();
+                        logoImg.crossOrigin = 'anonymous';
+                        
+                        await new Promise((resolve, reject) => {
+                            logoImg.onload = () => {
+                                try {
+                                    // Create canvas to convert logo to data URL
+                                    const canvas = document.createElement('canvas');
+                                    canvas.width = logoImg.width;
+                                    canvas.height = logoImg.height;
+                                    const ctx = canvas.getContext('2d');
+                                    ctx.drawImage(logoImg, 0, 0);
+                                    
+                                    const logoDataUrl = canvas.toDataURL('image/png');
+                                    
+                                    // Add logo to PDF (40mm width)
+                                    const logoWidth = 40;
+                                    const logoHeight = (logoImg.height / logoImg.width) * logoWidth;
+                                    
+                                    pdf.addImage(logoDataUrl, 'PNG', margin, yPosition, logoWidth, logoHeight);
+                                    yPosition += logoHeight + 5;
+                                    resolve();
+                                } catch (err) {
+                                    console.error('Error adding logo:', err);
+                                    resolve(); // Continue even if logo fails
+                                }
+                            };
+                            
+                            logoImg.onerror = () => {
+                                console.error('Failed to load logo');
+                                resolve(); // Continue even if logo fails
+                            };
+                            
+                            // Handle relative and absolute URLs
+                            logoImg.src = logoUrl.startsWith('/') ? window.location.origin + logoUrl : logoUrl;
+                        });
+                    } catch (e) {
+                        console.error('Logo loading error:', e);
+                        // Skip logo if can't load
+                    }
+                }
+                
+                pdf.setFontSize(8);
+                pdf.setFont('helvetica', 'bold');
+                pdf.setTextColor(43, 41, 45);
+                pdf.text('Disclaimer:', margin, yPosition);
+                yPosition += 4;
+                
+                const disclaimer = 'Laws and regulations can change over time. While we aim to provide accurate guidance and point you to helpful resources, it\'s important that you check whether the information is suitable for your specific situation. Every business is different, so please make sure any advice or material you use is right for your circumstances before making decisions or taking action.';
+                addText(disclaimer, 8, 'normal', [100, 100, 100]);
+
+                // Add page numbers
+                const totalPages = pdf.internal.getNumberOfPages();
+                for (let i = 1; i <= totalPages; i++) {
+                    pdf.setPage(i);
+                    pdf.setFontSize(9);
+                    pdf.setTextColor(128);
+                    pdf.text(
+                        `Page ${i} of ${totalPages}`,
+                        pageWidth / 2,
+                        pageHeight - 8,
+                        { align: 'center' }
+                    );
+                }
+
+                // Save the PDF
+                pdf.save(`${quiz.title || 'report'}.pdf`);
+
+            } catch (error) {
+                console.error('Error generating PDF:', error);
+                alert('Error generating PDF. Please try again.');
+            }
+        });
+
+        copyBtn.addEventListener('click', async () => {
+            try {
+                const encoded = window.State.encodeState(window.State.currentState);
+                const link = window.location.origin + window.location.pathname + `#?state=${encoded}`;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(link);
+                    alert('Link copied to clipboard');
+                } else {
+                    const ta = document.createElement('textarea');
+                    ta.value = link;
+                    document.body.appendChild(ta);
+                    ta.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(ta);
+                    alert('Link copied to clipboard');
+                }
+            } catch (e) {
+                alert('Copy failed: ' + e.message);
+            }
+        });
+
+        printBtn.addEventListener('click', () => {
+            // Clone content and remove action buttons
+            const contentEl = document.getElementById('quizContent');
+            const clone = contentEl.cloneNode(true);
+
+            // Remove the action buttons from the clone
+            const actionsWrap = clone.querySelector('.results-actions');
+            if (actionsWrap && actionsWrap.querySelector('button')) {
+                actionsWrap.remove();
+            }
+
+            // Remove the action buttons from the clone
+            const stepper = clone.querySelector('.stepper');
+            if (stepper) {
+                stepper.remove();
+            }
+
+            // Remove quiz navigation buttons
+            const navButtons = clone.querySelector('.quiz-nav-buttons');
+            if (navButtons) {
+                navButtons.remove();
+            }
+
+            // Remove contact button
+            const contactButton = clone.querySelector('.btn.btn-primary.mb-4');
+            if (contactButton) {
+                contactButton.remove();
+            }
+
+            // Remove AI summary section if still loading
+            const aiSummary = clone.querySelector('.ai-summary-section');
+            if (aiSummary && aiSummary.querySelector('.summary-loading')) {
+                aiSummary.remove();
+            }
+
+            // Add quiz title at the top
+            const titleElement = document.createElement('h1');
+            titleElement.textContent = quiz.title || 'Business Health Report';
+            titleElement.style.fontSize = '24px';
+            titleElement.style.fontWeight = '700';
+            titleElement.style.marginBottom = '20px';
+            clone.insertBefore(titleElement, clone.firstChild);
+
+            // Add footer with logo and disclaimer
+            const printFooter = document.createElement('div');
+            printFooter.className = 'row mt-5 pt-4 gy-2';
+            printFooter.style.borderTop = '1px solid #dee2e6';
+            const appEl = document.getElementById('app');
+            const logoUrl = appEl ? appEl.dataset.ntgLogo : '/assets/css-images/logo-ntg-color.svg';
+            printFooter.innerHTML = `
+                <div class="col-12">
+                    <img src="${logoUrl}" alt="Northern Territory Government" style="max-width: 150px; height: auto;">
+                </div>
+                <div class="col-12">
+                    <p>
+                        <strong>Disclaimer:</strong> Laws and regulations can change over time. While we aim to provide accurate guidance and point you to helpful resources, it's important that you check whether the information is suitable for your specific situation. Every business is different, so please make sure any advice or material you use is right for your circumstances before making decisions or taking action.
+                    </p>
+                </div>
+            `;
+            clone.appendChild(printFooter);
+
+            // Open a new window with the content for printing
+            const newWin = window.open('', '_blank');
+            if (!newWin) {
+                alert('Unable to open print window');
+                return;
+            }
+
+            // Get all stylesheets
+            const styles = Array.from(document.querySelectorAll('link[rel=stylesheet]'))
+                .map((l) => `<link rel="stylesheet" href="${l.href}">`)
+                .join('\n');
+
+            // Get inline styles from style tags
+            const inlineStyles = Array.from(document.querySelectorAll('style'))
+                .map((s) => `<style>${s.innerHTML}</style>`)
+                .join('\n');
+
+            // Add print-specific styles with page numbers
+            const printStyles = `
+                <style>
+                    @media print {
+                        body { margin: 0; padding: 20px; }
+                        * { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+                        
+                        @page {
+                            margin: 20mm 15mm;
+                            @bottom-center {
+                                content: "Page " counter(page) " of " counter(pages);
+                                font-size: 9pt;
+                                color: #808080;
+                            }
+                        }
+                        
+                        /* Fallback for browsers that don't support @page margin boxes */
+                        body::after {
+                            content: "";
+                            display: block;
+                            height: 50px;
+                        }
+                    }
+                </style>
+            `;
+
+            const html = `<!doctype html><html><head><meta charset="utf-8">${styles}${inlineStyles}${printStyles}<title>Print - ${quiz.title}</title></head><body><div class="ntg-quiz-body">${clone.innerHTML}</div></body></html>`;
+            newWin.document.open();
+            newWin.document.write(html);
+            newWin.document.close();
+            newWin.focus();
+            // give it a little time to render styles
+            setTimeout(() => {
+                newWin.print(); /* newWin.close(); */
+            }, 1000);
+        });
+
+        actionsWrap.appendChild(copyBtn);
+        actionsWrap.appendChild(printBtn);
+        actionsWrap.appendChild(pdfBtn);
+
+        if (isBusinessHealth) {
+            const paragraph = document.createElement('div');
+            paragraph.className = 'discover-more-section';
+            paragraph.innerHTML = '<h3>Discover more</h3><ul><li>Learn about <a href="https://business.nt.gov.au/help-for-business/applying-for-business-funding-and-grants">applying for business funding and grants</a></li><li>Find <a href="https://business.nt.gov.au/help-for-business/business-tools-and-learning/mental-health-in-the-workplace">mental health and wellbeing resources for businesses</a></li><li>Subscribe to the <a href="https://web.businesscrm.nt.gov.au/cn/awlvn/industry_det">NT Business Bulletin/a> for ongoing updates for businesses in the NT</li></li><li>Find current <a href="https://business.nt.gov.au/about-nt-business/events-and-business-awards">business events and awards/a> </li></ul>';
+            contentEl.appendChild(paragraph);
+        }
+        
+        document.getElementById('pageTitle').appendChild(actionsWrap);
+        // contentEl.appendChild(actionsWrap);
+        // Prev / Next quiz navigation
+        try {
+            const appEl = document.getElementById('app');
+            const navUrl = appEl ? appEl.dataset.quizMainNavigation : '../assets/data/mainNavigation.json';
+            const nav = await window.JSONCache.get(navUrl);
+            const idx = nav.quizzes.findIndex((q) => q.id === quizId);
+            const navWrap = document.createElement('div');
+            navWrap.className = 'quiz-nav-buttons';
+
+            const prevBtn = document.createElement('button');
+            prevBtn.className = 'secondary';
+            const nextBtn = document.createElement('button');
+            nextBtn.className = 'secondary';
+
+            if (idx > 0) {
+                prevBtn.textContent = nav.quizzes[idx - 1].title;
+            } else {
+                prevBtn.textContent = 'Previous Quiz';
+                prevBtn.disabled = true;
+            }
+
+            if (idx !== -1 && idx < nav.quizzes.length - 1) {
+                nextBtn.textContent = nav.quizzes[idx + 1].title;
+            } else {
+                nextBtn.textContent = 'Next Quiz';
+                nextBtn.disabled = true;
+            }
+
+            prevBtn.addEventListener('click', () => {
+                if (idx > 0) {
+                    const prevId = nav.quizzes[idx - 1].id;
+                    window.State.currentState.view = 'quiz';
+                    window.State.currentState.quizId = prevId;
+                    window.State.currentState.currentPage = 0;
+                    window.State.saveStateToUrl(window.State.currentState);
+                    // Scroll to quiz body
+                    setTimeout(() => {
+                        const quizBody = document.querySelector('.ntg-quiz-body');
+                        if (quizBody) {
+                            console.log('Scrolling');
+                            quizBody.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }, 100);
+                }
+            });
+            nextBtn.addEventListener('click', () => {
+                if (idx < nav.quizzes.length - 1) {
+                    const nextId = nav.quizzes[idx + 1].id;
+                    window.State.currentState.view = 'quiz';
+                    window.State.currentState.quizId = nextId;
+                    window.State.currentState.currentPage = 0;
+                    window.State.saveStateToUrl(window.State.currentState);
+                    // Scroll to quiz body
+                    setTimeout(() => {
+                        console.log('Scrolling');
+                        const quizBody = document.querySelector('.ntg-quiz-body');
+                        if (quizBody) {
+                            quizBody.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }
+                    }, 100);
+                }
+            });
+            navWrap.appendChild(prevBtn);
+            navWrap.appendChild(nextBtn);
+            contentEl.appendChild(navWrap);
+        } catch (e) {
+            /* ignore */
+        }
+    }
+
+    global.UI = {
+        renderStart,
+        renderChooseTopic,
+        renderQuizPage,
+        renderResults,
+    };
+})(window);

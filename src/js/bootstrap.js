@@ -13,4 +13,4 @@ window.bootstrap.Modal = require('bootstrap/js/dist/modal');
 // window.bootstrap.ScrollSpy = require('bootstrap/js/dist/scrollspy');
 window.bootstrap.Tab = require('bootstrap/js/dist/tab');
 // window.bootstrap.Toast = require('bootstrap/js/dist/toast');
-// window.bootstrap.Tooltip = require('bootstrap/js/dist/tooltip');
+window.bootstrap.Tooltip = require('bootstrap/js/dist/tooltip');

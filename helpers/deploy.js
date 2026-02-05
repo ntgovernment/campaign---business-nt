@@ -26,7 +26,7 @@ if (stagingUser !== '') {
       // Do deployment.
       try {
         const command = `
-            npm run static-prod &&
+            npm run build:dev &&
             ssh -p 2929 -o PasswordAuthentication=no root@43.242.69.3 "sudo su - ${stagingUser} -c 'mkdir -p /home/${stagingUser}/public_html/${currentFolderName}'" &&
             scp -r -P 2929 -o PasswordAuthentication=no ./dist/* root@43.242.69.3:/home/${stagingUser}/public_html/${currentFolderName}
         `;

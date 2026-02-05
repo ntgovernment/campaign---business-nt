@@ -1,6 +1,6 @@
 name: businessnt2024
 type: php
-docroot: /dist
+docroot: ./dist
 php_version: '8.1'
 webserver_type: nginx-fpm
 xdebug_enabled: false

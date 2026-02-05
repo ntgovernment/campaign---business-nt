@@ -1,0 +1,635 @@
+{
+    "id": "vehicleFleet",
+    "title": "Vehicle and Fleet Management Quiz",
+    "introduction": {
+        "body": "<p>Well done in taking steps to explore how you can increase the safety of your vehicle and fleet management. This questionnaire will take roughly 5-10 minutes. You will be able to download a report at the end of the questionnaire with suggestions on things you can do to improve your business staff safety.</p><p>If you have any questions or would like to talk about your business safety you can contact:<br/>NT Worksafe on 1800 019 115 or ntworksafe@nt.gov.au<br/>or a Territory Business Advisor on 1800 193 111 or businessinfo@nt.gov.au</p><p><strong>Disclaimer:</strong> Laws and regulations can change over time. While we aim to provide accurate guidance and point you to helpful resources, it's important that you check whether the information is suitable for your specific situation. Every business is different, so please make sure any advice or material you use is right for your circumstances before making decisions or taking action.</p>"
+    },
+    "pages": [
+        {
+            "title": "Vehicle Usage",
+            "questions": [
+                {
+                    "id": "usesVehicles",
+                    "type": "radio",
+                    "label": "Does your business operate from or use vehicles?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 0 },
+                        { "label": "No", "score": 0 }
+                    ],
+                    "recommendation": {
+                        "title": "Alternative Questionnaires",
+                        "body": "<p>This survey is for businesses that use vehicles. We recommend that you complete the Property Safety Questionnaire or the Staff Safety Questionnaire.</p>"
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Vehicle Security",
+            "questions": [
+                {
+                    "id": "securityFeatures",
+                    "type": "group",
+                    "label": "Are your vehicles fitted with any of these security features?",
+                    "positiveMessage": {
+                        "title": "Strong Vehicle Security!",
+                        "body": "<p>Great security starts with layered protection. The more barriers you have, the harder it is for intruders to gain access. Review your setup regularly and upgrade where needed.</p><p>Consider looking into installing any items you ticked 'no or unsure' for. Adding additional security items can help to prevent opportunistic crime at your business.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Enhance Vehicle Security",
+                        "body": "<p>Great security starts with layered protection. The more barriers you have, the harder it is for intruders to gain access. Review your setup regularly and upgrade where needed.</p><p>Consider looking into installing any items you ticked 'no or unsure' for. Adding additional security items can help to prevent opportunistic crime at your business.</p>"
+                    },
+                    "subQuestions": [
+                        {
+                            "id": "steeringWheelLock",
+                            "type": "radio",
+                            "label": "Steering wheel lock",
+                            "helpText": "Steering Wheel Lock: A device that secures the steering wheel in place, preventing it from being turned and making it difficult to drive the vehicle.",
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "Unsure", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "wheelBrakeLock",
+                            "type": "radio",
+                            "label": "Wheel brake lock",
+                            "helpText": "Wheel Brake Lock: A lock that attaches to a vehicle's wheel or brake disc, immobilizing it to prevent movement.",
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "Unsure", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "brakePedalLock",
+                            "type": "radio",
+                            "label": "Brake pedal lock",
+                            "helpText": "Brake Pedal Lock: A device that locks the brake pedal in a pressed or non-operational position, preventing the vehicle from being driven.",
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "Unsure", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "engineImmobilizer",
+                            "type": "radio",
+                            "label": "Engine Immobilizer",
+                            "helpText": "Engine Immobiliser: An anti-theft device that prevents a vehicle's engine from starting unless the correct key or electronic signal is detected, making it difficult for unauthorized users to start the engine.",
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "Unsure", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "gpsTracker",
+                            "type": "radio",
+                            "label": "GPS Tracker",
+                            "helpText": "GPS Tracker: A device that uses GPS technology to track and monitor the location of a vehicle in real-time, useful for recovery in case of theft.",
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "Unsure", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "dashCam",
+                            "type": "radio",
+                            "label": "Dash Cam",
+                            "helpText": "Dash Cam: A camera installed on the dashboard or windshield of a vehicle to record the road ahead (and sometimes behind), often used for security and evidence in accidents or theft.",
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "Unsure", "score": 0 }
+                            ]
+                        },
+                        {
+                            "id": "tintedWindows",
+                            "type": "radio",
+                            "label": "Tinted Windows",
+                            "helpText": "",
+                            "options": [
+                                { "label": "Yes", "score": 1 },
+                                { "label": "No", "score": 0 },
+                                { "label": "Unsure", "score": 0 }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "vehicleMaintenance",
+                    "type": "radio",
+                    "label": "Are the vehicle/s well maintained and regularly serviced?",
+                    "helpText": "A well-maintained vehicle is one that is regularly serviced, kept clean, and checked for safety issues like brakes, lights, tyres, and fluid levels, making it reliable and safe to drive.",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Well Maintained!",
+                        "body": "<p>Keeping vehicles well maintained and regularly serviced bolsters safety, reliability, and professionalism in your operations.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Improve Vehicle Maintenance",
+                        "body": "<p>Well-maintained vehicles are safer for staff and customers, reduce the risk of accidents, and help avoid costly breakdowns. Keep a regular service schedule, check tyres, brakes, and lights often, and record maintenance to stay on top of any issues.</p>"
+                    }
+                },
+                {
+                    "id": "vehicleStorage",
+                    "type": "radio",
+                    "label": "Are your vehicles stored in a safe, locked and well lit area when not in use?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Secure Storage!",
+                        "body": "<p>Your strength: storing vehicles in a safe, locked, and well-lit area protects assets and promotes security for your business.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Improve Vehicle Storage",
+                        "body": "<p>Storing vehicles securely helps prevent theft, vandalism, and damage, especially in remote or low-traffic areas. Use locked gates or garages, install motion-sensor lighting, and consider CCTV or security patrols if vehicles are stored overnight.</p>"
+                    }
+                },
+                {
+                    "id": "storageCCTV",
+                    "type": "radio",
+                    "label": "Does the place you store your vehicles when not in use have CCTV coverage?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Monitored Storage!",
+                        "body": "<p>Your strength: CCTV coverage for vehicle storage adds an extra layer of security and helps protect valuable assets.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Install CCTV",
+                        "body": "<p>CCTV coverage acts as a strong deterrent to theft and vandalism, and provides valuable evidence if an incident occurs. Install cameras that cover entry points and parking areas. Make sure you have visible signs stating that CCTV is in place. Ensure footage is stored securely and reviewed regularly.</p>"
+                    }
+                },
+                {
+                    "id": "vehicleInsurance",
+                    "type": "radio",
+                    "label": "Does your business hold the relevant level of insurance required for your vehicles?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Properly Insured!",
+                        "body": "<p>Your strength: holding the right level of vehicle insurance safeguards your business and ensures compliance with legal requirements.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Review Insurance Coverage",
+                        "body": "<p>Having the right level of insurance protects your business from financial loss due to accidents, theft, or damage involving your vehicles. Review your policy to ensure it covers all business-related use, liability, and asset protection. Speak with your insurer to confirm coverage matches your current operations.</p><p>If you do not have an insurer, advisor or broker, you can use <a href='https://business.gov.au/risk-management/insurance/manage-your-business-insurance#get-expert-advice' target='_blank' rel='noopener noreferrer'>this resource</a>.</p>"
+                    }
+                },
+                {
+                    "id": "vehiclesLocked",
+                    "type": "radio",
+                    "label": "Are vehicles kept locked when not in use?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Vehicles Secured!",
+                        "body": "<p>Your strength: keeping vehicles locked when not in use protects your assets and demonstrates strong security practices.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Lock Vehicles",
+                        "body": "<p>Keeping vehicles locked when not in use helps prevent theft, misuse, and unauthorised access to tools or equipment stored inside. Make sure you and your staff always lock doors and windows, even during short stops. Consider installing central locking systems and visible deterrents like steering locks.</p>"
+                    }
+                },
+                {
+                    "id": "vehicleKeyStorage",
+                    "type": "radio",
+                    "label": "Are keys kept in a safe, out of sight location when not in use?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Keys Secured!",
+                        "body": "<p>Your strength: keeping keys in a safe, out-of-sight location prevents unauthorised access and strengthens overall security.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Secure Key Storage",
+                        "body": "<p>Leaving keys in plain sight or unsecured areas increases the risk of theft or misuse, especially in busy or shared environments. Store keys in a locked cabinet or drawer, out of public view. Limit access to authorised staff and consider using a key register or tracking system.</p>"
+                    }
+                },
+                {
+                    "id": "unidentifiableKeys",
+                    "type": "radio",
+                    "label": "Are keys kept on an unidentifiable key ring?",
+                    "helpText": "Eg. If someone found the keys would they be able to tell which company or car they belonged to?",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Anonymous Keys!",
+                        "body": "<p>Your strength: using an unidentifiable key ring adds an extra layer of security and helps prevent unauthorised access.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Use Unidentifiable Key Rings",
+                        "body": "<p>Keys labeled with vehicle or business details can make it easier for thieves to target your assets if lost or stolen. Use unmarked key rings or coded labels that don't reveal what the key is for. Keep a separate record of key assignments in a secure location.</p>"
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Vehicle Management",
+            "questions": [
+                {
+                    "id": "vehicleLogbook",
+                    "type": "radio",
+                    "label": "Is there a system for logging vehicle usage for staff members?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Usage Tracked!",
+                        "body": "<p>Your strength: having a system to log vehicle usage promotes accountability and helps maintain safety and operational efficiency.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Implement Logbook System",
+                        "body": "<p>Logging vehicle usage helps track accountability, manage wear and tear, and ensure vehicles are used appropriately and safely. Use a logbook or digital system to record who used the vehicle, when, and for what purpose. Include odometer readings and any issues noticed during use.</p><p>Read information from the <a href='https://www.ato.gov.au/businesses-and-organisations/income-deductions-and-concessions/income-and-deductions-for-business/deductions/deductions-for-motor-vehicle-expenses/logbook-method' target='_blank' rel='noopener noreferrer'>ATO about logbooks</a> and how to use them effectively.</p>"
+                    }
+                },
+                {
+                    "id": "signInOutProcedures",
+                    "type": "radio",
+                    "label": "Are there procedures in place for management to know where employees are and when they are expected back?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Location Tracking!",
+                        "body": "<p>Your strength: having clear procedures for tracking staff locations and return times promotes safety and supports efficient operations.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Create Tracking Procedures",
+                        "body": "<p>Knowing where staff are and when they're expected back helps ensure their safety, improves coordination, and allows quick response in case of emergencies. Use a sign-out sheet, digital check-in system, or scheduling app to track staff movements. Make sure someone is responsible for monitoring and following up if needed.</p>"
+                    }
+                },
+                {
+                    "id": "vehicleIncidentReporting",
+                    "type": "radio",
+                    "label": "Is there an incident reporting process in your business?",
+                    "helpText": "An incident reporting process is a simple step-by-step way for staff to report any accidents, near misses, or safety concerns at work. It usually involves recording what happened, who was involved, when and where it occurred, and notifying the right person or team so action can be taken to prevent it happening again.",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "recommendation": {
+                        "title": "Create Incident Reporting Process",
+                        "body": "<p>A clear incident reporting process ensures safety issues are addressed quickly, helps prevent future incidents, and protects your business legally. Create a simple form for staff to report incidents, including what happened, when, and who was involved. Make sure staff know how and when to report, and that reports are reviewed and followed up promptly.</p><p>Consider applying to the <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program' target='_blank' rel='noopener noreferrer'>Business Growth Program</a> to help you with business safety.</p>"
+                    }
+                },
+                {
+                    "id": "incidentReportingCommunication",
+                    "type": "radio",
+                    "label": "Is your incident reporting process communicated with your staff regularly?",
+                    "helpText": "",
+                    "conditional": {
+                        "showWhen": {
+                            "vehicleIncidentReporting": "Yes"
+                        }
+                    },
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 },
+                        { "label": "N/A", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Well Communicated!",
+                        "body": "<p>Your strength: regularly communicating your incident reporting process builds trust and ensures staff know how to respond quickly and correctly.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Communicate Reporting Process",
+                        "body": "<p>Regular communication ensures staff understand how to report incidents and feel confident doing so. It also helps build a culture of safety and accountability. Discuss the reporting process during team meetings, include it in onboarding, and display clear instructions in shared areas. Encourage open communication and follow up on reported incidents.</p>"
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Tools, Equipment, and Valuables",
+            "questions": [
+                {
+                    "id": "carryTools",
+                    "type": "radio",
+                    "label": "Do you or your staff carry tools or equipment with them to do their work?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 0 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ]
+                },
+                {
+                    "id": "toolsSecured",
+                    "type": "radio",
+                    "label": "Do you keep the tools or equipment locked up and out of sight when not in use?",
+                    "helpText": "",
+                    "conditional": {
+                        "showWhen": {
+                            "carryTools": "Yes"
+                        }
+                    },
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Tools Secured!",
+                        "body": "<p>Your strength: securing tools and equipment when not in use reduces risk and demonstrates strong commitment to workplace safety.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Secure Tools",
+                        "body": "<p>Tools and equipment left out can be stolen, damaged, or misused, especially after hours or in shared spaces. Store items in locked cabinets, sheds, or toolboxes when not in use. Keep them out of sight and limit access to authorised staff only.</p>"
+                    }
+                },
+                {
+                    "id": "toolsRemovedAfterHours",
+                    "type": "radio",
+                    "label": "Do you remove tools or equipment from vehicles outside of operating hours?",
+                    "helpText": "",
+                    "conditional": {
+                        "showWhen": {
+                            "carryTools": "Yes"
+                        }
+                    },
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Tools Removed!",
+                        "body": "<p>Your strength: removing tools and equipment from vehicles after hours minimises theft risk and shows strong security awareness.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Remove Tools After Hours",
+                        "body": "<p>Leaving tools or equipment out after hours increases the risk of theft, damage, and unauthorised use, especially in outdoor or shared areas. Remove valuable items from vehicles or work sites at the end of the day. Store them in a locked, secure location and keep an inventory of what's removed and stored.</p>"
+                    }
+                },
+                {
+                    "id": "toolsInLockableCabinets",
+                    "type": "radio",
+                    "label": "Are tools or equipment stored in lockable cabinets or drawers in the vehicle?",
+                    "helpText": "",
+                    "conditional": {
+                        "showWhen": {
+                            "carryTools": "Yes",
+                            "toolsRemovedAfterHours": "No"
+                        }
+                    },
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Secured in Vehicle!",
+                        "body": "<p>Your strength: storing tools and equipment in lockable cabinets or drawers adds an extra layer of security and protects valuable assets.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Use Lockable Storage",
+                        "body": "<p>Storing tools and equipment securely in vehicles helps prevent theft, damage, and safety hazards, especially when parked in public or remote areas. Use lockable drawers, cabinets, or compartments in your vehicle to store tools and equipment. Make sure they're out of sight and locked when not in use, and train staff to follow secure storage procedures.</p>"
+                    }
+                },
+                {
+                    "id": "carryCash",
+                    "type": "radio",
+                    "label": "Do you or your staff carry cash when using the company vehicle?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "conditionalQuestionGroupPositiveMessage": {
+                        "title": "Cash Secured!",
+                        "body": "<p>Your strength: locking cash securely reduces theft risk and shows strong financial control practices. Having a clear cash handling procedure ensures consistency, accountability, and reduces financial risk.</p>"
+                    },
+                    "conditionalQuestionGroupRecommendation": {
+                        "title": "Improve Cash Management",
+                        "body": "<p>A clear procedure helps staff manage cash safely and consistently, reducing risk and improving accountability. Create a written process for carrying, storing, and depositing cash. Train staff on the procedure and review it regularly.</p>"
+                    }
+                },
+                {
+                    "id": "cashLockedContainer",
+                    "type": "radio",
+                    "label": "Is cash stored in a locked container?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "conditional": {
+                        "showWhen": {
+                            "carryCash": "Yes"
+                        }
+                    }
+                },
+                {
+                    "id": "cashRemovedWhenUnused",
+                    "type": "radio",
+                    "label": "Is cash removed when the vehicle is not in use?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "conditional": {
+                        "showWhen": {
+                            "carryCash": "Yes"
+                        }
+                    }
+                },
+                {
+                    "id": "cashHandlingProcedure",
+                    "type": "radio",
+                    "label": "Do you have a cash handling procedure?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "conditional": {
+                        "showWhen": {
+                            "carryCash": "Yes"
+                        }
+                    }
+                },
+                {
+                    "id": "sensitiveInfo",
+                    "type": "radio",
+                    "label": "Do you or your staff ever carry sensitive information or documentation in the company vehicle?",
+                    "helpText": "Sensitive information is any data that must be protected because it could cause harm if shared or accessed by the wrong people. This includes things like personal details, financial records, passwords, medical information, or confidential business documents.",
+                    "options": [
+                        { "label": "Yes", "score": 0 },
+                        { "label": "No", "score": 1 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "conditionalQuestionGroupPositiveMessage": {
+                        "title": "Information Protected!",
+                        "body": "<p>Your strength: removing sensitive information from unattended vehicles protects confidentiality and reduces security risks. Storing sensitive information securely safeguards privacy and demonstrates strong compliance practices.</p>"
+                    },
+                    "conditionalQuestionGroupRecommendation": {
+                        "title": "Protect Sensitive Information",
+                        "body": "<p>Carrying sensitive information in vehicles can expose your business to data breaches if the vehicle is broken into or stolen. Avoid leaving documents or devices with sensitive data in vehicles. If transport is necessary, store them in a locked compartment and remove them immediately after use. Consider using secure digital alternatives where possible.</p>"
+                    }
+                },
+                {
+                    "id": "sensitiveInfoRemoved",
+                    "type": "radio",
+                    "label": "Is this information removed from the vehicle when the vehicle is unattended?",
+                    "conditional": {
+                        "showWhen": {
+                            "sensitiveInfo": "Yes"
+                        }
+                    },
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ]
+                },
+                {
+                    "id": "sensitiveInfoStoredSecurely",
+                    "type": "radio",
+                    "label": "Is this information stored securely and sensitively?",
+                    "conditional": {
+                        "showWhen": {
+                            "sensitiveInfo": "Yes"
+                        }
+                    },
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Safety Equipment and Remote Travel",
+            "questions": [
+                {
+                    "id": "safetyEquipment",
+                    "type": "radio",
+                    "label": "Do your staff or yourself have access to all the necessary safety and security equipment whilst using the vehicle?",
+                    "helpText": "This refers to items such as first aid kits, fire equipment etc, emergency response equipment.",
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Well Equipped!",
+                        "body": "<p>Your strength: providing staff with access to all necessary safety and security equipment ensures preparedness and promotes a safe working environment.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Provide Safety Equipment",
+                        "body": "<p>Having access to safety and security equipment, like first aid kits, fire extinguishers, and emergency contact info, helps staff respond quickly to incidents and stay protected while on the road. Equip each vehicle with essential safety items and check them regularly. Make sure staff know where items are stored and how to use them.</p>"
+                    }
+                },
+                {
+                    "id": "remoteTravel",
+                    "type": "radio",
+                    "label": "Do staff travel to remote areas in company vehicles where they may have no phone reception or wifi whilst in transit?",
+                    "helpText": "",
+                    "options": [
+                        { "label": "Yes", "score": 0 },
+                        { "label": "No", "score": 1 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "recommendation": {
+                        "title": "Remote Travel Risks",
+                        "body": "<p>Remote travel without phone or internet access can pose serious safety risks if staff are unable to call for help or check in. Always have a travel plan, check-in schedule, and emergency contact procedures in place before heading out.</p>"
+                    }
+                },
+                {
+                    "id": "remoteEmergencyTraining",
+                    "type": "radio",
+                    "label": "Do they receive additional training on what to do in emergency situations?",
+                    "helpText": "",
+                    "conditional": {
+                        "showWhen": {
+                            "remoteTravel": "Yes"
+                        }
+                    },
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Well Trained!",
+                        "body": "<p>Your strength: providing additional emergency training and equipment for staff traveling to remote areas enhances safety and builds confidence in challenging situations.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Provide Emergency Training",
+                        "body": "<p>Provide regular training on remote travel safety, first aid, vehicle breakdowns, and communication protocols. Include scenario-based exercises to build confidence and preparedness.</p>"
+                    }
+                },
+                {
+                    "id": "remoteCommunicationEquipment",
+                    "type": "radio",
+                    "label": "Do they have additional communication equipment for their safety?",
+                    "helpText": "",
+                    "conditional": {
+                        "showWhen": {
+                            "remoteTravel": "Yes"
+                        }
+                    },
+                    "options": [
+                        { "label": "Yes", "score": 1 },
+                        { "label": "No", "score": 0 },
+                        { "label": "Unsure", "score": 0 }
+                    ],
+                    "positiveMessage": {
+                        "title": "Communication Equipment Provided!",
+                        "body": "<p>Your strength: equipping staff with additional communication equipment for remote travel demonstrates strong commitment to their safety and wellbeing.</p>"
+                    },
+                    "recommendation": {
+                        "title": "Provide Communication Equipment",
+                        "body": "<p>Equip vehicles with satellite phones, personal locator beacons (PLBs), or UHF radios to ensure staff can communicate in areas without phone reception. Test equipment regularly and train staff on how to use it in emergencies.</p>"
+                    }
+                }
+            ]
+        }
+    ]
+}

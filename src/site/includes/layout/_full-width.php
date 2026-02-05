@@ -16,13 +16,12 @@
         ?>
 
         <main class="">
-            <div id="content">
+            <div id="content1">
 
                 <div class="container">
                     <?php include("includes/global/_in-page-nav.php"); ?>
                 </div>
-                
-                
+
                 <?php echo $content ?>
 
             </div>

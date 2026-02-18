@@ -10,7 +10,7 @@
         data-mobileBusiness="../assets/data/quizzes/mobileBusiness.json"
         data-vehicleSafety="../assets/data/quizzes/vehicleSafety.json"
         data-ui-messages="../assets/data/uiMessages.json"
-        data-openai-api-key="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"
+        data-openai-api-key=""
     >
         <aside class="ntg-quiz-sidebar">
             <h2 class="ntg-quiz-sidebar__title">Business Safety and Security</h2>

@@ -29,7 +29,7 @@
             if (appEl.dataset[quizId]) {
                 return appEl.dataset[quizId];
             }
-            return `../assets/data/quizzes/${quizId}.json`;
+            return `../assets/data2/quizzes/${quizId}.json`;
         }
     }
 

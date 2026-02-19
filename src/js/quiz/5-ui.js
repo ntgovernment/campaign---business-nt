@@ -2543,7 +2543,7 @@
         if (isBusinessHealth) {
             const paragraph = document.createElement('div');
             paragraph.className = 'discover-more-section';
-            paragraph.innerHTML = '<h3>Discover more</h3><ul><li>Learn about <a href="https://business.nt.gov.au/help-for-business/applying-for-business-funding-and-grants">applying for business funding and grants</a></li><li>Find <a href="https://business.nt.gov.au/help-for-business/business-tools-and-learning/mental-health-in-the-workplace">mental health and wellbeing resources for businesses</a></li><li>Subscribe to the <a href="https://web.businesscrm.nt.gov.au/cn/awlvn/industry_det">NT Business Bulletin/a> for ongoing updates for businesses in the NT</li></li><li>Find current <a href="https://business.nt.gov.au/about-nt-business/events-and-business-awards">business events and awards/a> </li></ul>';
+            paragraph.innerHTML = '<h3>Discover more</h3><ul><li>Learn about <a href="https://business.nt.gov.au/help-for-business/applying-for-business-funding-and-grants">applying for business funding and grants</a></li><li>Find <a href="https://business.nt.gov.au/help-for-business/business-tools-and-learning/mental-health-in-the-workplace">mental health and wellbeing resources for businesses</a></li><li>Subscribe to the <a href="https://web.businesscrm.nt.gov.au/cn/awlvn/industry_det">NT Business Bulletin</a> for ongoing updates for businesses in the NT</li></li><li>Find current <a href="https://business.nt.gov.au/about-nt-business/events-and-business-awards">business events and awards</a> </li></ul>';
             contentEl.appendChild(paragraph);
         }
         

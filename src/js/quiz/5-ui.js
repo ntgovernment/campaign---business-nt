@@ -26,8 +26,8 @@
             return `../assets/business-health-checklist-quiz/quizzes/${quizId}.json`;
         } else {
             // Safety quizzes
-            if (appEl.dataset[quizId.toLowerCase()]) {
-                return appEl.dataset[quizId.toLowerCase()];
+            if (appEl.dataset[quizId]) {
+                return appEl.dataset[quizId];
             }
             return `../assets/data/quizzes/${quizId}.json`;
         }

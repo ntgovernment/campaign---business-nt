@@ -9,8 +9,6 @@
 
     // Helper function to get quiz URL from data attribute
     function getQuizUrl(quizId) {
-        console.log('Getting quiz URL for', quizId);
-
         const appEl = document.getElementById('app');
         if (!appEl) {
             return `../assets/data/quizzes/${quizId}.json`;

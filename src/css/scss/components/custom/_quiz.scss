@@ -158,14 +158,17 @@
                     font-weight: 700;
 
                     &.primary {
-                        background-color: $primary;
-                        color: $black;
+                        background-color: transparent;
+                        border-color: #2f9599;
+                        color: #2f9599;
+                        border: 2px solid #2f9599;
                         padding: 0.75rem 1rem;
                         border-radius: 8px;
                         transition: 0.2s background-color ease-in-out;
 
                         &:hover {
-                            background-color: darken($primary, 5%);
+                            background-color: #287C81;
+                            color: #fff;
                         }
 
                         @include media-breakpoint-down(md) {
@@ -757,7 +760,8 @@
             }
 
             + .btn-primary, + p + .btn-primary {
-                color: $black !important;
+                background-color: $primary !important;
+                color: #fff !important;
                 border-radius: 16px !important;
 
                 &:hover {

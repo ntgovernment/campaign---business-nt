@@ -1,0 +1,122 @@
+{
+  "id": "capacityAndContinuity",
+  "title": "Capacity & Continuity Quiz",
+  "introduction": {
+    "body": "<p>Check whether you have enough people, understand your critical roles and have plans in place to manage workforce changes and minimise disruption.</p>"
+  },
+  "pages": [
+    {
+      "title": "Current Workforce Capacity",
+      "questions": [
+        {
+          "id": "workforceAvailability",
+          "type": "radio",
+          "label": "Do you have enough people to meet your current and future business and project needs?",
+          "helpText": "Understanding your workforce capacity helps you spot staffing shortages before they affect your business or projects.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Well Staffed!",
+            "body": "<p>Your Strength: Your business appears to have the people needed to support your current operations and future work.</p>"
+          },
+          "recommendation": {
+            "title": "Review Workforce Capacity",
+            "body": "<p>Opportunity to Improve: Review workloads, overtime, vacancies and any pressure points before taking on additional work.</p><p>Understanding your current workforce capacity will help you decide whether you need to recruit, train or reorganise your team to meet future demand.</p><p>Learn more about <a href='https://business.gov.au/people/employees/workforce-planning' target='_blank'>workforce planning</a>.</p>"
+          }
+        },
+        {
+          "id": "criticalRolesAndFutureDemand",
+          "type": "radio",
+          "label": "Have you identified the critical workforce roles your business relies on and forecast future workforce requirements?",
+          "helpText": "Critical roles are the jobs your business can't operate without. These roles often require specialist skills, licences or experience and can be difficult to fill if someone leaves.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Critical Roles Identified!",
+            "body": "<p>Your Strength: You understand which roles are critical to your business and are planning ahead for future workforce needs.</p>"
+          },
+          "recommendation": {
+            "title": "Identify Critical Roles",
+            "body": "<p>Opportunity to Improve: Identify the roles that are essential to your business and future projects.</p><p>Consider:</p><ul><li>Which roles are hardest to recruit</li><li>Where skill shortages could affect your business</li><li>Future staffing needs</li><li>Training and succession requirements</li></ul><p>Planning ahead helps reduce disruption when vacancies occur.</p><p>Learn more about <a href='https://business.gov.au/people/employees/workforce-planning' target='_blank'>workforce planning</a>.</p><p>Access the <a href='./?a=111111' target='_blank'>Critical Roles & Succession Planning template</a> to identify critical personnel and develop succession plans.</p><p>Access workforce data through <a href='https://www.isacnt.org.au' target='_blank'>ISACNT</a> or <a href='https://www.jobsandskills.gov.au' target='_blank'>Jobs and Skills Australia</a>.</p>"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Managing Workforce Risks",
+      "questions": [
+        {
+          "id": "dependencyRisk",
+          "type": "radio",
+          "label": "Has your business reduced reliance on one or two key people or contractors?",
+          "helpText": "Relying on a small number of people can increase the risk of delays if they leave or are unavailable.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Low Dependency!",
+            "body": "<p>Your Strength: Your workforce structure supports business continuity and reduces the risk of disruptions caused by the loss or unavailability of key people.</p>"
+          },
+          "recommendation": {
+            "title": "Reduce Key Person Dependency",
+            "body": "<p>Opportunity to Improve: Identify where important knowledge, skills or responsibilities sit with only one or two people.</p><p>Reduce this risk by:</p><ul><li>Cross-training staff</li><li>Documenting key processes</li><li>Sharing knowledge across your team</li><li>Developing future leaders</li></ul><p>Learn more about <a href='https://business.gov.au/people/employees/workforce-planning' target='_blank'>workforce planning</a> and <a href='https://business.gov.au/risk-management' target='_blank'>risk management</a>.</p>"
+          }
+        },
+        {
+          "id": "successionPlanning",
+          "type": "radio",
+          "label": "Do you have a plan if key people leave your business or are unavailable?",
+          "helpText": "Staff turnover, retirements and unexpected absences can disrupt your business if no one is ready to step into key roles.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Succession Ready!",
+            "body": "<p>Your Strength: You are planning ahead to keep your business running smoothly when workforce changes occur.</p>"
+          },
+          "recommendation": {
+            "title": "Plan for Succession",
+            "body": "<p>Opportunity to Improve: Identify your key people and who could step into their role if needed.</p><p>Consider:</p><ul><li>Succession planning</li><li>Developing future leaders</li><li>Documenting important processes</li><li>Cross-training employees</li><li>Mentoring less experienced staff</li></ul><p>Planning ahead helps reduce disruption and protects valuable business knowledge.</p><p>Learn more about <a href='https://business.gov.au/people/employees/workforce-planning' target='_blank'>workforce planning</a> or <a href='https://business.gov.au/people/employees/staff-development-and-training' target='_blank'>staff development and training</a>.</p><p>Access the available <a href='./?a=111111' target='_blank'>Critical Roles & Succession Planning template</a> to identify critical personnel and develop succession plans.</p>"
+          }
+        },
+        {
+          "id": "localWorkforceParticipation",
+          "type": "radio",
+          "label": "Can your business utilise local or regional workforce capability where projects are delivered?",
+          "helpText": "Hiring local workers can reduce travel costs, improve workforce stability and create positive outcomes for local communities.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Locally Connected!",
+            "body": "<p>Your Strength: Your business is well placed to support local employment and workforce development.</p>"
+          },
+          "recommendation": {
+            "title": "Build Local Workforce Participation",
+            "body": "<p>Opportunity to Improve: Look for opportunities to employ local workers wherever possible.</p><p>Building relationships with employment providers, training organisations and community groups can help you find local talent and strengthen workforce pipelines.</p><p>Consider supporting:</p><ul><li>Apprenticeships</li><li>Traineeships</li><li>Indigenous employment</li><li>Local training opportunities</li></ul><p>Learn more about <a href='https://nt.gov.au/employ/apprenticeships-and-traineeships/become-an-apprentice-or-trainee/how-to-get-an-apprenticeship-or-traineeship-in-nt' target='_blank'>apprenticeships, traineeships</a> or <a href='https://www.niaa.gov.au/indigenous-affairs/employment/remote-australia-employment-service' target='_blank'>Remote Australia Employment Services (RAES)</a>.</p><p>You can also access recruitment support through:</p><ul><li><a href='https://www.workforceaustralia.gov.au/businesses/help' target='_blank'>Workforce Australia</a> for free recruitment assistance</li><li><a href='https://jointheterritory.nt.gov.au/work/Industry-jobs/recruitment-agencies' target='_blank'>Recruitment agencies</a> for specialist recruitment support</li></ul>"
+          }
+        }
+      ]
+    }
+  ],
+  "conclusion": {
+    "body": "<p><strong>Well done in completing this capacity and continuity questionnaire.</strong></p><p>Download or save your results. Use them to inform your Workforce Action Plan and strengthen your workforce readiness!</p>"
+  }
+}

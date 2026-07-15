@@ -15,9 +15,11 @@
       return `../assets/data/quizzes/${quizId}.json`;
     }
     
-    // Check if it's business health quiz
-    const isBusinessHealth = appEl.dataset.quiz === 'business-health-checklist';
-    
+    // Check quiz type
+    const quizType = appEl.dataset.quiz;
+    const isBusinessHealth = quizType === 'business-health-checklist';
+    const isWorkforceReadiness = quizType === 'workforce-readiness-checklist';
+
     if (isBusinessHealth) {
       // Safety quizzes
       if (appEl.dataset[quizId.toLowerCase()]) {
@@ -25,6 +27,12 @@
       }
       // Business health quizzes are in business-health-checklist-quiz/quizzes/
       return `../assets/business-health-checklist-quiz/quizzes/${quizId}.json`;
+    } else if (isWorkforceReadiness) {
+      if (appEl.dataset[quizId.toLowerCase()]) {
+        return appEl.dataset[quizId.toLowerCase()];
+      }
+      // Workforce readiness quizzes are in workforce-readiness-checklist-quiz/quizzes/
+      return `../assets/workforce-readiness-checklist-quiz/quizzes/${quizId}.json`;
     } else {
       // Safety quizzes
       if (appEl.dataset[quizId]) {

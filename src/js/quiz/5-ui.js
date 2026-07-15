@@ -14,9 +14,11 @@
             return `../assets/data/quizzes/${quizId}.json`;
         }
         
-        // Check if it's business health quiz
-        const isBusinessHealth = appEl.dataset.quiz === 'business-health-checklist';
-        
+        // Check quiz type
+        const quizType = appEl.dataset.quiz;
+        const isBusinessHealth = quizType === 'business-health-checklist';
+        const isWorkforceReadiness = quizType === 'workforce-readiness-checklist';
+
         if (isBusinessHealth) {
             // Business quizzes
             if (appEl.dataset[quizId.toLowerCase()]) {
@@ -24,6 +26,12 @@
             }
             // Business health quizzes are in business-health-checklist-quiz/quizzes/
             return `../assets/business-health-checklist-quiz/quizzes/${quizId}.json`;
+        } else if (isWorkforceReadiness) {
+            if (appEl.dataset[quizId.toLowerCase()]) {
+                return appEl.dataset[quizId.toLowerCase()];
+            }
+            // Workforce readiness quizzes are in workforce-readiness-checklist-quiz/quizzes/
+            return `../assets/workforce-readiness-checklist-quiz/quizzes/${quizId}.json`;
         } else {
             // Safety quizzes
             if (appEl.dataset[quizId]) {
@@ -904,7 +912,7 @@
                 return question.showRecommendationOnYes ? answer === 'No' : answer === 'Yes';
             }
             if (messageType === 'recommendation') {
-                return question.showRecommendationOnYes ? answer === 'Yes' : answer === 'No' || answer === 'Unsure';
+                return question.showRecommendationOnYes ? answer === 'Yes' : answer === 'No' || answer === 'Unsure' || answer === 'Partially';
             }
         }
 
@@ -1449,9 +1457,14 @@
         // Add paragraph for business health quiz
         const appEl = document.getElementById('app');
         const isBusinessHealth = appEl && appEl.dataset.quiz === 'business-health-checklist';
+        const isWorkforceReadiness = appEl && appEl.dataset.quiz === 'workforce-readiness-checklist';
         if (isBusinessHealth) {
             const paragraph = document.createElement('p');
             paragraph.innerHTML = 'Well done in completing this business health checklist to help you better understand your business and opportunities to improve.<br><br>Pick out a few key actions to work on at a time. Trying to change or improve everything at once will be difficult.<br><br>Would you like to speak to a Territory Business Advisor to speak about your results and make a plan of action?';
+            contentEl.appendChild(paragraph);
+        } else if (isWorkforceReadiness) {
+            const paragraph = document.createElement('p');
+            paragraph.innerHTML = 'Well done in completing this Workforce Readiness Checklist to help you better understand your workforce and opportunities to improve.<br><br>Use the results of this assessment to develop a Workforce Action Plan, focusing on high-risk workforce gaps first. Trying to change or improve everything at once will be difficult.<br><br>Would you like to speak to a Territory Business Advisor to discuss your results and next steps?';
             contentEl.appendChild(paragraph);
         }
 
@@ -1545,7 +1558,7 @@
                         const ans = answers[subQ.id];
                         if (subQ.type === 'radio') {
                             if (ans === 'Yes') hasPositive = true;
-                            if (ans === 'No' || ans === 'Unsure') hasNegative = true;
+                            if (ans === 'No' || ans === 'Unsure' || ans === 'Partially') hasNegative = true;
                         }
                     }
 
@@ -1588,7 +1601,7 @@
                             }
 
                             // Check if recommendation should be shown on Yes (special case for questions like cashOnsite)
-                            const shouldShowRec = subQ.showRecommendationOnYes ? ans === 'Yes' : ans === 'No' || ans === 'Unsure';
+                            const shouldShowRec = subQ.showRecommendationOnYes ? ans === 'Yes' : ans === 'No' || ans === 'Unsure' || ans === 'Partially';
 
                             if (shouldShowRec) {
                                 // Use conditionalQuestionGroupRecommendation from parent if it's a conditional question
@@ -1634,7 +1647,7 @@
                         }
 
                         // Check if recommendation should be shown on Yes (special case for questions like cashOnsite)
-                        const shouldShowRec = q.showRecommendationOnYes ? ans === 'Yes' : ans === 'No' || ans === 'Unsure';
+                        const shouldShowRec = q.showRecommendationOnYes ? ans === 'Yes' : ans === 'No' || ans === 'Unsure' || ans === 'Partially';
 
                         if (shouldShowRec) {
                             // Use conditionalQuestionGroupRecommendation from parent if it's a conditional question

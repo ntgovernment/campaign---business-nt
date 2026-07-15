@@ -24,8 +24,10 @@
 
                 // Get all JSON URLs from data attributes based on quiz type
                 let urls;
-                const isBusinessHealth = appEl.dataset.quiz === 'business-health-checklist';
-                
+                const quizType = appEl.dataset.quiz;
+                const isBusinessHealth = quizType === 'business-health-checklist';
+                const isWorkforceReadiness = quizType === 'workforce-readiness-checklist';
+
                 if (isBusinessHealth) {
                     urls = {
                         mainNavigation: appEl.dataset.quizMainNavigation,
@@ -36,6 +38,16 @@
                         manageChangeAndPrepareForDisruptions: appEl.dataset.manageChangeAndPrepareForDisruptions,
                         staffAndPeopleManagement: appEl.dataset.staffAndPeopleManagement,
                         understandYourCustomers: appEl.dataset.understandYourCustomers
+                    };
+                } else if (isWorkforceReadiness) {
+                    urls = {
+                        mainNavigation: appEl.dataset.quizMainNavigation,
+                        uiMessages: appEl.dataset.uiMessages,
+                        workforcePlanningAndRisk: appEl.dataset.workforcePlanningAndRisk,
+                        capacityAndContinuity: appEl.dataset.capacityAndContinuity,
+                        skillsAndDevelopment: appEl.dataset.skillsAndDevelopment,
+                        attractionAndRetention: appEl.dataset.attractionAndRetention,
+                        workforceAgilityAndContinuousImprovement: appEl.dataset.workforceAgilityAndContinuousImprovement
                     };
                 } else {
                     urls = {

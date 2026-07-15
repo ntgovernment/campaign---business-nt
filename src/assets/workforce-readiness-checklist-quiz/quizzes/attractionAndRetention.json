@@ -1,0 +1,123 @@
+{
+  "id": "attractionAndRetention",
+  "title": "Attraction & Retention Quiz",
+  "introduction": {
+    "body": "<p>Assess how well your business attracts new employees, supports existing staff and creates a workplace where people want to stay.</p>"
+  },
+  "pages": [
+    {
+      "title": "Recruitment",
+      "questions": [
+        {
+          "id": "recruitmentStrategy",
+          "type": "radio",
+          "label": "Do you have a recruitment plan to attract the people your business needs now and in the future?",
+          "helpText": "Planning ahead makes it easier to recruit the right people when new work or business opportunities arise.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Recruitment Ready!",
+            "body": "<p>Your Strength: You are proactively planning workforce attraction and recruitment activities to support future projects, business goals and staffing needs.</p>"
+          },
+          "recommendation": {
+            "title": "Develop a Recruitment Plan",
+            "body": "<p>Opportunity to Improve: Develop a recruitment plan that matches your future projects, business goals and staffing needs.</p><p>Consider:</p><ul><li>Identifying future staffing needs</li><li>Planning for hard-to-fill roles</li><li>Building relationships with schools, training providers and employment services</li><li>Exploring alternative workforce options where shortages exist</li></ul><p>Learn more about <a href='https://business.gov.au/people/employees/interview-and-recruit-employees' target='_blank'>interviewing and recruiting</a>.</p><p>Explore recruitment support through:</p><ul><li><a href='https://jobs.theterritory.com.au/p/for-employers' target='_blank'>Territory WorkerConnect</a> to promote the job opportunities available and directly connect with suitable jobseekers</li><li><a href='https://www.workforceaustralia.gov.au/businesses/help' target='_blank'>Workforce Australia</a> for free recruitment assistance</li><li><a href='https://jointheterritory.nt.gov.au/work/Industry-jobs/recruitment-agencies' target='_blank'>Recruitment agencies</a> for specialist recruitment support</li></ul>"
+          }
+        },
+        {
+          "id": "recruitmentChallenges",
+          "type": "radio",
+          "label": "Have you identified occupations or roles that may be difficult to recruit for?",
+          "helpText": "Hard-to-fill roles can delay projects, increase costs and place extra pressure on your existing workforce.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Market Aware!",
+            "body": "<p>Your Strength: You understand workforce market pressures and can plan accordingly.</p>"
+          },
+          "recommendation": {
+            "title": "Identify Recruitment Challenges",
+            "body": "<p>Opportunity to Improve: Identify the roles that are difficult to recruit now or may become difficult to fill in the future.</p><p>Understanding workforce shortages early gives you more time to recruit, train and build future workforce pipelines.</p><p>Review <a href='https://nt.gov.au/employ/for-employers-in-nt/skills-existing-and-needed/nt-labour-market-information' target='_blank'>labour market information</a> and <a href='https://www.isacnt.org.au/industry-sectors' target='_blank'>industry trends</a> to understand where shortages may affect your business.</p><p>Learn more about <a href='https://business.gov.au/people/employees/interview-and-recruit-employees' target='_blank'>interviewing and recruiting</a>.</p><p>If shortages are identified, consider:</p><ul><li><a href='https://nt.gov.au/employ/apprenticeships-and-traineeships/become-an-apprentice-or-trainee/how-to-get-an-apprenticeship-or-traineeship-in-nt' target='_blank'>Apprenticeships or Traineeships</a></li><li><a href='https://jobs.theterritory.com.au/p/for-employers' target='_blank'>Territory WorkerConnect</a> to promote the job opportunities available and directly connect with suitable jobseekers</li><li><a href='https://australiasnorthernterritory.com.au/move/migrate-to-work' target='_blank'>Skilled migration pathways</a> where workforce shortages persist</li><li><a href='https://www.workforceaustralia.gov.au/businesses/' target='_blank'>Workforce Australia</a> to connect with jobseekers</li><li>Connecting with skilled veterans through the <a href='./?a=111111' target='_blank'>Veteran Employment Program</a></li><li>Connecting with <a href='https://www.isacnt.org.au/industry-employers' target='_blank'>ISACNT</a> to better understand industry workforce challenges and available workforce solutions, which may result in the occupation being listed on the <a href='https://nt.gov.au/employ/for-employers-in-nt/skills-existing-and-needed/hard-to-fill-jobs-in-the-nt' target='_blank'>NT Skilled Occupation Priority List (NTSOPL)</a>, which can influence policy, funding and increase focus on emerging skill needs</li></ul><p>Seek advice from a <a href='https://business.nt.gov.au/help-for-business/territory-business-advisors' target='_blank'>Territory Business Advisor</a> to identify workforce support programs and workforce development opportunities.</p>"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Retention",
+      "questions": [
+        {
+          "id": "employeeExperience",
+          "type": "radio",
+          "label": "Does your business create a workplace where people want to stay?",
+          "helpText": "Employee retention is influenced by workplace culture, leadership, wellbeing, communication, flexibility and opportunities to learn and grow.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Positive Employee Experience!",
+            "body": "<p>Your Strength: You have workplace practices that support employee wellbeing, engagement and retention. You regularly seek employee feedback and use it to improve the workplace.</p>"
+          },
+          "recommendation": {
+            "title": "Improve Employee Experience",
+            "body": "<p>Opportunity to Improve: Think about what helps people enjoy working for your business and encourages them to stay.</p><p>Consider:</p><ul><li>Good leadership</li><li>Regular communication</li><li>Employee recognition</li><li>Career development</li><li>Flexible work arrangements</li><li>Wellbeing and mental health support</li><li>Managing psychosocial risks such as high workloads, fatigue, bullying or workplace conflict</li></ul><p>Learn more about <a href='https://business.gov.au/people/employees/flexible-working-arrangements' target='_blank'>flexible working arrangements</a> or <a href='https://business.gov.au/people/employees/end-employment' target='_blank'>exit interviews</a>.</p>"
+          }
+        },
+        {
+          "id": "accommodationAndLogistics",
+          "type": "radio",
+          "label": "Have you considered workforce accommodation, transport and travel requirements for regional or remote projects?",
+          "helpText": "For regional and remote work, accommodation, transport and travel can affect your ability to attract and retain workers.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 },
+            { "label": "N/A", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Logistics Ready!",
+            "body": "<p>Your Strength: You understand the workforce and operational challenges associated with regional and remote project delivery.</p>"
+          },
+          "recommendation": {
+            "title": "Plan Accommodation & Logistics",
+            "body": "<p>Opportunity to Improve: Plan accommodation, travel and transport early when preparing for regional or remote projects.</p><p>Consider:</p><ul><li>Accommodation availability</li><li>Travel arrangements</li><li>Roster design</li><li>Mobilisation planning</li><li>Employee wellbeing</li></ul><p>Planning ahead can improve recruitment, retention and project delivery.</p><p>Learn more about <a href='https://www.safeworkaustralia.gov.au/safety-topic/hazards/remote-and-isolated-work/managing-risks' target='_blank'>remote and isolated work</a>.</p>"
+          }
+        },
+        {
+          "id": "diversityAndInclusion",
+          "type": "radio",
+          "label": "Does your business actively support workforce diversity and inclusive employment practices?",
+          "helpText": "Diverse and inclusive workplaces help businesses attract more people, improve innovation and build stronger teams.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Inclusive Workplace!",
+            "body": "<p>Your Strength: You are creating a more inclusive and sustainable workforce.</p>"
+          },
+          "recommendation": {
+            "title": "Strengthen Diversity & Inclusion",
+            "body": "<p>Opportunity to Improve: Review your recruitment and employment practices to make sure everyone has the opportunity to succeed.</p><p>Creating an inclusive workplace can help you attract a wider range of people, improve employee engagement and strengthen workplace culture.</p><p>Learn more about <a href='https://business.gov.au/people/employees/equal-opportunity-and-diversity' target='_blank'>inclusive employment practices</a>.</p>"
+          }
+        }
+      ]
+    }
+  ],
+  "conclusion": {
+    "body": "<p><strong>Well done in completing this attraction and retention questionnaire.</strong></p><p>Download or save your results. Use them to inform your Workforce Action Plan and strengthen your workforce readiness!</p>"
+  }
+}

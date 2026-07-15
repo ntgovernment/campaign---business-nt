@@ -1,0 +1,167 @@
+{
+  "id": "workforceAgilityAndContinuousImprovement",
+  "title": "Workforce Agility & Continuous Improvement Quiz",
+  "introduction": {
+    "body": "<p>Review how well your business can respond to changing workloads, grow or scale your workforce, use workforce information and continuously improve your workforce planning.</p>"
+  },
+  "pages": [
+    {
+      "title": "Workforce Scalability",
+      "questions": [
+        {
+          "id": "scaling",
+          "type": "radio",
+          "label": "Can your workforce grow or reduce to meet changing business and project demands?",
+          "helpText": "Being able to scale your workforce up or down helps you respond to new opportunities, seasonal demand and changing workloads.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Scalable Workforce!",
+            "body": "<p>Your Strength: Your business can adjust its workforce to meet changing business needs.</p>"
+          },
+          "recommendation": {
+            "title": "Plan for Scaling",
+            "body": "<p>Opportunity to Improve: Think about how you would respond if your workload increased or decreased quickly.</p><p>Consider:</p><ul><li>Future recruitment needs</li><li>Access to contractors</li><li>Labour hire arrangements</li><li>Cross-trained employees</li><li>Workforce planning</li></ul><p>Planning ahead makes it easier to respond to changing demand.</p><p>Learn more about <a href='https://business.gov.au/people/employees/workforce-planning' target='_blank'>workforce planning</a>.</p>"
+          }
+        },
+        {
+          "id": "flexibleWorkforceArrangements",
+          "type": "radio",
+          "label": "Does your business utilise flexible workforce arrangements where appropriate?",
+          "helpText": "Flexible work arrangements can help attract and retain employees while improving workforce resilience.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Flexible Workforce!",
+            "body": "<p>Your Strength: You are using workforce flexibility to support operational resilience.</p>"
+          },
+          "recommendation": {
+            "title": "Explore Flexible Arrangements",
+            "body": "<p>Opportunity to Improve: Consider whether flexible work arrangements could benefit your business and employees.</p><p>This could include:</p><ul><li>Flexible start and finish times</li><li>Part-time work</li><li>Job sharing</li><li>Remote work (where suitable)</li><li>Flexible rosters</li></ul><p>Flexibility can improve employee wellbeing, attraction and retention.</p><p>Learn more about <a href='https://business.gov.au/people/employees/flexible-working-arrangements' target='_blank'>flexible working arrangements</a>.</p>"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Business Continuity",
+      "questions": [
+        {
+          "id": "contractorsAndLabourHire",
+          "type": "radio",
+          "label": "Do you have access to reliable contractors, subcontractors or labour hire providers and systems for managing contractor compliance?",
+          "helpText": "Contractors and labour hire providers can help businesses respond quickly when additional workers are needed.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Reliable Supply Chain!",
+            "body": "<p>Your Strength: You have workforce supply and contractor management processes that support workforce continuity and compliance.</p>"
+          },
+          "recommendation": {
+            "title": "Build Contractor Relationships",
+            "body": "<p>Opportunity to Improve: Identify trusted contractors and labour suppliers before you need them.</p><p>Building relationships early can help reduce delays when workloads increase or specialist skills are required.</p><p>It is also important to ensure contractor onboarding, safety, insurance and workforce compliance processes are documented and regularly reviewed.</p><p>Explore industry connection and supplier matching opportunities through the <a href='https://nt.icn.org.au/' target='_blank'>Industry Capability Network Northern Territory (ICN NT)</a>.</p><p>Learn more about <a href='https://business.gov.au/people/contractors/hiring-contractors' target='_blank'>engaging contractors and labour hire</a>.</p>"
+          }
+        },
+        {
+          "id": "commercialReadiness",
+          "type": "radio",
+          "label": "Do you have the finances, equipment and business systems needed to support your workforce and deliver projects?",
+          "helpText": "Having the right people is only part of being ready. Your business also needs sufficient finances, equipment and the right systems to support your workforce and keep projects running smoothly.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Commercially Ready!",
+            "body": "<p>Your Strength: Your business has the resources and systems in place to support your workforce and deliver projects successfully. You are well prepared to take on new work as opportunities arise.</p>"
+          },
+          "recommendation": {
+            "title": "Strengthen Commercial Readiness",
+            "body": "<p>Opportunity to Improve: Check that your business has the resources needed to support your workforce now and as your business grows. If you don't have enough cash flow, equipment or the right systems, it can make it harder to hire workers, support your team and deliver projects.</p><p>Consider:</p><ul><li>Do you have enough cash flow to pay wages and cover day-to-day business costs?</li><li>Will you have enough money before project payments are received?</li><li>Does your workforce have the tools, equipment and PPE they need?</li><li>Is your equipment well maintained and ready for use?</li><li>Will your business systems support more staff and larger projects?</li></ul><p>Improving your business readiness can help you grow with confidence, support your workforce and deliver projects successfully.</p><p>Learn more about <a href='https://business.gov.au/finance/cash-flow' target='_blank'>managing business cash flow</a>.</p>"
+          }
+        },
+        {
+          "id": "multiSkilling",
+          "type": "radio",
+          "label": "Are workers trained across multiple tasks or operational areas?",
+          "helpText": "Employees with a range of skills help your business respond when workloads change or staff are unavailable.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Multi-Skilled Team!",
+            "body": "<p>Your Strength: You are developing workforce capability and flexibility to support operational resilience and future growth.</p>"
+          },
+          "recommendation": {
+            "title": "Build Multi-Skilling",
+            "body": "<p>Opportunity to Improve: Look for opportunities to broaden employee skills through training, mentoring and job rotation.</p><p>Multi-skilled employees improve flexibility, reduce dependency on key people and strengthen business resilience.</p><p>Consider developing a <a href='./?a=111111' target='_blank'>Skills Matrix</a> to map employee skills, qualifications, licences, certifications and experience and opportunities to train workers across multiple tasks or operational areas.</p><p>Learn more about <a href='https://business.gov.au/people/employees/staff-development-and-training' target='_blank'>staff development and training</a>.</p>"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Continuous Improvement",
+      "questions": [
+        {
+          "id": "workforceData",
+          "type": "radio",
+          "label": "Do you use internal workforce data to support planning and decision-making?",
+          "helpText": "Keeping basic workforce data helps you make informed decisions about recruitment, training and future workforce needs.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Data Driven!",
+            "body": "<p>Your Strength: You use workforce data to support planning, decision-making and workforce management.</p>"
+          },
+          "recommendation": {
+            "title": "Use Workforce Data",
+            "body": "<p>Opportunity to Improve: Review the workforce information you currently collect and identify opportunities to strengthen workforce reporting and decision-making. Understanding workforce trends can help identify risks, pressures and future needs.</p><p>Consider expanding the range of data you use to include:</p><ul><li>Employee satisfaction and engagement feedback</li><li>Exit interview insights (to understand why people leave)</li><li>Internal movement (transfers in and out of roles to identify workforce flow)</li><li>Workers' compensation claims (to identify safety or workload risks)</li><li>Client or customer feedback (to identify capability gaps and training needs)</li></ul><p>Learn more about <a href='https://business.gov.au/people/employees/employee-records' target='_blank'>employee records</a> or <a href='https://business.gov.au/people/employees/end-employment' target='_blank'>exit interviews</a>.</p>"
+          }
+        },
+        {
+          "id": "workforceReviews",
+          "type": "radio",
+          "label": "Do you review workforce lessons learned after projects or major operational activities?",
+          "helpText": "Regularly reviewing your workforce helps you identify new risks, monitor progress and keep your workforce plans up to date.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Continuous Improvement!",
+            "body": "<p>Your Strength: You regularly review your workforce and update your plans as your business changes.</p>"
+          },
+          "recommendation": {
+            "title": "Schedule Workforce Reviews",
+            "body": "<p>Opportunity to Improve: Set aside time each year - or whenever your business changes significantly - to review your workforce.</p><p>Revisit this Workforce Readiness Assessment to:</p><ul><li>Check your progress</li><li>Identify new workforce risks</li><li>Update your <a href='./?a=111111' target='_blank'>Workforce Action Plan</a></li><li>Refresh your priorities</li></ul><p>Regular reviews help keep your workforce plans relevant as your business grows and changes.</p><p>Learn more about <a href='https://business.gov.au/people/employees/workforce-planning' target='_blank'>workforce reviews</a>.</p><p>Seek support through the <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program' target='_blank'>Business Growth Program</a>, where support from a workforce consultant may be beneficial.</p>"
+          }
+        }
+      ]
+    }
+  ],
+  "conclusion": {
+    "body": "<p><strong>Well done in completing this workforce agility and continuous improvement questionnaire.</strong></p><p>Download or save your results. Use them to inform your Workforce Action Plan and strengthen your workforce readiness!</p>"
+  }
+}

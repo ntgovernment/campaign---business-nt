@@ -1,0 +1,122 @@
+{
+  "id": "workforcePlanningAndRisk",
+  "title": "Workforce Planning & Risk Quiz",
+  "introduction": {
+    "body": "<p>Review how well your business plans for future workforce needs, identifies workforce risks and prepares for new projects and business growth.</p>"
+  },
+  "pages": [
+    {
+      "title": "Workforce Planning",
+      "questions": [
+        {
+          "id": "workforcePlanning",
+          "type": "radio",
+          "label": "Do you have a workforce plan aligned to your business goals, future projects and workforce needs?",
+          "helpText": "Good workforce planning helps you prepare for future work, business growth and changing workforce needs.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Plan in Place!",
+            "body": "<p>Your Strength: You are proactively planning workforce requirements.</p>"
+          },
+          "recommendation": {
+            "title": "Start Workforce Planning",
+            "body": "<p>Opportunity to Improve: Completing this Workforce Readiness Checklist is a great first step in workforce planning. It helps you understand your current workforce, identify future workforce needs and highlight areas that may require action.</p><p>Use your assessment results and the <a href='./?a=111111' target='_blank'>Workforce Action Plan template</a> to prioritise actions and support the development of a workforce plan that aligns with your business goals, future projects and workforce needs.</p><p>Learn more about <a href='https://business.gov.au/people/employees/workforce-planning' target='_blank'>workforce planning</a>.</p><p>Seek workforce planning support through the <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program' target='_blank'>Business Growth Program</a>, where support from a workforce consultant may be beneficial.</p>"
+          }
+        },
+        {
+          "id": "communityWorkforcePlans",
+          "type": "radio",
+          "label": "Do you use local workforce information, such as existing Community Workforce Plans, to inform your workforce planning and workforce development activities?",
+          "helpText": "Community Workforce Plans help businesses understand local employment opportunities, workforce needs and training pathways within the communities where they operate.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Locally Informed!",
+            "body": "<p>Your Strength: You are using local workforce intelligence to support workforce planning, workforce development and local employment outcomes.</p>"
+          },
+          "recommendation": {
+            "title": "Use Community Workforce Plans",
+            "body": "<p>Opportunity to Improve: If you work in regions where a Community Workforce Plan exists, use it to understand local skills, workforce priorities and employment opportunities.</p><p>Working with local communities can help you build local workforce capability and improve access to workers.</p><p>Learn more about and access published <a href='https://nt.gov.au/employ/for-employers-in-nt/skills-existing-and-needed/remote-community-workforce-plan' target='_blank'>Community Workforce Plans</a>.</p>"
+          }
+        },
+        {
+          "id": "industryIntelligence",
+          "type": "radio",
+          "label": "Do you consider existing industry development plans, strategies or workforce priorities when planning your workforce needs?",
+          "helpText": "Industry information can help you understand future opportunities, workforce trends, emerging skills and recruitment challenges.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Industry Informed!",
+            "body": "<p>Your Strength: You are using industry insights and workforce intelligence to support workforce planning and future workforce development.</p>"
+          },
+          "recommendation": {
+            "title": "Use Industry Intelligence",
+            "body": "<p>Opportunity to Improve: Review industry plans, workforce strategies and labour market information to understand future workforce needs.</p><p>Using industry information can help you plan recruitment, training and workforce development before shortages affect your business.</p><p>Learn more through <a href='https://www.isacnt.org.au/industry-sectors' target='_blank'>ISACNT</a> or a peak <a href='https://jointheterritory.nt.gov.au/work/Industry_and_associations' target='_blank'>Industry Association</a>.</p>"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Workforce Risk & Action",
+      "questions": [
+        {
+          "id": "riskAssessments",
+          "type": "radio",
+          "label": "Have you identified workforce risks and developed actions to address them?",
+          "helpText": "Workforce risks such as labour shortages, skills gaps, workforce availability, hidden dependencies or compliance issues can impact business operations and project delivery.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Risk Aware!",
+            "body": "<p>Your Strength: You understand workforce risks, including key dependencies, and are actively implementing actions to strengthen workforce resilience and continuity.</p>"
+          },
+          "recommendation": {
+            "title": "Assess Workforce Risks",
+            "body": "<p>Opportunity to Improve: Identify the workforce risks that could affect your business or future projects. Once you've identified the risks, develop practical actions, assign responsibilities and set realistic timeframes.</p><p>Completing this assessment will help identify workforce risks that may not be immediately obvious and improve your workforce readiness.</p><p>Learn more about <a href='https://business.gov.au/risk-management' target='_blank'>risk management</a>.</p><p>Access workforce data and future workforce insights through <a href='https://www.isacnt.org.au' target='_blank'>ISACNT</a> or <a href='https://www.jobsandskills.gov.au' target='_blank'>Jobs and Skills Australia</a>.</p><p>Seek workforce planning support through the <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program' target='_blank'>Business Growth Program</a>, where support from a workforce consultant may be beneficial.</p>"
+          }
+        },
+        {
+          "id": "workforceActionPlan",
+          "type": "radio",
+          "label": "Have you developed a Workforce Action Plan to address identified workforce risks, gaps and opportunities?",
+          "helpText": "A Workforce Action Plan helps turn workforce planning into practical actions. It identifies priority workforce issues, assigns responsibilities, sets timeframes and helps ensure your business is prepared to respond to future workforce needs and project opportunities.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Action Plan Ready!",
+            "body": "<p>Your Strength: You have identified workforce priorities and established actions to strengthen workforce capability, reduce workforce risks and improve workforce readiness.</p>"
+          },
+          "recommendation": {
+            "title": "Develop an Action Plan",
+            "body": "<p>Opportunity to Improve: Use the results of this Workforce Readiness Assessment to develop a <a href='./?a=111111' target='_blank'>Workforce Action Plan</a> that addresses identified workforce risks, capability gaps and workforce priorities. Focus on the areas that present the greatest risk to your business and prioritise actions that will have the biggest impact.</p><p>When developing your plan:</p><ul><li>Set SMART goals (Specific, Measurable, Achievable, Relevant and Time-bound)</li><li>Assign responsibilities</li><li>Set realistic timeframes</li><li>Review progress regularly</li></ul><p>Use the <a href='./?a=111111' target='_blank'>Workforce Action Plan template</a> and risk ratings (High, Medium and Low) to prioritise your actions.</p>"
+          }
+        }
+      ]
+    }
+  ],
+  "conclusion": {
+    "body": "<p><strong>Well done in completing this workforce planning and risk questionnaire.</strong></p><p>Download or save your results. Use them to inform your Workforce Action Plan and strengthen your workforce readiness!</p>"
+  }
+}

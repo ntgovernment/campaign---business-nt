@@ -1,0 +1,182 @@
+{
+  "id": "skillsAndDevelopment",
+  "title": "Skills & Development Quiz",
+  "introduction": {
+    "body": "<p>Review the skills, qualifications, training and leadership capability of your workforce, and identify opportunities to build future capability.</p>"
+  },
+  "pages": [
+    {
+      "title": "Skills",
+      "questions": [
+        {
+          "id": "skillsAssessmentAndRecords",
+          "type": "radio",
+          "label": "Have you assessed the current skills and qualifications of your workforce?",
+          "helpText": "Understanding the skills and qualifications of your workforce helps you identify gaps, plan training and prepare for future business needs.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Skills Mapped!",
+            "body": "<p>Your Strength: You understand the skills within your business and are planning ahead for future workforce needs.</p>"
+          },
+          "recommendation": {
+            "title": "Assess Workforce Skills",
+            "body": "<p>Opportunity to Improve: Review the skills, qualifications and experience of your workforce to identify any gaps and future training needs.</p><p>Access the <a href='./?a=111111' target='_blank'>Skills Matrix</a> to help identify where additional training, recruitment or succession planning may be needed.</p><p>Learn more about <a href='https://business.gov.au/people/employees/workforce-planning' target='_blank'>workforce planning</a> or <a href='https://business.gov.au/people/employees/staff-development-and-training' target='_blank'>staff development and training</a>.</p>"
+          }
+        },
+        {
+          "id": "industryCertifications",
+          "type": "radio",
+          "label": "Do your workers hold and maintain the licences and certifications required for their roles?",
+          "helpText": "Many jobs require licences, tickets or certifications to meet legal, safety or client requirements.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Fully Certified!",
+            "body": "<p>Your Strength: Your workforce appears compliant, appropriately qualified and ready to support operational and project requirements.</p>"
+          },
+          "recommendation": {
+            "title": "Maintain Certifications",
+            "body": "<p>Opportunity to Improve: Check that your employees hold the licences, tickets and certifications they need for their roles.</p><p>Keep track of renewal dates and schedule refresher training before qualifications expire. Maintaining records and scheduling refresher training can help ensure your workforce remains compliant and project ready.</p><p>Learn more about <a href='https://nt.gov.au/industry/licences' target='_blank'>NT licences, registrations, permits and industry-specific requirements</a>.</p><p>Learn more about <a href='https://ablis.business.gov.au/search/activity' target='_blank'>Territory and Commonwealth licensing requirements</a> relevant to your business activities.</p><p>Explore funded training opportunities through public Registered Training Organisations (RTOs), such as <a href='https://www.cdu.edu.au/study/tafe-courses' target='_blank'>Charles Darwin University</a> or <a href='https://www.batchelor.edu.au/courses/' target='_blank'>Bachelor Institute</a>, or via the <a href='https://nt.gov.au/employ/apprenticeships-and-traineeships/become-an-apprentice-or-trainee/nt-apprenticeships-and-traineeships-database' target='_blank'>NT Apprenticeships and Traineeships Database</a> to support compliance and development.</p>"
+          }
+        },
+        {
+          "id": "employeePerformanceAndFeedback",
+          "type": "radio",
+          "label": "Do you regularly talk with your employees about their work, goals and performance?",
+          "helpText": "Regular conversations help employees understand what's expected of them, recognise good work and identify areas where they may need extra support or training.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Engaged Feedback!",
+            "body": "<p>Your Strength: You regularly support your employees by setting clear expectations, providing feedback and helping them develop their skills.</p>"
+          },
+          "recommendation": {
+            "title": "Increase Employee Check-ins",
+            "body": "<p>Opportunity to Improve: Make time to regularly check in with your employees about how they're going. These conversations don't need to be formal - they can be part of day-to-day work or regular one-on-one meetings.</p><p>Use these discussions to:</p><ul><li>Set clear expectations</li><li>Recognise good work</li><li>Discuss any challenges</li><li>Identify training or development needs</li><li>Agree on goals and next steps</li></ul><p>Regular feedback helps employees stay engaged, build their skills and perform at their best.</p><p>Learn more about <a href='https://www.fairwork.gov.au/employment-conditions/performance-in-the-workplace' target='_blank'>managing employee performance</a>.</p>"
+          }
+        },
+        {
+          "id": "rolesAndResponsibilities",
+          "type": "radio",
+          "label": "Does your business have clear roles and responsibilities that support the way your team works?",
+          "helpText": "When everyone understands their role and who they report to, it improves communication, accountability and day-to-day operations.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Clear Roles!",
+            "body": "<p>Your Strength: Your team has clear roles and responsibilities, helping your business operate efficiently and support future growth.</p>"
+          },
+          "recommendation": {
+            "title": "Clarify Roles & Responsibilities",
+            "body": "<p>Opportunity to Improve: As your business grows, take time to review whether your team structure still meets your needs. Clearly defined roles can improve communication, reduce duplication and make sure people are working where they can add the most value.</p><p>Consider:</p><ul><li>Reviewing job descriptions and responsibilities</li><li>Making sure reporting lines are clear</li><li>Checking workloads are shared fairly</li><li>Identifying opportunities to reorganise roles as your business grows</li><li>Making sure employees have the skills needed for their role</li></ul><p>Clear roles and responsibilities help your business run more smoothly and make it easier to plan for future growth.</p><p>Learn more about <a href='https://business.gov.au/people/employees/interview-and-recruit-employees' target='_blank'>reviewing your current staff structure and creating job descriptions</a>.</p>"
+          }
+        }
+      ]
+    },
+    {
+      "title": "Future Capability",
+      "questions": [
+        {
+          "id": "trainingAndDevelopment",
+          "type": "radio",
+          "label": "Do you actively invest in workforce training, upskilling and professional development?",
+          "helpText": "Investing in training helps your workforce build new skills, adapt to change and prepare for future work.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Investing in People!",
+            "body": "<p>Your Strength: You are investing in your people and building capability for the future.</p>"
+          },
+          "recommendation": {
+            "title": "Invest in Training",
+            "body": "<p>Opportunity to Improve: Identify the training that will have the greatest benefit for your business, based on future projects, business goals and workforce needs.</p><p>Consider technical training, safety training, leadership development and digital skills.</p><p>Learn more about <a href='https://business.gov.au/people/employees/staff-development-and-training' target='_blank'>staff development and training</a>.</p><p>Explore training opportunities through <a href='https://www.yourcareer.gov.au/learn-and-train/courses' target='_blank'>Your Career</a>, <a href='https://education.nt.gov.au/policies/skills-nt' target='_blank'>Skills NT</a> or the <a href='https://nt.gov.au/employ/apprenticeships-and-traineeships/become-an-apprentice-or-trainee/nt-apprenticeships-and-traineeships-database' target='_blank'>NT Apprenticeships and Traineeships Database</a>.</p><p>Explore funded training opportunities through <a href='https://www.cdu.edu.au/study/tafe-courses' target='_blank'>Charles Darwin University</a>, <a href='https://www.batchelor.edu.au/courses/' target='_blank'>Bachelor Institute</a> or learn more about <a href='https://nt.gov.au/learning/adult-education-and-training/free-training-courses' target='_blank'>Fee Free TAFE</a>.</p>"
+          }
+        },
+        {
+          "id": "leadershipCapability",
+          "type": "radio",
+          "label": "Do your supervisors and managers have the skills required to effectively lead and support their teams?",
+          "helpText": "Good leaders help create productive, safe and engaged workplaces.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Strong Leadership!",
+            "body": "<p>Your Strength: Your leadership capability supports effective workforce management and business performance.</p>"
+          },
+          "recommendation": {
+            "title": "Build Leadership Capability",
+            "body": "<p>Opportunity to Improve: Support supervisors and managers to develop leadership, communication and people management skills.</p><p>Good leaders help build positive workplace cultures, support employee wellbeing and improve team performance.</p><p>Consider leadership training, mentoring and coaching.</p><p>Learn more about <a href='https://business.gov.au/people/employees/staff-development-and-training' target='_blank'>staff development and training</a>.</p><p>Explore leadership development opportunities through <a href='https://www.cdu.edu.au/study/tafe-courses' target='_blank'>Charles Darwin University</a>, <a href='https://www.batchelor.edu.au/courses/' target='_blank'>Bachelor Institute</a> or other Registered Training Organisations through <a href='https://www.yourcareer.gov.au/learn-and-train/courses' target='_blank'>Your Career</a>.</p>"
+          }
+        },
+        {
+          "id": "partnerships",
+          "type": "radio",
+          "label": "Do you collaborate with external organisations to support workforce attraction, development and capability building?",
+          "helpText": "Working with schools, training providers, employment services and industry organisations can help you attract, develop and retain skilled workers.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Strong Partnerships!",
+            "body": "<p>Your Strength: You are leveraging workforce partnerships to strengthen workforce outcomes and capability.</p>"
+          },
+          "recommendation": {
+            "title": "Build Workforce Partnerships",
+            "body": "<p>Opportunity to Improve: Build relationships with organisations that can support your workforce needs.</p><p>Working together can help you recruit staff, develop skills, access funding and create future workforce pathways.</p><p>Learn more about <a href='https://business.nt.gov.au/help-for-business/business-regulation-and-legislation-in-nt/workforce-for-nt-business' target='_blank'>workforce support</a>.</p><p>Connect with <a href='https://www.isacnt.org.au/' target='_blank'>ISACNT</a>, <a href='https://www.chambernt.com.au/' target='_blank'>Chamber of Commerce</a>, a relevant <a href='https://jointheterritory.nt.gov.au/work/Industry_and_associations' target='_blank'>Industry Association</a> or a <a href='https://business.nt.gov.au/help-for-business/territory-business-advisors' target='_blank'>Territory Business Advisor</a> who can help foster partnerships.</p>"
+          }
+        },
+        {
+          "id": "futureWorkforcePathways",
+          "type": "radio",
+          "label": "Does your business support future workforce pathways such as work experience, industry placements or apprenticeships and traineeships?",
+          "helpText": "Supporting apprentices, trainees, work experience students and industry placements helps build your future workforce.",
+          "options": [
+            { "label": "Yes", "score": 1 },
+            { "label": "Partially", "score": 0 },
+            { "label": "No", "score": 0 },
+            { "label": "Unsure", "score": 0 }
+          ],
+          "positiveMessage": {
+            "title": "Building Future Talent!",
+            "body": "<p>Your Strength: You are contributing to workforce development and building future workforce capability.</p>"
+          },
+          "recommendation": {
+            "title": "Create Future Workforce Pathways",
+            "body": "<p>Opportunity to Improve: Consider how your business can create opportunities for future workers through apprenticeships, traineeships, work experience or industry placements.</p><p>Building future talent now can help reduce workforce shortages and support long-term business growth.</p><p>Learn more about work-experience or vocational work placements through the <a href='https://education.nt.gov.au/policies/skills-nt/industry-placement-framework' target='_blank'>Industry Placement Framework</a> or by contacting <a href='mailto:vwp.doe@education.nt.gov.au'>Skills NT</a>.</p><p>Learn more about <a href='https://nt.gov.au/employ/apprenticeships-and-traineeships/become-an-apprentice-or-trainee/how-to-get-an-apprenticeship-or-traineeship-in-nt' target='_blank'>apprenticeships or traineeships</a>.</p><p>Explore the <a href='https://toolkit.youthworxnt.com.au/' target='_blank'>Employer Toolkit for Young People</a> or the <a href='https://gtntgroup.com.au/sites/default/files/uploads/files/2025/ANT_SBAT%20Toolkit%202025_Digital.pdf' target='_blank'>School Based Apprenticeship / Traineeship Tool Kit</a>.</p>"
+          }
+        }
+      ]
+    }
+  ],
+  "conclusion": {
+    "body": "<p><strong>Well done in completing this skills and development questionnaire.</strong></p><p>Download or save your results. Use them to inform your Workforce Action Plan and strengthen your workforce readiness!</p>"
+  }
+}

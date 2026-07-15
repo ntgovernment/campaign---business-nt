@@ -175,7 +175,7 @@ Format the response as plain text without markdown formatting or headings.`;
                     if (question.type === 'group' && question.subQuestions) {
                         for (const subQ of question.subQuestions) {
                             const answer = answers[subQ.id];
-                            if (answer === 'No' || answer === 'Unsure') {
+                            if (answer === 'No' || answer === 'Unsure' || answer === 'Partially') {
                                 insights.push(`- ${subQ.label || subQ.question}: ${answer}`);
                             }
                         }

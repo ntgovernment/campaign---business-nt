@@ -5,31 +5,31 @@
       "id": "workforcePlanningAndRisk",
       "title": "Workforce Planning & Risk",
       "description": "Have you planned ahead to make sure your workforce is ready for future work? Review how well your business plans for future workforce needs, identifies workforce risks and prepares for new projects and business growth.",
-      "icon": ""
+      "icon": "https://ntgov-web-dev.matrix.squiz.cloud/business/_resources/images/business-tools-and-learning/All-Cast-NT_6284.jpg/_nocache"
     },
     {
       "id": "capacityAndContinuity",
       "title": "Capacity & Continuity",
       "description": "Do you have the people and plans in place to keep your business running and deliver future work? Check whether you have enough people, understand your critical roles and have plans in place to manage workforce changes and minimise disruption.",
-      "icon": ""
+      "icon": "https://ntgov-web-dev.matrix.squiz.cloud/business/_resources/images/banners/HeaderFinancial-Management-Tools-and-KnowledgeESS_5769.jpg/_nocache"
     },
     {
       "id": "skillsAndDevelopment",
       "title": "Skills & Development",
       "description": "Does your workforce have the skills, licences and training needed now and into the future? Review the skills, qualifications, training and leadership capability of your workforce, and identify opportunities to build future capability.",
-      "icon": ""
+      "icon": "https://ntgov-web-dev.matrix.squiz.cloud/business/_resources/images/banners/Marketing-and-Customer-EngagementLH104321.jpg/_nocache"
     },
     {
       "id": "attractionAndRetention",
       "title": "Attraction & Retention",
       "description": "Can you attract, recruit and keep the people your business needs? Assess how well your business attracts new employees, supports existing staff and creates a workplace where people want to stay.",
-      "icon": ""
+      "icon": "https://ntgov-web-dev.matrix.squiz.cloud/business/_resources/images/banners/HeaderBusiness-Operations-Tools-and-templatesLH100036.jpg/_nocache"
     },
     {
       "id": "workforceAgilityAndContinuousImprovement",
       "title": "Workforce Agility & Continuous Improvement",
       "description": "Can your business adapt to changing workforce and project needs? Review how well your business can respond to changing workloads, grow or scale your workforce, use workforce information and continuously improve your workforce planning.",
-      "icon": ""
+      "icon": "https://ntgov-web-dev.matrix.squiz.cloud/business/_resources/images/NT-workforce-support-for-small-businessDSC_3239-1.JPG/small.jpg/_nocache"
     }
   ]
 }

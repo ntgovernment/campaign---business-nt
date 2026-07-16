@@ -1463,8 +1463,8 @@
             paragraph.innerHTML = 'Well done in completing this business health checklist to help you better understand your business and opportunities to improve.<br><br>Pick out a few key actions to work on at a time. Trying to change or improve everything at once will be difficult.<br><br>Would you like to speak to a Territory Business Advisor to speak about your results and make a plan of action?';
             contentEl.appendChild(paragraph);
         } else if (isWorkforceReadiness) {
-            const paragraph = document.createElement('p');
-            paragraph.innerHTML = 'Well done in completing this Workforce Readiness Checklist to help you better understand your workforce and opportunities to improve.<br><br>Use the results of this assessment to develop a Workforce Action Plan, focusing on high-risk workforce gaps first. Trying to change or improve everything at once will be difficult.<br><br>Would you like to speak to a Territory Business Advisor to discuss your results and next steps?';
+            const paragraph = document.createElement('div');
+            paragraph.innerHTML = "<p><strong>Well done in completing this Workforce Readiness Checklist.</strong></p> <p> Understanding your workforce strengths and risks is an important step in preparing your business for future projects and growth opportunities. </p> <p>Trying to change or improve everything at once will be difficult. To help:</p> <ul> <li>Access the available <a href='https://ntgov-web-dev.matrix.squiz.cloud/__data/assets/excel_doc/0005/1605056/NT-Business-Workforce-Toolkit.xlsx' target='_blank'>Workforce Action Plan template</a></li> <li>Prioritise a small number of workforce actions</li> <li>Focus on high-risk workforce gaps</li> <li>Review workforce readiness regularly</li> <li>Engage with industry, training providers, and workforce partners early</li> </ul> <p> You may also consider engaging a workforce consultant and/or seeking funding support through the <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program' target='_blank'>Business Growth Program</a>. </p>";
             contentEl.appendChild(paragraph);
         }
 
@@ -2557,6 +2557,11 @@
             const paragraph = document.createElement('div');
             paragraph.className = 'discover-more-section';
             paragraph.innerHTML = '<h3>Discover more</h3><ul><li>Learn about <a href="https://business.nt.gov.au/help-for-business/applying-for-business-funding-and-grants" target="_blank">applying for business funding and grants</a></li><li>Find <a href="https://business.nt.gov.au/help-for-business/business-tools-and-learning/mental-health-in-the-workplace" target="_blank">mental health and wellbeing resources for businesses</a></li><li>Subscribe to the <a href="https://web.businesscrm.nt.gov.au/cn/awlvn/industry_det" target="_blank">NT Business Bulletin</a> for ongoing updates for businesses in the NT</li></li><li>Find current <a href="https://business.nt.gov.au/about-nt-business/events-and-business-awards" target="_blank">business events and awards</a> </li></ul>';
+            contentEl.appendChild(paragraph);
+        } else if (isWorkforceReadiness) {
+            const paragraph = document.createElement('div');
+            paragraph.className = 'discover-more-section';
+            paragraph.innerHTML = '<h3>Discover more</h3><ul><li>Learn about <a href="https://business.nt.gov.au/help-for-business/applying-for-business-funding-and-grants" target="_blank">applying for business funding and grants</a></li><li>Subscribe to the <a href="https://web.businesscrm.nt.gov.au/cn/awlvn/industry_det" target="_blank">NT Business Bulletin</a> for ongoing updates for businesses in the NT</li><li>Find current <a href="https://business.nt.gov.au/about-nt-business/events-and-business-awards" target="_blank">business events and awards</a></li></ul>';
             contentEl.appendChild(paragraph);
         }
         

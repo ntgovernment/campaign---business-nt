@@ -1464,7 +1464,7 @@
             contentEl.appendChild(paragraph);
         } else if (isWorkforceReadiness) {
             const paragraph = document.createElement('div');
-            paragraph.innerHTML = "<p><strong>Well done in completing this Workforce Readiness Checklist to help you better understand your workforce and opportunities to improve.</strong></p> <p> Understanding your workforce strengths and risks is an important step in preparing your business for future projects and growth opportunities. </p> <p>Trying to change or improve everything at once will be difficult. To help:</p> <ul> <li>Access the available <a href='https://ntgov-web-dev.matrix.squiz.cloud/__data/assets/excel_doc/0005/1605056/NT-Business-Workforce-Toolkit.xlsx' target='_blank'>Workforce Action Plan template</a></li> <li>Prioritise a small number of workforce actions</li> <li>Focus on high-risk workforce gaps</li> <li>Review workforce readiness regularly</li> <li>Engage with industry, training providers, and workforce partners early</li> </ul> <p> You may also consider engaging a workforce consultant and/or seeking funding support through the <a href='https://nt.gov.au/industry/business-grants-funding/business-growth-program' target='_blank'>Business Growth Program</a>. </p>";
+            paragraph.innerHTML = "<p><strong>Well done in completing this Workforce Readiness Checklist to help you better understand your workforce and opportunities to improve.</strong></p> <p> Understanding your workforce strengths and risks is an important step in preparing your business for future projects and growth opportunities. </p> <p>Trying to change or improve everything at once will be difficult. To help:</p> <ul> <li>Access the available <a href='https://ntgov-web-dev.matrix.squiz.cloud/__data/assets/excel_doc/0005/1605056/NT-Business-Workforce-Toolkit.xlsx' target='_blank'>Workforce Action Plan template</a></li> <li>Prioritise a small number of workforce actions</li> <li>Focus on high-risk workforce gaps</li> <li>Review workforce readiness regularly</li> <li>Engage with industry, training providers, and workforce partners early</li> </ul> <p> Would you like to speak to a Territory Business Advisor to speak about your results and make a plan of action? </p>";
             contentEl.appendChild(paragraph);
         }
 
@@ -1962,86 +1962,10 @@
                             const fontSize = 10;
                             const lineHeight = fontSize * 0.4;
                             
-                            // Get all paragraph elements
-                            const paragraphs = bodyEl.querySelectorAll('p');
-                            
-                            if (paragraphs.length > 0) {
-                                // Process each paragraph separately
-                                paragraphs.forEach((pEl, pIndex) => {
-                                    const tempDiv = document.createElement('div');
-                                    tempDiv.innerHTML = pEl.innerHTML;
-                                    let currentX = margin;
-                                    
-                                    // Process text nodes and links
-                                    const processNode = (node) => {
-                                        if (node.nodeType === Node.TEXT_NODE) {
-                                            const textContent = node.textContent.trim();
-                                            if (textContent) {
-                                                pdf.setFontSize(fontSize);
-                                                pdf.setFont('helvetica', 'normal');
-                                                pdf.setTextColor(43, 41, 45);
-                                                
-                                                const words = pdf.splitTextToSize(textContent, contentWidth - (currentX - margin));
-                                                words.forEach((word) => {
-                                                    if (currentX + pdf.getTextWidth(word) > pageWidth - margin) {
-                                                        yPosition += lineHeight;
-                                                        currentX = margin;
-                                                        checkPageBreak(lineHeight);
-                                                    }
-                                                    pdf.text(word, currentX, yPosition);
-                                                    currentX += pdf.getTextWidth(word) + pdf.getTextWidth(' ');
-                                                });
-                                            }
-                                        } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'A') {
-                                            const linkText = node.textContent.trim();
-                                            const href = node.getAttribute('href');
-                                            if (linkText && href) {
-                                                pdf.setFontSize(fontSize);
-                                                pdf.setFont('helvetica', 'normal');
-                                                pdf.setTextColor(0, 123, 255); // Blue color for links
-                                                
-                                                const words = pdf.splitTextToSize(linkText, contentWidth - (currentX - margin));
-                                                words.forEach((word) => {
-                                                    if (currentX + pdf.getTextWidth(word) > pageWidth - margin) {
-                                                        yPosition += lineHeight;
-                                                        currentX = margin;
-                                                        checkPageBreak(lineHeight);
-                                                    }
-                                                    
-                                                    // Add the text
-                                                    pdf.text(word, currentX, yPosition);
-                                                    
-                                                    // Add clickable link
-                                                    const textWidth = pdf.getTextWidth(word);
-                                                    const textHeight = fontSize * 0.4;
-                                                    pdf.link(currentX, yPosition - textHeight + 2, textWidth, textHeight, { url: href });
-                                                    
-                                                    currentX += textWidth + pdf.getTextWidth(' ');
-                                                    
-                                                    // Underline the link
-                                                    pdf.setDrawColor(0, 123, 255);
-                                                    pdf.line(currentX - textWidth - pdf.getTextWidth(' '), yPosition + 1, currentX - pdf.getTextWidth(' '), yPosition + 1);
-                                                });
-                                            }
-                                        } else if (node.nodeType === Node.ELEMENT_NODE) {
-                                            // Handle other elements
-                                            const children = Array.from(node.childNodes);
-                                            children.forEach(processNode);
-                                        }
-                                    };
-                                    
-                                    const childNodes = Array.from(tempDiv.childNodes);
-                                    childNodes.forEach(processNode);
-                                    
-                                    // Add spacing after each paragraph (except the last one)
-                                    yPosition += lineHeight + 3;
-                                });
-                            } else {
-                                // Fallback: render entire body as before if no <p> tags
-                                const tempDiv = document.createElement('div');
-                                tempDiv.innerHTML = bodyEl.innerHTML;
-                                let currentX = margin;
-                                
+                            // Render inline text/link content starting at a given left indent
+                            const renderInlineContent = (containerEl, startX) => {
+                                let currentX = startX;
+
                                 const processNode = (node) => {
                                     if (node.nodeType === Node.TEXT_NODE) {
                                         const textContent = node.textContent.trim();
@@ -2049,12 +1973,12 @@
                                             pdf.setFontSize(fontSize);
                                             pdf.setFont('helvetica', 'normal');
                                             pdf.setTextColor(43, 41, 45);
-                                            
+
                                             const words = pdf.splitTextToSize(textContent, contentWidth - (currentX - margin));
                                             words.forEach((word) => {
                                                 if (currentX + pdf.getTextWidth(word) > pageWidth - margin) {
                                                     yPosition += lineHeight;
-                                                    currentX = margin;
+                                                    currentX = startX;
                                                     checkPageBreak(lineHeight);
                                                 }
                                                 pdf.text(word, currentX, yPosition);
@@ -2067,37 +1991,79 @@
                                         if (linkText && href) {
                                             pdf.setFontSize(fontSize);
                                             pdf.setFont('helvetica', 'normal');
-                                            pdf.setTextColor(0, 123, 255);
-                                            
+                                            pdf.setTextColor(0, 123, 255); // Blue color for links
+
                                             const words = pdf.splitTextToSize(linkText, contentWidth - (currentX - margin));
                                             words.forEach((word) => {
                                                 if (currentX + pdf.getTextWidth(word) > pageWidth - margin) {
                                                     yPosition += lineHeight;
-                                                    currentX = margin;
+                                                    currentX = startX;
                                                     checkPageBreak(lineHeight);
                                                 }
-                                                
+
+                                                // Add the text
                                                 pdf.text(word, currentX, yPosition);
-                                                
+
+                                                // Add clickable link
                                                 const textWidth = pdf.getTextWidth(word);
                                                 const textHeight = fontSize * 0.4;
                                                 pdf.link(currentX, yPosition - textHeight + 2, textWidth, textHeight, { url: href });
-                                                
+
                                                 currentX += textWidth + pdf.getTextWidth(' ');
-                                                
+
+                                                // Underline the link
                                                 pdf.setDrawColor(0, 123, 255);
                                                 pdf.line(currentX - textWidth - pdf.getTextWidth(' '), yPosition + 1, currentX - pdf.getTextWidth(' '), yPosition + 1);
                                             });
                                         }
                                     } else if (node.nodeType === Node.ELEMENT_NODE) {
+                                        // Handle other elements like <strong>, <em>, etc.
                                         const children = Array.from(node.childNodes);
                                         children.forEach(processNode);
                                     }
                                 };
-                                
-                                const childNodes = Array.from(tempDiv.childNodes);
-                                childNodes.forEach(processNode);
-                                
+
+                                Array.from(containerEl.childNodes).forEach(processNode);
+                            };
+
+                            // Render a <ul>/<ol> list, including links inside <li>
+                            const renderListContent = (listEl) => {
+                                const isOrdered = listEl.tagName.toLowerCase() === 'ol';
+                                const items = listEl.querySelectorAll(':scope > li');
+                                items.forEach((li, index) => {
+                                    const bullet = isOrdered ? `${index + 1}.` : '-';
+                                    checkPageBreak(8);
+                                    pdf.setFontSize(fontSize);
+                                    pdf.setFont('helvetica', 'normal');
+                                    pdf.setTextColor(43, 41, 45);
+                                    pdf.text(bullet, margin, yPosition);
+
+                                    renderInlineContent(li, margin + 8);
+                                    yPosition += lineHeight;
+                                });
+                                yPosition += 2;
+                            };
+
+                            // Walk the body's top-level elements in document order so <p> and
+                            // <ul>/<ol> siblings are both rendered (not just <p> tags)
+                            const topLevelEls = Array.from(bodyEl.children).filter((child) =>
+                                ['p', 'ul', 'ol'].includes(child.tagName.toLowerCase())
+                            );
+
+                            if (topLevelEls.length > 0) {
+                                topLevelEls.forEach((el) => {
+                                    const childTag = el.tagName.toLowerCase();
+                                    if (childTag === 'ul' || childTag === 'ol') {
+                                        renderListContent(el);
+                                    } else {
+                                        renderInlineContent(el, margin);
+                                    }
+                                    // Add spacing after each block
+                                    yPosition += lineHeight + 3;
+                                });
+                            } else {
+                                // Fallback: render entire body as inline content if no <p>/<ul>/<ol> tags
+                                renderInlineContent(bodyEl, margin);
                                 yPosition += lineHeight + 3;
                             }
                         }
@@ -2235,7 +2201,7 @@
                                                     currentX = margin + 8; // Reset indent for wrapped lines
                                                 }
                                                 pdf.text(line, currentX, yPosition);
-                                                currentX += pdf.getTextWidth(line);
+                                                currentX += pdf.getTextWidth(line) + pdf.getTextWidth(' ');
                                             });
                                         }
                                     } else if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'A') {
@@ -2245,26 +2211,26 @@
                                             pdf.setFontSize(fontSize);
                                             pdf.setFont('helvetica', 'normal');
                                             pdf.setTextColor(0, 123, 255); // Blue color for links
-                                            
+
                                             // Use splitTextToSize for link text too
                                             const lines = pdf.splitTextToSize(linkText, contentWidth - 8);
                                             checkPageBreak(lines.length * lineHeight);
-                                            
+
                                             lines.forEach((line, lineIndex) => {
                                                 if (lineIndex > 0) {
                                                     yPosition += lineHeight;
                                                     currentX = margin + 8; // Reset indent for wrapped lines
                                                 }
-                                                
+
                                                 // Add the text
                                                 pdf.text(line, currentX, yPosition);
-                                                
+
                                                 // Add clickable link
                                                 const textWidth = pdf.getTextWidth(line);
                                                 const textHeight = fontSize * 0.4;
                                                 pdf.link(currentX, yPosition - textHeight + 2, textWidth, textHeight, { url: href });
-                                                
-                                                currentX += textWidth;
+
+                                                currentX += textWidth + pdf.getTextWidth(' ');
                                                 
                                                 // Underline the link
                                                 pdf.setDrawColor(0, 123, 255);

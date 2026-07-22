@@ -110,7 +110,7 @@
           },
           "recommendation": {
             "title": "Build Multi-Skilling",
-            "body": "<p>Opportunity to Improve: Look for opportunities to broaden employee skills through training, mentoring and job rotation.</p><p>Multi-skilled employees improve flexibility, reduce dependency on key people and strengthen business resilience.</p><p>Consider developing a <a href='https://ntgov-web-dev.matrix.squiz.cloud/__data/assets/excel_doc/0005/1605056/NT-Business-Workforce-Toolkit.xlsx' target='_blank'>Skills Matrix</a> to map employee skills, qualifications, licences, certifications and experience and opportunities to train workers across multiple tasks or operational areas.</p><p>Learn more about <a href='https://business.gov.au/people/employees/staff-development-and-training' target='_blank'>staff development and training</a>.</p>"
+            "body": "<p>Opportunity to Improve: Look for opportunities to broaden employee skills through training, mentoring and job rotation.</p><p>Multi-skilled employees improve flexibility, reduce dependency on key people and strengthen business resilience.</p><p>Consider developing a <a href='https://ntgov-web-dev.matrix.squiz.cloud/__data/assets/excel_doc/0005/1605056/NT-Business-Workforce-Toolkit.xlsx' target='_blank'>Skills & Training Matrix</a> to map employee skills, qualifications, licences, certifications and identify opportunities to train workers across multiple tasks or operational areas.</p><p>Learn more about <a href='https://business.gov.au/people/employees/staff-development-and-training' target='_blank'>staff development and training</a>.</p>"
           }
         }
       ]

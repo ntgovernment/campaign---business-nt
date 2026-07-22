@@ -25,7 +25,7 @@
           },
           "recommendation": {
             "title": "Assess Workforce Skills",
-            "body": "<p>Opportunity to Improve: Review the skills, qualifications and experience of your workforce to identify any gaps and future training needs.</p><p>Access the <a href='https://ntgov-web-dev.matrix.squiz.cloud/__data/assets/excel_doc/0005/1605056/NT-Business-Workforce-Toolkit.xlsx' target='_blank'>Skills Matrix</a> to help identify where additional training, recruitment or succession planning may be needed.</p><p>Learn more about <a href='https://business.gov.au/people/employees/workforce-planning' target='_blank'>workforce planning</a> or <a href='https://business.gov.au/people/employees/staff-development-and-training' target='_blank'>staff development and training</a>.</p>"
+            "body": "<p>Opportunity to Improve: Review the skills, qualifications and experience of your workforce to identify any gaps and future training needs.</p><p>Access the <a href='https://ntgov-web-dev.matrix.squiz.cloud/__data/assets/excel_doc/0005/1605056/NT-Business-Workforce-Toolkit.xlsx' target='_blank'>Skills & Training Matrix</a> to help identify where additional training, recruitment or succession planning may be needed.</p><p>Learn more about <a href='https://business.gov.au/people/employees/workforce-planning' target='_blank'>workforce planning</a> or <a href='https://business.gov.au/people/employees/staff-development-and-training' target='_blank'>staff development and training</a>.</p>"
           }
         },
         {
